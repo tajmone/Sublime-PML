@@ -1,0 +1,55 @@
+%YAML 1.2
+---
+# Sublime PML: Alpha 0,0,1 (2021/03/05)                              | PML 1.2.0
+################################################################################
+#                                                                              #
+#                       PML (Practical Markup Language)                        #
+#                                                                              #
+#                              www.pml-lang.dev                                #
+#                                                                              #
+################################################################################
+# PML syntax definition by Tristano Ajmone, MIT License:
+#   https://github.com/tajmone/Sublime-PML
+#
+# The Practical Markup Language was created by Christian Neumanns:
+#   https://github.com/pml-lang
+#   https://github.com/practical-markup-language
+# ------------------------------------------------------------------------------
+name: PML (Practical Markup Language)
+file_extensions:
+  - pml
+scope: source.pml
+contexts:
+  prototype:
+    - include: escapes
+    - include: comments
+
+  main:
+    - include: string_dobule_quoted
+
+  # Strings are not part of PML, their highlighting is just for readability.
+  string_dobule_quoted:
+    - match: '"'
+      scope: punctuation.definition.string.begin.pml
+      push: string_dobule_quoted_inside
+
+  string_dobule_quoted_inside:
+    - meta_scope: string.quoted.double.pml
+    - match: '"'
+      scope: punctuation.definition.string.end.pml
+      pop: true
+
+  comments:
+    - match: '{--'
+      scope: punctuation.definition.comment.begin.pml
+      push: comments_inside
+  comments_inside:
+    - meta_scope: comment.block.pml
+    - include: comments
+    - match: '--}'
+      scope: punctuation.definition.comment.end.pml
+      pop: true
+
+  escapes:
+    - match: '\\.'
+      scope: constant.character.escape.pml

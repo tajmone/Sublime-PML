@@ -25,6 +25,16 @@ indent_style = space
 insert_final_newline = true
 trim_trailing_whitespace = true
 
+## PML Sources
+##############
+[*.pml]
+charset = utf-8
+end_of_line = unset
+indent_size = 4
+indent_style = space
+insert_final_newline = true
+trim_trailing_whitespace = true
+
 ## Shell Scripts
 ################
 [*.sh]
