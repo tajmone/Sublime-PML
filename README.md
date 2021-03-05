@@ -21,6 +21,7 @@ By [Tristano Ajmone], March 2021, [MIT License].
 - [Package Features and Status](#package-features-and-status)
     - [PML Syntax](#pml-syntax)
     - [Keyboard Shortcuts](#keyboard-shortcuts)
+    - [Snippets](#snippets)
 - [License](#license)
 - [Links](#links)
 
@@ -99,6 +100,15 @@ Roadmap of PML syntax elements that will ultimately be supported:
 ## Keyboard Shortcuts
 
 - [x] Comments: <kbd>Ctrl</kbd> <kbd>/</kbd>
+
+
+## Snippets
+
+The package provides the following snippets:
+
+| trigger  |              description              |
+|----------|---------------------------------------|
+| `newdoc` | Creates new PML document boilerplate. |
 
 
 # License

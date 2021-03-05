@@ -25,6 +25,10 @@ indent_style = space
 insert_final_newline = true
 trim_trailing_whitespace = true
 
+[*.sublime-snippet]
+indent_style = tab
+indent_size = unset
+
 ## PML Sources
 ##############
 [*.pml]

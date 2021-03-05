@@ -1,0 +1,15 @@
+<snippet>
+	<description>New PML document boilerplate</description>
+	<tabTrigger>newdoc</tabTrigger>
+	<scope>source.pml - comment</scope>
+	<content><![CDATA[
+{doc title = ${1:Document Title} \
+	author = ${2:Your Name} \
+	date = ${3:2021}-${4:03}-${5:05}
+
+	${0}
+
+}
+
+]]></content>
+</snippet>
