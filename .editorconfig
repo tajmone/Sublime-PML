@@ -1,0 +1,68 @@
+########################################################
+#  PML (Practical Markup Language) for SublimeText 3:  #
+#  https://github.com/tajmone/Sublime-PML              #
+########################################################
+
+root = true
+
+## Repository Configurations
+############################
+[.{git*,editorconfig,*.yml}]
+charset = utf-8
+end_of_line = lf
+indent_size = unset
+indent_style = space
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+## Sublime Text
+###############
+[*.{sublime-*,tmPreferences}]
+charset = utf-8
+end_of_line = unset
+indent_size = 2
+indent_style = space
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+## Shell Scripts
+################
+[*.sh]
+charset = utf-8
+end_of_line = lf
+indent_size = unset
+indent_style = tab
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+## Markdown GFM
+###############
+[*.md]
+charset = utf-8
+end_of_line = unset
+indent_size = unset
+indent_style = space
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+## Python
+#########
+[*.py]
+charset = utf-8
+end_of_line = unset
+indent_size = 4
+indent_style = space
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+## Miscellanea
+##############
+[*.{cfg,json}]
+charset = utf-8
+end_of_line = unset
+indent_size = 2
+indent_style = space
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# EOF #

@@ -1,0 +1,31 @@
+########################################################
+#  PML (Practical Markup Language) for SublimeText 3:  #
+#  https://github.com/tajmone/Sublime-PML              #
+########################################################
+* text=auto
+
+*.sublime-*   text
+
+## Repository Configuration
+###########################
+.editorconfig    text eol=lf
+.gitlab-ci.yml   text eol=lf
+.travis.yml      text eol=lf
+.gitattributes   text eol=lf
+.gitconfig       text eol=lf
+.gitignore       text eol=lf
+.gitmodules      text eol=lf
+
+## Documentation Files
+######################
+*.pml     text
+*.md      text
+*.txt     text
+LICENSE   text
+
+## Scripts
+##########
+*.sh   text eol=lf
+*.py   text
+
+# EOF #

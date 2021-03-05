@@ -1,0 +1,20 @@
+########################################################
+#  PML (Practical Markup Language) for SublimeText 3:  #
+#  https://github.com/tajmone/Sublime-PML              #
+########################################################
+
+dist: trusty
+
+git:
+  depth: false
+
+install:
+  - npm install -g eclint
+
+script:
+  # ==============================================
+  # EditorConfig Code Styles Validation via EClint
+  # ==============================================
+  # https://editorconfig.org
+  # https://www.npmjs.com/package/eclint
+  - bash ./validate.sh
