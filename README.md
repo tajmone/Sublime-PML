@@ -18,7 +18,11 @@ By [Tristano Ajmone], March 2021, [MIT License].
 <!-- MarkdownTOC autolink="true" bracket="round" autoanchor="false" lowercase="only_ascii" uri_encoding="true" levels="1,2,3" -->
 
 - [About PML](#about-pml)
+- [Package Features and Status](#package-features-and-status)
+    - [PML Syntax](#pml-syntax)
+    - [Keyboard Shortcuts](#keyboard-shortcuts)
 - [License](#license)
+- [Links](#links)
 
 <!-- /MarkdownTOC -->
 
@@ -39,6 +43,63 @@ PML was designed by [Christian Neumanns] around 2019, and since February 2021 th
 Precompiled binaries of the PML converter for Windows and Linux [can be downloaded from the official website][Get PML].
 
 For more information on how PML was born, and its advantages over other lightweight markup languages, see Christian Neumanns's article [_We need a new document markup language  — here is why_][2019article].
+
+
+# Package Features and Status
+
+This package is still a work-in-progress in its early stages.
+
+Below are some task-lists indicating the project's roadmap and its current achievements (these lists are themselves a WIP draft, subject to updates as new features are identified and planned).
+
+## PML Syntax
+
+Roadmap of PML syntax elements that will ultimately be supported:
+
+- [ ] **[Block Nodes]**:
+    + [ ] _Fundamental Nodes_:
+        * [ ] Document
+        * [ ] Paragraph
+        * [ ] Chapter
+    + [ ] _Common Nodes_:
+        * [ ] List
+        * [ ] Table
+        * [ ] Admonition
+        * [ ] Note
+        * [ ] Quote
+        * [ ] Caption
+        * [ ] Monospace
+        * [ ] Division
+        * [ ] HTML Code
+    + [ ] _Media_:
+        * [ ] Image
+        * [ ] Audio (Sound)
+        * [ ] Video
+        * [ ] Embedded Youtube Video
+    + [ ] _Software Development_:
+        * [ ] Source Code
+        * [ ] Insert Source Code
+        * [ ] Input
+        * [ ] Output
+- [ ] **[Inline Nodes]**:
+    + [ ] Font
+        * [ ] Bold Text
+        * [ ] Italic Text
+        * [ ] Inline Source Code
+    + [ ] URL Link
+    + [ ] Verbatim Text
+    + [ ] Cross-Reference
+    + [ ] Span
+    + [ ] New Line
+    + [ ] Space Character
+- [ ] **[Text Processing Nodes]**:
+    + [x] Comments (nestable).
+    + [ ] Insert File
+    + [ ] Constant Parameter
+
+## Keyboard Shortcuts
+
+- [x] Comments: <kbd>Ctrl</kbd> <kbd>/</kbd>
+
 
 # License
 
@@ -66,6 +127,11 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
 
+
+# Links
+
+- [PML Reference Manual]
+
 <!-----------------------------------------------------------------------------
                                REFERENCE LINKS
 ------------------------------------------------------------------------------>
@@ -79,6 +145,12 @@ SOFTWARE.
 [PML]: https://www.pml-lang.dev "Visit PML website"
 [Get PML]: https://www.pml-lang.dev/downloads/install.html "Go to the PML download page"
 [2019article]: https://www.freecodecamp.org/news/we-need-a-new-document-markup-language-c22e0ec44e15/ "Read full article at freeCodeCamp"
+
+[PML Reference Manual]: https://www.pml-lang.dev/docs/reference_manual/index.html
+
+[Block Nodes]: https://www.pml-lang.dev/docs/reference_manual/index.html#ch__2 "PML Reference Manual » Block Nodes"
+[Inline Nodes]:  https://www.pml-lang.dev/docs/reference_manual/index.html#ch__9 "PML Reference Manual » Inline Nodes"
+[Text Processing Nodes]:  https://www.pml-lang.dev/docs/reference_manual/index.html#ch__11 "PML Reference Manual » Text Processing Nodes"
 
 <!-- project files -->
 
