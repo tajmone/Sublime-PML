@@ -5,7 +5,7 @@
 	<key>name</key>
 	<string>Comments</string>
 	<key>scope</key>
-	<string>source.pml</string>
+	<string>text.html.pml</string>
 	<key>settings</key>
 	<dict>
 		<key>shellVariables</key>

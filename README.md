@@ -83,8 +83,8 @@ Roadmap of PML syntax elements that will ultimately be supported:
         * [ ] Output
 - [ ] **[Inline Nodes]**:
     + [ ] Font
-        * [ ] Bold Text
-        * [ ] Italic Text
+        * [x] Bold Text
+        * [x] Italic Text
         * [ ] Inline Source Code
     + [ ] URL Link
     + [ ] Verbatim Text

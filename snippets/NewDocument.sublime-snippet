@@ -1,7 +1,7 @@
 <snippet>
 	<description>New PML document boilerplate</description>
 	<tabTrigger>newdoc</tabTrigger>
-	<scope>source.pml - comment</scope>
+	<scope>text.html.pml - comment</scope>
 	<content><![CDATA[
 {doc title = ${1:Document Title} \
 	author = ${2:Your Name} \
