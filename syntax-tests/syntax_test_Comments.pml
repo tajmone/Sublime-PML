@@ -40,4 +40,11 @@
 !                                      ^^^      punctuation.definition.comment.end
 !                                         ^^^   punctuation.definition.comment.end
 
+    Nodes inside comments are ignored:
+    {-- {b not bold text} --}
+!   ^^^^^^^^^^^^^^^^^^^^^^^^^   comment.block
+!       ^^^^^^^^^^^^^^^^^      -markup.bold
+!       ^^                     -punctuation.definition.bold.begin
+!                       ^      -punctuation.definition.bold.end
+
 }
