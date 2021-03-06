@@ -1,6 +1,6 @@
 %YAML 1.2
 ---
-# Sublime PML: Alpha 0.0.3 (2021/03/06)                              | PML 1.2.0
+# Sublime PML: Alpha 0.0.4 (2021/03/06)                              | PML 1.2.0
 ################################################################################
 #                                                                              #
 #                       PML (Practical Markup Language)                        #
@@ -26,8 +26,18 @@ contexts:
 
   main:
     - include: string_dobule_quoted
-    - include: bold
-    - include: italic
+    - match: '(?=\{)'
+      push: maybe_node
+
+# ------------------------------------------------------------------------------
+
+  bail-out:
+    - match: (?=\S)
+      pop: true
+
+  escapes:
+    - match: '\\[{}=\\]'
+      scope: constant.character.escape.pml
 
   # TODO: Strings in PML should only be used for attributes within quotes.
   string_dobule_quoted:
@@ -45,9 +55,16 @@ contexts:
     - match: '\\"'
       scope: constant.character.escape.pml
 
-  escapes:
-    - match: '\\[{}=\\]'
-      scope: constant.character.escape.pml
+# ==============================================================================
+#                                   PML Nodes
+# ==============================================================================
+
+  maybe_node:
+    - include: bold
+    - include: italic
+    # TODO: When all nodes are implemented, all that's left is an
+    #       unescaped '{', which should be scoped as invalid/error!
+    - include: bail-out
 
   ## Block  Nodes
   ###############
