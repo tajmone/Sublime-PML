@@ -59,7 +59,7 @@ Roadmap of PML syntax elements that will ultimately be supported:
 
 - [ ] **[Block Nodes]**:
     + [ ] _Fundamental Nodes_:
-        * [ ] Document
+        * [x] Document
         * [ ] Paragraph
         * [ ] Chapter
     + [ ] _Common Nodes_:
