@@ -1,0 +1,14 @@
+{
+  "shell_cmd": "pmlc \"$file\"",
+  "working_dir": "$file_path",
+  "selector": "text.html.pml",
+  "file_patterns": [ "*.pml" ],
+
+  "variants":
+  [
+    {
+      "name": "Convert to source folder",
+      "shell_cmd": "pmlc convert -f \"$file\" -od ./",
+    }
+  ]
+}

@@ -20,6 +20,7 @@ By [Tristano Ajmone], March 2021, [MIT License].
 - [About PML](#about-pml)
 - [Package Features and Status](#package-features-and-status)
     - [PML Syntax](#pml-syntax)
+    - [Build Systems](#build-systems)
     - [Keyboard Shortcuts](#keyboard-shortcuts)
     - [Snippets](#snippets)
 - [License](#license)
@@ -96,6 +97,16 @@ Roadmap of PML syntax elements that will ultimately be supported:
     + [x] Comments (nestable).
     + [ ] Insert File
     + [ ] Constant Parameter
+
+## Build Systems
+
+The package provides some built-in basic build systems:
+
+|           name           |                   description                    |               command               |
+|--------------------------|--------------------------------------------------|-------------------------------------|
+| _default_                | Convert file without options (i.e. to `output/`) | `pmlc <file.pml>`                   |
+| Convert to source folder | Convert file to same folder as PML source        | `pmlc convert -f <file.pml> -od ./` |
+
 
 ## Keyboard Shortcuts
 
