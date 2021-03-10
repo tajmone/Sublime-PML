@@ -49,7 +49,7 @@ For more information on how PML was born, and its advantages over other lightwei
 
 # Package Features and Status
 
-This package is still a work-in-progress in its early stages.
+This package is still a work-in-progress project in its early Alpha stages; syntax scopes and features might be subject to frequent changes, as everything is still experimental at the current stage.
 
 Below are some task-lists indicating the project's roadmap and its current achievements (these lists are themselves a WIP draft, subject to updates as new features are identified and planned).
 
@@ -186,7 +186,7 @@ SOFTWARE.
 
 [License badge]: https://img.shields.io/badge/License-MIT-blue
 [Package badge]: https://img.shields.io/badge/status-WIP-orange "Sublime PML is currently in Alpha stage"
-[PML badge]: https://img.shields.io/badge/PML-1.2.0-yellow "Supported PML version (click for PML download page)"
+[PML badge]: https://img.shields.io/badge/PML-1.3.0-yellow "Supported PML version (click for PML download page)"
 [Travis badge]: https://travis-ci.com/tajmone/Sublime-PML.svg?branch=main
 [Travis link]: https://travis-ci.com/tajmone/Sublime-PML "Travis CI: EditorConfig validation status"
 
