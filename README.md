@@ -18,8 +18,10 @@ By [Tristano Ajmone], March 2021, [MIT License].
 <!-- MarkdownTOC autolink="true" bracket="round" autoanchor="false" lowercase="only_ascii" uri_encoding="true" levels="1,2,3" -->
 
 - [About PML](#about-pml)
-- [Package Features and Status](#package-features-and-status)
-    - [PML Syntax](#pml-syntax)
+- [Installation Instructions](#installation-instructions)
+    - [System Requirements](#system-requirements)
+- [Package Status](#package-status)
+- [Package Features](#package-features)
     - [Build Systems](#build-systems)
     - [Keyboard Shortcuts](#keyboard-shortcuts)
     - [Snippets](#snippets)
@@ -47,56 +49,52 @@ Precompiled binaries of the PML converter for Windows and Linux [can be download
 For more information on how PML was born, and its advantages over other lightweight markup languages, see Christian Neumanns's article [_We need a new document markup language  — here is why_][2019article].
 
 
-# Package Features and Status
+# Installation Instructions
+
+Right now, this repository is not a full-fledged package that can be installed via [Package Control].
+
+You should therefore install it manually, via Git:
+
+1. From your terminal, navigate to your Packages subdirectory under the ST3's data directory:
+    * OS X: `~/Library/Application\ Support/Sublime\ Text\ 3/Packages/`
+    * Linux: `~/.config/sublime-text-3/Packages/`
+    * Windows: `%APPDATA%\Sublime Text 3\Packages\`
+2. From that directory, invoke Git to clone this repository into the `PML` subdirectory:
+
+        git clone https://github.com/tajmone/Sublime-PML PML
+
+    > **IMPORTANT** — The extra `PML` at the end of the line is _not_ a mistake, it instructs Git to clone the repository into the `PML/` folder (instead of `Sublime-PML`).
+
+3. Restart SublimeText.
+
+Henceforth, Sublime Text will automatically take care of updating the package via Git.
+For more info on how this works, see:
+
+- [Package Control Documentation » Customizing Packages » Git/Hg Clone]
+
+
+## System Requirements
+
+In order to use this package, you'll need the following tools:
+
+- __[Sublime Text 3]__ — older versions of Sublime Text are not supported; I don't know yet if the upcoming new Sublime Text version will support old ST3 packages via backward compatibility.
+- __[Git]__ — required to install this package and keep it updated.
+- __[PML binaries]__ — required if you want to benefit from the package's build systems, and other features which depend on `pmlc` being available on the System PATH.
+In any case, why would anyone want to install the PML package if he/she doesn't have the PML tools in the first place?
+
+    > **MAC USERS WARNING** — At the time of this writing, precompiled PML binaries for the macOS are not yet available.
+    > Refer to the [pml-lang/converter] source repository to compile them yourself.
+
+
+# Package Status
 
 This package is still a work-in-progress project in its early Alpha stages; syntax scopes and features might be subject to frequent changes, as everything is still experimental at the current stage.
 
-Below are some task-lists indicating the project's roadmap and its current achievements (these lists are themselves a WIP draft, subject to updates as new features are identified and planned).
+For detailed info about the PML syntax elements implementation status and their roadmap, see [`SYNTAX_STATUS.md`][SYNTAX_STATUS.md].
 
-## PML Syntax
+# Package Features
 
-Roadmap of PML syntax elements that will ultimately be supported:
-
-- [ ] **[Block Nodes]**:
-    + [ ] _Fundamental Nodes_:
-        * [x] Document
-        * [ ] Paragraph
-        * [ ] Chapter
-    + [ ] _Common Nodes_:
-        * [ ] List
-        * [ ] Table
-        * [ ] Admonition
-        * [ ] Note
-        * [ ] Quote
-        * [ ] Caption
-        * [ ] Monospace
-        * [ ] Division
-        * [ ] HTML Code
-    + [ ] _Media_:
-        * [ ] Image
-        * [ ] Audio (Sound)
-        * [ ] Video
-        * [ ] Embedded Youtube Video
-    + [ ] _Software Development_:
-        * [ ] Source Code
-        * [ ] Insert Source Code
-        * [ ] Input
-        * [ ] Output
-- [ ] **[Inline Nodes]**:
-    + [ ] Font
-        * [x] Bold Text
-        * [x] Italic Text
-        * [ ] Inline Source Code
-    + [ ] URL Link
-    + [ ] Verbatim Text
-    + [ ] Cross-Reference
-    + [ ] Span
-    + [ ] New Line
-    + [ ] Space Character
-- [ ] **[Text Processing Nodes]**:
-    + [x] Comments (nestable).
-    + [ ] Insert File
-    + [ ] Constant Parameter
+Here's a list of the feature currently available in the __Sublime PML__ package.
 
 ## Build Systems
 
@@ -110,7 +108,11 @@ The package provides some built-in basic build systems:
 
 ## Keyboard Shortcuts
 
-- [x] Comments: <kbd>Ctrl</kbd> <kbd>/</kbd>
+Some of the keystrokes combinations indicated below rely on Sublime Text's default settings, and might vary depending on your custom settings, whereas others are explicitly defined by this package.
+
+|         key strokes          |                        action                       |              result             |
+|------------------------------|-----------------------------------------------------|---------------------------------|
+| <kbd>Ctrl</kbd> <kbd>/</kbd> | Inject comment delimiters (wraps any selected text) | `[-- ` &lt;selection&gt; ` --]` |
 
 
 ## Snippets
@@ -151,27 +153,65 @@ SOFTWARE.
 
 # Links
 
-- [PML Reference Manual]
+- [www.pml-lang.dev] — PML website:
+    + [PML Reference Manual]
+    + [PML User Manual]
+
+<!-- MarkdownTOC:excluded -->
+## Articles
+
+Articles by [Christian Neumanns]:
+
+- [_We need a new document markup language  — here is why_][2019article]
+- _[The advantages of Document Markup Languages vs WYSIWYG editors]_
+
+<!-- MarkdownTOC:excluded -->
+## PML on GitHub
+
+- [@practical-markup-language] — __Practical Markup Language__ organization:
+    + [practical-markup-language/user-manual] — [PML Reference Manual] source repository.
+- [@pml-lang] — __PML Lang__ organization:
+    + [pml-lang/converter] — source code repository of the PML to HTML Converter tool.
 
 <!-----------------------------------------------------------------------------
                                REFERENCE LINKS
 ------------------------------------------------------------------------------>
 
+[MIT License]: ./LICENSE "View MIT License file"
+
 [Sublime Text 3]: https://www.sublimetext.com "Visit Sublime Text website"
 
-[MIT License]: ./LICENSE "View MIT License file"
+[Package Control]: https://packagecontrol.io
+[Package Control Documentation » Customizing Packages » Git/Hg Clone]: https://packagecontrol.io/docs/customizing_packages#Git-Hg_Clone "Read Package Control documentation on 'Customizing Packages' via Git"
+
+[Git]: https://git-scm.com "Visit Git website"
 
 <!-- PML -->
 
+[www.pml-lang.dev]: https://www.pml-lang.dev "Visit PML website"
 [PML]: https://www.pml-lang.dev "Visit PML website"
 [Get PML]: https://www.pml-lang.dev/downloads/install.html "Go to the PML download page"
-[2019article]: https://www.freecodecamp.org/news/we-need-a-new-document-markup-language-c22e0ec44e15/ "Read full article at freeCodeCamp"
+[PML binaries]: https://www.pml-lang.dev/downloads/install.html "Download precompiled PML binaries"
 
-[PML Reference Manual]: https://www.pml-lang.dev/docs/reference_manual/index.html
+[2019article]: https://www.freecodecamp.org/news/we-need-a-new-document-markup-language-c22e0ec44e15/ "Read full article at freeCodeCamp"
+[The advantages of Document Markup Languages vs WYSIWYG editors]: https://www.pml-lang.dev/docs/articles/advantages-markup-language-vs-word-processor/index.html "Read full article at PMl website"
+
+[PML Reference Manual]: https://www.pml-lang.dev/docs/reference_manual/index.html "Read the online PML Reference Manual"
 
 [Block Nodes]: https://www.pml-lang.dev/docs/reference_manual/index.html#ch__2 "PML Reference Manual » Block Nodes"
 [Inline Nodes]:  https://www.pml-lang.dev/docs/reference_manual/index.html#ch__9 "PML Reference Manual » Inline Nodes"
 [Text Processing Nodes]:  https://www.pml-lang.dev/docs/reference_manual/index.html#ch__11 "PML Reference Manual » Text Processing Nodes"
+
+[PML User Manual]: https://www.pml-lang.dev/docs/user_manual/index.html "Read the online PML User Manual"
+
+<!-- PML GitHub -->
+
+[@practical-markup-language]: https://github.com/practical-markup-language "View GitHub profile of the Practical Markup Language organization"
+[@pml-lang]: https://github.com/pml-lang "View GitHub profile of the Practical Markup Language organization"
+
+[practical-markup-language/user-manual]: https://github.com/practical-markup-language/user-manual "Visit repository on GitHub"
+
+[pml-lang/converter]: https://github.com/pml-lang/converter "Visit repository on GitHub"
 
 <!-- project files -->
 
@@ -181,6 +221,7 @@ SOFTWARE.
 [.travis.yml]: ./.travis.yml "View Travis CI settings file"
 [LICENSE]: ./LICENSE "View MIT License file"
 [validate.sh]: ./validate.sh "View source script for code style validation"
+[SYNTAX_STATUS.md]: ./SYNTAX_STATUS.md "View document"
 
 <!-- badges -->
 
