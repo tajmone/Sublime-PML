@@ -60,7 +60,7 @@ Task-list of the PML syntax elements that will ultimately be supported.
 - [ ] **[Text Processing Nodes]**:
     + [x] Comments (nestable).
     + [ ] Insert File
-    + [ ] Constant Parameter
+    + [x] Constant Parameter
 
 
 <!-----------------------------------------------------------------------------
