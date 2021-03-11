@@ -1,6 +1,6 @@
 %YAML 1.2
 ---
-# Sublime PML: Alpha 0.1.2 (2021/03/11)                              | PML 1.3.0
+# Sublime PML: Alpha 0.1.3 (2021/03/11)                              | PML 1.3.0
 ################################################################################
 #                                                                              #
 #                       PML (Practical Markup Language)                        #
@@ -19,10 +19,16 @@ name: PML (Practical Markup Language)
 file_extensions:
   - pml
 scope: text.html.pml
+
+variables:
+  # TODO: Need to check PML specs for actual IDs definition.
+  identifier: '[A-Za-z_][A-Za-z_0-9]*'
+
 contexts:
   prototype:
     - include: escapes
     - include: comment
+    - include: parameter
 
   main:
     - include: pml_nodes
@@ -37,7 +43,16 @@ contexts:
     - match: '\\[\[\]=\\]'
       scope: constant.character.escape.pml
 
+  ## Parameter
+  ############
 
+  parameter:
+    - match: '(<<)({{identifier}})(>>)'
+      captures:
+        0: meta.function-call.pml
+        1: punctuation.definition.generic.begin.pml
+        2: support.function.call.pml
+        3: punctuation.definition.generic.end.pml
 
 # ******************************************************************************
 # *                                                                            *
@@ -162,16 +177,17 @@ contexts:
     - match: ']'
       scope: entity.name.tag.constant.end.pml
       pop: true
+    - match: '\b{{identifier}}\b'
+      scope: entity.name.function.pml
     - match: '='
       scope: keyword.operator.assignment.pml
       set: constant_value
   constant_value:
-    # TODO: Capture quoted string values!
     - meta_scope: meta.tag.constant.pml
     - match: ']'
       scope: entity.name.tag.constant.end.pml
       pop: true
-    - include: attr_value_string
+    - include: string
     - include: bail-out
 
 # ******************************************************************************
@@ -184,12 +200,13 @@ contexts:
 #                               Attributes Values
 # ==============================================================================
 
-# Attributes' values can be various types:
+# Attributes' and tags' values can be various types:
 #   - [x] String double-quoted
 #   - [x] String without quotes
 #   - [ ] Other ...
 
-  attr_value_string:
+  # NOTE: Strings are also used for tag values, not just attributes.
+  string:
     - include: string_quoted
     - include: string_unquoted
     - include: bail-out

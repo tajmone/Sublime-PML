@@ -4,6 +4,7 @@
     [const baseURL = http://www.example.com]
 !   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^   meta.tag.constant
 !   ^^^^^^                                     entity.name.tag.constant.begin
+!          ^^^^^^^                             entity.name.function
 !                                          ^   entity.name.tag.constant.end
 !                  ^                           keyword.operator.assignment
 !                    ^^^^^^^^^^^^^^^^^^^^^^    string.unquoted
@@ -36,12 +37,18 @@
 !   ^^^^^^^^^^^^^^^^^^^^  -meta.tag.constant
 
 
-    Here are two examples:
-!   ^^^^^^^^^^^^^^^^^^^^^^  -meta.tag.constant
-
+    Some constant parameters usage examples:
 
     [link url=<<baseURL>>/ex1.html text=example 1]
+!             ^^^^^^^^^^^                            meta.function-call
+!               ^^^^^^^                              support.function.call
+!             ^^                                     punctuation.definition.generic.begin
+!                      ^^                            punctuation.definition.generic.end
 
-    [link url=<<baseURL>>/ex2.html text=example 2].
+    dqAttr: <<dqAttr>>!
+!           ^^^^^^^^^^    meta.function-call
+!             ^^^^^^      support.function.call
+!           ^^            punctuation.definition.generic.begin
+!                   ^^    punctuation.definition.generic.end
 
 ]

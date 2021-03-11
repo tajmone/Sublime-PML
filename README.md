@@ -27,6 +27,7 @@ By [Tristano Ajmone], March 2021, [MIT License].
     - [Build Systems](#build-systems)
     - [Keyboard Shortcuts](#keyboard-shortcuts)
     - [Snippets](#snippets)
+    - [Symbols Indexing](#symbols-indexing)
 - [License](#license)
 - [Links](#links)
 
@@ -112,9 +113,19 @@ The package provides some built-in basic build systems:
 
 Some of the keystrokes combinations indicated below rely on Sublime Text's default settings, and might vary depending on your custom settings, whereas others are explicitly defined by this package.
 
-|         key strokes          |                        action                       |              result             |
-|------------------------------|-----------------------------------------------------|---------------------------------|
-| <kbd>Ctrl</kbd> <kbd>/</kbd> | Inject comment delimiters (wraps any selected text) | `[-- ` &lt;selection&gt; ` --]` |
+<!-- MarkdownTOC:excluded -->
+### Comments
+
+The two comment shortcuts <kbd>Ctrl</kbd> <kbd>/</kbd> and <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>/</kbd> share some common behavior:
+
+- Selected text is commented out: `[-- `&lt;selection&gt;` --]`
+
+Their behavior differs when nothing is selected:
+
+|                  key stroked                  |            effect without selection           |
+|-----------------------------------------------|-----------------------------------------------|
+| <kbd>Ctrl</kbd> <kbd>/</kbd>                  | Comments out the whole line                   |
+| <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>/</kbd> | Inserts comments delimiters under cursor only |
 
 
 ## Snippets
@@ -124,6 +135,13 @@ The package provides the following snippets:
 | trigger  |              description              |
 |----------|---------------------------------------|
 | `newdoc` | Creates new PML document boilerplate. |
+
+
+## Symbols Indexing
+
+Currently only _[parameters]_ are being indexed (local symbol list), both their definitions (`[const`) and their inline occurrences (`<<param_name>>`).
+
+__Goto Definition__ functionality (<kbd>F12</kbd>) is also supported, allowing to quickly jump  to the definition of any inline parameter.
 
 
 # License
@@ -200,13 +218,19 @@ Articles by [Christian Neumanns]:
 [2019article]: https://www.freecodecamp.org/news/we-need-a-new-document-markup-language-c22e0ec44e15/ "Read full article at freeCodeCamp"
 [The advantages of Document Markup Languages vs WYSIWYG editors]: https://www.pml-lang.dev/docs/articles/advantages-markup-language-vs-word-processor/index.html "Read full article at PMl website"
 
+<!-- PML Reference Manual -->
+
 [PML Reference Manual]: https://www.pml-lang.dev/docs/reference_manual/index.html "Read the online PML Reference Manual"
 
 [Block Nodes]: https://www.pml-lang.dev/docs/reference_manual/index.html#ch__2 "PML Reference Manual » Block Nodes"
 [Inline Nodes]:  https://www.pml-lang.dev/docs/reference_manual/index.html#ch__9 "PML Reference Manual » Inline Nodes"
 [Text Processing Nodes]:  https://www.pml-lang.dev/docs/reference_manual/index.html#ch__11 "PML Reference Manual » Text Processing Nodes"
 
+<!-- PML User Manual -->
+
 [PML User Manual]: https://www.pml-lang.dev/docs/user_manual/index.html "Read the online PML User Manual"
+
+[parameters]: https://www.pml-lang.dev/docs/user_manual/index.html#ch__11 "PML User Manual » Text Processing » Parameters"
 
 <!-- PML GitHub -->
 

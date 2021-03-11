@@ -21,9 +21,15 @@ Task-list of the PML syntax elements that will ultimately be supported.
 
 > **NOTE** — Attributes will eventually be added to the list, on a per-node basis.
 
+- [ ] **Miscellanea**
+    + [x] Inline paramters (e.g. `<<my_param>>`):
+        * [x] Scoping and enlistment in local symbols list.
+        * [x] __Goto Definition__ (<kbd>F12</kbd>) jumps to parameter's `[constant` definition.
+    + [ ] _more to come…_
 - [ ] **[Block Nodes]**:
     + [ ] _Fundamental Nodes_:
-        * [x] Document
+        * [x] Document (`[document`, `[doc` or `[==`):
+            - [x] Tag scoping.
         * [ ] Paragraph
         * [ ] Chapter
     + [ ] _Common Nodes_:
@@ -48,8 +54,12 @@ Task-list of the PML syntax elements that will ultimately be supported.
         * [ ] Output
 - [ ] **[Inline Nodes]**:
     + [ ] Font
-        * [x] Bold Text
-        * [x] Italic Text
+        * [x] Bold Text (`[bold`, `[b` or `[*`):
+            - [x] Tag scoping.
+            - [ ] Keyboard shortcut <kbd>Alt</kbd> <kbd>b</kbd>.
+        * [x] Italic Text (`[italic`, `[i` or `[_`):
+            - [x] Tag scoping.
+            - [ ] Keyboard shortcut <kbd>Alt</kbd> <kbd>i</kbd>.
         * [ ] Inline Source Code
     + [ ] URL Link
     + [ ] Verbatim Text
@@ -58,9 +68,17 @@ Task-list of the PML syntax elements that will ultimately be supported.
     + [ ] New Line
     + [ ] Space Character
 - [ ] **[Text Processing Nodes]**:
-    + [x] Comments (nestable).
+    + [x] Comments (`[--` … `--]`):
+        * [x] Nestable comments.
+        * [x] Keyboard shortcuts:
+            - [x] <kbd>Ctrl</kbd> <kbd>/</kbd>
+            - [x] <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>/</kbd>
     + [ ] Insert File
-    + [x] Constant Parameter
+    + [x] Constant Parameter (`[constant` or `[const`):
+        * [x] Tag scoping.
+        * [x] Assignment operator (`=`) scoping.
+        * [x] Parameter identifier scoping.
+        * [x] Parameter identifier gets enlisted in local symbols list (__Goto Definition__ supported).
 
 
 <!-----------------------------------------------------------------------------
