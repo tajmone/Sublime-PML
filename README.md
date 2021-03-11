@@ -5,6 +5,8 @@
 [![MIT License][License badge]][MIT License]&nbsp;
 [![Build Status][Travis badge]][Travis link]
 
+![Sublime PML banner][banner img]
+
 [Sublime Text 3] syntax support for [PML]  (Practical Markup Language).
 
 - https://github.com/tajmone/Sublime-PML
@@ -126,6 +128,8 @@ The package provides the following snippets:
 
 # License
 
+- [`LICENSE`][LICENSE]
+
 ```
 MIT License
 
@@ -230,6 +234,10 @@ Articles by [Christian Neumanns]:
 [PML badge]: https://img.shields.io/badge/PML-1.3.0-yellow "Supported PML version (click for PML download page)"
 [Travis badge]: https://travis-ci.com/tajmone/Sublime-PML.svg?branch=main
 [Travis link]: https://travis-ci.com/tajmone/Sublime-PML "Travis CI: EditorConfig validation status"
+
+<!-- images -->
+
+[banner img]: ./img/sublime-pml-banner.png
 
 <!-- people -->
 
