@@ -190,10 +190,9 @@ Articles by [Christian Neumanns]:
 <!-- MarkdownTOC:excluded -->
 ## PML on GitHub
 
-- [@practical-markup-language] — __Practical Markup Language__ organization:
-    + [practical-markup-language/user-manual] — [PML Reference Manual] source repository.
 - [@pml-lang] — __PML Lang__ organization:
     + [pml-lang/converter] — source code repository of the PML to HTML Converter tool.
+    + [pml-lang/user-manual] — [PML Reference Manual] source repository.
 
 <!-----------------------------------------------------------------------------
                                REFERENCE LINKS
@@ -235,11 +234,10 @@ Articles by [Christian Neumanns]:
 <!-- PML GitHub -->
 
 [@practical-markup-language]: https://github.com/practical-markup-language "View GitHub profile of the Practical Markup Language organization"
+
 [@pml-lang]: https://github.com/pml-lang "View GitHub profile of the Practical Markup Language organization"
-
-[practical-markup-language/user-manual]: https://github.com/practical-markup-language/user-manual "Visit repository on GitHub"
-
 [pml-lang/converter]: https://github.com/pml-lang/converter "Visit repository on GitHub"
+[pml-lang/user-manual]: https://github.com/pml-lang/user-manual "Visit repository on GitHub"
 
 <!-- project files -->
 
