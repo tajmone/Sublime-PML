@@ -139,7 +139,10 @@ The package provides the following snippets:
 
 ## Symbols Indexing
 
-Currently only _[parameters]_ are being indexed (local symbol list), both their definitions (`[const`) and their inline occurrences (`<<param_name>>`).
+The following syntax elements are being indexed (local symbol list):
+
+- _[Parameters]_, both their definitions (`[const`) and their inline occurrences (`<<param_name>>`).
+- Chapter title.
 
 __Goto Definition__ functionality (<kbd>F12</kbd>) is also supported, allowing to quickly jump  to the definition of any inline parameter.
 

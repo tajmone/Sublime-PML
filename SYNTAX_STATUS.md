@@ -31,7 +31,8 @@ Task-list of the PML syntax elements that will ultimately be supported.
         * [x] Document (`[document`, `[doc` or `[==`):
             - [x] Tag scoping.
         * [ ] Paragraph
-        * [ ] Chapter
+        * [x] Chapter:
+            - [x] `title`
     + [ ] _Common Nodes_:
         * [ ] List
         * [ ] Table

@@ -1,6 +1,6 @@
 %YAML 1.2
 ---
-# Sublime PML: Alpha 0.1.5 (2021/03/20)                              | PML 1.3.0
+# Sublime PML: Alpha 0.1.6 (2021/03/20)                              | PML 1.3.0
 ################################################################################
 #                                                                              #
 #                       PML (Practical Markup Language)                        #
@@ -35,6 +35,10 @@ contexts:
 
   bail-out:
     - match: (?=\S)
+      pop: true
+
+  pop-at-EOL:
+    - match: (?=[\n$])
       pop: true
 
   escapes:
@@ -87,34 +91,34 @@ contexts:
 # ==============================================================================
 
   block_nodes:
-    - include: doc    # Document
-    # admonition      # Admonition
-    # audio           # Audio (Sound)
-    # caption         # Caption
-    # chapter         # Chapter
-    # code            # Source Code
-    # constant        # Constant Parameter
-    # division        # Division
-    # HTML            # HTML Code
-    # image           # Image
-    # input           # Input
-    # insert          # Insert File
-    # insert_code     # Insert Source Code
-    # list            # List
-    # list_element    # List Element
-    # monospace       # Monospace
-    # note            # Note
-    # output          # Output
-    # paragraph       # Paragraph
-    # quote           # Quote
-    # table           # Table
-    # table_cell      # Table Cell
-    # table_data      # Table Data
-    # table_footer    # Table Footer
-    # table_header    # Table Header
-    # table_row       # Table Row
-    # video           # Video
-    # youtube_video   # Embedded Youtube Video
+    - include: doc      # Document
+    - include: chapter  # Chapter
+    # admonition        # Admonition
+    # audio             # Audio (Sound)
+    # caption           # Caption
+    # code              # Source Code
+    # constant          # Constant Parameter
+    # division          # Division
+    # HTML              # HTML Code
+    # image             # Image
+    # input             # Input
+    # insert            # Insert File
+    # insert_code       # Insert Source Code
+    # list              # List
+    # list_element      # List Element
+    # monospace         # Monospace
+    # note              # Note
+    # output            # Output
+    # paragraph         # Paragraph
+    # quote             # Quote
+    # table             # Table
+    # table_cell        # Table Cell
+    # table_data        # Table Data
+    # table_footer      # Table Footer
+    # table_header      # Table Header
+    # table_row         # Table Row
+    # video             # Video
+    # youtube_video     # Embedded Youtube Video
 
 ## Document
 ###########
@@ -131,6 +135,74 @@ contexts:
     - match: ']'
       scope: keyword.declaration.document.end.pml
       pop: true
+
+## Chapter
+###########
+
+  # TODO: Actual title => entity.name.section.pml
+  #                       meta_scope: markup.heading.pml
+  #                       meta.toc-list
+  # TODO: While section should be marked as "Chapter/Section"?
+  # TODO: In the future, track levels:
+  #         markup.heading.level1.pml
+  #         markup.heading.level2.pml
+  #                 [...]
+  #         markup.heading.level6.pml
+
+  chapter:
+    - match: '\[(ch(?:apter)?\b|=(?!=))'
+      scope: punctuation.definition.section.block.chapter.begin.pml
+      push: chapter_inside_1
+  chapter_inside_1:
+    # If we don't match 'title' here switch context to `chapter_inside_2
+    - meta_scope: meta.block.chapter.pml
+    - include: chapter_title
+    - match: (?=\S)
+      set: chapter_inside_2
+  chapter_inside_2:
+    - meta_scope: meta.block.chapter.pml
+    - include: pml_nodes
+    - match: ']'
+      scope: punctuation.definition.section.block.chapter.end.pml
+      pop: true
+
+  chapter_title:
+    - match: 'title'
+      scope: entity.other.attribute-name.title.pml
+      push:
+        - meta_scope: meta.block.chapter.pml
+        - match: '='
+          scope: keyword.operator.assignment.pml
+          set:
+            - meta_scope: meta.block.chapter.pml markup.heading.pml
+            - include: chapter_title_quoted
+            - include: chapter_title_unquoted
+            - include: bail-out
+            # - include: pop-at-EOL
+
+  chapter_title_unquoted:
+    - match: '(?! )'
+      set:
+        - meta_scope: entity.name.section.pml markup.heading.pml meta.toc-list.pml
+        - match: '(?=[ ]+)$'
+          pop: true
+        - match: '(?=[ ]*\])'
+          pop: true
+        - include: pop-at-EOL
+
+  chapter_title_quoted:
+    - match: '"'
+      scope: punctuation.definition.string.begin.pml
+      set: chapter_title_quoted_inside
+  chapter_title_quoted_inside:
+    # TODO: Should stop using prototypes inside string?
+    - meta_scope: entity.name.section.pml markup.heading.pml meta.toc-list.pml
+    - include: string_quoted_escapes
+    - match: '"'
+      scope: punctuation.definition.string.end.pml
+      pop: true
+
+
 
 # ==============================================================================
 #                                  Inline Nodes
@@ -244,18 +316,10 @@ contexts:
 #   - [ ] Other ...
 
   string:
-    - include: string_quoted
+    - include: string_quoted   # must always precede `string_unquoted`
     - include: string_unquoted
     - include: bail-out
-
-  string_unquoted:
-    - match: '(?! )'
-      push:
-        - meta_scope: string.unquoted.pml
-        - match: '(?=[ ]+)$'
-          pop: true
-        - match: '(?=[ ]*\])'
-          pop: true
+  # - include: pop-at-EOL  # <- might be required later!
 
   string_quoted:
     - match: '"'
@@ -271,5 +335,15 @@ contexts:
   string_quoted_escapes:
     - match: '\\"'
       scope: constant.character.escape.pml
+
+  string_unquoted:
+    - match: '(?! )'
+      push:
+        - meta_scope: string.unquoted.pml
+        - match: '(?=[ ]+)$'
+          pop: true
+        - match: '(?=[ ]*\])'
+          pop: true
+      # - include: pop-at-EOL  # <- might be required later!
 
 # EOF #
