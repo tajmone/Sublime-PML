@@ -6,7 +6,7 @@
 !   ^^^^^^^^                   meta.block.chapter punctuation.definition.section.block.chapter.begin
 !            ^^^^^             entity.other.attribute-name.title
 !                  ^           keyword.operator.assignment
-!                    ^^^^^^^^  entity.name.section markup.heading meta.toc-list
+!                    ^^^^^^^^  entity.name.section.unquoted markup.heading meta.toc-list
     ]
 !   ^                          meta.block.chapter punctuation.definition.section.block.chapter.end
 
@@ -18,7 +18,7 @@
 !   ^^^^^^^^                         punctuation.definition.section.block.chapter.begin
 !            ^^^^^                   entity.other.attribute-name.title
 !                  ^                 keyword.operator.assignment
-!                    ^^^^^^^^^^^^^^  entity.name.section markup.heading meta.toc-list
+!                    ^^^^^^^^^^^^^^  entity.name.section.quoted markup.heading meta.toc-list
 !                    ^               punctuation.definition.string.begin
 !                                 ^  punctuation.definition.string.end
 !                        ^^          constant.character.escape.pml

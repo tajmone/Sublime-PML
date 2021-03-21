@@ -1,6 +1,6 @@
 %YAML 1.2
 ---
-# Sublime PML: Alpha 0.1.6 (2021/03/20)                              | PML 1.3.0
+# Sublime PML: Alpha 0.1.7 (2021/03/21)                              | PML 1.3.0
 ################################################################################
 #                                                                              #
 #                       PML (Practical Markup Language)                        #
@@ -183,7 +183,7 @@ contexts:
   chapter_title_unquoted:
     - match: '(?! )'
       set:
-        - meta_scope: entity.name.section.pml markup.heading.pml meta.toc-list.pml
+        - meta_scope: entity.name.section.unquoted.pml markup.heading.pml meta.toc-list.pml
         - match: '(?=[ ]+)$'
           pop: true
         - match: '(?=[ ]*\])'
@@ -196,7 +196,7 @@ contexts:
       set: chapter_title_quoted_inside
   chapter_title_quoted_inside:
     # TODO: Should stop using prototypes inside string?
-    - meta_scope: entity.name.section.pml markup.heading.pml meta.toc-list.pml
+    - meta_scope: entity.name.section.quoted.pml markup.heading.pml meta.toc-list.pml
     - include: string_quoted_escapes
     - match: '"'
       scope: punctuation.definition.string.end.pml

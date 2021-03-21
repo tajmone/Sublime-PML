@@ -142,7 +142,11 @@ The package provides the following snippets:
 The following syntax elements are being indexed (local symbol list):
 
 - _[Parameters]_, both their definitions (`[const`) and their inline occurrences (`<<param_name>>`).
-- Chapter title.
+- _[Chapter]_ titles (i.e. document headings) are indexed after some cosmetic transformations:
+    + Quoted-string titles are stripped of:
+        * Surrounding quotes.
+        * Backslashes `\` escaping double quotes (i.e. `\"` &rarr; `"`).
+    + All titles are prefixed with `= `, for easier symbol lookup.
 
 __Goto Definition__ functionality (<kbd>F12</kbd>) is also supported, allowing to quickly jump  to the definition of any inline parameter.
 
@@ -227,6 +231,7 @@ Articles by [Christian Neumanns]:
 [Block Nodes]: https://www.pml-lang.dev/docs/reference_manual/index.html#ch__2 "PML Reference Manual » Block Nodes"
 [Inline Nodes]:  https://www.pml-lang.dev/docs/reference_manual/index.html#ch__9 "PML Reference Manual » Inline Nodes"
 [Text Processing Nodes]:  https://www.pml-lang.dev/docs/reference_manual/index.html#ch__11 "PML Reference Manual » Text Processing Nodes"
+[Chapter]: https://www.pml-lang.dev/docs/reference_manual/index.html#node_chapter "PML Reference Manual » Fundamental Nodes » Chapter"
 
 <!-- PML User Manual -->
 

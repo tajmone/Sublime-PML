@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>scope</key>
+  <string>text.html.pml entity.name.section.quoted</string>
+  <key>settings</key>
+  <dict>
+    <key>symbolTransformation</key>
+    <!--===============================================
+    Manipulate quoted chapter titles (headings) for
+    better symbol indexing:
+      1. Remove leading double-quote.
+      2. Remove trailing double-quote.
+      3. Remove backslashes from escaped double-quotes.
+      4. Add leading `= `.
+    ================================================-->
+    <string>
+      s/^"//g
+      s/"$//g
+      s/\\"/"/g
+      s/^(.+)$/= $1/g
+    </string>
+  </dict>
+</dict>
+</plist>
