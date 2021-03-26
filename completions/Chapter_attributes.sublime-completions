@@ -1,0 +1,8 @@
+{
+  "scope": "text.html.pml meta.annotation.node-attribues.chapter.pml",
+   "completions":
+   [
+      { "trigger": "title\tChapter title", "contents": "title = ${1:Chapter Title} $0" },
+      { "trigger": "id\tChapter ID", "contents": "id = ${1:identifier} $0" },
+   ]
+}
