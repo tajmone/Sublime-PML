@@ -36,7 +36,7 @@
     [ch title = Chapter Title \
 !                             ^  punctuation.separator.continuation
 !   ^^^                          meta.block.chapter
-!       ^^^^^                    entity.other.attribute-name.title.pml
+!       ^^^^^                    entity.other.attribute-name.title
 !       ^^^^^^^^^^^^^^^^^^^^^^^  meta.annotation.node-attributes.chapter
     ]
 
@@ -54,7 +54,6 @@
         and will end at first EOL encountered.
 
     ]
-
-
-
+!   ^ punctuation.definition.section.block.chapter.end
 ]
+!<- keyword.declaration.document.end
