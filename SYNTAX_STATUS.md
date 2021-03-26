@@ -42,7 +42,7 @@ Task-list of the PML syntax elements that will ultimately be supported.
         * [ ] Caption
         * [ ] Monospace
         * [ ] Division
-        * [ ] HTML Code
+        * [x] HTML Code
     + [ ] _Media_:
         * [ ] Image
         * [ ] Audio (Sound)
