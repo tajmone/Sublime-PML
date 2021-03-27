@@ -30,9 +30,18 @@ Task-list of the PML syntax elements that will ultimately be supported.
     + [ ] _Fundamental Nodes_:
         * [x] Document (`[document`, `[doc` or `[==`):
             - [x] Tag scoping.
+            - [ ] Attributes:
+                + [ ] `title`
+                + [ ] `author`
+                + [x] `date`
+                    * [x] Date validation (invalid entries marked as `invalid.illegal`)
+                    * [x] Placeholders supported (`YYYY`/`MM`/`DD`).
         * [ ] Paragraph
         * [x] Chapter:
-            - [x] `title`
+            - [x] Tag scoping.
+            - [ ] Attributes:
+                + [x] `title`
+                    * [x] Title strings are added to Symbol Index (local) after string clean-up (removal of enclosing quotes, quotes escapes) and addition of a leading `= `.
     + [ ] _Common Nodes_:
         * [ ] List
         * [ ] Table
@@ -42,7 +51,7 @@ Task-list of the PML syntax elements that will ultimately be supported.
         * [ ] Caption
         * [ ] Monospace
         * [ ] Division
-        * [x] HTML Code
+        * [x] HTML Code (`[html`...`html]`) — the whole block is passed to the native HTML syntax that ships with Sublime Text.
     + [ ] _Media_:
         * [ ] Image
         * [ ] Audio (Sound)

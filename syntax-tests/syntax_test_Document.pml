@@ -20,9 +20,9 @@
         date = 2021-03-05
 !       ^^^^                entity.other.attribute-name.date
 !            ^              keyword.operator.assignment
-!              ^^^^^^^^^^   constant.numeric.date
-!              ^^^^         constant.numeric.year
-!                   ^^      constant.numeric.month
-!                      ^^   constant.numeric.day
+!              ^^^^^^^^^^   string.unquoted.date
+!              ^^^^         constant.numeric.integer.date.year
+!                   ^^      constant.numeric.integer.date.month
+!                      ^^   constant.numeric.integer.date.day
     ]
 !   ^  keyword.declaration.document.end
