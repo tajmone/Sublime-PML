@@ -5,7 +5,7 @@
 	<content><![CDATA[
 [doc title = ${1:Document Title} \
 	author = ${2:Your Name} \
-	date = ${3:2021}-${4:03}-${5:05}
+	date = ${3:YYYY}-${4:MM}-${5:DD}
 
 	${0}
 

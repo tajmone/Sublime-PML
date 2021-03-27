@@ -10,9 +10,9 @@
 !   ^^^^                                    keyword.declaration.document.begin
 !                                   ^       keyword.declaration.document.end
 
-[-------------------------------------------------------------
-                      DATE PLACEHOLDERS
--------------------------------------------------------------]
+[---------------------------------------------------------
+                    DATE PLACEHOLDERS
+---------------------------------------------------------]
 
 Date placeholders "YYYY", "MM" and "DD" are supported:
 
@@ -23,9 +23,9 @@ Date placeholders "YYYY", "MM" and "DD" are supported:
 !                                ^^    constant.other.placeholder.day
 
 
-[-------------------------------------------------------------
-                        INVALID DATES
--------------------------------------------------------------]
+[---------------------------------------------------------
+                    INVALID DATE ENTRIES
+---------------------------------------------------------]
 
 Invalid date entries are autodetected and highlighted.
 
