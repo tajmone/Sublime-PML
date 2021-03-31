@@ -26,3 +26,9 @@
 !                      ^^   constant.numeric.integer.date.day
     ]
 !   ^  keyword.declaration.document.end
+
+    [doc title = Document Title \
+        date = 2021-03-05 \
+        title = Title Unquoted
+!       ^^^^^^^^^^^^^^^^^^^^^^   meta.annotation.node-attributes.document
+    ]
