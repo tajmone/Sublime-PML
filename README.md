@@ -26,6 +26,7 @@ By [Tristano Ajmone], March 2021, [MIT License].
 - [Package Features](#package-features)
     - [Build Systems](#build-systems)
     - [Keyboard Shortcuts](#keyboard-shortcuts)
+    - [Auto-Completions](#auto-completions)
     - [Snippets](#snippets)
     - [Symbols Indexing](#symbols-indexing)
 - [License](#license)
@@ -126,6 +127,29 @@ Their behavior differs when nothing is selected:
 |-----------------------------------------------|-----------------------------------------------|
 | <kbd>Ctrl</kbd> <kbd>/</kbd>                  | Comments out the whole line                   |
 | <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>/</kbd> | Inserts comments delimiters under cursor only |
+
+## Auto-Completions
+
+Sublime PML offers smart auto-completion suggestions, based on the scope context under the cursor, thus avoiding completions pollution (i.e. cluttering the suggestions with unrelated elements).
+
+<!-- MarkdownTOC:excluded -->
+### Tag Attributes
+
+For nodes that support attributes, context-specific suggestions are available within the editing space where tag attributes are allowed.
+
+|  tag   |    trigger    |           description            |
+|--------|---------------|----------------------------------|
+| `[ch`  | `id`          | Chapter ID                       |
+| `[ch`  | `title`       | Chapter title                    |
+| `[doc` | `author`      | Document Author(s)               |
+| `[doc` | `date`        | Publication Date                 |
+| `[doc` | `highlighter` | Syntax Highlighter               |
+| `[doc` | `hljs`        | Syntax Highlighter: highlight.js |
+| `[doc` | `prism`       | Syntax Highlighter: prism        |
+| `[doc` | `time`        | Publication Time                 |
+| `[doc` | `title`       | Document Title                   |
+| `[doc` | `tocposition` | TOC Position                     |
+| `[doc` | `toctitle`    | TOC Title                        |
 
 
 ## Snippets
