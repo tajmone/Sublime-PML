@@ -20,8 +20,8 @@
 !                                 ^  entity.name.tag.other.end
 
     [image src=img/smile.jpg \
-[-- !                        ^ punctuation.separator.continuation
---]        link = https://example.com]
+[- !                         ^ punctuation.separator.continuation
+-]         link = https://example.com]
 !          ^^^^                         entity.other.attribute-name.unknown
 !               ^                       keyword.operator.assignment
 !                                    ^  entity.name.tag.other.end

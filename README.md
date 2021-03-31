@@ -119,7 +119,7 @@ Some of the keystrokes combinations indicated below rely on Sublime Text's defau
 
 The two comment shortcuts <kbd>Ctrl</kbd> <kbd>/</kbd> and <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>/</kbd> share some common behavior:
 
-- Selected text is commented out: `[-- `&lt;selection&gt;` --]`
+- Selected text is commented out: `[- `&lt;selection&gt;` -]`
 
 Their behavior differs when nothing is selected:
 

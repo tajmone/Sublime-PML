@@ -103,7 +103,7 @@ Task-list of the PML syntax elements that will ultimately be supported.
     + [ ] New Line
     + [ ] Space Character
 - [ ] **[Text Processing Nodes]**:
-    + [x] Comments (`[--` … `--]`):
+    + [x] Comments (`[-` … `-]`):
         * [x] Nestable comments.
         * [x] Keyboard shortcuts:
             - [x] <kbd>Ctrl</kbd> <kbd>/</kbd>
