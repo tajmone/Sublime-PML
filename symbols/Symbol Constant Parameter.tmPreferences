@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
   <key>scope</key>
-  <string>text.html.pml entity.name.function.pml, text.html.pml support.function.call.pml</string>
+  <string>text.pml entity.name.function.pml, text.pml support.function.call.pml</string>
   <key>settings</key>
   <dict>
     <key>showInSymbolList</key>

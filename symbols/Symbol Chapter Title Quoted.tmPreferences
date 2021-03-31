@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
   <key>scope</key>
-  <string>text.html.pml entity.name.section.quoted</string>
+  <string>text.pml entity.name.section.quoted</string>
   <key>settings</key>
   <dict>
     <key>symbolTransformation</key>

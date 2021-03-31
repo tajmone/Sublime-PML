@@ -1,5 +1,5 @@
 {
-  "scope": "text.html.pml meta.annotation.node-attributes.chapter.pml",
+  "scope": "text.pml meta.annotation.node-attributes.chapter.pml",
   "completions":
   [
     { "trigger": "title\tChapter title", "contents": "title = ${1:Chapter Title} $0" },

@@ -1,5 +1,5 @@
 {
-  "scope": "text.html.pml meta.annotation.node-attributes.document.pml",
+  "scope": "text.pml meta.annotation.node-attributes.document.pml",
   "completions":
   [
     { "trigger": "title\tDocument Title", "contents": "title = ${1:Document Title} $0" },
