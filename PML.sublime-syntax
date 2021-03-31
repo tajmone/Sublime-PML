@@ -1,6 +1,6 @@
 %YAML 1.2
 ---
-# Sublime PML: Alpha 0.2.0 (2021/03/31)                              | PML 1.3.0
+# Sublime PML: Alpha 0.2.1 (2021/03/31)                              | PML 1.3.0
 ################################################################################
 #                                                                              #
 #                       PML (Practical Markup Language)                        #
@@ -110,10 +110,14 @@ contexts:
 #                                  Block Nodes
 # ==============================================================================
 
+# TODO: Sort `include:` statements by nodes' usage frequency. This should
+#       improve performance, since each match resets the context loop.
+
   block_nodes:
     - include: doc      # Document
     - include: chapter  # Chapter
     - include: html     # HTML Code
+    - include: quote    # Quote
     # admonition        # Admonition
     # audio             # Audio (Sound)
     # caption           # Caption
@@ -130,7 +134,6 @@ contexts:
     # note              # Note
     # output            # Output
     # paragraph         # Paragraph
-    # quote             # Quote
     # table             # Table
     # table_cell        # Table Cell
     # table_data        # Table Data
@@ -138,7 +141,27 @@ contexts:
     # table_header      # Table Header
     # table_row         # Table Row
     # video             # Video
-    # youtube_video     # Embedded Youtube Video
+    # youtube_video     # Embedded YouTube Video
+
+# TODO: Order nodes contexts alphabetically, to simplify source navigation.
+
+
+## Quote
+########
+
+  quote:
+    - match: '\[quote\b'
+      scope: punctuation.definition.blockquote.begin.pml
+      push: [quote_block, quote_attributes]
+  quote_block:
+    - meta_scope: markup.quote.pml
+    - include: pml_nodes
+    - match: ']'
+      scope: punctuation.definition.blockquote.end.pml
+      pop: true
+  quote_attributes:
+    - meta_scope: meta.annotation.node-attributes.quote.pml
+    - include: attributes
 
 ## Document
 ###########

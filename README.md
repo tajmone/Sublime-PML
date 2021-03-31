@@ -137,19 +137,22 @@ Sublime PML offers smart auto-completion suggestions, based on the scope context
 
 For nodes that support attributes, context-specific suggestions are available within the editing space where tag attributes are allowed.
 
-|  tag   |    trigger    |           description            |
-|--------|---------------|----------------------------------|
-| `[ch`  | `id`          | Chapter ID                       |
-| `[ch`  | `title`       | Chapter title                    |
-| `[doc` | `author`      | Document Author(s)               |
-| `[doc` | `date`        | Publication Date                 |
-| `[doc` | `highlighter` | Syntax Highlighter               |
-| `[doc` | `hljs`        | Syntax Highlighter: highlight.js |
-| `[doc` | `prism`       | Syntax Highlighter: prism        |
-| `[doc` | `time`        | Publication Time                 |
-| `[doc` | `title`       | Document Title                   |
-| `[doc` | `tocposition` | TOC Position                     |
-| `[doc` | `toctitle`    | TOC Title                        |
+|   tag    |    trigger    |           description            |
+|----------|---------------|----------------------------------|
+| `[ch`    | `id`          | Chapter Identifier               |
+| `[ch`    | `title`       | Chapter title                    |
+| `[doc`   | `author`      | Document Author(s)               |
+| `[doc`   | `date`        | Publication Date                 |
+| `[doc`   | `highlighter` | Syntax Highlighter               |
+| `[doc`   | `hljs`        | Syntax Highlighter: highlight.js |
+| `[doc`   | `prism`       | Syntax Highlighter: prism        |
+| `[doc`   | `time`        | Publication Time                 |
+| `[doc`   | `title`       | Document Title                   |
+| `[doc`   | `tocposition` | TOC Position                     |
+| `[doc`   | `toctitle`    | TOC Title                        |
+| `[quote` | `id`          | Quotation Identifier             |
+| `[quote` | `source`      | Source of Quotation              |
+| `[quote` | `title`       | Quotation Title                  |
 
 
 ## Snippets

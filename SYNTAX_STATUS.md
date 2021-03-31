@@ -32,22 +32,47 @@ Task-list of the PML syntax elements that will ultimately be supported.
             - [x] Tag scoping.
             - [ ] Attributes:
                 + [ ] `title`
+                    * [x] smart auto-completion.
                 + [ ] `author`
+                    * [x] smart auto-completion.
                 + [x] `date`
+                    * [x] smart auto-completion.
                     * [x] Date validation (invalid entries marked as `invalid.illegal`)
                     * [x] Placeholders supported (`YYYY`/`MM`/`DD`).
+                + [ ] `time`
+                    * [x] smart auto-completion.
+                + [ ] `highlighter`
+                    * [x] smart auto-completion:
+                        - [ ] `highlighter` — Syntax Highlighter
+                        - [ ] `hljs` — Syntax Highlighter: highlight.js
+                        - [ ] `prism` — Syntax Highlighter: prism
+                + [ ] `tocposition`
+                    * [x] smart auto-completion:
+                + [ ] `toctitle`
+                    * [x] smart auto-completion.
         * [ ] Paragraph
-        * [x] Chapter:
+        * [x] Chapter (`[chapter`, `[ch` or `[=`):
             - [x] Tag scoping.
             - [ ] Attributes:
                 + [x] `title`
                     * [x] Title strings are added to Symbol Index (local) after string clean-up (removal of enclosing quotes, quotes escapes) and addition of a leading `= `.
+                    * [x] smart auto-completion.
+                + [ ] `id`
+                    * [x] smart auto-completion.
     + [ ] _Common Nodes_:
         * [ ] List
         * [ ] Table
         * [ ] Admonition
         * [ ] Note
-        * [ ] Quote
+        * [x] Quote (`[quote`):
+            - [x] Tag scoping.
+            - [ ] Attributes:
+                + [ ] `id`
+                    * [x] smart auto-completion.
+                + [ ] `source`
+                    * [x] smart auto-completion.
+                + [ ] `title`
+                    * [x] smart auto-completion.
         * [ ] Caption
         * [ ] Monospace
         * [ ] Division
