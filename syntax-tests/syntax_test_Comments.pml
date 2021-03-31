@@ -22,13 +22,13 @@
     Comments can appear anywhere and they can be nested to any level.
 
     [-
-!   ^^                          comment.block
-       Commented out text...
-!      ^^^^^^^^^^^^^^^^^^^^^    comment.block
-       [- nested comment -]
-!      ^^^^^^^^^^^^^^^^^^^^     comment.block comment.block
-!      ^^                       punctuation.definition.comment.begin
-!                        ^^     punctuation.definition.comment.end
+!   ^^                           comment.block
+        Commented out text...
+!       ^^^^^^^^^^^^^^^^^^^^^    comment.block
+        [- nested comment -]
+!       ^^^^^^^^^^^^^^^^^^^^     comment.block comment.block
+!       ^^                       punctuation.definition.comment.begin
+!                         ^^     punctuation.definition.comment.end
     -]
 
 
