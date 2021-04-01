@@ -39,8 +39,10 @@ Task-list of the PML syntax elements that will ultimately be supported.
                     * [x] smart auto-completion.
                     * [x] Date validation (invalid entries marked as `invalid.illegal`)
                     * [x] Placeholders supported (`YYYY`/`MM`/`DD`).
-                + [ ] `time`
+                + [x] `time`
                     * [x] smart auto-completion.
+                    * [x] Time validation (invalid entries marked as `invalid.illegal`)
+                    * [x] Placeholders supported (`hh`/`mm`).
                 + [ ] `highlighter`
                     * [x] smart auto-completion:
                         - [ ] `highlighter` — Syntax Highlighter

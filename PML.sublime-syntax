@@ -1,6 +1,6 @@
 %YAML 1.2
 ---
-# Sublime PML: Alpha 0.2.2 (2021/03/31)                              | PML 1.3.0
+# Sublime PML: Alpha 0.2.3 (2021/04/01)                              | PML 1.3.0
 ################################################################################
 #                                                                              #
 #                       PML (Practical Markup Language)                        #
@@ -369,6 +369,7 @@ contexts:
       pop: true
     - include: pop-at-EOL
     - include: attr_date
+    - include: attr_time
     # TODO: implement remaining attributes...
     - include: attr_unknown   # <- Temp fall-back for unimplemented attributes!
 
@@ -383,6 +384,18 @@ contexts:
             - include: pop-at-TagEnd
             - include: pop-at-EOL
             - include: date_type
+
+  attr_time:
+    - match: '\b(time)\b'
+      scope: entity.other.attribute-name.time.pml
+      push:
+        - match: '='
+          scope: keyword.operator.assignment.pml
+          set:
+            - include: pop-at-line_continuation
+            - include: pop-at-TagEnd
+            - include: pop-at-EOL
+            - include: time_type
 
 
   attr_unknown:
@@ -457,5 +470,20 @@ contexts:
         8: invalid.illegal.day.pml
         9: constant.other.placeholder.day.pml
       pop: true
+
+  time_type:
+  - match: '\b(?=(\d\d|hh):(\d\d|mm))\b'
+    push:
+    - match: '\b(?:([01]\d|2[0-3])|(\d\d)|(hh)):(?:([0-5]\d)|(\d\d)|(mm))\b'
+      captures:
+        0: string.unquoted.time.pml
+        1: constant.numeric.integer.time.hour.pml
+        2: invalid.illegal.hour.pml
+        3: constant.other.placeholder.hour.pml
+        4: constant.numeric.integer.time.minutes.pml
+        5: invalid.illegal.minutes.pml
+        6: constant.other.placeholder.minutes.pml
+      pop: true
+
 
 # EOF #
