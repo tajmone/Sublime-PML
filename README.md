@@ -30,6 +30,7 @@ By [Tristano Ajmone], March 2021, [MIT License].
     - [Snippets](#snippets)
     - [Symbols Indexing](#symbols-indexing)
 - [License](#license)
+- [Contributing](#contributing)
 - [Links](#links)
 
 <!-- /MarkdownTOC -->
@@ -207,6 +208,16 @@ SOFTWARE.
 ```
 
 
+# Contributing
+
+- [`CONTRIBUTING.md`][CONTRIBUTING.md]
+
+Contributions to this repository are most welcome, whether in the form of suggestions and bug reports via [Issues] and [Discussions], or as actual repository contents submitted via Git.
+
+All pull requests should be made against the [`dev` branch][dev].
+For more information, please refer to our _[Contributors' Guidelines]_.
+
+
 # Links
 
 - [www.pml-lang.dev] — PML website:
@@ -280,9 +291,10 @@ Articles by [Christian Neumanns]:
 [.gitattributes]: ./.gitattributes "View Git attributes settings file"
 [.gitignore]: ./.gitignore "View Git ignore settings file"
 [.travis.yml]: ./.travis.yml "View Travis CI settings file"
+[CONTRIBUTING.md]: ./CONTRIBUTING.md "Read the Contributors' Guidelines"
 [LICENSE]: ./LICENSE "View MIT License file"
-[validate.sh]: ./validate.sh "View source script for code style validation"
 [SYNTAX_STATUS.md]: ./SYNTAX_STATUS.md "View document"
+[validate.sh]: ./validate.sh "View source script for code style validation"
 
 <!-- badges -->
 
@@ -291,6 +303,14 @@ Articles by [Christian Neumanns]:
 [PML badge]: https://img.shields.io/badge/PML-1.3.0-yellow "Supported PML version (click for PML download page)"
 [Travis badge]: https://travis-ci.com/tajmone/Sublime-PML.svg?branch=main
 [Travis link]: https://travis-ci.com/tajmone/Sublime-PML "Travis CI: EditorConfig validation status"
+
+<!-- repo links -->
+
+[Issues]: https://github.com/tajmone/Sublime-PML/issues "View the current repository Issues or submit a new Issue"
+[Discussions]: https://github.com/tajmone/Sublime-PML/discussions "Visit the Discussions area of Sublime PML"
+[dev]: https://github.com/tajmone/Sublime-PML/tree/dev "View the 'dev' branch"
+
+[Contributors' Guidelines]: ./CONTRIBUTING.md "Read the Contributors' Guidelines"
 
 <!-- images -->
 
