@@ -64,7 +64,7 @@ You should therefore install it manually, via Git:
     * OS X: `~/Library/Application\ Support/Sublime\ Text\ 3/Packages/`
     * Linux: `~/.config/sublime-text-3/Packages/`
     * Windows: `%APPDATA%\Sublime Text 3\Packages\`
-    * Windows (Scoop): `%USERPROFILE%\scoop\apps\sublime-text\current\Packages`
+    * Windows (Scoop): `%USERPROFILE%/scoop/persist/sublime-text/Data/Packages/`
 2. From that directory, invoke Git to clone this repository into the `PML` subdirectory:
 
         git clone https://github.com/tajmone/Sublime-PML PML

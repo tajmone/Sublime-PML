@@ -15,9 +15,9 @@
     ]
 !   ^ punctuation.definition.section.block.chapter.end
 
-[----------------------
-  INCOMPLETE ATTRIBUTES
-  ----------------------]
+[------------------------
+    INCOMPLETE ATTRIBUTES
+    ----------------------]
 
     [ch id = ]
 !       ^^^^^    meta.annotation.node-attributes.chapter
@@ -25,9 +25,9 @@
 !          ^     keyword.operator.assignment
 !           ^   -entity.other.attribute-name.id
 
-[---------------------
-  MALFORMED ATTRIBUTES
-  ---------------------]
+[-----------------------
+    MALFORMED ATTRIBUTES
+    ---------------------]
 
     [ch id = xml-style.ID ]
 !       ^^^^^^^^^^^^^^^^^     meta.annotation.node-attributes.chapter
