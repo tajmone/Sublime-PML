@@ -1,6 +1,6 @@
 %YAML 1.2
 ---
-# Sublime PML: Alpha 0.2.4 (2021/04/14)                              | PML 1.3.0
+# Sublime PML: Alpha 0.3.0 (2021/04/17)                              | PML 1.4.0
 ################################################################################
 #                                                                              #
 #                       PML (Practical Markup Language)                        #
@@ -172,7 +172,7 @@ contexts:
   # NOTE: I'm not really happy with the current scope being used.
 
   doc:
-    - match: '\[(doc(?:ument)?\b|==)'
+    - match: '\[doc\b'
       scope: keyword.declaration.document.begin.pml
       push: [doc_block, doc_attributes]
   doc_block:
@@ -196,7 +196,7 @@ contexts:
   #         markup.heading.level6.pml
 
   chapter:
-    - match: '\[(ch(?:apter)?\b|=(?!=))'
+    - match: '\[ch\b'
       scope: punctuation.definition.section.block.chapter.begin.pml
       push: [chapter_block, chapter_attributes]
 
@@ -252,13 +252,13 @@ contexts:
 #######
 
   html:
-    - match: '\[(html|HTML)\b'
+    - match: '\[html\b'
       scope: punctuation.definition.section.block.html.begin.pml
       push: Packages/HTML/HTML.sublime-syntax
       with_prototype:
         - match: '\b(?=(html|HTML)\])'
           pop: true
-    - match: '\b((html|HTML)\])'
+    - match: '\bhtml\]'
       scope: punctuation.definition.section.block.html.end.pml
       pop: true
 
@@ -282,7 +282,7 @@ contexts:
 ##################
 
   bold:
-    - match: '\[(b(?:old)?\b|\*)'
+    - match: '\[b\b'
       scope: punctuation.definition.bold.begin.pml
       push: bold_inside
   bold_inside:
@@ -296,7 +296,7 @@ contexts:
 ####################
 
   italic:
-    - match: '\[(i(?:talic)?\b|_)'
+    - match: '\[i\b'
       scope: punctuation.definition.italic.begin.pml
       push: italic_inside
   italic_inside:
@@ -334,7 +334,7 @@ contexts:
 #####################
 
   constant:
-    - match: '\[const(?:ant)?\b'
+    - match: '\[const\b'
       scope: entity.name.tag.constant.begin.pml
       push: constant_inside
   constant_inside:

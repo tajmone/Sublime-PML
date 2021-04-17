@@ -1,7 +1,7 @@
 ! SYNTAX TEST "Packages/PML/PML.sublime-syntax"
 [doc title = Raw HTML Blocks
 
-    [HTML HTML]
+    [html html]
 !   ^^^^^         punctuation.definition.section.block.html.begin.pml
 !         ^^^^^   punctuation.definition.section.block.html.end.pml
 

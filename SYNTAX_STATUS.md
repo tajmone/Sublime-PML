@@ -24,11 +24,11 @@ Task-list of the PML syntax elements that will ultimately be supported.
 - [ ] **Miscellanea**
     + [x] Inline paramters (e.g. `<<my_param>>`):
         * [x] Scoping and enlistment in local symbols list.
-        * [x] __Goto Definition__ (<kbd>F12</kbd>) jumps to parameter's `[constant` definition.
+        * [x] __Goto Definition__ (<kbd>F12</kbd>) jumps to parameter's `[const` definition.
     + [ ] _more to come…_
 - [ ] **[Block Nodes]**:
     + [ ] _Fundamental Nodes_:
-        * [x] Document (`[document`, `[doc` or `[==`):
+        * [x] Document — `[doc`:
             - [x] Tag scoping.
             - [ ] Attributes:
                 + [ ] `title`
@@ -53,7 +53,7 @@ Task-list of the PML syntax elements that will ultimately be supported.
                 + [ ] `toctitle`
                     * [x] smart auto-completion.
         * [ ] Paragraph
-        * [x] Chapter (`[chapter`, `[ch` or `[=`):
+        * [x] Chapter — `[ch`:
             - [x] Tag scoping.
             - [ ] Attributes:
                 + [x] `title`
@@ -66,7 +66,7 @@ Task-list of the PML syntax elements that will ultimately be supported.
         * [ ] Table
         * [ ] Admonition
         * [ ] Note
-        * [x] Quote (`[quote`):
+        * [x] Quote — `[quote`:
             - [x] Tag scoping.
             - [ ] Attributes:
                 + [ ] `id`
@@ -78,7 +78,7 @@ Task-list of the PML syntax elements that will ultimately be supported.
         * [ ] Caption
         * [ ] Monospace
         * [ ] Division
-        * [x] HTML Code (`[html`...`html]`) — the whole block is passed to the native HTML syntax that ships with Sublime Text.
+        * [x] HTML Code — `[html`...`html]` — the whole block is passed to the native HTML syntax that ships with Sublime Text.
     + [ ] _Media_:
         * [ ] Image
         * [ ] Audio (Sound)
@@ -91,10 +91,10 @@ Task-list of the PML syntax elements that will ultimately be supported.
         * [ ] Output
 - [ ] **[Inline Nodes]**:
     + [ ] Font
-        * [x] Bold Text (`[bold`, `[b` or `[*`):
+        * [x] Bold Text — `[b`:
             - [x] Tag scoping.
             - [ ] Keyboard shortcut <kbd>Alt</kbd> <kbd>b</kbd>.
-        * [x] Italic Text (`[italic`, `[i` or `[_`):
+        * [x] Italic Text — `[i`:
             - [x] Tag scoping.
             - [ ] Keyboard shortcut <kbd>Alt</kbd> <kbd>i</kbd>.
         * [ ] Inline Source Code
@@ -105,13 +105,13 @@ Task-list of the PML syntax elements that will ultimately be supported.
     + [ ] New Line
     + [ ] Space Character
 - [ ] **[Text Processing Nodes]**:
-    + [x] Comments (`[-` … `-]`):
+    + [x] Comments — `[-` … `-]`:
         * [x] Nestable comments.
         * [x] Keyboard shortcuts:
             - [x] <kbd>Ctrl</kbd> <kbd>/</kbd>
             - [x] <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>/</kbd>
     + [ ] Insert File
-    + [x] Constant Parameter (`[constant` or `[const`):
+    + [x] Constant Parameter — `[const`:
         * [x] Tag scoping.
         * [x] Assignment operator (`=`) scoping.
         * [x] Parameter identifier scoping.

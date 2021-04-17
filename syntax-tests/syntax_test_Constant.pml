@@ -13,17 +13,17 @@
 !   ^^^^^^^^^^^^^^^^^^^^  -meta.tag.constant
 
 
-    [constant dqAttr = "I'm a \"Quoted\" string" ]
-!   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^   meta.tag.constant
-!   ^^^^^^^^^                                        entity.name.tag.constant.begin
-!                                                ^   entity.name.tag.constant.end
-!                    ^                               keyword.operator.assignment
-!                      ^^^^^^^^^^^^^^^^^^^^^^^^^     string.quoted.double
-!                                               ^^  -string.quoted.double
-!                             ^^                     constant.character.escape
-!                                     ^^             constant.character.escape
-!                      ^                             punctuation.definition.string.begin
-!                                              ^     punctuation.definition.string.end
+    [const dqAttr = "I'm a \"Quoted\" string" ]
+!   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^   meta.tag.constant
+!   ^^^^^^                                        entity.name.tag.constant.begin
+!                                             ^   entity.name.tag.constant.end
+!                 ^                               keyword.operator.assignment
+!                   ^^^^^^^^^^^^^^^^^^^^^^^^^     string.quoted.double
+!                                            ^^  -string.quoted.double
+!                          ^^                     constant.character.escape
+!                                  ^^             constant.character.escape
+!                   ^                             punctuation.definition.string.begin
+!                                           ^     punctuation.definition.string.end
 
     Outside \[const now!
 !   ^^^^^^^^^^^^^^^^^^^^  -meta.tag.constant
