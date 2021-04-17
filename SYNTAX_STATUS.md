@@ -59,7 +59,7 @@ Task-list of the PML syntax elements that will ultimately be supported.
                 + [x] `title`
                     * [x] Title strings are added to Symbol Index (local) after string clean-up (removal of enclosing quotes, quotes escapes) and addition of a leading `= `.
                     * [x] smart auto-completion.
-                + [ ] `id`
+                + [x] `id` (shared with other nodes)
                     * [x] smart auto-completion.
     + [ ] _Common Nodes_:
         * [ ] List
@@ -69,7 +69,7 @@ Task-list of the PML syntax elements that will ultimately be supported.
         * [x] Quote — `[quote`:
             - [x] Tag scoping.
             - [ ] Attributes:
-                + [ ] `id`
+                + [x] `id` (shared with other nodes)
                     * [x] smart auto-completion.
                 + [ ] `source`
                     * [x] smart auto-completion.
@@ -116,6 +116,14 @@ Task-list of the PML syntax elements that will ultimately be supported.
         * [x] Assignment operator (`=`) scoping.
         * [x] Parameter identifier scoping.
         * [x] Parameter identifier gets enlisted in local symbols list (__Goto Definition__ supported).
+- [ ] **Shared Attributes** — i.e. which are not specific to a particular node only:
+    + [ ] `id`:
+        * [x] attribute scoping.
+        * [x] Assignment operator (`=`) scoping.
+        * [x] Valid ID name.
+            - [ ] Can contain parameter.
+            - [ ] ID name gets enlisted in local (or global?) symbols list.
+        * [x] Malformed ID name (as `invalid.illegal.attribute-name.id.pml`).
 
 
 <!-----------------------------------------------------------------------------
