@@ -1,6 +1,6 @@
 %YAML 1.2
 ---
-# Sublime PML: Alpha 0.3.1 (2021/04/17)                              | PML 1.4.0
+# Sublime PML: Alpha 0.3.2 (2021/04/18)                              | PML 1.4.0
 ################################################################################
 #                                                                              #
 #                       PML (Practical Markup Language)                        #
@@ -235,7 +235,7 @@ contexts:
         - include: pop-at-line_continuation
         - include: pop-at-EOL
         - match: '.'
-          scope: entity.name.section.unquoted.pml markup.heading.pml meta.toc-list.pml
+          scope: entity.name.section.unquoted.pml markup.heading.pml meta.toc-list.heading.pml
 
   chapter_title_quoted:
     - match: '"'
@@ -243,7 +243,7 @@ contexts:
       set: chapter_title_quoted_inside
   chapter_title_quoted_inside:
     # TODO: Should stop using prototypes inside string?
-    - meta_scope: entity.name.section.quoted.pml markup.heading.pml meta.toc-list.pml
+    - meta_scope: entity.name.section.quoted.pml markup.heading.pml meta.toc-list.heading.pml
     - include: string_quoted_escapes
     - match: '"'
       scope: punctuation.definition.string.end.pml
@@ -474,7 +474,7 @@ contexts:
 
   id_type:
     - match: '\b({{identifier}})\b(?![\.\-])'
-      scope: entity.other.attribute-name.id.pml
+      scope: entity.other.attribute-name.id.pml meta.toc-list.id.pml
     - match: '\b([^ \t\n]+)\b'
       scope: invalid.illegal.attribute-name.id.pml
       # See pml-lang/user-manual/discussions/3

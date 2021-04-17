@@ -5,13 +5,13 @@
 !       ^^^^^^^^^^^^^^^     meta.annotation.node-attributes.chapter
 !       ^^                  entity.other.attribute-name.id
 !          ^                keyword.operator.assignment
-!            ^^^^^^^^^^     entity.other.attribute-name.id
+!            ^^^^^^^^^^     entity.other.attribute-name.id meta.toc-list.id.pml
 
-    [ch id = identifier
-!       ^^^^^^^^^^^^^^^   meta.annotation.node-attributes.chapter
-!       ^^                entity.other.attribute-name.id
-!          ^              keyword.operator.assignment
-!            ^^^^^^^^^^   entity.other.attribute-name.id
+    [ch id = custom_id
+!       ^^^^^^^^^^^^^^   meta.annotation.node-attributes.chapter
+!       ^^               entity.other.attribute-name.id
+!          ^             keyword.operator.assignment
+!            ^^^^^^^^^   entity.other.attribute-name.id meta.toc-list.id.pml
     ]
 !   ^ punctuation.definition.section.block.chapter.end
 

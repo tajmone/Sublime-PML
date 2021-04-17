@@ -176,8 +176,9 @@ The following syntax elements are being indexed (local symbol list):
         * Surrounding quotes.
         * Backslashes `\` escaping double quotes (i.e. `\"` &rarr; `"`).
     + All titles are prefixed with `= `, for easier symbol lookup.
+- _Identifier_ attributes (`id`) are indexed with a leading `#`, resembling HTML anchors.
 
-__Goto Definition__ functionality (<kbd>F12</kbd>) is also supported, allowing to quickly jump  to the definition of any inline parameter.
+__Goto Definition__ functionality (<kbd>F12</kbd>) is also supported, allowing to quickly jump to the definition of any inline parameter.
 
 
 # License

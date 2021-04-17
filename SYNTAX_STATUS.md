@@ -122,7 +122,7 @@ Task-list of the PML syntax elements that will ultimately be supported.
         * [x] Assignment operator (`=`) scoping.
         * [x] Valid ID name.
             - [ ] Can contain parameter.
-            - [ ] ID name gets enlisted in local (or global?) symbols list.
+            - [x] ID name gets enlisted in local symbols list.
         * [x] Malformed ID name (as `invalid.illegal.attribute-name.id.pml`).
 
 
