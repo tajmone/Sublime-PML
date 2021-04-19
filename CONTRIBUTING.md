@@ -59,6 +59,12 @@ You're strongly advised to install [EClint] and our pre-commit [Git hook] to val
 
 Once installed the pre-commit hook, every time you carry out a commit operation the staged files will be first checked via [EClint] to ensure that they meet the code styles settings in [`.editorconfig`][.editorconfig], and if they don't the commit will fail with an error listing the files that didn't pass the validation test.
 
+> **NOTE** — You can always bypass the pre-commit hook via the `--no-verify` option, e.g.:
+>
+> ```
+> git commit --no-verify
+> ```
+
 The advantage of using this hook instead of the [`validate.sh`][validate.sh] script is that the hook will test only the staged files involved in the actual commit, whereas the script will test _every_ file in the repository folder, including ignored and unstaged files, which is more time consuming and not focused on the specific commit changes.
 
 The [`git-hook-install.sh`][git-hook-install.sh] script will create the following files inside the repository:
