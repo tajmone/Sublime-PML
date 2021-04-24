@@ -1,6 +1,6 @@
 %YAML 1.2
 ---
-# Sublime PML: Alpha 0.3.2 (2021/04/18)                              | PML 1.4.0
+# Sublime PML: Alpha 0.3.3 (2021/04/26)                              | PML 1.4.0
 ################################################################################
 #                                                                              #
 #                       PML (Practical Markup Language)                        #
@@ -228,14 +228,20 @@ contexts:
   chapter_title_unquoted:
     - match: '(?! )'
       set:
+        - meta_content_scope: entity.name.section.unquoted.pml markup.heading.pml meta.toc-list.heading.pml
         - match: '(?=[ ]+)$'
           pop: true
         - match: '(?=[ ]*\])'
           pop: true
         - include: pop-at-line_continuation
         - include: pop-at-EOL
+        - match: '(<<)({{identifier}})(>>)'
+          captures:
+            0: meta.function-call.pml
+            1: punctuation.definition.generic.begin.pml
+            2: support.function.call.pml
+            3: punctuation.definition.generic.end.pml
         - match: '.'
-          scope: entity.name.section.unquoted.pml markup.heading.pml meta.toc-list.heading.pml
 
   chapter_title_quoted:
     - match: '"'

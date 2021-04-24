@@ -51,4 +51,28 @@
 !           ^^            punctuation.definition.generic.begin
 !                   ^^    punctuation.definition.generic.end
 
+[-  ==================================
+    TEST CONSTANTS IN VARIOUS CONTEXTS
+    ==================================-]
+
+[-  CHAPTER TITLES  -]
+
+[ch title = "PML v<<PMLVer>>" ]
+!   ^^^^^^^^^^^^^^^^^^^^^^^^^   meta.annotation.node-attributes.chapter
+!           ^^^^^^^^^^^^^^^^^   entity.name.section.quoted
+!           ^^^^^^^^^^^^^^^^^   markup.heading meta.toc-list.heading
+!                 ^^^^^^^^^^    meta.function-call
+!                   ^^^^^^      support.function.call
+!                 ^^            punctuation.definition.generic.begin
+!                         ^^    punctuation.definition.generic.end
+
+[ch title = PPL v<<PPLVer>> ]
+!   ^^^^^^^^^^^^^^^^^^^^^^^   meta.annotation.node-attributes.chapter
+!           ^^^^^^^^^^^^^^^   entity.name.section.unquoted
+!           ^^^^^^^^^^^^^^^   markup.heading meta.toc-list.heading
+!                ^^^^^^^^^^   meta.function-call
+!                  ^^^^^^     support.function.call
+!                ^^           punctuation.definition.generic.begin
+!                        ^^   punctuation.definition.generic.end
+
 ]
