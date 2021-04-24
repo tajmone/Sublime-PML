@@ -28,7 +28,8 @@ The contents of this folder deal with PML symbols, their transformation and inde
     4. Add leading `= `.
 - [`Symbol Chapter Title Unquoted.tmPreferences`][Ch Title Unquoted] — Manipulates unquoted chapter titles (headings) for better symbol indexing:
     1. Add leading `= `.
-- [`Symbol Constant Parameter.tmPreferences`][Constant Parameter] — Enables local indexing of parameters definitions (`entity.name.function`) and their occurrences (`support.function.call`).
+- [`Symbol Parameter Definition.tmPreferences`][Param Def] — Enables local indexing of `[const` parameters definitions (`entity.name.function`) supporting __Goto Definition__ functionality.
+- [`Symbol Parameter Occurrence.tmPreferences`][Param] — Enables local indexing of parameters occurrences (`support.function.call`).
 
 
 # Symbols Indexing Notes
@@ -56,8 +57,9 @@ The contents of this folder deal with PML symbols, their transformation and inde
 
 [Ch Title Quoted]: ./Symbol%20Chapter%20Title%20Quoted.tmPreferences "View source file"
 [Ch Title Unquoted]: ./Symbol%20Chapter%20Title%20Unquoted.tmPreferences "View source file"
-[Constant Parameter]: ./Symbol%20Constant%20Parameter.tmPreferences "View source file"
 [ID]: ./Symbol%20Attribute%20ID.tmPreferences "View source file"
+[Param Def]: ./Symbol%20Parameter%20Definition.tmPreferences "View source file"
+[Param]: ./Symbol%20Parameter%20Occurrence.tmPreferences "View source file"
 
 <!-- ST3 Official Docs -->
 

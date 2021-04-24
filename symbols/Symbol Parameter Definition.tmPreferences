@@ -3,19 +3,18 @@
 <plist version="1.0">
 <dict>
   <key>scope</key>
-  <string>text.pml entity.name.section.unquoted</string>
+  <string>text.pml entity.name.function.pml</string>
   <key>settings</key>
   <dict>
     <key>showInSymbolList</key>
     <string>1</string>
     <key>symbolTransformation</key>
-    <!--=============================================
-    Manipulate unquoted chapter titles (headings) for
-    better symbol indexing:
-      1. Add leading `= `.
-    ==============================================-->
+    <!--===================================================
+    Manipulate parameter symbol for better symbol indexing:
+      1. Add leading `[const `.
+    ====================================================-->
     <string>
-      s/^(.+)$/= $1/g
+      s/^(.+)$/[const $1/g
     </string>
   </dict>
 </dict>

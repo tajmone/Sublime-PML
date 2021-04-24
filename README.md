@@ -170,7 +170,9 @@ The package provides the following snippets:
 
 The following syntax elements are being indexed (local symbol list):
 
-- _[Parameters]_, both their definitions (`[const`) and their inline occurrences (`<<param_name>>`).
+- _[Parameters]_, both their definitions and inline occurrences are indexed after cosmetic transformations:
+    + Parameters definitions are prefixed with `[const `.
+    + Parameters occurrences are enclosed within angle brackets: `<<param_name>>`.
 - _[Chapter]_ titles (i.e. document headings) are indexed after some cosmetic transformations:
     + Quoted-string titles are stripped of:
         * Surrounding quotes.
