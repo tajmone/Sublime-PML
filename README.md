@@ -135,6 +135,15 @@ Their behavior differs when nothing is selected:
 Sublime PML offers smart auto-completion suggestions, based on the scope context under the cursor, thus avoiding completions pollution (i.e. cluttering the suggestions with unrelated elements).
 
 <!-- MarkdownTOC:excluded -->
+### Nodes
+
+For commonly used nodes, context-specific suggestions are available.
+
+|  node  | trigger | description |
+|--------|---------|-------------|
+| `[nl]` | `nl`    | New Line    |
+
+<!-- MarkdownTOC:excluded -->
 ### Tag Attributes
 
 For nodes that support attributes, context-specific suggestions are available within the editing space where tag attributes are allowed.

@@ -1,6 +1,6 @@
 %YAML 1.2
 ---
-# Sublime PML: Alpha 0.3.4 (2021/04/26)                              | PML 1.4.0
+# Sublime PML: Alpha 0.3.5 (2021/04/26)                              | PML 1.4.0
 ################################################################################
 #                                                                              #
 #                       PML (Practical Markup Language)                        #
@@ -47,6 +47,12 @@ contexts:
   pop-at-TagEnd:
     - match: '(?=])'
       pop: true
+
+  comsume-whitespace:
+    - match: '[ \t]+'
+
+  comsume-EOL:
+    - match: '[\n$]'
 
 
 # ==============================================================================
@@ -271,9 +277,9 @@ contexts:
   inline_nodes:
     - include: bold     # Bold Text
     - include: italic   # Italic Text
+    - include: newline  # New Line
     # inline_code       # Inline Source Code
     # link              # URL Link
-    # new_line          # New Line
     # space             # Space Character
     # span              # Span
     # text              # Text
@@ -307,6 +313,23 @@ contexts:
     - match: ']'
       scope: punctuation.definition.italic.end.pml
       pop: true
+
+## New Line
+###########
+
+  newline:
+    - match: '\[nl\b'
+      scope: punctuation.definition.newline.begin.pml
+      push: newline_inside
+  newline_inside:
+    - meta_scope: entity.name.tag.newline.pml
+    - include: comsume-whitespace
+    - include: comsume-EOL
+    - match: ']'
+      scope: punctuation.definition.newline.end.pml
+      pop: true
+    - match: '.'
+      scope: invalid.illegal.pml
 
 # ==============================================================================
 #                             Text Processing Nodes
