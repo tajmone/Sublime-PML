@@ -31,7 +31,7 @@
 !                            ^  punctuation.definition.string.end
 !                   ^^          constant.character.escape
     ]
-!   ^                                punctuation.definition.section.block.chapter.end
+!   ^                           punctuation.definition.section.block.chapter.end
 
     [ch title = Chapter Title \
 !                             ^  punctuation.separator.continuation
@@ -55,5 +55,13 @@
 
     ]
 !   ^ punctuation.definition.section.block.chapter.end
+
+
+[- TEST TRAILING SPACES -]
+
+    [ch title = unquoted title  ]
+!                             ^    -entity.name.section.unquoted
+!                             ^    -markup.heading meta.toc-list.heading
+
 ]
 !<- keyword.declaration.document.end

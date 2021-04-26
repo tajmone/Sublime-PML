@@ -67,12 +67,14 @@
 !                         ^^    punctuation.definition.generic.end
 
 [ch title = PPL v<<PPLVer>> ]
-!   ^^^^^^^^^^^^^^^^^^^^^^^   meta.annotation.node-attributes.chapter
-!           ^^^^^^^^^^^^^^^   entity.name.section.unquoted
-!           ^^^^^^^^^^^^^^^   markup.heading meta.toc-list.heading
-!                ^^^^^^^^^^   meta.function-call
-!                  ^^^^^^     support.function.call
-!                ^^           punctuation.definition.generic.begin
-!                        ^^   punctuation.definition.generic.end
+!   ^^^^^^^^^^^^^^^^^^^^^^^     meta.annotation.node-attributes.chapter
+!           ^^^^^^^^^^^^^^^     entity.name.section.unquoted
+!           ^^^^^^^^^^^^^^^     markup.heading meta.toc-list.heading
+!                ^^^^^^^^^^     meta.function-call
+!                  ^^^^^^       support.function.call
+!                ^^             punctuation.definition.generic.begin
+!                        ^^     punctuation.definition.generic.end
+!                          ^   -entity.name.section.unquoted
+!                          ^   -markup.heading meta.toc-list.heading
 
 ]
