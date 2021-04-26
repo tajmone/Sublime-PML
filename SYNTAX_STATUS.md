@@ -33,7 +33,7 @@ Task-list of the PML syntax elements that will ultimately be supported.
             - [ ] Attributes:
                 + [ ] `title`
                     * [x] smart auto-completion.
-                + [ ] `author`
+                + [ ] `authors`
                     * [x] smart auto-completion.
                 + [x] `date`
                     * [x] smart auto-completion.

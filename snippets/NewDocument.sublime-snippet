@@ -4,7 +4,7 @@
 	<scope>text.pml - comment</scope>
 	<content><![CDATA[
 [doc title = ${1:Document Title} \
-	author = ${2:Your Name} \
+	authors = ${2:Your Name} \
 	date = ${3:YYYY}-${4:MM}-${5:DD}
 
 	${0}

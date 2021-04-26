@@ -143,7 +143,7 @@ For nodes that support attributes, context-specific suggestions are available wi
 |----------|---------------|----------------------------------|
 | `[ch`    | `id`          | Chapter Identifier               |
 | `[ch`    | `title`       | Chapter title                    |
-| `[doc`   | `author`      | Document Author(s)               |
+| `[doc`   | `authors`     | Document Author(s)               |
 | `[doc`   | `date`        | Publication Date                 |
 | `[doc`   | `highlighter` | Syntax Highlighter               |
 | `[doc`   | `hljs`        | Syntax Highlighter: highlight.js |
