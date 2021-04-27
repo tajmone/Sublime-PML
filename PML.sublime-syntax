@@ -1,6 +1,6 @@
 %YAML 1.2
 ---
-# Sublime PML: Alpha 0.3.5 (2021/04/26)                              | PML 1.4.0
+# Sublime PML: Alpha 0.3.6 (2021/04/27)                              | PML 1.4.0
 ################################################################################
 #                                                                              #
 #                       PML (Practical Markup Language)                        #
@@ -323,6 +323,8 @@ contexts:
       push: newline_inside
   newline_inside:
     - meta_scope: entity.name.tag.newline.pml
+    - meta_include_prototype: false
+    - include: comment
     - include: comsume-whitespace
     - include: comsume-EOL
     - match: ']'
