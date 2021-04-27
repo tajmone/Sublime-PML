@@ -102,13 +102,13 @@ Task-list of the PML syntax elements that will ultimately be supported.
     + [ ] Verbatim Text
     + [ ] Cross-Reference
     + [ ] Span
-    + [x] New Line — `[nl`:
+    + [ ] New Line — `[nl`:
         * [x] Tag scoping.
         * [x] smart auto-completion (`nl`), globally available.
         * [ ] Keyboard shortcut?
     + [ ] Space Character — `[sp`:
-        * [ ] Tag scoping.
-        * [ ] smart auto-completion (`nbsp`), globally available.
+        * [x] Tag scoping.
+        * [x] smart auto-completion (`nbsp`), globally available.
         * [ ] Keyboard shortcut?
 - [ ] **[Text Processing Nodes]**:
     + [x] Comments — `[-` … `-]`:

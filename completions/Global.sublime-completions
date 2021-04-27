@@ -2,6 +2,7 @@
   "scope": "text.pml",
   "completions":
   [
+    { "trigger": "nbsp\tNon-breaking space", "contents": "[sp]" },
     { "trigger": "nl\tNew Line", "contents": "[nl]" },
   ]
 }

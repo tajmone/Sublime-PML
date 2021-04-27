@@ -139,9 +139,10 @@ Sublime PML offers smart auto-completion suggestions, based on the scope context
 
 For commonly used nodes, context-specific suggestions are available.
 
-|  node  | trigger | description |
-|--------|---------|-------------|
-| `[nl]` | `nl`    | New Line    |
+| trigger | output |    description     |
+|---------|--------|--------------------|
+| `nbsp`  | `[sp]` | Non-Breaking Space |
+| `nl`    | `[nl]` | New Line           |
 
 <!-- MarkdownTOC:excluded -->
 ### Tag Attributes
