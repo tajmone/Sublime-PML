@@ -1,0 +1,10 @@
+[
+  // CTRL+SHIFT+ENTER -> insert `[nl]`  (PML files only)
+  // ================
+  { "keys": ["ctrl+shift+enter"], "command": "insert", "args": {"characters": "[nl]"}, "context":
+    [
+      // But not if a cursor is inside an `[html` node:
+      { "key": "selector", "operator": "equal", "operand": "text.pml -text.html", "match_all": true },
+    ]
+  },
+]

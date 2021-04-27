@@ -116,6 +116,12 @@ The package provides some built-in basic build systems:
 
 Some of the keystrokes combinations indicated below rely on Sublime Text's default settings, and might vary depending on your custom settings, whereas others are explicitly defined by this package.
 
+
+|                    key strokes                    |            result            |                  context                  |
+|---------------------------------------------------|------------------------------|-------------------------------------------|
+| <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>Enter</kbd> | Inserts new line node `[nl]` | Anywhere in PML file, except `[html` node |
+
+
 <!-- MarkdownTOC:excluded -->
 ### Comments
 
@@ -125,7 +131,7 @@ The two comment shortcuts <kbd>Ctrl</kbd> <kbd>/</kbd> and <kbd>Ctrl</kbd> <kbd>
 
 Their behavior differs when nothing is selected:
 
-|                  key stroked                  |            effect without selection           |
+|                  key strokes                  |            effect without selection           |
 |-----------------------------------------------|-----------------------------------------------|
 | <kbd>Ctrl</kbd> <kbd>/</kbd>                  | Comments out the whole line                   |
 | <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>/</kbd> | Inserts comments delimiters under cursor only |
