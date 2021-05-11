@@ -1,6 +1,6 @@
 %YAML 1.2
 ---
-# Sublime PML: Alpha 0.3.8 (2021/05/11)                              | PML 1.4.0
+# Sublime PML: Alpha 0.3.9 (2021/05/11)                              | PML 1.4.0
 ################################################################################
 #                                                                              #
 #                       PML (Practical Markup Language)                        #
@@ -277,11 +277,11 @@ contexts:
   inline_nodes:
     - include: bold     # Bold Text
     - include: italic   # Italic Text
-    - include: code      # Inline Source Code
+    - include: code     # Inline Source Code
     - include: newline  # New Line (<br>)
     - include: space    # Non-Breaking Space (&nbsp;)
+    - include: span     # Span
     # link              # URL Link
-    # span              # Span
     # text              # Text
     # verbatim          # Verbatim Text
     # xref              # Cross-Reference
@@ -330,6 +330,21 @@ contexts:
       pop: true
     - match: '.'
       scope: markup.raw.inline.content.pml
+
+
+## Span
+#######
+
+  span:
+    - match: '\[span\b'
+      scope: punctuation.definition.span.begin.pml
+      push: span_inside
+  span_inside:
+    - meta_scope: markup.span.pml
+    - include: inline_nodes
+    - match: ']'
+      scope: punctuation.definition.span.end.pml
+      pop: true
 
 ## New Line and Space
 #####################
