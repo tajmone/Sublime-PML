@@ -90,14 +90,16 @@ Task-list of the PML syntax elements that will ultimately be supported.
         * [ ] Input
         * [ ] Output
 - [ ] **[Inline Nodes]**:
-    + [ ] Font
+    + [x] Font
         * [x] Bold Text — `[b`:
             - [x] Tag scoping.
             - [ ] Keyboard shortcut <kbd>Alt</kbd> <kbd>b</kbd>.
         * [x] Italic Text — `[i`:
             - [x] Tag scoping.
             - [ ] Keyboard shortcut <kbd>Alt</kbd> <kbd>i</kbd>.
-        * [ ] Inline Source Code
+        * [x] Inline Source Code — `[c`:
+            - [x] Tag scoping.
+            - [ ] Keyboard shortcut (???).
     + [ ] URL Link
     + [ ] Verbatim Text
     + [ ] Cross-Reference
