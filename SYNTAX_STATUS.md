@@ -85,7 +85,9 @@ Task-list of the PML syntax elements that will ultimately be supported.
         * [ ] Video
         * [ ] Embedded Youtube Video
     + [ ] _Software Development_:
-        * [ ] Source Code
+        * [ ] Source Code — `[code` .. `code]`:
+            - [x] Tag scoping — **_not working entirely as expected!!!_** (See [#19]).
+            - [ ] Snippet (???).
         * [ ] Insert Source Code
         * [ ] Input
         * [ ] Output
@@ -145,5 +147,9 @@ Task-list of the PML syntax elements that will ultimately be supported.
 [Block Nodes]: https://www.pml-lang.dev/docs/reference_manual/index.html#ch__2 "PML Reference Manual » Block Nodes"
 [Inline Nodes]:  https://www.pml-lang.dev/docs/reference_manual/index.html#ch__9 "PML Reference Manual » Inline Nodes"
 [Text Processing Nodes]:  https://www.pml-lang.dev/docs/reference_manual/index.html#ch__11 "PML Reference Manual » Text Processing Nodes"
+
+<!-- Issues -->
+
+[#19]: https://github.com/tajmone/Sublime-PML/issues/19 "View Issue on Sublime PML repository"
 
 <!-- EOF -->

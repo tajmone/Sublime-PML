@@ -1,6 +1,6 @@
 %YAML 1.2
 ---
-# Sublime PML: Alpha 0.3.10 (2021/05/15)                             | PML 1.4.0
+# Sublime PML: Alpha 0.3.11 (2021/05/15)                             | PML 1.4.0
 ################################################################################
 #                                                                              #
 #                       PML (Practical Markup Language)                        #
@@ -143,14 +143,14 @@ contexts:
 #       improve performance, since each match resets the context loop.
 
   block_nodes:
-    - include: doc      # Document
-    - include: chapter  # Chapter
-    - include: html     # HTML Code
-    - include: quote    # Quote
+    - include: doc         # Document
+    - include: chapter     # Chapter
+    - include: html        # HTML Code
+    - include: quote       # Quote
+    - include: sourcecode  # Source Code Block
     # admonition        # Admonition
     # audio             # Audio (Sound)
     # caption           # Caption
-    # code              # Source Code
     # constant          # Constant Parameter
     # division          # Division
     # image             # Image
@@ -174,6 +174,30 @@ contexts:
 
 # TODO: Order nodes contexts alphabetically, to simplify source navigation.
 
+
+## Source Code Block
+####################
+
+  # FIXME: When the node has no attributes, contents following the tag are not
+  #        scoped as `source.block.listing.content`.
+
+  sourcecode:
+    - match: '\[code\b'
+      scope: punctuation.definition.listing.begin.pml
+      push: [sourcecode_block, sourcecode_attributes]
+  sourcecode_block:
+    - meta_scope: meta.embedded.block.listing.pml
+    - match: ''
+      set:
+      - meta_content_scope: source.block.listing.content.pml
+                            meta.embedded.block.listing.pml
+      - match: '\bcode]'
+        scope:  punctuation.definition.listing.end.pml
+                meta.embedded.block.listing.pml
+        pop: true
+  sourcecode_attributes:
+    - meta_scope: meta.annotation.node-attributes.listing.pml
+    - include: attributes
 
 ## Quote
 ########
