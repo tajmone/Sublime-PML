@@ -1,10 +1,10 @@
 #!/bin/bash
 
-# "git-hook-install.sh        by Tristano Ajmone (CC0)       v1.1.0 | 2021/04/24
+# "git-hook-install.sh       by Tristano Ajmone (CC0)        v2.0.0 | 2021-05-17
 #===============================================================================
-# Install a client-side pre-commit Git hook that runs the "validate.sh" script
-# before each commit, to ensure that all local changes meet the EditorConfig
-# code styles consistency conventions of the project.
+# Install a client-side pre-commit Git hook and "pre-commit-validate.sh" script
+# which are executed before each commit to ensure that all staged changes meet
+# the EditorConfig code styles consistency conventions of the project.
 #   https://editorconfig.org
 # To run "validate.sh" you'll need to install the EClint validator tool:
 #   https://www.npmjs.com/package/eclint
@@ -63,7 +63,7 @@ fi
 cat >> $hookScript << EOF
 #!/bin/bash
 
-# "pre-commit-validate.sh      by Tristano Ajmone (CC0)      v1.1.0 | 2021/04/24
+# "pre-commit-validate.sh      by Tristano Ajmone (CC0)      v2.0.0 | 2021/05/17
 #===============================================================================
 # This pre-commit Git hook will validate all staged files for EditorConfig code
 # styles consistency using ECLint (Node.js):
@@ -91,7 +91,7 @@ fi
 IFS_COPY=\$IFS
 IFS=\$(echo -en "\n\b")
 
-stagedFiles=\$(git diff --name-only --cached)
+stagedFiles=\$(git diff --name-only --cached --diff-filter=d)
 for f in \$stagedFiles; do
 	eclint check "\$f" > /dev/null 2>&1 || BadFileWarn "\$f"
 done
