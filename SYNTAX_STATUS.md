@@ -95,10 +95,10 @@ Task-list of the PML syntax elements that will ultimately be supported.
     + [x] Font
         * [x] Bold Text — `[b`:
             - [x] Tag scoping.
-            - [ ] Keyboard shortcut <kbd>Alt</kbd> <kbd>b</kbd>.
+            - [x] Keyboard shortcut <kbd>Alt</kbd> <kbd>b</kbd>.
         * [x] Italic Text — `[i`:
             - [x] Tag scoping.
-            - [ ] Keyboard shortcut <kbd>Alt</kbd> <kbd>i</kbd>.
+            - [x] Keyboard shortcut <kbd>Alt</kbd> <kbd>i</kbd>.
         * [x] Inline Source Code — `[c`:
             - [x] Tag scoping.
             - [ ] Keyboard shortcut (???).

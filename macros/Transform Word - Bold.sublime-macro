@@ -1,0 +1,9 @@
+/*-----------------------------------------------------------------------
+  File adapted from the MarkdownEditing package, (c) 2012 Brett Terpstra:
+  https://github.com/SublimeText-Markdown/MarkdownEditing
+  -----------------------------------------------------------------------
+*/
+[
+  {"command": "find_under_expand"},
+  {"command": "insert_snippet", "args": {"contents": "[b ${SELECTION} ]"}}
+]
