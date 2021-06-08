@@ -99,6 +99,15 @@ Task-list of the PML syntax elements that will ultimately be supported.
         * [x] Italic Text — `[i`:
             - [x] Tag scoping.
             - [x] Keyboard shortcut <kbd>Alt</kbd> <kbd>i</kbd>.
+        * [ ] Subscript — `[sub`:
+            - [ ] Tag scoping.
+            - [ ] Keyboard shortcut?
+        * [ ] Superscript — `[sup`:
+            - [ ] Tag scoping.
+            - [ ] Keyboard shortcut?
+        * [ ] Strikethrough — `[strike`:
+            - [ ] Tag scoping.
+            - [ ] Keyboard shortcut?
         * [x] Inline Source Code — `[c`:
             - [x] Tag scoping.
             - [ ] Keyboard shortcut (???).
