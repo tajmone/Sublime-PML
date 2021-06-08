@@ -33,7 +33,7 @@
 !   ^^^^^^^^^^^^^^^^^^^   meta.annotation.node-attributes.listing
 !         ^^              entity.other.attribute-name.id.pml
 !            ^            keyword.operator.assignment.pml
-!              ^^^^^^^^   entity.other.attribute-name.id.pml
+!              ^^^^^^^^   string.unquoted.id.pml
 !              ^^^^^^^^   meta.toc-list.id.pml
     code]
 

@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
   <key>scope</key>
-  <string>text.pml entity.other.attribute-name.id</string>
+  <string>text.pml string.unquoted.id</string>
   <key>settings</key>
   <dict>
     <key>symbolTransformation</key>

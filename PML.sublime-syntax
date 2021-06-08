@@ -1,6 +1,6 @@
 %YAML 1.2
 ---
-# Sublime PML: Alpha 0.4.0 (2021/06/08)                              | PML 1.5.0
+# Sublime PML: Alpha 0.5.0 (2021/06/08)                              | PML 1.5.0
 ################################################################################
 #                                                                              #
 #                       PML (Practical Markup Language)                        #
@@ -621,9 +621,9 @@ contexts:
 
   id_type:
     - match: '\b({{identifier}})\b(?![\.\-])'
-      scope: entity.other.attribute-name.id.pml meta.toc-list.id.pml
+      scope: string.unquoted.id.pml meta.toc-list.id.pml
     - match: '\b([^ \t\n]+)\b'
-      scope: invalid.illegal.attribute-name.id.pml
+      scope: invalid.illegal.id.pml
       # See pml-lang/user-manual/discussions/3
 
 

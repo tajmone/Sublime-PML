@@ -19,7 +19,7 @@ The contents of this folder deal with PML symbols, their transformation and inde
 
 # Files Description
 
-- [`Symbol Attribute ID.tmPreferences`][ID] — Manipulates `id` attributes (`entity.other.attribute-name.id`) for better symbol indexing:
+- [`Symbol Attribute ID.tmPreferences`][ID] — Manipulates `id` attributes (`string.unquoted.id`) for better symbol indexing:
     1. Add leading `#` (like HTML anchors).
 - [`Symbol Chapter Title Quoted.tmPreferences`][Ch Title Quoted] — Manipulates quoted chapter titles (headings) for better symbol indexing:
     1. Remove leading double-quote.

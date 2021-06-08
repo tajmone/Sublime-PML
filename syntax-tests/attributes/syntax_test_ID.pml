@@ -5,13 +5,13 @@
 !       ^^^^^^^^^^^^^^^     meta.annotation.node-attributes.chapter
 !       ^^                  entity.other.attribute-name.id
 !          ^                keyword.operator.assignment
-!            ^^^^^^^^^^     entity.other.attribute-name.id meta.toc-list.id.pml
+!            ^^^^^^^^^^     string.unquoted.id meta.toc-list.id.pml
 
     [ch id = custom_id
 !       ^^^^^^^^^^^^^^   meta.annotation.node-attributes.chapter
 !       ^^               entity.other.attribute-name.id
 !          ^             keyword.operator.assignment
-!            ^^^^^^^^^   entity.other.attribute-name.id meta.toc-list.id.pml
+!            ^^^^^^^^^   string.unquoted.id meta.toc-list.id.pml
     ]
 !   ^ punctuation.definition.section.block.chapter.end
 
@@ -23,7 +23,7 @@
 !       ^^^^^    meta.annotation.node-attributes.chapter
 !       ^^       entity.other.attribute-name.id
 !          ^     keyword.operator.assignment
-!           ^   -entity.other.attribute-name.id
+!           ^   -string.unquoted.id
 
 [-----------------------
     MALFORMED ATTRIBUTES
@@ -33,7 +33,7 @@
 !       ^^^^^^^^^^^^^^^^^     meta.annotation.node-attributes.chapter
 !       ^^                    entity.other.attribute-name.id
 !          ^                  keyword.operator.assignment
-!            ^^^^^^^^^^^^     invalid.illegal.attribute-name.id
+!            ^^^^^^^^^^^^     invalid.illegal.id.pml
 
 
 ]
