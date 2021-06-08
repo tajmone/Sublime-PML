@@ -1,6 +1,6 @@
 %YAML 1.2
 ---
-# Sublime PML: Alpha 0.3.12 (2021/06/08)                             | PML 1.5.0
+# Sublime PML: Alpha 0.3.13 (2021/06/08)                             | PML 1.5.0
 ################################################################################
 #                                                                              #
 #                       PML (Practical Markup Language)                        #
@@ -311,19 +311,19 @@ contexts:
 # ==============================================================================
 
   inline_nodes:
-    - include: bold     # Bold Text
-    - include: italic   # Italic Text
-    - include: code     # Inline Source Code
-    - include: newline  # New Line (<br>)
-    - include: space    # Non-Breaking Space (&nbsp;)
-    - include: span     # Span
-    # sub               # Subscript
-    # sup               # Superscript
-    # strike            # Strikethrough
-    # link              # URL Link
-    # text              # Text
-    # verbatim          # Verbatim Text
-    # xref              # Cross-Reference
+    - include: bold         # Bold Text
+    - include: italic       # Italic Text
+    - include: code         # Inline Source Code
+    - include: newline      # New Line (<br>)
+    - include: space        # Non-Breaking Space (&nbsp;)
+    - include: span         # Span
+    - include: subscript    # Subscript
+    - include: superscript  # Superscript
+    - include: strike       # Strikethrough
+    # link                  # URL Link
+    # text                  # Text
+    # verbatim              # Verbatim Text
+    # xref                  # Cross-Reference
 
 ## Font: Bold Text
 ##################
@@ -351,6 +351,48 @@ contexts:
     - include: inline_nodes
     - match: ']'
       scope: punctuation.definition.italic.end.pml
+      pop: true
+
+## Font: Subscript Text
+#######################
+
+  subscript:
+    - match: '\[sub\b'
+      scope: punctuation.definition.subscript.begin.pml
+      push: subscript_inside
+  subscript_inside:
+    - meta_scope: markup.subscript.pml
+    - include: inline_nodes
+    - match: ']'
+      scope: punctuation.definition.subscript.end.pml
+      pop: true
+
+## Font: Superscript Text
+#########################
+
+  superscript:
+    - match: '\[sup\b'
+      scope: punctuation.definition.superscript.begin.pml
+      push: superscript_inside
+  superscript_inside:
+    - meta_scope: markup.superscript.pml
+    - include: inline_nodes
+    - match: ']'
+      scope: punctuation.definition.superscript.end.pml
+      pop: true
+
+## Font: Strikethrough Text
+###########################
+
+  strike:
+    - match: '\[strike\b'
+      scope: punctuation.definition.strikethrough.begin.pml
+      push: strike_inside
+  strike_inside:
+    - meta_scope: markup.strikethrough.pml
+    - include: inline_nodes
+    - match: ']'
+      scope: punctuation.definition.strikethrough.end.pml
       pop: true
 
 ## Font: Inline Source Code

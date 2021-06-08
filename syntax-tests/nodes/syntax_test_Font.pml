@@ -47,4 +47,32 @@
 !^^^       -markup.raw.inline.content
 
 
+[-  =========
+    SUBSCRIPT
+    ========= -]
+
+    Text [sub in subscript] style.
+!        ^^^^                       punctuation.definition.subscript.begin
+!                         ^         punctuation.definition.subscript.end
+!        ^^^^^^^^^^^^^^^^^^         markup.subscript
+
+[-  ===========
+    SUPERSCRIPT
+    =========== -]
+
+    Text [sup in superscript] style.
+!        ^^^^                         punctuation.definition.superscript.begin
+!                           ^         punctuation.definition.superscript.end
+!        ^^^^^^^^^^^^^^^^^^^^         markup.superscript
+
+
+[-  =============
+    STRIKETHROUGH
+    ============= -]
+
+    Text [strike in strikethrough] style.
+!        ^^^^^^^                           punctuation.definition.strikethrough.begin
+!                                ^         punctuation.definition.strikethrough.end
+!        ^^^^^^^^^^^^^^^^^^^^^^^^^         markup.strikethrough
+
 ]
