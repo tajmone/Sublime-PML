@@ -1,6 +1,6 @@
 %YAML 1.2
 ---
-# Sublime PML: Alpha 0.3.13 (2021/06/08)                             | PML 1.5.0
+# Sublime PML: Alpha 0.4.0 (2021/06/08)                              | PML 1.5.0
 ################################################################################
 #                                                                              #
 #                       PML (Practical Markup Language)                        #
@@ -8,7 +8,7 @@
 #                              www.pml-lang.dev                                #
 #                                                                              #
 ################################################################################
-# PML syntax definition by Tristano Ajmone, MIT License:
+# PML syntax definition for Sublime Text 4, by Tristano Ajmone, MIT License:
 #   https://github.com/tajmone/Sublime-PML
 #
 # The Practical Markup Language was created by Christian Neumanns:
@@ -18,6 +18,7 @@ name: PML (Practical Markup Language)
 file_extensions:
   - pml
 scope: text.pml
+version: 2
 
 variables:
   identifier: '[a-zA-Z][a-zA-Z0-9_]*' # PML 1.4.0 (Will change in the future!)
@@ -34,7 +35,7 @@ contexts:
 # ------------------------------------------------------------------------------
 
   ## Helpers
-  ############
+  ##########
 
   bail-out:
     - match: (?=\S)

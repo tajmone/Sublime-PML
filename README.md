@@ -2,12 +2,13 @@
 
 ![Package Status][Package badge]&nbsp;
 [![PML Version][PML badge]][Get PML]&nbsp;
+[![ST Version][ST badge]][ST Link]&nbsp;
 [![MIT License][License badge]][MIT License]&nbsp;
 [![Build Status][Travis badge]][Travis link]
 
 ![Sublime PML banner][banner img]
 
-[Sublime Text 3] syntax support for [PML]  (Practical Markup Language).
+[Sublime Text 4] syntax support for [PML]  (Practical Markup Language).
 
 - https://github.com/tajmone/Sublime-PML
 
@@ -60,11 +61,14 @@ Right now, this repository is not a full-fledged package that can be installed v
 
 You should therefore install it manually, via Git:
 
-1. From your terminal, navigate to your Packages subdirectory under the ST3's data directory:
-    * OS X: `~/Library/Application\ Support/Sublime\ Text\ 3/Packages/`
-    * Linux: `~/.config/sublime-text-3/Packages/`
-    * Windows: `%APPDATA%\Sublime Text 3\Packages\`
+1. From your terminal, navigate to your Packages subdirectory under the ST4's data directory:
+    * OS X: `~/Library/Application\ Support/Sublime\ Text\ 4/Packages/`
+    * Linux: `~/.config/sublime-text-4/Packages/`
+    * Windows: `%APPDATA%\Sublime Text 4\Packages\`
     * Windows (Scoop): `%USERPROFILE%/scoop/persist/sublime-text/Data/Packages/`
+
+    > **NOTE** — If you've upgraded from ST3 to ST4, then the installation folder will be that of ST3 (i.e. the above paths will contain a `3` instead of a `4`).
+
 2. From that directory, invoke Git to clone this repository into the `PML` subdirectory:
 
         git clone https://github.com/tajmone/Sublime-PML PML
@@ -83,8 +87,8 @@ For more info on how this works, see:
 
 In order to use this package, you'll need the following tools:
 
-- __[Sublime Text 3]__ — older versions of Sublime Text are not supported; I don't know yet if the upcoming new Sublime Text version will support old ST3 packages via backward compatibility.
-- __[Git]__ — required to install this package and keep it updated.
+- __[Sublime Text 4]__ — older versions of Sublime Text will not be supported, this package will make use of the new features added in ST4.
+- __[Git]__ — required to install this package and keep it updated (i.e. until it's submitted to [Package Control]).
 - __[PML binaries]__ — required if you want to benefit from the package's build systems, and other features which depend on `pmlc` being available on the System PATH.
 In any case, why would anyone want to install the PML package if he/she doesn't have the PML tools in the first place?
 
@@ -267,7 +271,7 @@ Articles by [Christian Neumanns]:
 
 [MIT License]: ./LICENSE "View MIT License file"
 
-[Sublime Text 3]: https://www.sublimetext.com "Visit Sublime Text website"
+[Sublime Text 4]: https://www.sublimetext.com "Visit Sublime Text website"
 
 [Package Control]: https://packagecontrol.io
 [Package Control Documentation » Customizing Packages » Git/Hg Clone]: https://packagecontrol.io/docs/customizing_packages#Git-Hg_Clone "Read Package Control documentation on 'Customizing Packages' via Git"
@@ -323,7 +327,9 @@ Articles by [Christian Neumanns]:
 [License badge]: https://img.shields.io/badge/License-MIT-blue
 [Package badge]: https://img.shields.io/badge/status-WIP-orange "Sublime PML is currently in Alpha stage"
 [PML badge]: https://img.shields.io/badge/PML-1.5.0-yellow "Supported PML version (click for PML download page)"
-[Travis badge]: https://travis-ci.com/tajmone/Sublime-PML.svg?branch=main
+[ST badge]: https://img.shields.io/badge/Sublime%20Text-4107-yellow?logo=sublime-text&logoColor=FF9800 "Supported Sublime Text version (click to visit download page)"
+[ST link]: https://www.sublimetext.com/download "Supported Sublime Text version (click to visit download page)"
+[Travis badge]: https://img.shields.io/travis/com/tajmone/Sublime-PML/main?logo=travis
 [Travis link]: https://travis-ci.com/tajmone/Sublime-PML "Travis CI: EditorConfig validation status"
 
 <!-- repo links -->
