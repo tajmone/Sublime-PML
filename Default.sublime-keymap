@@ -1,11 +1,16 @@
+/*------------------------------------------------------------------------------
+Auto-completions should only be suggested within a PML-parsed scope -- i.e. not
+inside unprocessed blocks like `[html`, `[input`, `[output` or `[table_data`.
+(see #24).
+------------------------------------------------------------------------------*/
 [
   // ================
   // CTRL+SHIFT+ENTER -> insert `[nl]`  (PML scopes only)
   // ================
   { "keys": ["ctrl+shift+enter"], "command": "insert", "args": {"characters": "[nl]"}, "context":
     [
-      // But not if a cursor is inside an `[html` node:
-      { "key": "selector", "operator": "equal", "operand": "text.pml -text.html", "match_all": true },
+      // But not if a cursor is inside an unprocessed node:
+      { "key": "selector", "operator": "equal", "operand": "text.pml -(text.html | meta.embedded)", "match_all": true },
     ]
   },
 /*==============================================================================
@@ -22,7 +27,7 @@
   { "keys": ["alt+b"], "command": "run_macro_file", "args": {"file": "Packages/PML/macros/Transform Word - Bold.sublime-macro"}, "context":
     [
       { "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
-      { "key": "selector", "operator": "equal", "operand": "text.pml -text.html", "match_all": true }
+      { "key": "selector", "operator": "equal", "operand": "text.pml -(text.html | meta.embedded)", "match_all": true }
     ]
   },
   // Selection-less cursor(s) not positioned on word(s).
@@ -33,7 +38,7 @@
       { "key": "following_text", "operator": "regex_contains", "operand": "^(?:\t| |\\)|]|\\}|$)", "match_all": true },
       { "key": "preceding_text", "operator": "not_regex_contains", "operand": "['a-zA-Z0-9_]$", "match_all": true },
       { "key": "eol_selector", "operator": "not_equal", "operand": "string.quoted.single", "match_all": true },
-      { "key": "selector", "operator": "equal", "operand": "text.pml -text.html", "match_all": true }
+      { "key": "selector", "operator": "equal", "operand": "text.pml -(text.html | meta.embedded)", "match_all": true }
     ]
   },
   // Cursor(s) with selection(s).
@@ -41,7 +46,7 @@
     [
       { "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
       { "key": "selection_empty", "operator": "equal", "operand": false, "match_all": true },
-      { "key": "selector", "operator": "equal", "operand": "text.pml -text.html", "match_all": true }
+      { "key": "selector", "operator": "equal", "operand": "text.pml -(text.html | meta.embedded)", "match_all": true }
     ]
   },
   // ===============
@@ -51,7 +56,7 @@
   { "keys": ["alt+i"], "command": "run_macro_file", "args": {"file": "Packages/PML/macros/Transform Word - Italic.sublime-macro"}, "context":
     [
       { "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
-      { "key": "selector", "operator": "equal", "operand": "text.pml -text.html", "match_all": true }
+      { "key": "selector", "operator": "equal", "operand": "text.pml -(text.html | meta.embedded)", "match_all": true }
     ]
   },
   // Selection-less cursor(s) not positioned on word(s).
@@ -62,7 +67,7 @@
       { "key": "following_text", "operator": "regex_contains", "operand": "^(?:\t| |\\)|]|\\}|$)", "match_all": true },
       { "key": "preceding_text", "operator": "not_regex_contains", "operand": "['a-zA-Z0-9_]$", "match_all": true },
       { "key": "eol_selector", "operator": "not_equal", "operand": "string.quoted.single", "match_all": true },
-      { "key": "selector", "operator": "equal", "operand": "text.pml -text.html", "match_all": true }
+      { "key": "selector", "operator": "equal", "operand": "text.pml -(text.html | meta.embedded)", "match_all": true }
     ]
   },
   // Cursor(s) with selection(s).
@@ -70,7 +75,7 @@
     [
       { "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
       { "key": "selection_empty", "operator": "equal", "operand": false, "match_all": true },
-      { "key": "selector", "operator": "equal", "operand": "text.pml -text.html", "match_all": true }
+      { "key": "selector", "operator": "equal", "operand": "text.pml -(text.html | meta.embedded)", "match_all": true }
     ]
   },
 ]
