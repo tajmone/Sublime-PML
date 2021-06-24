@@ -1,6 +1,6 @@
 %YAML 1.2
 ---
-# Sublime PML: Alpha 0.5.0 (2021/06/08)                              | PML 1.5.0
+# Sublime PML: Alpha 0.5.1 (2021/06/24)                              | PML 1.5.0
 ################################################################################
 #                                                                              #
 #                       PML (Practical Markup Language)                        #
@@ -21,7 +21,8 @@ scope: text.pml
 version: 2
 
 variables:
-  identifier: '[a-zA-Z][a-zA-Z0-9_]*' # PML 1.4.0 (Will change in the future!)
+  custom_id: '[a-zA-Z][a-zA-Z0-9_]*' # PML 1.4.0 (Will change in the future!)
+  pml_token: '[a-z][a-z_]*' # PML tags and attributes are lowercase, no digits.
 
 contexts:
   prototype:
@@ -69,7 +70,7 @@ contexts:
       scope: constant.character.escape.pml
 
   parameter:
-    - match: '(<<)({{identifier}})(>>)'
+    - match: '(<<)({{custom_id}})(>>)'
       captures:
         0: meta.function-call.pml
         1: punctuation.definition.generic.begin.pml
@@ -122,7 +123,7 @@ contexts:
   unknown_node:
     # This is a just a temporary scope, to cover the unimplemented nodes.
     # It will be removed once all nodes are implemented.
-    - match: '\[[a-z][a-z_]*\b'
+    - match: '\[{{pml_token}}\b'
       scope: entity.name.tag.other.begin.pml
       push: unknown_node_inside
   unknown_node_inside:
@@ -488,7 +489,7 @@ contexts:
     - match: ']'
       scope: entity.name.tag.constant.end.pml
       pop: true
-    - match: '\b{{identifier}}\b'
+    - match: '\b{{custom_id}}\b'
       scope: entity.name.function.pml
     - match: '='
       scope: keyword.operator.assignment.pml
@@ -566,7 +567,7 @@ contexts:
     - match: ']'
       scope: entity.name.tag.other.end.pml
       pop: true
-    - match: '\b({{identifier}})\b *(=)'
+    - match: '\b({{pml_token}})\b *(=)'
       captures:
         1: entity.other.attribute-name.unknown.pml
         2: keyword.operator.assignment.pml
@@ -620,7 +621,7 @@ contexts:
 
 
   id_type:
-    - match: '\b({{identifier}})\b(?![\.\-])'
+    - match: '\b({{custom_id}})\b(?![\.\-])'
       scope: string.unquoted.id.pml meta.toc-list.id.pml
     - match: '\b([^ \t\n]+)\b'
       scope: invalid.illegal.id.pml

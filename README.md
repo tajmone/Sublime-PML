@@ -327,7 +327,7 @@ Articles by [Christian Neumanns]:
 [License badge]: https://img.shields.io/badge/License-MIT-blue
 [Package badge]: https://img.shields.io/badge/status-WIP-orange "Sublime PML is currently in Alpha stage"
 [PML badge]: https://img.shields.io/badge/PML-1.5.0-yellow "Supported PML version (click for PML download page)"
-[ST badge]: https://img.shields.io/badge/Sublime%20Text-4107-yellow?logo=sublime-text&logoColor=FF9800 "Supported Sublime Text version (click to visit download page)"
+[ST badge]: https://img.shields.io/badge/Sublime%20Text-4109-yellow?logo=sublime-text&logoColor=FF9800 "Supported Sublime Text version (click to visit download page)"
 [ST link]: https://www.sublimetext.com/download "Supported Sublime Text version (click to visit download page)"
 [Travis badge]: https://img.shields.io/travis/com/tajmone/Sublime-PML/main?logo=travis
 [Travis link]: https://travis-ci.com/tajmone/Sublime-PML "Travis CI: EditorConfig validation status"
