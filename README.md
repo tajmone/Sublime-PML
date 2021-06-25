@@ -183,9 +183,10 @@ For nodes that support attributes, context-specific suggestions are available wi
 
 The package provides the following snippets:
 
-| trigger  |              description              |
-|----------|---------------------------------------|
-| `newdoc` | Creates new PML document boilerplate. |
+| trigger  |                                   description                                    |
+|----------|----------------------------------------------------------------------------------|
+| `newdoc` | __New PML Document__ boilerplate, with attributes placeholders. Wraps selection. |
+| `newch`  | __New Chapter__ template, with attributes placeholders. Wraps selection.         |
 
 
 ## Symbols Indexing

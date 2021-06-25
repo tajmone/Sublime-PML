@@ -1,0 +1,14 @@
+<snippet>
+	<description>PML: New Chapter</description>
+	<tabTrigger>newch</tabTrigger>
+	<scope>text.pml - (comment | text.html | meta.embedded)</scope>
+	<content><![CDATA[
+[ch title = "${1:Chapter Title}" \
+	id = ${2:chapter_id}
+
+	${0:$SELECTION}
+
+]
+
+]]></content>
+</snippet>

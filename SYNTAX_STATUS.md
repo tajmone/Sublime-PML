@@ -52,6 +52,7 @@ Task-list of the PML syntax elements that will ultimately be supported.
                     * [x] smart auto-completion:
                 + [ ] `toctitle`
                     * [x] smart auto-completion.
+            - [x] Snippet: `newdoc`.
         * [ ] Paragraph
         * [x] Chapter — `[ch`:
             - [x] Tag scoping.
@@ -61,6 +62,7 @@ Task-list of the PML syntax elements that will ultimately be supported.
                     * [x] smart auto-completion.
                 + [x] `id` (shared with other nodes)
                     * [x] smart auto-completion.
+            - [x] Snippet: `newch`.
     + [ ] _Common Nodes_:
         * [ ] List
         * [ ] Table
@@ -75,6 +77,7 @@ Task-list of the PML syntax elements that will ultimately be supported.
                     * [x] smart auto-completion.
                 + [ ] `title`
                     * [x] smart auto-completion.
+            - [ ] Snippet: `quote`?
         * [ ] Caption
         * [ ] Monospace
         * [ ] Division

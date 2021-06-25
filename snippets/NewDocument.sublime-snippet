@@ -1,13 +1,13 @@
 <snippet>
-	<description>New PML document boilerplate</description>
+	<description>PML: New Document boilerplate</description>
 	<tabTrigger>newdoc</tabTrigger>
-	<scope>text.pml - comment</scope>
+	<scope>text.pml  - (comment | text.html | meta.embedded)</scope>
 	<content><![CDATA[
 [doc title = ${1:Document Title} \
 	authors = ${2:Your Name} \
 	date = ${3:YYYY}-${4:MM}-${5:DD}
 
-	${0}
+	${0:$SELECTION}
 
 ]
 
