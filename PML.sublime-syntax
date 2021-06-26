@@ -1,6 +1,6 @@
 %YAML 1.2
 ---
-# Sublime PML: Alpha 0.5.1 (2021/06/24)                              | PML 1.5.0
+# Sublime PML: Alpha 0.5.2 (2021/06/26)                              | PML 1.5.0
 ################################################################################
 #                                                                              #
 #                       PML (Practical Markup Language)                        #
@@ -520,6 +520,7 @@ contexts:
     - include: attr_date
     - include: attr_time
     - include: attr_id
+    - include: attr_html
     # TODO: implement remaining attributes...
     - include: attr_unknown   # <- Temp fall-back for unimplemented attributes!
 
@@ -558,6 +559,31 @@ contexts:
             - include: pop-at-TagEnd
             - include: pop-at-EOL
             - include: id_type
+
+
+  attr_html:
+    - match: '\b(html_[a-z]{2}[a-z-]*)\b'
+      scope: entity.other.attribute-name.html.pml
+      push:
+        - match: '='
+          scope: keyword.operator.assignment.pml
+          set:
+            - include: pop-at-line_continuation
+            - include: pop-at-TagEnd
+            - include: pop-at-EOL
+            - match: '"'
+              scope: punctuation.definition.string.begin.pml
+              set:
+                # TODO: Should stop using prototypes inside string?
+                - meta_scope: string.quoted.double.pml
+                - include: string_quoted_escapes
+                - match: '"'
+                  scope: punctuation.definition.string.end.pml
+                  pop: true
+            - include: string_unquoted
+            - include: bail-out
+
+
 
 
   attr_unknown:
@@ -599,6 +625,7 @@ contexts:
     - match: '"'
       scope: punctuation.definition.string.begin.pml
       push: string_quoted_inside
+
   string_quoted_inside:
     # TODO: Should stop using prototypes inside string?
     - meta_scope: string.quoted.double.pml
@@ -606,6 +633,7 @@ contexts:
     - match: '"'
       scope: punctuation.definition.string.end.pml
       pop: true
+
   string_quoted_escapes:
     - match: '\\"'
       scope: constant.character.escape.pml

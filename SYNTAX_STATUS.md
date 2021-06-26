@@ -10,6 +10,11 @@ Info about the PML syntax elements currently implemented in Sublime PML, and the
 <!-- MarkdownTOC autolink="true" bracket="round" autoanchor="false" lowercase="only_ascii" uri_encoding="true" levels="1,2,3" -->
 
 - [Syntax Elements](#syntax-elements)
+    - [Miscellanea](#miscellanea)
+    - [Block Nodes](#block-nodes)
+    - [Inline Nodes](#inline-nodes)
+    - [Text Processing Nodes](#text-processing-nodes)
+    - [Shared Attributes](#shared-attributes)
 
 <!-- /MarkdownTOC -->
 
@@ -21,11 +26,16 @@ Task-list of the PML syntax elements that will ultimately be supported.
 
 > **NOTE** — Attributes will eventually be added to the list, on a per-node basis.
 
+## Miscellanea
+
 - [ ] **Miscellanea**
     + [x] Inline paramters (e.g. `<<my_param>>`):
         * [x] Scoping and enlistment in local symbols list.
         * [x] __Goto Definition__ (<kbd>F12</kbd>) jumps to parameter's `[const` definition.
     + [ ] _more to come…_
+
+## Block Nodes
+
 - [ ] **[Block Nodes]**:
     + [ ] _Fundamental Nodes_:
         * [x] Document — `[doc`:
@@ -62,6 +72,7 @@ Task-list of the PML syntax elements that will ultimately be supported.
                     * [x] smart auto-completion.
                 + [x] `id` (shared with other nodes)
                     * [x] smart auto-completion.
+                + [ ] HTML attributes.
             - [x] Snippet: `newch`.
     + [ ] _Common Nodes_:
         * [ ] List
@@ -94,6 +105,9 @@ Task-list of the PML syntax elements that will ultimately be supported.
         * [ ] Insert Source Code
         * [ ] Input
         * [ ] Output
+
+## Inline Nodes
+
 - [ ] **[Inline Nodes]**:
     + [x] Font
         * [x] Bold Text — `[b`:
@@ -128,6 +142,9 @@ Task-list of the PML syntax elements that will ultimately be supported.
         * [x] Tag scoping.
         * [x] smart auto-completion (`nbsp`), globally available.
         * [ ] Keyboard shortcut?
+
+## Text Processing Nodes
+
 - [ ] **[Text Processing Nodes]**:
     + [x] Comments — `[-` … `-]`:
         * [x] Nestable comments.
@@ -140,14 +157,23 @@ Task-list of the PML syntax elements that will ultimately be supported.
         * [x] Assignment operator (`=`) scoping.
         * [x] Parameter identifier scoping.
         * [x] Parameter identifier gets enlisted in local symbols list (__Goto Definition__ supported).
+
+## Shared Attributes
+
 - [ ] **Shared Attributes** — i.e. which are not specific to a particular node only:
     + [ ] `id`:
-        * [x] attribute scoping.
+        * [x] Attribute scoping.
         * [x] Assignment operator (`=`) scoping.
         * [x] Valid ID name.
             - [ ] Can contain parameter.
             - [x] ID name gets enlisted in local symbols list.
         * [x] Malformed ID name (as `invalid.illegal.attribute-name.id.pml`).
+    + [ ] `html_` attributes:
+        * [x] Attribute key scoping.
+        * [x] Assignment operator (`=`) scoping:
+        * [x] Attribute value scoping, as either:
+            - [x] Quoted string.
+            - [x] Unquoted string.
 
 
 <!-----------------------------------------------------------------------------
