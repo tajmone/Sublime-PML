@@ -1,6 +1,6 @@
 %YAML 1.2
 ---
-# Sublime PML: Alpha 0.5.2 (2021/06/26)                              | PML 1.5.0
+# Sublime PML: Alpha 0.5.3 (2021/06/26)                              | PML 1.5.0
 ################################################################################
 #                                                                              #
 #                       PML (Practical Markup Language)                        #
@@ -524,6 +524,7 @@ contexts:
     # TODO: implement remaining attributes...
     - include: attr_unknown   # <- Temp fall-back for unimplemented attributes!
 
+
   attr_date:
     - match: '\b(date)\b'
       scope: entity.other.attribute-name.date.pml
@@ -536,6 +537,7 @@ contexts:
             - include: pop-at-EOL
             - include: date_type
 
+
   attr_time:
     - match: '\b(time)\b'
       scope: entity.other.attribute-name.time.pml
@@ -547,6 +549,7 @@ contexts:
             - include: pop-at-TagEnd
             - include: pop-at-EOL
             - include: time_type
+
 
   attr_id:
     - match: '\b(id)\b'
@@ -582,8 +585,6 @@ contexts:
                   pop: true
             - include: string_unquoted
             - include: bail-out
-
-
 
 
   attr_unknown:
@@ -625,7 +626,6 @@ contexts:
     - match: '"'
       scope: punctuation.definition.string.begin.pml
       push: string_quoted_inside
-
   string_quoted_inside:
     # TODO: Should stop using prototypes inside string?
     - meta_scope: string.quoted.double.pml
@@ -651,6 +651,7 @@ contexts:
   id_type:
     - match: '\b({{custom_id}})\b(?![\.\-])'
       scope: string.unquoted.id.pml meta.toc-list.id.pml
+      pop: true
     - match: '\b([^ \t\n]+)\b'
       scope: invalid.illegal.id.pml
       # See pml-lang/user-manual/discussions/3
@@ -672,6 +673,7 @@ contexts:
           8: invalid.illegal.day.pml
           9: constant.other.placeholder.day.pml
         pop: true
+
 
   time_type:
     - match: '\b(?=(\d\d|hh):(\d\d|mm))\b'

@@ -31,7 +31,7 @@
     [p html_style = color:red; border:1px
 !      ^^^^^^^^^^                           entity.other.attribute-name.html
 !                 ^                         keyword.operator.assignment
-    !                   ^^^^^^^^^^^^^^^^^^^^^   string.unquoted.pml
+!                   ^^^^^^^^^^^^^^^^^^^^^   string.unquoted.pml
     Paragraph contents
     ]
 

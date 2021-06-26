@@ -15,6 +15,14 @@
     ]
 !   ^ punctuation.definition.section.block.chapter.end
 
+    [ch id = myId title="Hello"
+!       ^^^^^^^^^^^^^^^^^^^^^^   meta.annotation.node-attributes.chapter
+!       ^^                       entity.other.attribute-name.id
+!                 ^^^^^         -entity.other.attribute-name.id
+!                 ^^^^^          entity.other.attribute-name.title
+    ]
+!   ^ punctuation.definition.section.block.chapter.end
+
 [------------------------
     INCOMPLETE ATTRIBUTES
     ----------------------]
