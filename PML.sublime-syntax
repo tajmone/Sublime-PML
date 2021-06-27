@@ -319,11 +319,10 @@ contexts:
     - include: newline      # New Line (<br>)
     - include: space        # Non-Breaking Space (&nbsp;)
     - include: span         # Span
-    - include: subscript    # Subscript
-    - include: superscript  # Superscript
-    - include: strike       # Strikethrough
+    - include: subscript    # Subscript Text
+    - include: superscript  # Superscript Text
+    - include: strike       # Strikethrough Text
     # link                  # URL Link
-    # text                  # Text
     # verbatim              # Verbatim Text
     # xref                  # Cross-Reference
 
