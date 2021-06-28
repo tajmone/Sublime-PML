@@ -4,7 +4,7 @@
 
     [quote source=Thomas Szasz, The Untamed Tongue
 !   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  markup.quote meta.annotation.node-attributes.quote
-!   ^^^^^^                                          punctuation.definition.blockquote.begin
+!   ^^^^^^                                          entity.name.tag.block-node.quote.begin
 
         The FDA calls certain substances 'controlled'.
         But there are no controlled substances;
@@ -12,7 +12,7 @@
 !       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^   markup.quote
 !       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  -meta.annotation.node-attributes.quote
     ]
-!   ^                                          punctuation.definition.blockquote.end
+!   ^                                          entity.name.tag.block-node.quote.end
 
 
 ]

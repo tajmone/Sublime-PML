@@ -3,13 +3,13 @@
 
     Span [span is useful].
 !        ^^^^^^^^^^^^^^^^   markup.span
-!        ^^^^^              punctuation.definition.span.begin
-!                       ^   punctuation.definition.span.end
+!        ^^^^^              entity.name.tag.inline-node.span.begin
+!                       ^   entity.name.tag.inline-node.span.end
 
     This [span span spans
     across multiple
     lines]
 !   ^^^^^    markup.span
-!        ^   punctuation.definition.span.end
+!        ^   entity.name.tag.inline-node.span.end
 
 ]

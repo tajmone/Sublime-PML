@@ -1,4 +1,5 @@
 {
+  // @TODO: Exclude raw blocks scope!
   "scope": "text.pml",
   "completions":
   [

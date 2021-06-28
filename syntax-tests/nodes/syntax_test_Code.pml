@@ -8,8 +8,8 @@
     [code print('Hello!')
 !   ^^^^^^^^^^^^^^^^^^^^^   meta.embedded.block.listing
 !   ^^^^^^^^^^^^^^^^^^^^^   meta.annotation.node-attributes.listing
-!   ^^^^^                   punctuation.definition.listing.begin
-!        ^^^^^^^^^^^^^^^^  -punctuation.definition.listing.begin
+!   ^^^^^                   entity.name.tag.block-node.raw.listing.begin
+!        ^^^^^^^^^^^^^^^^  -entity.name.tag.block-node.raw.listing.begin
 !   ^^^^^                  -source.block.listing.content
     code]
 
@@ -17,7 +17,7 @@
     [code
 !   ^^^^^   meta.embedded.block.listing
 !   ^^^^^   meta.annotation.node-attributes.listing
-!   ^^^^^   punctuation.definition.listing.begin
+!   ^^^^^   entity.name.tag.block-node.raw.listing.begin
 !   ^^^^^  -source.block.listing.content
     print('Hello!')
 !   ^^^^^   meta.embedded.block.listing
@@ -26,7 +26,7 @@
     code]
 !   ^^^^^   meta.embedded.block.listing
 !   ^^^^^   meta.embedded.block.listing
-!   ^^^^^   punctuation.definition.listing.end
+!   ^^^^^   entity.name.tag.block-node.raw.listing.end
 !   ^^^^^  -source.block.listing.content
 
     [code id = my_block

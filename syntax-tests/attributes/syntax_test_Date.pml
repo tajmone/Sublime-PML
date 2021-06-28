@@ -7,8 +7,8 @@
 !               ^^^^          constant.numeric.integer.date.year
 !                    ^^       constant.numeric.integer.date.month
 !                       ^^    constant.numeric.integer.date.day
-!   ^^^^                           keyword.declaration.document.begin
-!                          ^       keyword.declaration.document.end
+!   ^^^^                           entity.name.tag.block-node.document.begin
+!                          ^       entity.name.tag.block-node.document.end
 
     [doc date=2021-04-01]
 !        ^^^^              entity.other.attribute-name.date
@@ -20,7 +20,7 @@
 !           ^^^^                 entity.other.attribute-name.date
 !                  ^^^^^^^^^^    string.unquoted.date
     ]
-!   ^                              keyword.declaration.document.end
+!   ^                              entity.name.tag.block-node.document.end
 
 
 [---------------------------------------------------------

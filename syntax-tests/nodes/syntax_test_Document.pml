@@ -4,7 +4,7 @@
 !   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^   meta.block.document
 !   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^    meta.annotation.node-attributes.document
 !                               ^  -meta.annotation.node-attributes.document
-!                               ^   keyword.declaration.document.end
+!                               ^   entity.name.tag.block-node.document.end
 
 
     [doc title = Doc Title \
@@ -14,7 +14,7 @@
     Lorem Ipsum.
 !   ^^^^^^^^^^^^              -meta.annotation.node-attributes.document meta.block.document
     ]
-!   ^  keyword.declaration.document.end
+!   ^  entity.name.tag.block-node.document.end
 
     [doc title = Document Title \
         date = 2021-03-05
@@ -25,7 +25,7 @@
 !                   ^^      constant.numeric.integer.date.month
 !                      ^^   constant.numeric.integer.date.day
     ]
-!   ^  keyword.declaration.document.end
+!   ^  entity.name.tag.block-node.document.end
 
     [doc title = Document Title \
         date = 2021-03-05 \

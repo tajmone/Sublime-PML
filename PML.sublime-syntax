@@ -1,6 +1,6 @@
 %YAML 1.2
 ---
-# Sublime PML: Alpha 0.5.3 (2021/06/26)                              | PML 1.5.0
+# Sublime PML: Alpha 0.6-0 (2021/06/28)                              | PML 1.5.0
 ################################################################################
 #                                                                              #
 #                       PML (Practical Markup Language)                        #
@@ -124,11 +124,11 @@ contexts:
     # This is a just a temporary scope, to cover the unimplemented nodes.
     # It will be removed once all nodes are implemented.
     - match: '\[{{pml_token}}\b'
-      scope: entity.name.tag.other.begin.pml
+      scope: entity.name.tag.unknown.begin.pml
       push: unknown_node_inside
   unknown_node_inside:
     - match: ']'
-      scope: entity.name.tag.other.end.pml
+      scope: entity.name.tag.unknown.end.pml
       pop: true
     # We need to force-push here, because attributes pop-out at EOL!
     - match: ''
@@ -140,6 +140,15 @@ contexts:
 # ==============================================================================
 #                                  Block Nodes
 # ==============================================================================
+# Every block-node opening and closing tags are scoped as:
+#   - entity.name.tag.block-node.<NODE_NAME>.begin
+#   - entity.name.tag.block-node.<NODE_NAME>.end
+# except for raw-text blocks, which are given an extra `.raw` segment:
+#   - entity.name.tag.block-node.raw.<NODE_NAME>.begin
+#   - entity.name.tag.block-node.raw.<NODE_NAME>.end
+# This consistent scope naming allows to easily target all nodes of a certain
+# category via scope selectors (e.g. in colour schemes, completions, etc.).
+# ------------------------------------------------------------------------------
 
 # TODO: Sort `include:` statements by nodes' usage frequency. This should
 #       improve performance, since each match resets the context loop.
@@ -177,42 +186,18 @@ contexts:
 # TODO: Order nodes contexts alphabetically, to simplify source navigation.
 
 
-## Source Code Block
-####################
-
-  # FIXME: When the node has no attributes, contents following the tag are not
-  #        scoped as `source.block.listing.content`.
-
-  sourcecode:
-    - match: '\[code\b'
-      scope: punctuation.definition.listing.begin.pml
-      push: [sourcecode_block, sourcecode_attributes]
-  sourcecode_block:
-    - meta_scope: meta.embedded.block.listing.pml
-    - match: ''
-      set:
-      - meta_content_scope: source.block.listing.content.pml
-                            meta.embedded.block.listing.pml
-      - match: '\bcode]'
-        scope:  punctuation.definition.listing.end.pml
-                meta.embedded.block.listing.pml
-        pop: true
-  sourcecode_attributes:
-    - meta_scope: meta.annotation.node-attributes.listing.pml
-    - include: attributes
-
 ## Quote
 ########
 
   quote:
     - match: '\[quote\b'
-      scope: punctuation.definition.blockquote.begin.pml
+      scope: entity.name.tag.block-node.quote.begin.pml
       push: [quote_block, quote_attributes]
   quote_block:
     - meta_scope: markup.quote.pml
     - include: pml_nodes
     - match: ']'
-      scope: punctuation.definition.blockquote.end.pml
+      scope: entity.name.tag.block-node.quote.end.pml
       pop: true
   quote_attributes:
     - meta_scope: meta.annotation.node-attributes.quote.pml
@@ -225,13 +210,13 @@ contexts:
 
   doc:
     - match: '\[doc\b'
-      scope: keyword.declaration.document.begin.pml
+      scope: entity.name.tag.block-node.document.begin.pml
       push: [doc_block, doc_attributes]
   doc_block:
     - meta_scope: meta.block.document.pml
     - include: pml_nodes
     - match: ']'
-      scope: keyword.declaration.document.end.pml
+      scope: entity.name.tag.block-node.document.end.pml
       pop: true
   doc_attributes:
     - meta_scope: meta.annotation.node-attributes.document.pml
@@ -242,14 +227,14 @@ contexts:
 
   chapter:
     - match: '\[ch\b'
-      scope: punctuation.definition.section.block.chapter.begin.pml
+      scope: entity.name.tag.block-node.section.begin.pml
       push: [chapter_block, chapter_attributes]
 
   chapter_block:
     - meta_scope: meta.block.chapter.pml
     - include: pml_nodes
     - match: ']'
-      scope: punctuation.definition.section.block.chapter.end.pml
+      scope: entity.name.tag.block-node.section.end.pml
       pop: true
 
   chapter_attributes:
@@ -294,23 +279,65 @@ contexts:
       scope: punctuation.definition.string.end.pml
       pop: true
 
+############################
+##  RAW-TEXT BLOCK NODES  ##
+############################----------------------------------------------------
+# This group of block-nodes contain 'raw text', i.e. their contents are not
+# processed by PMLC, which means that they can't contain any PML nodes inside,
+# and their tag name is repeated in the closing node delimiter (see #24).
+# For this reason, they are scoped with an extra `.raw` segment:
+#   - entity.name.tag.block-node.raw.<NODE_NAME>.begin
+#   - entity.name.tag.block-node.raw.<NODE_NAME>.end
+# in order to simplify targeting them via scope selectors.
+# ------------------------------------------------------------------------------
+
+## Source Code Block
+####################
+
+  # FIXME: When the node has no attributes, contents following the tag are not
+  #        scoped as `source.block.listing.content`.
+
+  sourcecode:
+    - match: '\[code\b'
+      scope: entity.name.tag.block-node.raw.listing.begin.pml
+      push: [sourcecode_block, sourcecode_attributes]
+  sourcecode_block:
+    - meta_scope: meta.embedded.block.listing.pml
+    - match: ''
+      set:
+      - meta_content_scope: source.block.listing.content.pml
+                            meta.embedded.block.listing.pml
+      - match: '\bcode]'
+        scope:  entity.name.tag.block-node.raw.listing.end.pml
+                meta.embedded.block.listing.pml
+        pop: true
+  sourcecode_attributes:
+    - meta_scope: meta.annotation.node-attributes.listing.pml
+    - include: attributes
+
 ## HTML
 #######
 
   html:
     - match: '\[html\b'
-      scope: punctuation.definition.section.block.html.begin.pml
+      scope: entity.name.tag.block-node.raw.html.begin.pml
       push: Packages/HTML/HTML.sublime-syntax
       with_prototype:
         - match: '\b(?=html\])'
           pop: true
     - match: '\bhtml\]'
-      scope: punctuation.definition.section.block.html.end.pml
+      scope: entity.name.tag.block-node.raw.html.end.pml
       pop: true
 
 # ==============================================================================
 #                                  Inline Nodes
 # ==============================================================================
+# Every inline-node opening and closing tags are scoped as:
+#   - entity.name.tag.inline-node.<NODE_NAME>.begin
+#   - entity.name.tag.inline-node.<NODE_NAME>.end
+# This consistent scope naming allows to easily target all nodes of a certain
+# category via scope selectors (e.g. in colour schemes, completions, etc.).
+# ------------------------------------------------------------------------------
 
   inline_nodes:
     - include: bold         # Bold Text
@@ -331,13 +358,13 @@ contexts:
 
   bold:
     - match: '\[b\b'
-      scope: punctuation.definition.bold.begin.pml
+      scope: entity.name.tag.inline-node.bold.begin.pml
       push: bold_inside
   bold_inside:
     - meta_scope: markup.bold.pml
     - include: inline_nodes
     - match: ']'
-      scope: punctuation.definition.bold.end.pml
+      scope: entity.name.tag.inline-node.bold.end.pml
       pop: true
 
 ## Font: Italic Text
@@ -345,13 +372,13 @@ contexts:
 
   italic:
     - match: '\[i\b'
-      scope: punctuation.definition.italic.begin.pml
+      scope: entity.name.tag.inline-node.italic.begin.pml
       push: italic_inside
   italic_inside:
     - meta_scope: markup.italic.pml
     - include: inline_nodes
     - match: ']'
-      scope: punctuation.definition.italic.end.pml
+      scope: entity.name.tag.inline-node.italic.end.pml
       pop: true
 
 ## Font: Subscript Text
@@ -359,13 +386,13 @@ contexts:
 
   subscript:
     - match: '\[sub\b'
-      scope: punctuation.definition.subscript.begin.pml
+      scope: entity.name.tag.inline-node.subscript.begin.pml
       push: subscript_inside
   subscript_inside:
     - meta_scope: markup.subscript.pml
     - include: inline_nodes
     - match: ']'
-      scope: punctuation.definition.subscript.end.pml
+      scope: entity.name.tag.inline-node.subscript.end.pml
       pop: true
 
 ## Font: Superscript Text
@@ -373,13 +400,13 @@ contexts:
 
   superscript:
     - match: '\[sup\b'
-      scope: punctuation.definition.superscript.begin.pml
+      scope: entity.name.tag.inline-node.superscript.begin.pml
       push: superscript_inside
   superscript_inside:
     - meta_scope: markup.superscript.pml
     - include: inline_nodes
     - match: ']'
-      scope: punctuation.definition.superscript.end.pml
+      scope: entity.name.tag.inline-node.superscript.end.pml
       pop: true
 
 ## Font: Strikethrough Text
@@ -387,13 +414,13 @@ contexts:
 
   strike:
     - match: '\[strike\b'
-      scope: punctuation.definition.strikethrough.begin.pml
+      scope: entity.name.tag.inline-node.strikethrough.begin.pml
       push: strike_inside
   strike_inside:
     - meta_scope: markup.strikethrough.pml
     - include: inline_nodes
     - match: ']'
-      scope: punctuation.definition.strikethrough.end.pml
+      scope: entity.name.tag.inline-node.strikethrough.end.pml
       pop: true
 
 ## Font: Inline Source Code
@@ -405,14 +432,14 @@ contexts:
 
   code:
     - match: '\[c\b(?:[ \t\n]*)'
-      scope: punctuation.definition.raw.inline.begin.pml
+      scope: entity.name.tag.inline-node.code.begin.pml
       push: code_inside
   code_inside:
     - meta_scope: markup.raw.inline.pml
     - match: '^[ \t]+'  # Consume leading WS != markup.raw.inline.content
     - include: inline_nodes
     - match: ']'
-      scope: punctuation.definition.raw.inline.end.pml
+      scope: entity.name.tag.inline-node.code.end.pml
       pop: true
     - match: '.'
       scope: markup.raw.inline.content.pml
@@ -423,13 +450,13 @@ contexts:
 
   span:
     - match: '\[span\b'
-      scope: punctuation.definition.span.begin.pml
+      scope: entity.name.tag.inline-node.span.begin.pml
       push: span_inside
   span_inside:
     - meta_scope: markup.span.pml
     - include: inline_nodes
     - match: ']'
-      scope: punctuation.definition.span.end.pml
+      scope: entity.name.tag.inline-node.span.end.pml
       pop: true
 
 ## New Line and Space
@@ -437,7 +464,7 @@ contexts:
 
   newline:
     - match: '\[nl\b'
-      scope: punctuation.definition.newline.begin.pml
+      scope: entity.name.tag.inline-node.newline.begin.pml
       push: newline_inside
   newline_inside:
     - meta_scope: entity.name.tag.newline.pml
@@ -446,14 +473,14 @@ contexts:
     - include: comsume-whitespace
     - include: comsume-EOL
     - match: ']'
-      scope: punctuation.definition.newline.end.pml
+      scope: entity.name.tag.inline-node.newline.end.pml
       pop: true
     - match: '.'
       scope: invalid.illegal.pml
 
   space:
     - match: '\[sp\b'
-      scope: punctuation.definition.nbsp.begin.pml
+      scope: entity.name.tag.inline-node.nbsp.begin.pml
       push: space_inside
   space_inside:
     - meta_scope: entity.name.tag.nbsp.pml
@@ -462,7 +489,7 @@ contexts:
     - include: comsume-whitespace
     - include: comsume-EOL
     - match: ']'
-      scope: punctuation.definition.nbsp.end.pml
+      scope: entity.name.tag.inline-node.nbsp.end.pml
       pop: true
     - match: '.'
       scope: invalid.illegal.pml
@@ -481,12 +508,12 @@ contexts:
 
   constant:
     - match: '\[const\b'
-      scope: entity.name.tag.constant.begin.pml
+      scope: entity.name.tag.inline-node.constant.begin.pml
       push: constant_inside
   constant_inside:
     - meta_scope: meta.tag.constant.pml
     - match: ']'
-      scope: entity.name.tag.constant.end.pml
+      scope: entity.name.tag.inline-node.constant.end.pml
       pop: true
     - match: '\b{{custom_id}}\b'
       scope: entity.name.function.pml
@@ -496,7 +523,7 @@ contexts:
   constant_value:
     - meta_scope: meta.tag.constant.pml
     - match: ']'
-      scope: entity.name.tag.constant.end.pml
+      scope: entity.name.tag.inline-node.constant.end.pml
       pop: true
     - include: string
     - include: bail-out
@@ -591,7 +618,7 @@ contexts:
     # It will be removed once all nodes and attributes are implemented.
     - include: line_continuation
     - match: ']'
-      scope: entity.name.tag.other.end.pml
+      scope: entity.name.tag.unknown.end.pml
       pop: true
     - match: '\b({{pml_token}})\b *(=)'
       captures:

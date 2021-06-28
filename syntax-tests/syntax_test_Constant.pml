@@ -3,9 +3,9 @@
 
     [const baseURL = http://www.example.com]
 !   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^   meta.tag.constant
-!   ^^^^^^                                     entity.name.tag.constant.begin
+!   ^^^^^^                                     entity.name.tag.inline-node.constant.begin
 !          ^^^^^^^                             entity.name.function
-!                                          ^   entity.name.tag.constant.end
+!                                          ^   entity.name.tag.inline-node.constant.end
 !                  ^                           keyword.operator.assignment
 !                    ^^^^^^^^^^^^^^^^^^^^^^    string.unquoted
 
@@ -15,8 +15,8 @@
 
     [const dqAttr = "I'm a \"Quoted\" string" ]
 !   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^   meta.tag.constant
-!   ^^^^^^                                        entity.name.tag.constant.begin
-!                                             ^   entity.name.tag.constant.end
+!   ^^^^^^                                        entity.name.tag.inline-node.constant.begin
+!                                             ^   entity.name.tag.inline-node.constant.end
 !                 ^                               keyword.operator.assignment
 !                   ^^^^^^^^^^^^^^^^^^^^^^^^^     string.quoted.double
 !                                            ^^  -string.quoted.double

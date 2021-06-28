@@ -3,7 +3,7 @@
 
     [ch title = H1 title
 !   ^^^^^^^^^^^^^^^^^^^^  meta.block.chapter
-!   ^^^                   meta.block.chapter punctuation.definition.section.block.chapter.begin
+!   ^^^                   meta.block.chapter entity.name.tag.block-node.section.begin
 !       ^^^^^             entity.other.attribute-name.title
 !             ^           keyword.operator.assignment
 !               ^^^^^^^^  entity.name.section.unquoted markup.heading meta.toc-list.heading
@@ -16,14 +16,14 @@
 
 
     ]
-!   ^                          meta.block.chapter punctuation.definition.section.block.chapter.end
+!   ^                          meta.block.chapter entity.name.tag.block-node.section.end
 
     outside chapter
 !   ^^^^^^^^^^^^^^^^         - meta.block.chapter
 
     [ch title = "my \"title\""
 !   ^^^^^^^^^^^^^^^^^^^^^^^^^^  meta.block.chapter
-!   ^^^                         punctuation.definition.section.block.chapter.begin
+!   ^^^                         entity.name.tag.block-node.section.begin
 !       ^^^^^                   entity.other.attribute-name.title
 !             ^                 keyword.operator.assignment
 !               ^^^^^^^^^^^^^^  entity.name.section.quoted markup.heading meta.toc-list.heading
@@ -31,7 +31,7 @@
 !                            ^  punctuation.definition.string.end
 !                   ^^          constant.character.escape
     ]
-!   ^                           punctuation.definition.section.block.chapter.end
+!   ^                           entity.name.tag.block-node.section.end
 
     [ch title = Chapter Title \
 !                             ^  punctuation.separator.continuation
@@ -54,7 +54,7 @@
         and will end at first EOL encountered.
 
     ]
-!   ^ punctuation.definition.section.block.chapter.end
+!   ^ entity.name.tag.block-node.section.end
 
 
 [- TEST TRAILING SPACES -]
@@ -64,4 +64,4 @@
 !                             ^    -markup.heading meta.toc-list.heading
 
 ]
-!<- keyword.declaration.document.end
+!<- entity.name.tag.block-node.document.end

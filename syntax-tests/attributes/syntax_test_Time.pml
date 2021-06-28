@@ -6,8 +6,8 @@
 !               ^^^^^    string.unquoted.time
 !               ^^       constant.numeric.integer.time.hour
 !                  ^^    constant.numeric.integer.time.minutes
-!   ^^^^                      keyword.declaration.document.begin
-!                     ^       keyword.declaration.document.end
+!   ^^^^                      entity.name.tag.block-node.document.begin
+!                     ^       entity.name.tag.block-node.document.end
 
     [doc time=00:00]
 !        ^^^^         entity.other.attribute-name.time
@@ -19,7 +19,7 @@
 !           ^^^^            entity.other.attribute-name.time
 !                  ^^^^^    string.unquoted.time
     ]
-!   ^                         keyword.declaration.document.end
+!   ^                         entity.name.tag.block-node.document.end
 
 
 [---------------------------------------------------------

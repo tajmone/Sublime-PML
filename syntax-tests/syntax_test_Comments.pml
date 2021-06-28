@@ -44,7 +44,7 @@
     [- [b not bold text] -]
 !   ^^^^^^^^^^^^^^^^^^^^^^^   comment.block
 !      ^^^^^^^^^^^^^^^^^     -markup.bold
-!      ^^                    -punctuation.definition.bold.begin
-!                      ^     -punctuation.definition.bold.end
+!      ^^                    -entity.name.tag.inline-node.bold.begin
+!                      ^     -entity.name.tag.inline-node.bold.end
 
 ]

@@ -13,7 +13,7 @@
 !          ^             keyword.operator.assignment
 !            ^^^^^^^^^   string.unquoted.id meta.toc-list.id.pml
     ]
-!   ^ punctuation.definition.section.block.chapter.end
+!   ^ entity.name.tag.block-node.section.end
 
     [ch id = myId title="Hello"
 !       ^^^^^^^^^^^^^^^^^^^^^^   meta.annotation.node-attributes.chapter
@@ -21,7 +21,7 @@
 !                 ^^^^^         -entity.other.attribute-name.id
 !                 ^^^^^          entity.other.attribute-name.title
     ]
-!   ^ punctuation.definition.section.block.chapter.end
+!   ^ entity.name.tag.block-node.section.end
 
 [------------------------
     INCOMPLETE ATTRIBUTES
@@ -45,4 +45,4 @@
 
 
 ]
-!<- keyword.declaration.document.end
+!<- entity.name.tag.block-node.document.end

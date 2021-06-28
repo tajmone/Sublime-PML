@@ -2,8 +2,8 @@
 [doc title = Raw HTML Blocks
 
     [html html]
-!   ^^^^^         punctuation.definition.section.block.html.begin.pml
-!         ^^^^^   punctuation.definition.section.block.html.end.pml
+!   ^^^^^         entity.name.tag.block-node.raw.html.begin.pml
+!         ^^^^^   entity.name.tag.block-node.raw.html.end.pml
 
     [html
         <!DOCTYPE html>
@@ -26,4 +26,4 @@
 
 
 ]
-!<- keyword.declaration.document.end
+!<- entity.name.tag.block-node.document.end

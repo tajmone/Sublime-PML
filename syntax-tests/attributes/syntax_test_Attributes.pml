@@ -8,8 +8,8 @@
     to be fixed accordingly.
 
     [image src=img/smile.jpg ]
-!   ^^^^^^                      entity.name.tag.other.begin
-!                            ^  entity.name.tag.other.end
+!   ^^^^^^                      entity.name.tag.unknown.begin
+!                            ^  entity.name.tag.unknown.end
 !          ^^^                  entity.other.attribute-name.unknown
 !             ^                 keyword.operator.assignment
 
@@ -17,18 +17,18 @@
         link = https://example.com]
 !       ^^^^                         entity.other.attribute-name.unknown
 !            ^                       keyword.operator.assignment
-!                                 ^  entity.name.tag.other.end
+!                                 ^  entity.name.tag.unknown.end
 
     [image src=img/smile.jpg \
 [- !                         ^ punctuation.separator.continuation
 -]         link = https://example.com]
 !          ^^^^                         entity.other.attribute-name.unknown
 !               ^                       keyword.operator.assignment
-!                                    ^  entity.name.tag.other.end
+!                                    ^  entity.name.tag.unknown.end
 
 
     ]
-!   ^ punctuation.definition.section.block.chapter.end
+!   ^ entity.name.tag.block-node.section.end
 
 ]
-!<-  keyword.declaration.document.end
+!<-  entity.name.tag.block-node.document.end

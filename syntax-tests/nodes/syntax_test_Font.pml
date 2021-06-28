@@ -6,8 +6,8 @@
     ==== -]
 
     Text [b in bold] is cool.
-!        ^^                     punctuation.definition.bold.begin
-!                  ^            punctuation.definition.bold.end
+!        ^^                     entity.name.tag.inline-node.bold.begin
+!                  ^            entity.name.tag.inline-node.bold.end
 !        ^^^^^^^^^^^            markup.bold
 
 [-  ======
@@ -15,8 +15,8 @@
     ====== -]
 
     Text [i in italic] is cool.
-!        ^^                       punctuation.definition.italic.begin
-!                    ^            punctuation.definition.italic.end
+!        ^^                       entity.name.tag.inline-node.italic.begin
+!                    ^            entity.name.tag.inline-node.italic.end
 !        ^^^^^^^^^^^^^            markup.italic
 
 [-  ===========
@@ -24,15 +24,15 @@
     =========== -]
 
     Inline [c source code] is cool.
-!          ^^                         punctuation.definition.raw.inline.begin
-!                        ^            punctuation.definition.raw.inline.end
+!          ^^                         entity.name.tag.inline-node.code.begin
+!                        ^            entity.name.tag.inline-node.code.end
 !          ^^^^^^^^^^^^^^^            markup.raw.inline
 !             ^^^^^^^^^^^             markup.raw.inline.content
 !            ^                       -markup.raw.inline.content
 
     Inline [c
     source code] split across 2 line.
-!              ^   punctuation.definition.raw.inline.end
+!              ^   entity.name.tag.inline-node.code.end
 !^^^^^^^^^^^^^^^   markup.raw.inline
 !   ^^^^^^^^^^^    markup.raw.inline.content
 !^^^              -markup.raw.inline.content
@@ -41,7 +41,7 @@
     Inline [c
     source
     code] split across three line.
-!       ^   punctuation.definition.raw.inline.end
+!       ^   entity.name.tag.inline-node.code.end
 !^^^^^^^^   markup.raw.inline
 !   ^^^^    markup.raw.inline.content
 !^^^       -markup.raw.inline.content
@@ -52,8 +52,8 @@
     ========= -]
 
     Text [sub in subscript] style.
-!        ^^^^                       punctuation.definition.subscript.begin
-!                         ^         punctuation.definition.subscript.end
+!        ^^^^                       entity.name.tag.inline-node.subscript.begin
+!                         ^         entity.name.tag.inline-node.subscript.end
 !        ^^^^^^^^^^^^^^^^^^         markup.subscript
 
 [-  ===========
@@ -61,8 +61,8 @@
     =========== -]
 
     Text [sup in superscript] style.
-!        ^^^^                         punctuation.definition.superscript.begin
-!                           ^         punctuation.definition.superscript.end
+!        ^^^^                         entity.name.tag.inline-node.superscript.begin
+!                           ^         entity.name.tag.inline-node.superscript.end
 !        ^^^^^^^^^^^^^^^^^^^^         markup.superscript
 
 
@@ -71,8 +71,8 @@
     ============= -]
 
     Text [strike in strikethrough] style.
-!        ^^^^^^^                           punctuation.definition.strikethrough.begin
-!                                ^         punctuation.definition.strikethrough.end
+!        ^^^^^^^                           entity.name.tag.inline-node.strikethrough.begin
+!                                ^         entity.name.tag.inline-node.strikethrough.end
 !        ^^^^^^^^^^^^^^^^^^^^^^^^^         markup.strikethrough
 
 ]
