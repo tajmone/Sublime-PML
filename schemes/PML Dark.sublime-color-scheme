@@ -1,0 +1,185 @@
+{
+  "variables": {
+    /// Base16 Railscasts ///
+    // by Ryan Bates (http://railscasts.com), MIT License:
+    // https://github.com/chriskempson/base16-builder/blob/master/schemes/railscasts.yml
+    "base00": "#2B2B2B", // Mine Shaft (almost black)
+    "base01": "#272935", //     :
+    "base02": "#3A4055", //     :
+    "base03": "#5A647E", // Comet (dark bluish)
+    "base04": "#D4CFC9", // Swirl (grey)
+    "base05": "#E6E1DC", //     :
+    "base06": "#F4F1ED", //     :
+    "base07": "#F9F7F3", // Almost white
+    "base08": "#DA4939", // Punch (red)
+    "base09": "#CC7833", // Ochre
+    "base0A": "#FFC66D", // Saffron Mango
+    "base0B": "#A5C261", // Wild Willow (green)
+    "base0C": "#519F50", // Fruit Salad (green)
+    "base0D": "#6D9CBE", // Danube (blue)
+    "base0E": "#B6B3EB", // Melrose (violet)
+    "base0F": "#BC9458", // Twine (brownish gold)
+  },
+  "name": "PML Dark",
+  "globals": {
+    "background": "var(base00)",
+    "foreground": "var(base05)",
+    // "invisibles": "???",
+    "caret": "var(base08)",
+    // "block_caret": "???",
+    // "block_caret_border": "???",
+    // "block_caret_underline": "???",
+    // "block_caret_corner_style": "???",
+    // "block_caret_corner_radius": "???",
+    "line_highlight": "color(black alpha(30%))",
+    // ACCENTS //
+    // "misspelling": "???",
+    // "fold_marker": "???",
+    // "minimap_border": "???",
+    "accent": "",
+    // "rulers": "???",
+    // GUTTER //
+    // "gutter": "???",
+    // "gutter_foreground": "???",
+    // "gutter_foreground_highlight": "???",
+    // DIFF //
+    // "line_diff_width": "???",
+    // "line_diff_added": "???",
+    // "line_diff_modified": "???",
+    // "line_diff_deleted": "???",
+    // SELECTION //
+    "selection": "var(base06)",
+    "selection_foreground": "var(base00)",
+    // "selection_border": "???",
+    // "selection_border_width": "???",
+    // "selection_corner_style": "???",
+    // "selection_corner_radius": "???",
+    // "inactive_selection": "???",
+    // "inactive_selection_border": "???",
+    // "inactive_selection_foreground": "???",
+    // FIND //
+    // "highlight": "???",
+    // "find_highlight": "???",
+    // "find_highlight_foreground": "???",
+    // "scroll_highlight": "???",
+    // "scroll_selected_highlight": "???",
+    // BRACKETS //
+    // "brackets_options": "???",
+    // "brackets_foreground": "???",
+    // "bracket_contents_options": "???",
+    // "bracket_contents_foreground": "???",
+    // TAGS //
+    // "tags_options": "???",
+    // "tags_foreground": "???",
+    // SHADOWS //
+    // "shadow": "???",
+    // "shadow_width": "???",
+  },
+  "rules": [
+    {
+      "scope": "string",
+      "foreground": "var(base0B)",
+    },
+    {
+      "scope": "variable",
+      "foreground": "",
+    },
+    {
+      "scope": "keyword",
+      "foreground": "",
+    },
+    {
+      "scope": "constant",
+      "foreground": "",
+    },
+    /// MISCELLANEA ///
+    {
+      "scope": "punctuation.definition",
+      "foreground": "var(base08)",
+    },
+    {
+      "scope": "punctuation.separator.continuation",
+      "foreground": "var(base0A)",
+    },
+    {
+      "scope": "keyword",
+      "foreground": "var(base0A)",
+    },
+    // Comments
+    {
+      "scope": "comment.block|punctuation.definition.comment",
+      "foreground": "color(var(base03) lightness(46%))",
+      // "foreground": "var(base0F)",
+      "font_style": "italic",
+    },
+    {
+      "scope": "punctuation.definition.comment",
+      "foreground": "color(var(base03) lightness(46%))",
+      "font_style": "",
+    },
+    // Chapter Titles
+    {
+      "scope": "entity.name.section",
+      "background": "color(var(base0D) lightness(55%))",
+      "foreground": "var(base07)",
+      "font_style": "bold",
+    },
+    {
+      "scope": "entity.name.section punctuation.definition.string",
+      "background": "var(base00)",
+      "foreground": "var(base0A)",
+      "font_style": "",
+    },
+    /// BLOCK NODES ///
+    {
+      "scope": "(entity.name.tag.block-node)",
+      "foreground": "var(base08)",
+    },
+    // Code Listing
+    {
+      "scope": "source.block.listing.content",
+      "background": "color(var(base00) lightness(30%))",
+      "foreground": "color(var(base00) lightness(60%))",
+    },
+    /// INLINE NODES ///
+    {
+      "scope": "entity.name.tag.inline-node",
+      "foreground": "var(base0D)",
+    },
+    // Font Styles
+    {
+      "scope": "markup.bold",
+      "font_style": "bold",
+    },
+    {
+      "scope": "markup.italic",
+      "font_style": "italic",
+    },
+    {
+      "scope": "markup.raw.inline.content",
+      "background": "var(base05)",
+      "foreground": "var(base00)",
+      "font_style": "glow",
+    },
+    /// ATTRIBUTES ///
+    {
+      "scope": "entity.name.attribute-name, entity.other.attribute-name",
+      "foreground": "var(base0E)",
+    },
+    // Date
+    {
+      "scope": "string.unquoted.date",
+      "foreground": "color(var(base0E) lightness(70%))",
+    },
+    {
+      "scope": "constant.numeric.integer.date",
+      "foreground": "var(base0E)",
+    },
+    /// HTML Contents ///
+    {
+      "scope": "text.html.basic",
+      "background": "color(var(base0D) lightness(25%))",
+    },
+
+  ]
+}

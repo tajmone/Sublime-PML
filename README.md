@@ -25,12 +25,14 @@ By [Tristano Ajmone], March 2021, [MIT License].
     - [System Requirements](#system-requirements)
 - [Package Status](#package-status)
 - [Package Features](#package-features)
+    - [Colour Schemes](#colour-schemes)
     - [Build Systems](#build-systems)
     - [Keyboard Shortcuts](#keyboard-shortcuts)
     - [Auto-Completions](#auto-completions)
     - [Snippets](#snippets)
     - [Symbols Indexing](#symbols-indexing)
 - [License](#license)
+- [Credits](#credits)
 - [Contributing](#contributing)
 - [Links](#links)
 
@@ -105,6 +107,15 @@ For detailed info about the PML syntax elements implementation status and their 
 # Package Features
 
 Here's a list of the feature currently available in the __Sublime PML__ package.
+
+## Colour Schemes
+
+The package ships with a default _PML Dark_ colour scheme, intended to provide an improved editing experience for PML documents.
+This scheme is associated to `.pml` source files via the package settings.
+You can always override it, and use a scheme of your choice, by editing your syntax-specific User settings for the PML syntax.
+
+> **NOTE** — The colour scheme is still WIP, incomplete and subject to frequent changes.
+
 
 ## Build Systems
 
@@ -235,6 +246,13 @@ SOFTWARE.
 ```
 
 
+# Credits
+
+This repository uses the following third party assets:
+
+- __Base16 Railscasts__ colour scheme, by Ryan Bates, taken from the __[Base16 Builder]__ project, MIT License [(see `schemes/README.md`](./schemes/README.md#base16-railcast) for full credits).
+
+
 # Contributing
 
 - [`CONTRIBUTING.md`][CONTRIBUTING.md]
@@ -340,6 +358,10 @@ Articles by [Christian Neumanns]:
 [dev]: https://github.com/tajmone/Sublime-PML/tree/dev "View the 'dev' branch"
 
 [Contributors' Guidelines]: ./CONTRIBUTING.md "Read the Contributors' Guidelines"
+
+<!-- 3rd party assets -->
+
+[Base16 Builder]: https://github.com/chriskempson/base16-builder "Visit the Base16 Builder repository on GitHub"
 
 <!-- images -->
 
