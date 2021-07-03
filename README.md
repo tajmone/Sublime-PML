@@ -24,6 +24,7 @@ By [Tristano Ajmone], March 2021, [MIT License].
 - [Installation Instructions](#installation-instructions)
     - [System Requirements](#system-requirements)
 - [Package Status](#package-status)
+- [Package Roadmap](#package-roadmap)
 - [Package Features](#package-features)
     - [Colour Schemes](#colour-schemes)
     - [Build Systems](#build-systems)
@@ -79,8 +80,15 @@ You should therefore install it manually, via Git:
 
 3. Restart SublimeText.
 
-Henceforth, Sublime Text will automatically take care of updating the package via Git.
-For more info on how this works, see:
+> **WARNING** The package thus installed _will not_ be automatically updated!
+You'll have to come up with a scripted solution to update __Sublime PML__ by executing `git pull` within the package folder.
+>
+> For an overview of the problems that are preventing a self-updating package, see [Discussion #28] — where you'll also find the reasons why you shouldn't be using Sublime Text in the first place.
+
+If you intend to contribute to the package, apply the above instructions using the URL of your __Sublime PML__ fork, instead of the official repository.
+In this case, to update the package you'll have to pull changes from the upstream repository, and commit them to your fork.
+
+For more info, see:
 
 - [Package Control Documentation » Customizing Packages » Git/Hg Clone]
 
@@ -100,9 +108,41 @@ In any case, why would anyone want to install the PML package if he/she doesn't 
 
 # Package Status
 
-This package is still a work-in-progress project in its early Alpha stages; syntax scopes and features might be subject to frequent changes, as everything is still experimental at the current stage.
+This package is still a work-in-progress Alpha project, moving toward the Beta stage; syntax scopes and features might be subject to frequent changes, as everything is still experimental right now.
 
 For detailed info about the PML syntax elements implementation status and their roadmap, see [`SYNTAX_STATUS.md`][SYNTAX_STATUS.md].
+
+There are no guarantees that this package will ever be completed and submitted to [Package Control]'s official channel, for the reasons explained in the _Package Roadmap_ section.
+
+# Package Roadmap
+
+In the nearby future, I'll be investing more energy into creating a PML extension for the free and open source [VSCode] editor.
+
+VSCode has been gaining huge traction lately.
+According to [Stack Overflow's 2019 survey] it's the number one editor used by the developers' community, with a 50% score, whereas Sublime Text scored only 23%.
+
+There are probably just as many reasons for _not using_ Sublime Text as there are for _using_ VSCode — from the lack of in-depth official documentation, the new time-limited licensing scheme, to the latest [controversy on how the update to Sublime Text 4 was rolled out] to (i.e. forced upon) ST3 users.
+Whatever the reason (features richness, documentation coverage, proprietary vs open source, etc.), many long-time Sublime Text users have already migrated to VSCode — so will I, it's just a matter of reorganizing my workflow.
+
+PML is an open source project, so it comes natural to prioritize open source editors over commercial ones when it comes to providing syntax support for the PML syntax.
+
+Furthermore, VSCode is the editor officially associated with LSP ([Language Server Protocol]), and the ultimate goal for PML is to provide a [PML Language Server] that can be used on all editors and IDEs.
+
+Once a PML Lang Server will be available, it will make little sense to keep investing energy in maintaining editor-specific packages, so a Sublime Text package would simply have to use the official [PML Language Server] — that is, _if_ ST4 will ever fully support LSP, which right now is definitely not the case.
+Officially, Sublime Text is _not_ going to natively support LSP, although there are plans to introduce new API functionality that will help in that direction — in other words, they'll expect the community to implement and maintain a package for LSP support, just as they rely on community free-efforts for good documentation and the package manager.
+
+I personally think that LSP is were the future for editor-agnostic syntax support lies, and the current trend for most editors is to offer native support for LSP (Sublime Text being the exception to the rule).
+
+To summarize:
+
+1. Development of PML syntaxes for FOSS editors will take precedence over this package.
+2. [VSCode] is soon going to become the main focus for developing a PML syntax.
+3. The ultimate goal is to create a [PML Language Server] that can be used by any editor and IDE that supports LSP.
+4. When a PML Lang Server will be available, this package will either be refactored to make use of it, or it will be replaced altogether with a new ST package that does so (whichever is more convenient) — that is, _if_ ST4 will eventually fully support LSP.
+
+In the meantime, you can use this package for editing PML documents.
+Although still in Alpha stage, it's usable and offers enough features already to make it worth your wile (also, there aren't really any other alternatives right now, are there?).
+The only problem right now is that the package won't self-update (see _[Installation Instructions]_).
 
 # Package Features
 
@@ -295,7 +335,8 @@ Articles by [Christian Neumanns]:
 [Package Control]: https://packagecontrol.io
 [Package Control Documentation » Customizing Packages » Git/Hg Clone]: https://packagecontrol.io/docs/customizing_packages#Git-Hg_Clone "Read Package Control documentation on 'Customizing Packages' via Git"
 
-[Git]: https://git-scm.com "Visit Git website"
+[Stack Overflow's 2019 survey]: https://insights.stackoverflow.com/survey/2019#technology-_-most-popular-development-environments "View 2019 survey on Most Popular Development Environments"
+[controversy on how the update to Sublime Text 4 was rolled out]: https://forum.sublimetext.com/t/st3-update-now-is-st4/57892 "Sublime Forum » ST3 Update now is ST4"
 
 <!-- PML -->
 
@@ -306,6 +347,8 @@ Articles by [Christian Neumanns]:
 
 [2019article]: https://www.freecodecamp.org/news/we-need-a-new-document-markup-language-c22e0ec44e15/ "Read full article at freeCodeCamp"
 [The advantages of Document Markup Languages vs WYSIWYG editors]: https://www.pml-lang.dev/docs/articles/advantages-markup-language-vs-word-processor/index.html "Read full article at PMl website"
+
+[PML Language Server]: https://github.com/pml-lang/converter/discussions/categories/language-server "See 'Language Server' Discussions at PML official repository "
 
 <!-- PML Reference Manual -->
 
@@ -358,10 +401,18 @@ Articles by [Christian Neumanns]:
 [dev]: https://github.com/tajmone/Sublime-PML/tree/dev "View the 'dev' branch"
 
 [Contributors' Guidelines]: ./CONTRIBUTING.md "Read the Contributors' Guidelines"
+[Discussion #28]: https://github.com/tajmone/Sublime-PML/discussions/28#discussioncomment-936924
 
-<!-- 3rd party assets -->
+<!-- Document XRefs -->
+
+[Installation Instructions]: #installation-instructions "Jump to 'Installation Instructions' section"
+
+<!-- 3rd party tools and assets -->
 
 [Base16 Builder]: https://github.com/chriskempson/base16-builder "Visit the Base16 Builder repository on GitHub"
+[Git]: https://git-scm.com "Visit Git website"
+[Language Server Protocol]: https://microsoft.github.io/language-server-protocol/ "Visit the Language Server Protocol website"
+[VSCode]: https://code.visualstudio.com "Visit Visual Studio Code website"
 
 <!-- images -->
 
