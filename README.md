@@ -14,6 +14,16 @@
 
 By [Tristano Ajmone], March 2021, [MIT License].
 
+> **WARNING!** — [PML 2.0.0] was released in early September, introducing various syntax changes which are not backward compatible with PML 1.5.0.
+>
+> Updating the Sublime PML package to PML 2.0 is going to take some time, for it's basically going to require rewriting the whole syntax, and dumping the current syntax tests wholesale and rebuilding them from scratch — i.e. the whole package has to be recreated almost from scratch.
+>
+> I can't make any guarantees as to when (and _if_) the new version will be available — see [Discussion #28] regarding all the problems regarding making this package usable, and why we'd much prefer to invest energy in creating a syntax for VSCode instead.
+>
+> Furthermore, _don't submit any PRs until the migration to PML 2.0 is completed_ because I won't be able to merge them.
+
+[PML 2.0.0]: https://github.com/pml-lang/converter/discussions/55 "PML 2.0 announcement"
+
 -----
 
 **Table of Contents**
