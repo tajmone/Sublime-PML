@@ -29,6 +29,12 @@ trim_trailing_whitespace = true
 indent_style = tab
 indent_size = unset
 
+[*.sublime-color-scheme]
+block_comment_start = /*
+block_comment = *
+block_comment_end = */
+
+
 ## PML Sources
 ##############
 [*.pml]

@@ -2,13 +2,9 @@
   "scope": "text.pml meta.annotation.node-attributes.document.pml",
   "completions":
   [
-    { "trigger": "title\tDocument Title", "contents": "title = ${1:Document Title} $0" },
-    { "trigger": "authors\tDocument Author(s)", "contents": "authors = ${1:Name Surname} $0" },
-    { "trigger": "date\tPublication Date", "contents": "date = ${1:YYYY}-${2:MM}-${3:DD} $0" },
     { "trigger": "highlighter\tSyntax Highlighter", "contents": "highlighter = ${1:highlightjs} $0" },
     { "trigger": "hljs\tSyntax Highlighter: highlight.js", "contents": "highlighter = highlightjs $0" },
     { "trigger": "prism\tSyntax Highlighter: prism", "contents": "highlighter = prism $0" },
-    { "trigger": "time\tPublication Time", "contents": "time = ${1:hh}:${2:mm} $0" },
     { "trigger": "tocposition\tTOC Position", "contents": "toc_position = ${1:top} $0" },
     { "trigger": "toctitle\tTOC Title", "contents": "toc_title = ${1:Contents} $0" },
   ]

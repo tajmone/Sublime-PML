@@ -19,17 +19,14 @@ The contents of this folder deal with PML symbols, their transformation and inde
 
 # Files Description
 
-- [`Symbol Attribute ID.tmPreferences`][ID] — Manipulates `id` attributes (`string.unquoted.id`) for better symbol indexing:
+- [`Symbol Attribute ID.tmPreferences`][ID] — Transforms `id` attributes (`string.unquoted.id`) for better symbol indexing:
     1. Add leading `#` (like HTML anchors).
-- [`Symbol Chapter Title Quoted.tmPreferences`][Ch Title Quoted] — Manipulates quoted chapter titles (headings) for better symbol indexing:
-    1. Remove leading double-quote.
-    2. Remove trailing double-quote.
-    3. Remove backslashes from escaped double-quotes.
-    4. Add leading `= `.
-- [`Symbol Chapter Title Unquoted.tmPreferences`][Ch Title Unquoted] — Manipulates unquoted chapter titles (headings) for better symbol indexing:
-    1. Add leading `= `.
-- [`Symbol Parameter Definition.tmPreferences`][Param Def] — Enables local indexing of `[const` parameters definitions (`entity.name.function`) supporting __Goto Definition__ functionality.
-- [`Symbol Parameter Occurrence.tmPreferences`][Param] — Enables local indexing of parameters occurrences (`support.function.call`).
+- [`Symbol Chapter Title.tmPreferences`][Ch Title] Transforms chapter titles (headings) for better symbol indexing:
+    1. Add leading `=` + space.
+- [`Symbol Parameter Definition.tmPreferences`][Param Def] — Enables local indexing of parameters definitions (`entity.name.function`) supporting __Goto Definition__ functionality. Transforms parameter symbols:
+    1. Add leading `[u:set` + space.
+- [`Symbol Parameter Occurrence.tmPreferences`][Param] — Enables local indexing of parameters occurrences (`support.function.call`). Transforms parameter symbols:
+    1. Add leading `[u:get` + space.
 
 
 # Symbols Indexing Notes
@@ -55,8 +52,7 @@ The contents of this folder deal with PML symbols, their transformation and inde
 
 <!-- project files -->
 
-[Ch Title Quoted]: ./Symbol%20Chapter%20Title%20Quoted.tmPreferences "View source file"
-[Ch Title Unquoted]: ./Symbol%20Chapter%20Title%20Unquoted.tmPreferences "View source file"
+[Ch Title]: ./Symbol%20Chapter%20Title.tmPreferences "View source file"
 [ID]: ./Symbol%20Attribute%20ID.tmPreferences "View source file"
 [Param Def]: ./Symbol%20Parameter%20Definition.tmPreferences "View source file"
 [Param]: ./Symbol%20Parameter%20Occurrence.tmPreferences "View source file"

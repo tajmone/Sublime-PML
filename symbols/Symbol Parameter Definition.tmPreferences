@@ -11,10 +11,10 @@
     <key>symbolTransformation</key>
     <!--===================================================
     Manipulate parameter symbol for better symbol indexing:
-      1. Add leading `[const `.
+      1. Add leading `[!set `.
     ====================================================-->
     <string>
-      s/^(.+)$/[const $1/g
+      s/^(.+)$/[u:set $1/g
     </string>
   </dict>
 </dict>

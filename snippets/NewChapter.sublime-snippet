@@ -3,12 +3,10 @@
 	<tabTrigger>newch</tabTrigger>
 	<scope>text.pml - (comment | text.html | meta.embedded)</scope>
 	<content><![CDATA[
-[ch title = "${1:Chapter Title}" \
-	id = ${2:chapter_id}
+[ch (id=${1:chapter_id}) [title ${2:Chapter Title}]
 
 	${0:$SELECTION}
 
 ]
-
 ]]></content>
 </snippet>

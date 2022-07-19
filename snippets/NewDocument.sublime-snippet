@@ -3,9 +3,7 @@
 	<tabTrigger>newdoc</tabTrigger>
 	<scope>text.pml  - (comment | text.html | meta.embedded)</scope>
 	<content><![CDATA[
-[doc title = ${1:Document Title} \
-	authors = ${2:Your Name} \
-	date = ${3:YYYY}-${4:MM}-${5:DD}
+[doc [title ${1:Document Title}]
 
 	${0:$SELECTION}
 

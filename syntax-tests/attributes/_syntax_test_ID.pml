@@ -46,3 +46,9 @@
 
 ]
 !<- entity.name.tag.block-node.document.end
+
+[- PENDING TASKS:
+
+    * [ ] Convert title attribute to '[title' node.
+
+-]

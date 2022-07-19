@@ -1,5 +1,5 @@
 ! SYNTAX TEST "Packages/PML/PML.sublime-syntax"
-[doc title = Inline Nodes: Span
+[doc [title Inline Nodes: Span]
 
     Span [span is useful].
 !        ^^^^^^^^^^^^^^^^   markup.span

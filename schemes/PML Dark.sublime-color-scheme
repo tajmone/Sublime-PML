@@ -1,3 +1,6 @@
+/**************************
+ *  PML Dark | 2022/07/18 *
+ **************************/
 {
   "variables": {
     /// Base16 Railscasts ///
@@ -98,12 +101,21 @@
       "foreground": "var(base08)",
     },
     {
-      "scope": "punctuation.separator.continuation",
-      "foreground": "var(base0A)",
-    },
-    {
       "scope": "keyword",
       "foreground": "var(base0A)",
+    },
+    // Escape Sequences
+    {
+      "scope": "constant.character.escape",
+      "foreground": "var(base0E)",
+    },
+    // INVALID
+    {
+      "scope": "invalid",
+      "background": "var(base08)",
+      // "background": "color(var(base08) lightness(50%))",
+      "foreground": "var(base05)",
+      "font_style": "bold",
     },
     // Comments
     {
@@ -119,13 +131,13 @@
     },
     // Chapter Titles
     {
-      "scope": "entity.name.section",
+      "scope": "markup.heading.pml",
       "background": "color(var(base0D) lightness(55%))",
       "foreground": "var(base07)",
       "font_style": "bold",
     },
     {
-      "scope": "entity.name.section punctuation.definition.string",
+      "scope": "markup.heading.pml punctuation.definition.string",
       "background": "var(base00)",
       "foreground": "var(base0A)",
       "font_style": "",
@@ -164,15 +176,6 @@
     /// ATTRIBUTES ///
     {
       "scope": "entity.name.attribute-name, entity.other.attribute-name",
-      "foreground": "var(base0E)",
-    },
-    // Date
-    {
-      "scope": "string.unquoted.date",
-      "foreground": "color(var(base0E) lightness(70%))",
-    },
-    {
-      "scope": "constant.numeric.integer.date",
       "foreground": "var(base0E)",
     },
     /// HTML Contents ///

@@ -1,5 +1,5 @@
 ! SYNTAX TEST "Packages/PML/PML.sublime-syntax"
-[doc title = Inline Nodes: Font
+[doc [title Inline Nodes: Font]
 
 [-  ====
     BOLD

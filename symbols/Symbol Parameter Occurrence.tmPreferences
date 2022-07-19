@@ -11,12 +11,11 @@
     <key>symbolTransformation</key>
     <!--===================================================
     Manipulate parameter symbol for better symbol indexing:
-      1. Enclose parameter ID within double angle brackets:
-        `<<` ... `>>`.
+      1. Add leading `[!get `.
     ====================================================-->
-    <string><![CDATA[
-      s/^(.+)$/<<$1>>/g
-    ]]></string>
+    <string>
+      s/^(.+)$/[u:get $1/g
+    </string>
   </dict>
 </dict>
 </plist>

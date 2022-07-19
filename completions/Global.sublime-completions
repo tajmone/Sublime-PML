@@ -1,9 +1,10 @@
 {
-  // @TODO: Exclude raw blocks scope!
-  "scope": "text.pml",
+  "scope": "text.pml - (comment | text.html | meta.embedded)",
   "completions":
   [
     { "trigger": "nbsp\tNon-breaking space", "contents": "[sp]" },
     { "trigger": "nl\tNew Line", "contents": "[nl]" },
+    { "trigger": "pset\tSet parameter", "contents": "[u:set ${1:pname} = ${2:pval}]$0" },
+    { "trigger": "pget\tGet parameter", "contents": "[u:get ${1:pname}]$0" },
   ]
 }

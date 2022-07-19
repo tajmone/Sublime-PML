@@ -11,7 +11,7 @@ This folder contains the default colour schemes that ship with the Sublime PML p
 
 - [Folder Contents](#folder-contents)
 - [Credits and License](#credits-and-license)
-    - [Base16 Railcast](#base16-railcast)
+    - [Base16 Railcast by Ryan Bates](#base16-railcast-by-ryan-bates)
 
 <!-- /MarkdownTOC -->
 
@@ -27,11 +27,13 @@ This folder contains the default colour schemes that ship with the Sublime PML p
 Due credits to authors of third party assets used in the creation of the colour schemes in this folder.
 
 
-## Base16 Railcast
+## Base16 Railcast by Ryan Bates
 
-The _PML Dark_ colour scheme is based on the __Base16 Railcast__ colour scheme, created by Ryan Bates (http://railscasts.com), and released under the terms of the MIT License as part of the __Base16 Builder__ project:
+- [Base16 Railcast HTML Preview]
+- [Original `railscasts.yaml` scheme][railscasts.yaml]
 
-- https://github.com/chriskempson/base16-builder/blob/master/schemes/railscasts.yml
+
+The _PML Dark_ colour scheme is based on the __Base16 Railcast__ colour scheme, created by Ryan Bates (http://railscasts.com), originally released under the terms of the MIT License as part of the (now defunct) __Base16 Builder__ project:
 
 ```
 Copyright (C) 2012 [Chris Kempson](http://chriskempson.com)
@@ -55,11 +57,22 @@ LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ```
+Although the __Base16 Builder__ repository is no longer available, I'm providing here its original license since that's the project from which I took the YAML scheme.
+
+The __Base16 Railcast__ scheme can still be found at the [base16-unclaimed-schemes] project, but the repository doesn't contain a license file.
+
 
 <!-----------------------------------------------------------------------------
                                REFERENCE LINKS
 ------------------------------------------------------------------------------>
 
 [PML Dark.sublime-color-scheme]: ./PML%20Dark.sublime-color-scheme
+
+<!-- Base16 Railcast -->
+
+[base16-unclaimed-schemes]: https://github.com/chriskempson/base16-unclaimed-schemes "Visit the Base16 Unclaimed Schemes repository"
+
+[railscasts.yaml]: https://github.com/chriskempson/base16-unclaimed-schemes/blob/master/railscasts.yaml "YAML source of Base16 Railcast color scheme"
+[Base16 Railcast HTML Preview]: https://htmlpreview.github.io/?https://github.com/chriskempson/base16-html-previews/blob/master/previews/base16-railscasts.html "Live HTML Preview of the Base16 Railcast color scheme"
 
 <!-- EOF -->

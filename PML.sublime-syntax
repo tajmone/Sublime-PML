@@ -1,6 +1,6 @@
 %YAML 1.2
 ---
-# Sublime PML: Alpha 0.6-0 (2021/06/28)                              | PML 1.5.0
+# Sublime PML: Alpha 0.7.0 (2022/07/19)                              | PML 2.3.0
 ################################################################################
 #                                                                              #
 #                       PML (Practical Markup Language)                        #
@@ -21,12 +21,14 @@ scope: text.pml
 version: 2
 
 variables:
-  custom_id: '[a-zA-Z][a-zA-Z0-9_]*' # PML 1.4.0 (Will change in the future!)
-  pml_token: '[a-z][a-z_]*' # PML tags and attributes are lowercase, no digits.
+  custom_id:  '[a-zA-Z_][a-zA-Z0-9_\-\.]*' # PML 2.3.0 (might change in the future!)
+  pml_tag:    '[a-z][a-z_]*'       # PML tags are lowercase, no digits.
+  nspace_tag: '[a-z][a-z_:]*\b'    # PML tags + namespace hack (temp workaround).
+  pml_attr:   '[a-zA-Z][a-zA-Z_]*' # PML attributes are mixed-case, no digits.
 
 contexts:
   prototype:
-    - include: escapes
+    - include: escapes_text
     - include: comment
     - include: parameter
 
@@ -38,20 +40,20 @@ contexts:
   ## Helpers
   ##########
 
-  bail-out:
-    - match: (?=\S)
+  force-pop:
+    - match: '(?=\S)'
       pop: true
 
   pop-at-EOL:
-    - match: (?=[\n$])
+    - match: '(?=[\n$])'
       pop: true
 
   pop-at-TagEnd:
     - match: '(?=])'
       pop: true
 
-  pop-at-line_continuation:
-    - match: '(?=\s*\\$)'
+  pop-at-ParensEnd:
+    - match: '(?=\))'
       pop: true
 
   comsume-whitespace:
@@ -65,12 +67,14 @@ contexts:
 #                               Prototype Contexts
 # ==============================================================================
 
-  escapes:
-    - match: '\\[\[\]=\\]'
+  escapes_text:
+    # Escape sequences allowed in normal text: \[ \] \\ \t \r \n \uhhhh
+    - include: escapes_unicode
+    - match: '\\[\[\]\\trn]'
       scope: constant.character.escape.pml
 
   parameter:
-    - match: '(<<)({{custom_id}})(>>)'
+    - match: '(\[u:get) +({{custom_id}})(\])' # PML 2.3.0
       captures:
         0: meta.function-call.pml
         1: punctuation.definition.generic.begin.pml
@@ -96,10 +100,15 @@ contexts:
 #                               Misc. PML Elements
 # ==============================================================================
 
-  line_continuation:
-    - match: '(\\)(\n)'
-      captures:
-        1: punctuation.separator.continuation.pml
+## Escapes
+##########
+
+  escapes_unicode:
+    # Hex digits are case insensitive!
+    - match: '\\u[0-9a-fA-F]{4}|\\U[0-9a-fA-F]{8}'
+      scope: constant.character.escape.pml
+
+  # @TODO: Quoted attributes escapes! also include: \"
 
 # ******************************************************************************
 # *                                                                            *
@@ -118,23 +127,43 @@ contexts:
     - include: unknown_node
     # TODO: When all nodes are implemented, all that's left is an
     #       unescaped '[', which should be scoped as invalid/error!
-    - include: bail-out
+    - include: force-pop
 
   unknown_node:
-    # This is a just a temporary scope, to cover the unimplemented nodes.
-    # It will be removed once all nodes are implemented.
-    - match: '\[{{pml_token}}\b'
+    # This is a just a temporary scope, to cover unimplemented native nodes.
+    # Once all nodes are implemented it will be used to cover user-defined
+    # nodes, but until all native nodes are supported we can't differentiate
+    # between unimplemented nodes and user nodes.
+
+    # @NOTE: The '{{nspace_tag}}' variable is a variation of '{{pml_tag}}' to
+    #        capture tags w/ namespace! A temporary hack until namespaces are
+    #        properly handled in the syntax definition.
+    # @NOTE: We uses '{{nspace_tag/pml_tag}}' instead of '{{custom_id}}' because
+    #        we want to match PML native nodes unsupported by the syntax, not
+    #        user-defined nodes. (see 'variables:' at file start)
+    # @TODO: Once all PML nodes are supported, replace '{{pml_tag}}' with
+    #        '{{custom_id}}' and capture as user-defined node instead!
+
+    - match: '\[{{nspace_tag}}\b' # namespace hack (replaces '{{pml_tag}}')
       scope: entity.name.tag.unknown.begin.pml
-      push: unknown_node_inside
+      push: [unknown_node_inside, unknown_node_attributes]
   unknown_node_inside:
     - match: ']'
       scope: entity.name.tag.unknown.end.pml
       pop: true
-    # We need to force-push here, because attributes pop-out at EOL!
-    - match: ''
-      push:
-      - include: attributes
-      - include: pml_nodes
+    - include: pml_nodes
+  unknown_node_attributes:
+    - match: '\('
+      scope: punctuation.section.group.begin.pml
+      set: unknown_node_attributes_inside
+    - match: '\s'
+    - include: force-pop
+  unknown_node_attributes_inside:
+    - meta_content_scope: meta.group.node-attributes.unknown.pml
+    - match: '\)'
+      scope: punctuation.section.group.end.pml
+      pop: true
+    # @TODO: Find a way to scope unknown attributes bases on expectations.
 
 
 # ==============================================================================
@@ -155,129 +184,221 @@ contexts:
 
   block_nodes:
     - include: doc         # Document
-    - include: chapter     # Chapter
-    - include: html        # HTML Code
+    - include: chapter     # Chapter | Has Default
+    - include: html        # HTML Code | Raw + Childless
     - include: quote       # Quote
     - include: sourcecode  # Source Code Block
     # admonition        # Admonition
-    # audio             # Audio (Sound)
+    # audio             # Audio (Sound) | Childless
     # caption           # Caption
     # constant          # Constant Parameter
     # division          # Division
-    # image             # Image
-    # input             # Input
+    # image             # Image | Has Default + Childless
+    # input             # Input | Raw + Childless
     # insert            # Insert File
-    # insert_code       # Insert Source Code
+    # insert_code       # Insert Source Code | Childless
     # list              # List
     # list_element      # List Element
     # monospace         # Monospace
     # note              # Note
-    # output            # Output
+    # output            # Output | Raw + Childless
     # paragraph         # Paragraph
     # table             # Table
     # table_cell        # Table Cell
-    # table_data        # Table Data
+    # table_data        # Table Data | Raw + Childless
     # table_footer      # Table Footer
     # table_header      # Table Header
     # table_row         # Table Row
-    # video             # Video
-    # youtube_video     # Embedded YouTube Video
-
-# TODO: Order nodes contexts alphabetically, to simplify source navigation.
+    # video             # Video | Childless
+    # youtube_video     # Embedded YouTube Video | Childless
 
 
-## Quote
-########
+## Chapter
+##########
 
-  quote:
-    - match: '\[quote\b'
-      scope: entity.name.tag.block-node.quote.begin.pml
-      push: [quote_block, quote_attributes]
-  quote_block:
-    - meta_scope: markup.quote.pml
+# Attributes (none required, no default, no lenient parsing):
+# - [x] id
+# - [x] HTML attributes: allowed
+
+  chapter:
+    - match: '\[ch\b'
+      scope: entity.name.tag.block-node.chapter.begin.pml
+      push: [chapter_block, chapter_title, chapter_attributes]
+
+  chapter_block:
+    - meta_scope: meta.block.chapter.pml
     - include: pml_nodes
     - match: ']'
-      scope: entity.name.tag.block-node.quote.end.pml
+      scope: entity.name.tag.block-node.chapter.end.pml
       pop: true
-  quote_attributes:
-    - meta_scope: meta.annotation.node-attributes.quote.pml
-    - include: attributes
+
+  chapter_attributes:
+    - match: '\('
+      scope: punctuation.section.group.begin.pml
+      set: chapter_attributes_inside
+    - match: '\s'
+    - include: force-pop
+  chapter_attributes_inside:
+    - meta_scope: meta.annotation.node-attributes.chapter.pml
+    - match: '\)'
+      scope: punctuation.section.group.end.pml
+      pop: true
+    - include: attr_id
+    - include: attr_html
+    - include: attr_unknown # @NOTE: To cover future new attributes?
+    # @TODO: include unsupported attributes (as invalid):
+
+  chapter_title:
+    # Attributes (none required, no default, no lenient parsing):
+    # - [x] id
+    # - [x] HTML attributes: allowed
+    - match: '\[title\b(?:[ \t]+)*'
+      scope: entity.name.tag.block-node.title.chapter.begin.pml
+      push: [chapter_title_inside, chapter_title_attributes]
+    - include: force-pop
+  chapter_title_inside:
+    # @TODO: Match text as unquoted string or markup header!
+    #        (without surrounding whitespace)
+    - meta_scope: meta.block.title.chapter.pml
+    - match: ']'
+      scope: entity.name.tag.block-node.title.chapter.end.pml
+      pop: 2
+    - match: '[ \t]+(?=[\]$])' # consume trailing space
+    - match: '.'
+      scope: markup.heading.pml meta.toc-list.heading.pml
+
+  chapter_title_attributes:
+    - match: '\('
+      scope: punctuation.section.group.begin.pml
+      set: chapter_title_attributes_inside
+    - match: '\s'
+    - include: force-pop
+  chapter_title_attributes_inside:
+    - meta_scope: meta.annotation.node-attributes.title.chapter.pml
+    - match: '\)'
+      scope: punctuation.section.group.end.pml
+      pop: true
+    - include: attr_id
+    - include: attr_html
+    - include: attr_unknown # @NOTE: To cover future new attributes?
+    # @TODO: include unsupported attributes (as invalid):
+
 
 ## Document
 ###########
 
-  # NOTE: I'm not really happy with the current scope being used.
+# Attributes (none required, no default, no lenient parsing):
+# - [ ] highlighter = [none|highlightjs|prism]
+# - [ ] TOC_position
+# - [ ] TOC_title
+# - [x] HTML attributes: allowed
 
   doc:
     - match: '\[doc\b'
       scope: entity.name.tag.block-node.document.begin.pml
-      push: [doc_block, doc_attributes]
+      # push: [doc_block, doc_title]
+      push: [doc_block, doc_title, doc_attributes]
+
   doc_block:
     - meta_scope: meta.block.document.pml
     - include: pml_nodes
     - match: ']'
       scope: entity.name.tag.block-node.document.end.pml
       pop: true
+
   doc_attributes:
+    - match: '\('
+      scope: punctuation.section.group.begin.pml
+      set: doc_attributes_inside
+    - match: '\s'
+    - include: force-pop
+  doc_attributes_inside:
     - meta_scope: meta.annotation.node-attributes.document.pml
-    - include: attributes
+    - match: '\)'
+      scope: punctuation.section.group.end.pml
+      pop: true
+    # @TODO: include supported attributes:
+    - include: attr_html
+    - include: attr_unknown # @NOTE: To cover future new attributes?
+    # @TODO: include unsupported attributes (as invalid):
 
-## Chapter
-###########
-
-  chapter:
-    - match: '\[ch\b'
-      scope: entity.name.tag.block-node.section.begin.pml
-      push: [chapter_block, chapter_attributes]
-
-  chapter_block:
-    - meta_scope: meta.block.chapter.pml
-    - include: pml_nodes
+  doc_title:
+    # Attributes (none required, no default, no lenient parsing):
+    # - [x] id
+    # - [x] HTML attributes: allowed
+    - match: '\[title\b'
+      scope: entity.name.tag.block-node.title.document.begin.pml
+      push: [doc_title_inside, doc_title_attributes]
+    - include: force-pop
+  doc_title_inside:
+    # @TODO: Match text as unquoted string or markup header!
+    #        (without surrounding whitespace)
+    - meta_scope: meta.block.title.document.pml
     - match: ']'
-      scope: entity.name.tag.block-node.section.end.pml
+      scope: entity.name.tag.block-node.title.document.end.pml
+      pop: 2
+
+  doc_title_attributes:
+    - match: '\('
+      scope: punctuation.section.group.begin.pml
+      set: doc_title_attributes_inside
+    - match: '\s'
+    - include: force-pop
+  doc_title_attributes_inside:
+    - meta_scope: meta.annotation.node-attributes.title.document.pml
+    - match: '\)'
+      scope: punctuation.section.group.end.pml
       pop: true
+    - include: attr_id
+    - include: attr_html
+    - include: attr_unknown # @NOTE: To cover future new attributes?
+    # @TODO: include unsupported attributes (as invalid):
 
-  chapter_attributes:
-    - meta_scope: meta.annotation.node-attributes.chapter.pml
-    - include: chapter_title
-    - include: attributes
 
-  chapter_title:
-    - match: 'title'
-      scope: entity.other.attribute-name.title.pml
-      push:
-        - match: '='
-          scope: keyword.operator.assignment.pml
-          set:
-            - meta_scope: markup.heading.pml
-            - include: chapter_title_quoted
-            - include: chapter_title_unquoted
-            - include: bail-out
+## Quote
+########
 
-  chapter_title_unquoted:
-    - match: '(?! )'
+# Attributes (none required, no default, no lenient parsing):
+# - [x] id
+# - [ ] source
+# - [x] HTML attributes: allowed
+
+  # Only actual node-contents are scoped as 'markup.quote' and whitespace
+  # surrounding the opening and closing tags is skipped as far as possible,
+  # just the PML parser does. This results in better visual highlighting.
+
+  quote:
+    - match: '\[quote\b'
+      scope: entity.name.tag.block-node.quote.begin.pml
+      push: [quote_block, quote_attributes]
+
+  quote_block:
+    - match: '\s*' # Consume leading WS
+    - match: '(?!\s)'
       set:
-        - meta_content_scope: entity.name.section.unquoted.pml markup.heading.pml meta.toc-list.heading.pml
-        - match: '(?=\s+)$'
-          pop: true
-        - match: '(?=\s*\])'
-          pop: true
-        - include: pop-at-line_continuation
-        - include: pop-at-EOL
-        - include: parameter
-        - match: '.'
+      - meta_content_scope: markup.quote.pml
+      - include: pml_nodes
+      - match: '(?:\s*)]' # Consume trailing WS before closing bracket
+        scope: entity.name.tag.block-node.quote.end.pml
+        pop: true
 
-  chapter_title_quoted:
-    - match: '"'
-      scope: punctuation.definition.string.begin.pml
-      set: chapter_title_quoted_inside
-  chapter_title_quoted_inside:
-    # TODO: Should stop using prototypes inside string?
-    - meta_scope: entity.name.section.quoted.pml markup.heading.pml meta.toc-list.heading.pml
-    - include: string_quoted_escapes
-    - match: '"'
-      scope: punctuation.definition.string.end.pml
+  quote_attributes:
+    - match: '\('
+      scope: punctuation.section.group.begin.pml
+      set: quote_attributes_inside
+    - match: '\s'
+    - include: force-pop
+  quote_attributes_inside:
+    - meta_scope: meta.annotation.node-attributes.quote.pml
+    - match: '\)'
+      scope: punctuation.section.group.end.pml
       pop: true
+    # @TODO: include supported attributes:
+    - include: attr_id
+    - include: attr_html
+    - include: attr_unknown # @NOTE: To cover future new attributes?
+    # @TODO: include unsupported attributes (as invalid):
+
 
 ############################
 ##  RAW-TEXT BLOCK NODES  ##
@@ -291,11 +412,57 @@ contexts:
 # in order to simplify targeting them via scope selectors.
 # ------------------------------------------------------------------------------
 
+
+## HTML
+#######
+
+# Attributes (none required, no default, unconstrained attributes lenient parsing):
+# - [x] id
+# - [x] HTML attributes: allowed
+
+  # @TODO: Implement unconstrained attributes lenient parsing.
+
+  html:
+    - match: '\[html\b'
+      scope: entity.name.tag.block-node.raw.html.begin.pml
+      push: [html_contents, html_attributes]
+    - match: '\bhtml\]'
+      scope: entity.name.tag.block-node.raw.html.end.pml
+      pop: true
+  html_contents:
+    - match: ''
+      set: Packages/HTML/HTML.sublime-syntax
+      with_prototype:
+        - match: '\b(?=html\])'
+          pop: true
+  html_attributes:
+    - match: '\('
+      scope: punctuation.section.group.begin.pml
+      set: html_attributes_inside
+    - match: '\s'
+    - include: force-pop
+  html_attributes_inside:
+    - meta_scope: meta.annotation.node-attributes.html.pml
+    - match: '\)'
+      scope: punctuation.section.group.end.pml
+      pop: true
+    - include: attr_id
+    - include: attr_html
+    - include: attr_unknown # @NOTE: To cover future new attributes?
+    # @TODO: include unsupported attributes (as invalid):
+
+
 ## Source Code Block
 ####################
 
-  # FIXME: When the node has no attributes, contents following the tag are not
-  #        scoped as `source.block.listing.content`.
+# Attributes (none required, no default, unconstrained attributes lenient parsing):
+# - [x] id
+# - [ ] highlight = [yes|no]
+# - [ ] lang
+# - [x] HTML attributes: allowed
+
+  # @TODO: Implement missing attributes.
+  # @TODO: Implement unconstrained attributes lenient parsing.
 
   sourcecode:
     - match: '\[code\b'
@@ -312,22 +479,22 @@ contexts:
                 meta.embedded.block.listing.pml
         pop: true
   sourcecode_attributes:
+    - match: '\('
+      scope: punctuation.section.group.begin.pml
+      set: sourcecode_attributes_inside
+    - match: '\s'
+    - include: force-pop
+  sourcecode_attributes_inside:
     - meta_scope: meta.annotation.node-attributes.listing.pml
-    - include: attributes
-
-## HTML
-#######
-
-  html:
-    - match: '\[html\b'
-      scope: entity.name.tag.block-node.raw.html.begin.pml
-      push: Packages/HTML/HTML.sublime-syntax
-      with_prototype:
-        - match: '\b(?=html\])'
-          pop: true
-    - match: '\bhtml\]'
-      scope: entity.name.tag.block-node.raw.html.end.pml
+    - match: '\)'
+      scope: punctuation.section.group.end.pml
       pop: true
+    - include: attr_id
+    - include: attr_html
+    # @TODO: include remaining supported attributes:
+    - include: attr_unknown # @NOTE: To cover future new attributes?
+    # @TODO: include unsupported attributes (as invalid):
+
 
 # ==============================================================================
 #                                  Inline Nodes
@@ -438,7 +605,7 @@ contexts:
     - meta_scope: markup.raw.inline.pml
     - match: '^[ \t]+'  # Consume leading WS != markup.raw.inline.content
     - include: inline_nodes
-    - match: ']'
+    - match: ']' # @CHECK: Should trailing WS be consumed too?
       scope: entity.name.tag.inline-node.code.end.pml
       pop: true
     - match: '.'
@@ -447,6 +614,8 @@ contexts:
 
 ## Span
 #######
+
+  # @TODO: Supports HTML Attributes (only).
 
   span:
     - match: '\[span\b'
@@ -475,6 +644,16 @@ contexts:
     - match: ']'
       scope: entity.name.tag.inline-node.newline.end.pml
       pop: true
+    # Match any tags as invalid:
+    - match: '\['
+      scope: invalid.illegal.pml
+      push:
+      - match: ']'
+        scope: invalid.illegal.pml
+        pop: true
+      - match: '.'
+        scope: invalid.illegal.pml
+    # Match any text contents as invalid:
     - match: '.'
       scope: invalid.illegal.pml
 
@@ -500,14 +679,18 @@ contexts:
 
   text_processing_nodes:
     - include: constant   # Constant Parameter
-    # insert              # Insert File
+    # u:ins_file          # Insert File
     # comment [-> prototype]
 
 ## Constant Parameter
 #####################
 
+# @TODO: Support multiple definitions at once.
+# @TODO: Unquoted value: no escapes!
+# @TODO: Quoted string value: use attribute specific escapes!
+
   constant:
-    - match: '\[const\b'
+    - match: '\[u:set\b' # PML 2.3.0
       scope: entity.name.tag.inline-node.constant.begin.pml
       push: constant_inside
   constant_inside:
@@ -526,7 +709,7 @@ contexts:
       scope: entity.name.tag.inline-node.constant.end.pml
       pop: true
     - include: string
-    - include: bail-out
+    - include: force-pop
 
 # ******************************************************************************
 # *                                                                            *
@@ -534,47 +717,37 @@ contexts:
 # *                                                                            *
 # ******************************************************************************
 
-# As a general rule, node attributes should be matched regardless of the current
-# node (i.e. the syntax shouldn't be context-strict). It's not the business of
-# the highlighter to validate the syntax; on the contrary, error tolerance is
-# preferable, since users often copy-and-paste snippets around to work quicker.
+  # Shared '()' Attributes-Group Parsing:
+  dummy_attributes:
+    # USED-BY: **none at the moment!**.
+    # Temporary workaround shared by multiple nodes. Allows to quickly implement
+    # nodes in bulk without having to deal with node-specific attributes
+    # grouping within '()'. It will be deleted once each node has it's own
+    # attributes capturing context.
+    - match: '\('
+      scope: punctuation.section.group.begin.pml
+      set: dummy_attributes_inside
+    - match: '\s'
+    - include: force-pop
+  dummy_attributes_inside:
+    - meta_scope: meta.annotation.node-attributes.generic.pml
+    - match: '\)'
+      scope: punctuation.section.group.end.pml
+      pop: true
+    - include: attr_unknown # Catch any attributes as 'unknown'
 
-  attributes:
-    - include: line_continuation
-    - include: pop-at-TagEnd
+
+  attr_unknown:
+    # This is a just a temporary scope, to cover unimplemented attributes.
+    # It will be removed once all nodes and attributes are implemented.
+    - match: ']'
+      scope: entity.name.tag.unknown.end.pml
+      pop: true
+    - match: '\b({{pml_attr}}) *(=)'
+      captures:
+        1: entity.other.attribute-name.unknown.pml
+        2: keyword.operator.assignment.pml
     - include: pop-at-EOL
-    - include: attr_date
-    - include: attr_time
-    - include: attr_id
-    - include: attr_html
-    # TODO: implement remaining attributes...
-    - include: attr_unknown   # <- Temp fall-back for unimplemented attributes!
-
-
-  attr_date:
-    - match: '\b(date)\b'
-      scope: entity.other.attribute-name.date.pml
-      push:
-        - match: '='
-          scope: keyword.operator.assignment.pml
-          set:
-            - include: pop-at-line_continuation
-            - include: pop-at-TagEnd
-            - include: pop-at-EOL
-            - include: date_type
-
-
-  attr_time:
-    - match: '\b(time)\b'
-      scope: entity.other.attribute-name.time.pml
-      push:
-        - match: '='
-          scope: keyword.operator.assignment.pml
-          set:
-            - include: pop-at-line_continuation
-            - include: pop-at-TagEnd
-            - include: pop-at-EOL
-            - include: time_type
 
 
   attr_id:
@@ -584,9 +757,8 @@ contexts:
         - match: '='
           scope: keyword.operator.assignment.pml
           set:
-            - include: pop-at-line_continuation
-            - include: pop-at-TagEnd
-            - include: pop-at-EOL
+            - include: pop-at-ParensEnd
+            # - include: pop-at-EOL  # <- PML 1.x (attributes on same line)
             - include: id_type
 
 
@@ -594,12 +766,11 @@ contexts:
     - match: '\b(html_[a-z]{2}[a-z-]*)\b'
       scope: entity.other.attribute-name.html.pml
       push:
+        - include: pop-at-ParensEnd
         - match: '='
           scope: keyword.operator.assignment.pml
           set:
-            - include: pop-at-line_continuation
-            - include: pop-at-TagEnd
-            - include: pop-at-EOL
+            - include: pop-at-ParensEnd
             - match: '"'
               scope: punctuation.definition.string.begin.pml
               set:
@@ -609,22 +780,16 @@ contexts:
                 - match: '"'
                   scope: punctuation.definition.string.end.pml
                   pop: true
-            - include: string_unquoted
-            - include: bail-out
+            - include: attr_html_unquoted
+  attr_html_unquoted:
+    # We can't use the 'string_unquoted' context here because we need to pop
+    # when a ')' is encountered.
+    - match: '(?! )'
+      push:
+        - meta_scope: string.unquoted.pml
+        - match: '(?=\s*\))' # Don't consume/scope trailing spaces before ')'
+          pop: true
 
-
-  attr_unknown:
-    # This is a just a temporary scope, to cover the unimplemented attributes.
-    # It will be removed once all nodes and attributes are implemented.
-    - include: line_continuation
-    - match: ']'
-      scope: entity.name.tag.unknown.end.pml
-      pop: true
-    - match: '\b({{pml_token}})\b *(=)'
-      captures:
-        1: entity.other.attribute-name.unknown.pml
-        2: keyword.operator.assignment.pml
-    - include: pop-at-EOL
 
 # ******************************************************************************
 # *                                                                            *
@@ -642,12 +807,21 @@ contexts:
 #   - [ ] File (absolute/relative)
 #   - [ ] ... others??? ...
 
+
+  id_type:
+    - match: '\b({{custom_id}})\b(?![\.\-])'
+      scope: string.unquoted.id.pml meta.toc-list.id.pml
+      pop: true
+    - match: '([^\s\)]+)' # don't capture ')' in case we're in attributes group
+      scope: invalid.illegal.id.pml
+      pop: true
+      # See pml-lang/user-manual/discussions/3
+
+
   string:
     - include: string_quoted   # must always precede `string_unquoted`
     - include: string_unquoted
-    - include: bail-out
-  # - include: pop-at-EOL  # <- might be required later!
-
+    - include: force-pop
   string_quoted:
     - match: '"'
       scope: punctuation.definition.string.begin.pml
@@ -659,11 +833,9 @@ contexts:
     - match: '"'
       scope: punctuation.definition.string.end.pml
       pop: true
-
   string_quoted_escapes:
     - match: '\\"'
       scope: constant.character.escape.pml
-
   string_unquoted:
     - match: '(?! )'
       push:
@@ -672,48 +844,5 @@ contexts:
           pop: true
         - match: '(?=\s*\])'
           pop: true
-
-
-  id_type:
-    - match: '\b({{custom_id}})\b(?![\.\-])'
-      scope: string.unquoted.id.pml meta.toc-list.id.pml
-      pop: true
-    - match: '\b([^ \t\n]+)\b'
-      scope: invalid.illegal.id.pml
-      # See pml-lang/user-manual/discussions/3
-
-
-  date_type:
-    - match: '\b(?=(\d{4}|Y{4})-(\d{2}|M{2})-(\d{2}|D{2}))\b'
-      push:
-      - match: '\b(?:(0000)|(\d{4})|(Y{4}))-(?:(0[1-9]|1[0-2])|(\d{2})|(M{2}))-(?:(0[1-9]|[1-2]\d|3[01])|(\d{2})|(D{2}))\b'
-        captures:
-          0: string.unquoted.date.pml
-          1: invalid.illegal.year.pml
-          2: constant.numeric.integer.date.year.pml
-          3: constant.other.placeholder.year.pml
-          4: constant.numeric.integer.date.month.pml
-          5: invalid.illegal.month.pml
-          6: constant.other.placeholder.month.pml
-          7: constant.numeric.integer.date.day.pml
-          8: invalid.illegal.day.pml
-          9: constant.other.placeholder.day.pml
-        pop: true
-
-
-  time_type:
-    - match: '\b(?=(\d\d|hh):(\d\d|mm))\b'
-      push:
-      - match: '\b(?:([01]\d|2[0-3])|(\d\d)|(hh)):(?:([0-5]\d)|(\d\d)|(mm))\b'
-        captures:
-          0: string.unquoted.time.pml
-          1: constant.numeric.integer.time.hour.pml
-          2: invalid.illegal.hour.pml
-          3: constant.other.placeholder.hour.pml
-          4: constant.numeric.integer.time.minutes.pml
-          5: invalid.illegal.minutes.pml
-          6: constant.other.placeholder.minutes.pml
-        pop: true
-
 
 # EOF #

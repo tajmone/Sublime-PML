@@ -30,10 +30,10 @@
 !     ^^^^^^^^^^^^^^      entity.name.tag.newline
 !         ^^^^^^^^^       invalid.illegal
 
-    L1[nl <<param>>]L2
-!     ^^^^^^^^^^^^^^      entity.name.tag.newline
-!         ^^^^^^^^^       invalid.illegal
-!         ^^^^^^^^^      -meta.function-call
+    L1[nl [!get param]]L2
+!     ^^^^^^^^^^^^^^^^^      entity.name.tag.newline
+!         ^^^^^^^^^^^^       invalid.illegal
+!         ^^^^^^^^^^^^      -meta.function-call
 
 [- BUT COMMENTS ARE ALLOWED -]
 

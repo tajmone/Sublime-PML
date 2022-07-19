@@ -1,0 +1,263 @@
+# Sublime PML Package Status
+
+Info about the package status in terms of PML syntax elements and features currently implemented and those awaiting implementation.
+
+-----
+
+**Table of Contents**
+
+<!-- MarkdownTOC autolink="true" bracket="round" autoanchor="false" lowercase="only_ascii" uri_encoding="true" levels="1,2,3" -->
+
+- [Syntax Elements](#syntax-elements)
+    - [Block Nodes](#block-nodes)
+        - [Fundamental Nodes](#fundamental-nodes)
+        - [Common Nodes](#common-nodes)
+        - [Media](#media)
+        - [Software Development](#software-development)
+    - [Inline Nodes](#inline-nodes)
+        - [Font Nodes](#font-nodes)
+    - [Text Processing Nodes](#text-processing-nodes)
+
+<!-- /MarkdownTOC -->
+
+-----
+
+# Syntax Elements
+
+Info about the status of PML nodes and other syntax-related elements currently implemented in Sublime PML, and their roadmap.
+
+Syntax elements with a ticked checkbox are ready to use, even though some features might still be pending implementation (unticked checkbox).
+
+To simplify consultation, nodes are organized into sub-sections like in the PML _[PML Reference Manual]_ and presented in the same order, and syntax elements and their categories link back to their descriptions in the _[Reference][PML Reference Manual]_ and _[User][PML User Manual]_ manuals.
+
+
+## Block Nodes
+
+> See: [PML Reference Manual] » [Block Nodes].
+
+### Fundamental Nodes
+
+> See: [PML Reference Manual] » [Block Nodes] » [Fundamental Nodes].
+
+- [x] Document — `[doc` .. `]`
+    + [x] Tag scoping.
+    + [ ] Attributes:
+        * [ ] `highlighter`
+        * [ ] `TOC_position`
+        * [ ] `TOC_title`
+        * [x] HTML attributes
+    + [ ] Attributes completions:
+        * [x] `highlighter` &rarr; `highlighter = ${1:highlightjs} $0`
+        * [x] `hljs` &rarr; `highlighter = highlightjs $0`
+        * [x] `prism` &rarr; `highlighter = prism $0`
+        * [x] `tocposition` &rarr; `toc_position = ${1:top} $0`
+        * [x] `toctitle` &rarr; `toc_title = ${1:Contents} $0`
+        * [ ] HTML attributes
+    + [x] Snippet: `newdoc`.
+- [x] Document Title — `[doc [title` sub-node:
+    + [x] Tag scoping.
+    + [x] Attributes:
+        * [x] `id`
+        * [x] HTML attributes
+- [ ] Paragraph — `[p` .. `]`.
+- [x] Chapter — `[ch` .. `]`:
+    + [x] Tag scoping.
+    + [x] Attributes:
+        * [x] `id`
+        * [x] HTML attributes
+    + [x] Attributes completions:
+        * `id` &rarr; `id = ${1:identifier} $0`
+- [x] Chapter Title — `[ch [title` sub-node:
+    + [x] Tag scoping.
+    + [x] Attributes:
+        * [x] `id`
+        * [x] HTML attributes
+    + [x] Snippet: `newch`.
+    + [ ] Symbol Indexing (local):
+        * [ ] Chapter title text is transformed for better lookup:
+            - [x] Prefixed with `= `.
+            - [x] Surrounding spaces are trimmed.
+            - [ ] Multi-line titles need to be joined into a single line by removing EOLs and extra spaces.
+        + **WARNING** — If a title contains parameters or text-formatting sub-nodes it won't be indexed correctly since ST doesn't allow sub-scoping of TOC entries.
+- [ ] Chapter Subtitle — `[ch [title [subtitle` sub-node.
+
+### Common Nodes
+
+> See: [PML Reference Manual] » [Block Nodes] » [Common Nodes].
+
+- [ ] _[List Nodes]_:
+    + [ ]  [List] — `[list` .. `]`.
+    + [ ]  [List Element] — `[el` .. `]`.
+- [ ] _[Table Nodes]_:
+    + [ ] Table Data — `[table_data` .. `table_data]`.
+    + [ ] Table — `[table` .. `]`.
+    + [ ] Table Header — `[theader` .. `]`.
+    + [ ] Table Footer — `[tfooter` .. `]`.
+    + [ ] Table Row — `[tr` .. `]`.
+    + [ ] Table Cell — `[tc` .. `]`.
+- [ ] Header — `[header` .. `]`.
+- [ ] Admonition — `[admon` .. `]`.
+- [ ] Note — `[note` .. `]`.
+- [x] Quote — `[quote` .. `]`
+    + [x] Tag scoping.
+    + [ ] Attributes:
+        * [x] `id`
+        * [ ] `source`
+        * [x] HTML attributes
+    + [ ] Attributes completions:
+        * [x] `id` &rarr; `id = ${1:identifier} $0`
+        * [x] `source` &rarr; `source = ${1:John Doe} $0`
+        * [ ] HTML attributes
+- [ ] Caption — `[caption` .. `]`
+- [ ] Monospace — `[monospace` .. `]`
+- [ ] Division — `[div` .. `]`
+- [x] HTML Code — `[html` .. `html]`
+    + [x] Tag scoping.
+    + [x] Syntax embedding: node contents are passed to the native HTML syntax that ships with Sublime Text.
+    + [x] Attributes:
+        * [x] `id`
+        * [x] HTML attributes
+    + [ ] Lenient parsing: Unconstrained attributes.
+
+
+### Media
+
+> See: [PML Reference Manual] » [Block Nodes] » [Media].
+
+- [ ]  [Image] — `[image` .. `]`
+- [ ]  [Audio] (Sound) — `[audio` .. `]`
+- [ ]  [Video] — `[video` .. `]`
+- [ ]  [Embedded YouTube Video] — `[youtube_video` .. `]`
+
+### Software Development
+
+> See: [PML Reference Manual] » [Block Nodes] » [Software Development].
+
+- [x]  [Source Code] — `[code` .. `code]`
+    + [x] Tag scoping.
+    + [ ] Attributes:
+        * [x] `id`
+        * [ ] `highlight`
+        * [ ] `lang`
+        * [x] HTML attributes
+    + [ ] Lenient parsing: Unconstrained attributes.
+- [ ]  [Insert Source Code] — `[insert_code` .. `]`
+- [ ]  [Input] — `[input` .. `input]`
+- [ ]  [Output] — `[output` .. `output]`
+
+
+## Inline Nodes
+
+> See: [PML Reference Manual] » [Inline Nodes].
+
+- [ ] URL Link — `[link` .. `]`
+- [ ] Verbatim Text — `[verbatim` .. `]`
+- [ ] Cross-Reference — `[xref` .. `]`
+- [x] [Span] — `[span` .. `]`
+    + [x] Tag scoping.
+    + [ ] Keyboard shortcut (???).
+- [x] New Line — `[nl` .. `]`
+    + [x] Tag scoping.
+    + [x] smart auto-completion (`nl`), globally available.
+    + [x] Keyboard shortcut: <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>Enter</kbd> (PML files only, and not if a cursor is inside `[html` node).
+- [x] Space Character — `[sp` .. `]`
+    + [x] Tag scoping.
+    + [x] smart auto-completion (`nbsp`), globally available.
+    + [ ] Keyboard shortcut?
+
+### Font Nodes
+
+> See: [PML Reference Manual] » [Inline Nodes] » [Font].
+
+- [x] Bold Text — `[b` .. `]`
+    + [x] Tag scoping.
+    + [x] Keyboard shortcut <kbd>Alt</kbd> <kbd>b</kbd>.
+- [x] Italic Text — `[i` .. `]`
+    + [x] Tag scoping.
+    + [x] Keyboard shortcut <kbd>Alt</kbd> <kbd>i</kbd>.
+- [x] Subscript — `[sub` .. `]`
+    + [x] Tag scoping.
+    + [ ] Keyboard shortcut?
+- [x] Superscript — `[sup` .. `]`
+    + [x] Tag scoping.
+    + [ ] Keyboard shortcut?
+- [x] Strikethrough — `[strike` .. `]`
+    + [x] Tag scoping.
+    + [ ] Keyboard shortcut?
+- [x] Inline Source Code — `[c` .. `]`
+    + [x] Tag scoping.
+    + [ ] Keyboard shortcut (???).
+
+
+## Text Processing Nodes
+
+> See: [PML User Manual] » [Text Processing Nodes].
+
+
+- [x] Comments — `[-` .. `-]`
+    + [x] Nestable comments.
+    + [x] Keyboard shortcuts:
+        * [x] <kbd>Ctrl</kbd> <kbd>/</kbd>
+        * [x] <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>/</kbd>
+- [ ] [Insert File] — `[u:ins_file` .. `]`
+- [x] [Parameters] — `[u:set` .. `]` and `[u:get` .. `]`:
+    + [x] Basic node scoping.
+        * [ ] Need to handle scoping of the `u:` namespace part.
+        * [ ] `[u:set`: allow multiple definitions.
+    + [x] Indexing in local symbols list:
+        * [x] Symbols are transformed by prefixing their `[u:set`/`[u:get` tags for easier lookup and fuzzy searching.
+    + [x] __Goto Definition__ (<kbd>F12</kbd>) jumps to parameter's `[u:set` definition.
+    + [x] Completions: `pset` and `pget` to quickly define and insert parameters, respectively.
+
+<!-----------------------------------------------------------------------------
+                               REFERENCE LINKS
+------------------------------------------------------------------------------>
+
+<!-- PML Reference Manual -->
+
+[PML Reference Manual]: https://www.pml-lang.dev/docs/reference_manual/index.html "Read the online PML Reference Manual"
+
+[Block Nodes]: https://www.pml-lang.dev/docs/reference_manual/index.html#ch__8 "PML Reference Manual » Block Nodes"
+
+[Fundamental Nodes]: https://www.pml-lang.dev/docs/reference_manual/index.html#ch__2 "PML Reference Manual » Block Nodes » Fundamental Nodes"
+
+[Common Nodes]: https://www.pml-lang.dev/docs/reference_manual/index.html#ch__5 "PML Reference Manual » Block Nodes » Common Nodes"
+
+[List Nodes]: https://www.pml-lang.dev/docs/reference_manual/index.html#ch__3 "PML Reference Manual » Block Nodes » Common Nodes » List Nodes"
+[List]: https://www.pml-lang.dev/docs/reference_manual/index.html#node_list "PML Reference Manual » List node"
+[List Element]: https://www.pml-lang.dev/docs/reference_manual/index.html#node_el "PML Reference Manual » List Element node"
+
+[Table Nodes]: https://www.pml-lang.dev/docs/reference_manual/index.html#ch__4 "PML Reference Manual » Block Nodes » Common Nodes » Table Nodes"
+
+[Media]: https://www.pml-lang.dev/docs/reference_manual/index.html#ch__6 "PML Reference Manual » Block Nodes » Media"
+[Image]: https://www.pml-lang.dev/docs/reference_manual/index.html#node_image "PML Reference Manual » Image node"
+[Audio]: https://www.pml-lang.dev/docs/reference_manual/index.html#node_audio "PML Reference Manual » Audio node"
+[Video]: https://www.pml-lang.dev/docs/reference_manual/index.html#node_video "PML Reference Manual » Video node"
+[Embedded YouTube Video]: https://www.pml-lang.dev/docs/reference_manual/index.html#node_youtube_video "PML Reference Manual » Embedded YouTube Video] node"
+
+[Software Development]: https://www.pml-lang.dev/docs/reference_manual/index.html#ch__7 "PML Reference Manual » Block Nodes » Software Development"
+[Source Code]: https://www.pml-lang.dev/docs/reference_manual/index.html#node_code "PML Reference Manual » Source Code node"
+[Insert Source Code]: https://www.pml-lang.dev/docs/reference_manual/index.html#node_insert_code "PML Reference Manual » Insert Source Code node"
+[Input]: https://www.pml-lang.dev/docs/reference_manual/index.html#node_input "PML Reference Manual » Input node"
+[Output]: https://www.pml-lang.dev/docs/reference_manual/index.html#node_output "PML Reference Manual » Output node"
+
+[Inline Nodes]:  https://www.pml-lang.dev/docs/reference_manual/index.html#ch__10 "PML Reference Manual » Inline Nodes"
+
+[Font]: https://www.pml-lang.dev/docs/reference_manual/index.html#ch__9 "PML Reference Manual » Inline Nodes » Font"
+
+[Span]: https://www.pml-lang.dev/docs/reference_manual/index.html#node_span "PML Reference Manual » Span node"
+
+<!-- PML User Manual -->
+
+[PML User Manual]: https://www.pml-lang.dev/docs/user_manual/index.html "Read the online PML User Manual"
+
+[Text Processing Nodes]:  https://www.pml-lang.dev/docs/user_manual/index.html#text_processing "PML User Manual » Text Processing Nodes"
+[Insert File]: https://www.pml-lang.dev/docs/user_manual/index.html#file_splitting "PML User Manual » File Splitting"
+[Parameters]: https://www.pml-lang.dev/docs/user_manual/index.html#parameters "PML User Manual » Parameters"
+
+
+<!-- internal xrefs -->
+
+[Post-migration TODOs]: #post-migration-todos "Jump to section..."
+
+<!-- EOF -->

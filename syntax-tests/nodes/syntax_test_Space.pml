@@ -30,6 +30,7 @@
 !     ^^^^^^^^^^^^^^      entity.name.tag.nbsp
 !         ^^^^^^^^^       invalid.illegal
 
+[- @FIXME: Test new PML 2.0.0 parameter inside -]
     L1[sp <<param>>]L2
 !     ^^^^^^^^^^^^^^      entity.name.tag.nbsp
 !         ^^^^^^^^^       invalid.illegal

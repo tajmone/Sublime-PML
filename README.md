@@ -12,17 +12,7 @@
 
 - https://github.com/tajmone/Sublime-PML
 
-By [Tristano Ajmone], March 2021, [MIT License].
-
-> **WARNING!** — [PML 2.0.0] was released in early September, introducing various syntax changes which are not backward compatible with PML 1.5.0.
->
-> Updating the Sublime PML package to PML 2.0 is going to take some time, for it's basically going to require rewriting the whole syntax, and dumping the current syntax tests wholesale and rebuilding them from scratch — i.e. the whole package has to be recreated almost from scratch.
->
-> I can't make any guarantees as to when (and _if_) the new version will be available — see [Discussion #28] regarding all the problems regarding making this package usable, and why we'd much prefer to invest energy in creating a syntax for VSCode instead.
->
-> Furthermore, _don't submit any PRs until the migration to PML 2.0 is completed_ because I won't be able to merge them.
-
-[PML 2.0.0]: https://github.com/pml-lang/converter/discussions/55 "PML 2.0 announcement"
+Created by [Tristano Ajmone] in March, 2021; released under [MIT License].
 
 -----
 
@@ -34,7 +24,6 @@ By [Tristano Ajmone], March 2021, [MIT License].
 - [Installation Instructions](#installation-instructions)
     - [System Requirements](#system-requirements)
 - [Package Status](#package-status)
-- [Package Roadmap](#package-roadmap)
 - [Package Features](#package-features)
     - [Colour Schemes](#colour-schemes)
     - [Build Systems](#build-systems)
@@ -59,48 +48,32 @@ By [Tristano Ajmone], March 2021, [MIT License].
 >
 > PML is still in its early days, but it is well suited for many kinds of web documents.
 
-PML was designed by [Christian Neumanns] around 2019, and since February 2021 the full source code of the PML converter is available on GitHub under GPLv2 license:
+PML was designed by [Christian Neumanns] around 2019, and since February 2021 the full source code of the PML conversion tool is available on GitHub under GPLv2 license:
 
 - https://github.com/pml-lang/converter
 
 Precompiled binaries of the PML converter for Windows and Linux [can be downloaded from the official website][Get PML].
 
-For more information on how PML was born, and its advantages over other lightweight markup languages, see Christian Neumanns's article [_We need a new document markup language  — here is why_][2019article].
+For more information on how PML was born, and its advantages over other lightweight markup languages, see Christian Neumanns's article [_We need a new document markup language — here is why_][2019article].
 
 
 # Installation Instructions
 
-Right now, this repository is not a full-fledged package that can be installed via [Package Control].
+Currently there are no plans to submit this package to the official [Package Control] channel, so you'll need [Git] on you machine in order to install it and keep it updated.
 
-You should therefore install it manually, via Git:
+The following instructions will allow you to install this package from GitHub using Sublime Text's native Package Control tool even though the package is not listed at the [Package Control] website/channel.
 
-1. From your terminal, navigate to your Packages subdirectory under the ST4's data directory:
-    * OS X: `~/Library/Application\ Support/Sublime\ Text\ 4/Packages/`
-    * Linux: `~/.config/sublime-text-4/Packages/`
-    * Windows: `%APPDATA%\Sublime Text 4\Packages\`
-    * Windows (Scoop): `%USERPROFILE%/scoop/persist/sublime-text/Data/Packages/`
+1. Open the Command Palette by pressing <kbd>ctrl</kbd>shift<kbd></kbd>p<kbd></kbd> (Windows and Linux) or <kbd>cmd</kbd>shift<kbd></kbd>p<kbd></kbd> (Mac).
 
-    > **NOTE** — If you've upgraded from ST3 to ST4, then the installation folder will be that of ST3 (i.e. the above paths will contain a `3` instead of a `4`).
+2. Select the **Package Control: Add Repository** command (by clicking it with the mouse or pressing <kbd>enter</kbd>).
+    + You'll see an input box appear at the bottom of the editor interface, next to a label stating "GitHub, GitLab or BitBucket Web URL...". Copy and paste in the input box the URL of this repository:
 
-2. From that directory, invoke Git to clone this repository into the `PML` subdirectory:
+            https://github.com/tajmone/Sublime-PML
 
-        git clone https://github.com/tajmone/Sublime-PML PML
+3. Open again the Command Palette and select the **Package Control: Install Package** command.
+    + Now the **Sublime-PML** package will be listed among the packages available for installation: find it and select it to proceed with its installation.
 
-    > **IMPORTANT** — The extra `PML` at the end of the line is _not_ a mistake, it instructs Git to clone the repository into the `PML/` folder (instead of `Sublime-PML`).
-
-3. Restart SublimeText.
-
-> **WARNING** The package thus installed _will not_ be automatically updated!
-You'll have to come up with a scripted solution to update __Sublime PML__ by executing `git pull` within the package folder.
->
-> For an overview of the problems that are preventing a self-updating package, see [Discussion #28] — where you'll also find the reasons why you shouldn't be using Sublime Text in the first place.
-
-If you intend to contribute to the package, apply the above instructions using the URL of your __Sublime PML__ fork, instead of the official repository.
-In this case, to update the package you'll have to pull changes from the upstream repository, and commit them to your fork.
-
-For more info, see:
-
-- [Package Control Documentation » Customizing Packages » Git/Hg Clone]
+After installation, the **Sublime-PML** package will be automatically updated whenever a new release is available.
 
 
 ## System Requirements
@@ -119,40 +92,12 @@ In any case, why would anyone want to install the PML package if he/she doesn't 
 # Package Status
 
 This package is still a work-in-progress Alpha project, moving toward the Beta stage; syntax scopes and features might be subject to frequent changes, as everything is still experimental right now.
+Other than that, the package is fully usable in production and offers decent support for PML editing and syntax highlighting.
 
-For detailed info about the PML syntax elements implementation status and their roadmap, see [`SYNTAX_STATUS.md`][SYNTAX_STATUS.md].
+For detailed info about the PML syntax elements implementation status and their roadmap, see [`PACKAGE_STATUS.md`][PACKAGE_STATUS.md].
 
-There are no guarantees that this package will ever be completed and submitted to [Package Control]'s official channel, for the reasons explained in the _Package Roadmap_ section.
+There are no guarantees that this package will ever be completed, and no plans to submit it to [Package Control]'s official channel.
 
-# Package Roadmap
-
-In the nearby future, I'll be investing more energy into creating a PML extension for the free and open source [VSCode] editor.
-
-VSCode has been gaining huge traction lately.
-According to [Stack Overflow's 2019 survey] it's the number one editor used by the developers' community, with a 50% score, whereas Sublime Text scored only 23%.
-
-There are probably just as many reasons for _not using_ Sublime Text as there are for _using_ VSCode — from the lack of in-depth official documentation, the new time-limited licensing scheme, to the latest [controversy on how the update to Sublime Text 4 was rolled out] to (i.e. forced upon) ST3 users.
-Whatever the reason (features richness, documentation coverage, proprietary vs open source, etc.), many long-time Sublime Text users have already migrated to VSCode — so will I, it's just a matter of reorganizing my workflow.
-
-PML is an open source project, so it comes natural to prioritize open source editors over commercial ones when it comes to providing syntax support for the PML syntax.
-
-Furthermore, VSCode is the editor officially associated with LSP ([Language Server Protocol]), and the ultimate goal for PML is to provide a [PML Language Server] that can be used on all editors and IDEs.
-
-Once a PML Lang Server will be available, it will make little sense to keep investing energy in maintaining editor-specific packages, so a Sublime Text package would simply have to use the official [PML Language Server] — that is, _if_ ST4 will ever fully support LSP, which right now is definitely not the case.
-Officially, Sublime Text is _not_ going to natively support LSP, although there are plans to introduce new API functionality that will help in that direction — in other words, they'll expect the community to implement and maintain a package for LSP support, just as they rely on community free-efforts for good documentation and the package manager.
-
-I personally think that LSP is were the future for editor-agnostic syntax support lies, and the current trend for most editors is to offer native support for LSP (Sublime Text being the exception to the rule).
-
-To summarize:
-
-1. Development of PML syntaxes for FOSS editors will take precedence over this package.
-2. [VSCode] is soon going to become the main focus for developing a PML syntax.
-3. The ultimate goal is to create a [PML Language Server] that can be used by any editor and IDE that supports LSP.
-4. When a PML Lang Server will be available, this package will either be refactored to make use of it, or it will be replaced altogether with a new ST package that does so (whichever is more convenient) — that is, _if_ ST4 will eventually fully support LSP.
-
-In the meantime, you can use this package for editing PML documents.
-Although still in Alpha stage, it's usable and offers enough features already to make it worth your wile (also, there aren't really any other alternatives right now, are there?).
-The only problem right now is that the package won't self-update (see _[Installation Instructions]_).
 
 # Package Features
 
@@ -196,7 +141,7 @@ The two comment shortcuts <kbd>Ctrl</kbd> <kbd>/</kbd> and <kbd>Ctrl</kbd> <kbd>
 
 - Selected text is commented out: `[- `&lt;selection&gt;` -]`
 
-Their behavior differs when nothing is selected:
+Their behaviour differs when nothing is selected:
 
 |                  key strokes                  |            effect without selection           |
 |-----------------------------------------------|-----------------------------------------------|
@@ -212,10 +157,12 @@ Sublime PML offers smart auto-completion suggestions, based on the scope context
 
 For commonly used nodes, context-specific suggestions are available.
 
-| trigger | output |    description     |
-|---------|--------|--------------------|
-| `nbsp`  | `[sp]` | Non-Breaking Space |
-| `nl`    | `[nl]` | New Line           |
+| trigger |          output          |    description     |
+|---------|--------------------------|--------------------|
+| `nbsp`  | `[sp]`                   | Non-Breaking Space |
+| `nl`    | `[nl]`                   | New Line           |
+| `pget`  | `[u:get pname]`          | Get parameter      |
+| `pset`  | `[u:set pname = pvalue]` | Set parameter      |
 
 <!-- MarkdownTOC:excluded -->
 ### Tag Attributes
@@ -225,43 +172,34 @@ For nodes that support attributes, context-specific suggestions are available wi
 |   tag    |    trigger    |           description            |
 |----------|---------------|----------------------------------|
 | `[ch`    | `id`          | Chapter Identifier               |
-| `[ch`    | `title`       | Chapter title                    |
-| `[doc`   | `authors`     | Document Author(s)               |
-| `[doc`   | `date`        | Publication Date                 |
 | `[doc`   | `highlighter` | Syntax Highlighter               |
 | `[doc`   | `hljs`        | Syntax Highlighter: highlight.js |
 | `[doc`   | `prism`       | Syntax Highlighter: prism        |
-| `[doc`   | `time`        | Publication Time                 |
-| `[doc`   | `title`       | Document Title                   |
 | `[doc`   | `tocposition` | TOC Position                     |
 | `[doc`   | `toctitle`    | TOC Title                        |
 | `[quote` | `id`          | Quotation Identifier             |
 | `[quote` | `source`      | Source of Quotation              |
-| `[quote` | `title`       | Quotation Title                  |
 
 
 ## Snippets
 
 The package provides the following snippets:
 
-| trigger  |                                   description                                    |
-|----------|----------------------------------------------------------------------------------|
-| `newdoc` | __New PML Document__ boilerplate, with attributes placeholders. Wraps selection. |
-| `newch`  | __New Chapter__ template, with attributes placeholders. Wraps selection.         |
+| trigger  |                                description                                 |
+|----------|----------------------------------------------------------------------------|
+| `newdoc` | __New PML Document__ boilerplate, with title placeholder. Wraps selection. |
+| `newch`  | __New Chapter__ template, with ID and title placeholders. Wraps selection. |
 
 
 ## Symbols Indexing
 
-The following syntax elements are being indexed (local symbol list):
+The following syntax elements are being indexed (local symbol list).
+Some cosmetic transformations are applied to the symbols, either to improve their visual representation or to simplify lookup by adding prefixes that allow filtering down the symbols list by category.
 
 - _[Parameters]_, both their definitions and inline occurrences are indexed after cosmetic transformations:
-    + Parameters definitions are prefixed with `[const `.
-    + Parameters occurrences are enclosed within angle brackets: `<<param_name>>`.
-- _[Chapter]_ titles (i.e. document headings) are indexed after some cosmetic transformations:
-    + Quoted-string titles are stripped of:
-        * Surrounding quotes.
-        * Backslashes `\` escaping double quotes (i.e. `\"` &rarr; `"`).
-    + All titles are prefixed with `= `, for easier symbol lookup.
+    + Parameters definitions are prefixed with `[u:set` + space.
+    + Parameters occurrences are prefixed with `[u:get` + space.
+- _[Chapter]_ titles (i.e. document headings) are indexed with a leading `=` + space.
 - _Identifier_ attributes (`id`) are indexed with a leading `#`, resembling HTML anchors.
 
 __Goto Definition__ functionality (<kbd>F12</kbd>) is also supported, allowing to quickly jump to the definition of any inline parameter.
@@ -274,7 +212,7 @@ __Goto Definition__ functionality (<kbd>F12</kbd>) is also supported, allowing t
 ```
 MIT License
 
-Copyright (c) 2021 Tristano Ajmone
+Copyright (c) 2021-2022 Tristano Ajmone
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -377,8 +315,6 @@ Articles by [Christian Neumanns]:
 
 <!-- PML GitHub -->
 
-[@practical-markup-language]: https://github.com/practical-markup-language "View GitHub profile of the Practical Markup Language organization"
-
 [@pml-lang]: https://github.com/pml-lang "View GitHub profile of the Practical Markup Language organization"
 [pml-lang/converter]: https://github.com/pml-lang/converter "Visit repository on GitHub"
 [pml-lang/user-manual]: https://github.com/pml-lang/user-manual "Visit repository on GitHub"
@@ -391,15 +327,15 @@ Articles by [Christian Neumanns]:
 [.travis.yml]: ./.travis.yml "View Travis CI settings file"
 [CONTRIBUTING.md]: ./CONTRIBUTING.md "Read the Contributors' Guidelines"
 [LICENSE]: ./LICENSE "View MIT License file"
-[SYNTAX_STATUS.md]: ./SYNTAX_STATUS.md "View document"
+[PACKAGE_STATUS.md]: ./PACKAGE_STATUS.md "View document"
 [validate.sh]: ./validate.sh "View source script for code style validation"
 
 <!-- badges -->
 
 [License badge]: https://img.shields.io/badge/License-MIT-blue
-[Package badge]: https://img.shields.io/badge/status-WIP-orange "Sublime PML is currently in Alpha stage"
-[PML badge]: https://img.shields.io/badge/PML-1.5.0-yellow "Supported PML version (click for PML download page)"
-[ST badge]: https://img.shields.io/badge/Sublime%20Text-4109-yellow?logo=sublime-text&logoColor=FF9800 "Supported Sublime Text version (click to visit download page)"
+[Package badge]: https://img.shields.io/badge/status-alpha-orange "Sublime PML is currently in Alpha stage"
+[PML badge]: https://img.shields.io/badge/PML-2.3.0-yellow "Supported PML version (click for PML download page)"
+[ST badge]: https://img.shields.io/badge/Sublime%20Text-4134-yellow?logo=sublime-text&logoColor=FF9800 "Sublime Text version (click to visit download page)"
 [ST link]: https://www.sublimetext.com/download "Supported Sublime Text version (click to visit download page)"
 [Travis badge]: https://img.shields.io/travis/com/tajmone/Sublime-PML/main?logo=travis
 [Travis link]: https://travis-ci.com/tajmone/Sublime-PML "Travis CI: EditorConfig validation status"
