@@ -10,7 +10,9 @@
 
 [Sublime Text 4] syntax support for [PML]  (Practical Markup Language).
 
-- https://github.com/tajmone/Sublime-PML
+- https://github.com/tajmone/Sublime-PML — source repository.
+- https://tajmone.github.io/Sublime-PML — online user guide.
+
 
 Created by [Tristano Ajmone] in March, 2021; released under [MIT License].
 
@@ -25,12 +27,6 @@ Created by [Tristano Ajmone] in March, 2021; released under [MIT License].
     - [System Requirements](#system-requirements)
 - [Package Status](#package-status)
 - [Package Features](#package-features)
-    - [Colour Schemes](#colour-schemes)
-    - [Build Systems](#build-systems)
-    - [Keyboard Shortcuts](#keyboard-shortcuts)
-    - [Auto-Completions](#auto-completions)
-    - [Snippets](#snippets)
-    - [Symbols Indexing](#symbols-indexing)
 - [License](#license)
 - [Credits](#credits)
 - [Contributing](#contributing)
@@ -101,108 +97,9 @@ There are no guarantees that this package will ever be completed, and no plans t
 
 # Package Features
 
-Here's a list of the feature currently available in the __Sublime PML__ package.
+For the full list of features currently available in __Sublime PML__ see the online user guide:
 
-## Colour Schemes
-
-The package ships with a default _PML Dark_ colour scheme, intended to provide an improved editing experience for PML documents.
-This scheme is associated to `.pml` source files via the package settings.
-You can always override it, and use a scheme of your choice, by editing your syntax-specific User settings for the PML syntax.
-
-> **NOTE** — The colour scheme is still WIP, incomplete and subject to frequent changes.
-
-
-## Build Systems
-
-The package provides some built-in basic build systems:
-
-|           name           |                   description                    |               command               |
-|--------------------------|--------------------------------------------------|-------------------------------------|
-| _default_                | Convert file without options (i.e. to `output/`) | `pmlc <file.pml>`                   |
-| Convert to source folder | Convert file to same folder as PML source        | `pmlc convert -f <file.pml> -od ./` |
-
-
-## Keyboard Shortcuts
-
-Some of the keystrokes combinations indicated below rely on Sublime Text's default settings, and might vary depending on your custom settings, whereas others are explicitly defined by this package.
-
-
-|                    key strokes                    |              result              |                  context                  |
-|---------------------------------------------------|----------------------------------|-------------------------------------------|
-| <kbd>Alt</kbd> <kbd>B</kbd>                       | Make selection **bold** `[b`…`]` | Anywhere in PML file, except `[html` node |
-| <kbd>Alt</kbd> <kbd>I</kbd>                       | Make selection _italic_ `[i`…`]` | Anywhere in PML file, except `[html` node |
-| <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>Enter</kbd> | Inserts new line node `[nl]`     | Anywhere in PML file, except `[html` node |
-
-
-<!-- MarkdownTOC:excluded -->
-### Comments
-
-The two comment shortcuts <kbd>Ctrl</kbd> <kbd>/</kbd> and <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>/</kbd> share some common behavior:
-
-- Selected text is commented out: `[- `&lt;selection&gt;` -]`
-
-Their behaviour differs when nothing is selected:
-
-|                  key strokes                  |            effect without selection           |
-|-----------------------------------------------|-----------------------------------------------|
-| <kbd>Ctrl</kbd> <kbd>/</kbd>                  | Comments out the whole line                   |
-| <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>/</kbd> | Inserts comments delimiters under cursor only |
-
-## Auto-Completions
-
-Sublime PML offers smart auto-completion suggestions, based on the scope context under the cursor, thus avoiding completions pollution (i.e. cluttering the suggestions with unrelated elements).
-
-<!-- MarkdownTOC:excluded -->
-### Nodes
-
-For commonly used nodes, context-specific suggestions are available.
-
-| trigger |          output          |    description     |
-|---------|--------------------------|--------------------|
-| `nbsp`  | `[sp]`                   | Non-Breaking Space |
-| `nl`    | `[nl]`                   | New Line           |
-| `pget`  | `[u:get pname]`          | Get parameter      |
-| `pset`  | `[u:set pname = pvalue]` | Set parameter      |
-
-<!-- MarkdownTOC:excluded -->
-### Tag Attributes
-
-For nodes that support attributes, context-specific suggestions are available within the editing space where tag attributes are allowed.
-
-|   tag    |    trigger    |           description            |
-|----------|---------------|----------------------------------|
-| `[ch`    | `id`          | Chapter Identifier               |
-| `[doc`   | `highlighter` | Syntax Highlighter               |
-| `[doc`   | `hljs`        | Syntax Highlighter: highlight.js |
-| `[doc`   | `prism`       | Syntax Highlighter: prism        |
-| `[doc`   | `tocposition` | TOC Position                     |
-| `[doc`   | `toctitle`    | TOC Title                        |
-| `[quote` | `id`          | Quotation Identifier             |
-| `[quote` | `source`      | Source of Quotation              |
-
-
-## Snippets
-
-The package provides the following snippets:
-
-| trigger  |                                description                                 |
-|----------|----------------------------------------------------------------------------|
-| `newdoc` | __New PML Document__ boilerplate, with title placeholder. Wraps selection. |
-| `newch`  | __New Chapter__ template, with ID and title placeholders. Wraps selection. |
-
-
-## Symbols Indexing
-
-The following syntax elements are being indexed (local symbol list).
-Some cosmetic transformations are applied to the symbols, either to improve their visual representation or to simplify lookup by adding prefixes that allow filtering down the symbols list by category.
-
-- _[Parameters]_, both their definitions and inline occurrences are indexed after cosmetic transformations:
-    + Parameters definitions are prefixed with `[u:set` + space.
-    + Parameters occurrences are prefixed with `[u:get` + space.
-- _[Chapter]_ titles (i.e. document headings) are indexed with a leading `=` + space.
-- _Identifier_ attributes (`id`) are indexed with a leading `#`, resembling HTML anchors.
-
-__Goto Definition__ functionality (<kbd>F12</kbd>) is also supported, allowing to quickly jump to the definition of any inline parameter.
+- https://tajmone.github.io/Sublime-PML
 
 
 # License
