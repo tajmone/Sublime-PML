@@ -1,0 +1,141 @@
+= Package Features
+
+Here's a list of the feature currently available in the *Sublime PML* package.
+
+== Colour Schemes
+
+The package ships with a default _PML Dark_ colour scheme intended to provide an improved editing experience for PML documents.
+The scheme is associated to `.pml` source files via the native package settings.
+
+.Default scheme settings in `PML.sublime-settings`
+[source,jsonc]
+-----------------------------------------------------------------------
+{
+  "color_scheme": "Packages/PML/schemes/PML Dark.sublime-color-scheme",
+  "dark_color_scheme": "Packages/PML/schemes/PML Dark.sublime-color-scheme",
+}
+-----------------------------------------------------------------------
+
+You can always override it and use a scheme of your choice by editing your syntax-specific User settings for the PML syntax.
+
+WARNING: The colour scheme is still WIP, incomplete and subject to frequent changes.
+
+
+== Build Systems
+
+The package provides some built-in basic build systems:
+
+[cols="2*<d,<m", options="autowidth"]
+|==============================================
+| build name | description | pmlc command
+
+e| default
+| Convert file without options (i.e. to `output/`)
+| pmlc <file.pml>
+
+| Convert to source folder
+| Convert file to same folder as PML source
+| pmlc convert -f <file.pml> -od ./
+|==============================================
+
+
+
+== Keyboard Shortcuts
+
+Some of the keystrokes combinations indicated below rely on Sublime Text's default settings, and might vary depending on your custom settings, whereas others are explicitly defined by this package.
+
+[cols="3*<d", options="autowidth"]
+|==============================================
+| key strokes            | result                           | context
+
+| kbd:[Alt+B]            | Make selection *bold*   `[b`…`]` | Anywhere in PML file, except `[html` node
+| kbd:[Alt+I]            | Make selection _italic_ `[i`…`]` | Anywhere in PML file, except `[html` node
+| kbd:[Ctrl+Shift+Enter] | Inserts new line node `[nl]`     | Anywhere in PML file, except `[html` node
+|==============================================
+
+
+
+=== Comments
+
+The two comment shortcuts kbd:[Ctrl+/] and kbd:[Ctrl+Shift+/] share some common behavior:
+
+** Selected text is commented out: ``[- ``&lt;selection&gt;`` -]``
+
+Their behaviour differs when nothing is selected:
+
+[cols="2*<d", options="autowidth"]
+|==============================================
+|     key strokes    |            effect without selection
+
+| kbd:[Ctrl+/]       | Comments out the whole line
+| kbd:[Ctrl+Shift+/] | Inserts comments delimiters under cursor only
+|==============================================
+
+
+
+== Auto-Completions
+
+
+Sublime PML offers smart auto-completion suggestions, based on the scope context under the cursor, thus avoiding completions pollution (i.e. cluttering the suggestions with unrelated elements).
+
+=== Nodes
+
+For commonly used nodes, context-specific suggestions are available.
+
+[cols="2*<m,<d", options="autowidth"]
+|==============================================
+| trigger |          output        |    description
+
+| nbsp    | [sp]                   | Non-Breaking Space
+| nl      | [nl]                   | New Line
+| pget    | [u:get pname]          | Get parameter
+| pset    | [u:set pname = pvalue] | Set parameter
+|==============================================
+
+
+=== Tag Attributes
+
+For nodes that support attributes, context-specific suggestions are available within the editing space where tag attributes are allowed.
+
+[cols="2*<m,<d", options="autowidth"]
+|==============================================
+|  tag   |   trigger   |           description
+
+| [ch    | id          | Chapter Identifier
+| [doc   | highlighter | Syntax Highlighter
+| [doc   | hljs        | Syntax Highlighter: highlight.js
+| [doc   | prism       | Syntax Highlighter: prism
+| [doc   | tocposition | TOC Position
+| [doc   | toctitle    | TOC Title
+| [quote | id          | Quotation Identifier
+| [quote | source      | Source of Quotation
+|==============================================
+
+
+
+== Snippets
+
+The package provides the following snippets:
+
+[cols="<m,<d", options="autowidth"]
+|==============================================
+| trigger  | description
+
+| newdoc   | *New PML Document* boilerplate, with title placeholder. Wraps selection.
+| newch    | *New Chapter* template, with ID and title placeholders. Wraps selection.
+|==============================================
+
+
+
+== Symbols Indexing
+
+The following syntax elements are being indexed (local symbol list).
+Some cosmetic transformations are applied to the symbols, either to improve their visual representation or to simplify lookup by adding prefixes that allow filtering down the symbols list by category.
+
+* _{Parameters}_, both their definitions and inline occurrences are indexed after cosmetic transformations:
+    + Parameters definitions are prefixed with `[u:set` + space.
+    + Parameters occurrences are prefixed with `[u:get` + space.
+* _{ChTitles}_ (i.e. document headings) are indexed with a leading `=` + space.
+* _Identifier_ attributes (`id`) are indexed with a leading `#`, resembling HTML anchors.
+
+*Goto Definition* functionality (kbd:[F12]) is also supported, allowing to quickly jump to the definition of any inline parameter.

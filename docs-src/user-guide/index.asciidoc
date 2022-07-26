@@ -1,0 +1,58 @@
+= Sublime PML User Guide
+:revdate: 2022-07-20
+:PMLver: 2.3.0
+:PackageVer: 0.7.0
+:author: Tristano Ajmone
+:email: <tajmone@gmail.com>
+:version-label: Release
+:revnumber: {PackageVer}
+:revremark: PML {PMLver}
+:lang: en
+:doctype: book
+// TOC Settings:
+:toclevels: 5
+:toc: left
+// Sections Numbering:
+:sectnums:
+:sectnumlevels: 2
+// Cross References:
+:idprefix:
+:xrefstyle: full
+:chapter-refsig: Ch.
+:section-refsig: Sec.
+:appendix-refsig: App.
+// Misc Settings:
+:experimental: true
+:icons: font
+:linkattrs: true
+:reproducible: true
+:sectanchors:
+// Paths:
+:imagesdir: images
+
+include::_attributes-custom.adoc[]
+
+// Preamble
+// ========
+
+image::https://github.com/tajmone/Sublime-PML/raw/main/img/sublime-pml-banner.png[]
+
+[preface]
+= About
+
+Welcome to the user guide of {SublimePML}, a package for {ST4} that adds support for {PML}
+(_Practical Markup Language_).
+
+{SublimePML} was created by {TristanoAjmone} in 2021, published under the <<License, MIT License>>.
+
+{PML} was designed by {ChristianNeumanns} around 2019, and since February 2021 the full source code of the PML conversion tool is
+https://github.com/pml-lang/converter[available on GitHub^]
+under GPLv2 license.
+
+
+include::features.adoc[]
+
+// Appendices:
+// ===========
+
+include::app_license.adoc[]

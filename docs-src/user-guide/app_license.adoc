@@ -1,0 +1,8 @@
+[appendix]
+= License
+
+{SublimePML} was created by {TristanoAjmone} in 2021, released under the MIT License.
+
+........................
+include::../../LICENSE[]
+........................

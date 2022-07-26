@@ -34,7 +34,6 @@ block_comment_start = /*
 block_comment = *
 block_comment_end = */
 
-
 ## PML Sources
 ##############
 [*.pml]
@@ -64,6 +63,26 @@ indent_size = unset
 indent_style = space
 insert_final_newline = true
 trim_trailing_whitespace = true
+
+## AsciiDoc
+###########
+[*.{adoc,asc,asciidoc}]
+indent_size = unset
+indent_style = space
+end_of_line = unset
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+## Ruby
+#######
+[{*.rb,Rakefile}]
+indent_size = 2
+indent_style = space
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
 
 ## Python
 #########

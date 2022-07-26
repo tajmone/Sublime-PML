@@ -1,0 +1,19 @@
+
+// Misc Links
+:SublimePML: pass:q[https://github.com/tajmone/Sublime-PML[*Sublime PML*^, title="Visit Sublime PML repository"]]
+:ST4: pass:q[https://www.sublimetext.com[*Sublime Text 4*^, title="Visit Sublime Text website"]]
+:PML: pass:q[https://www.pml-lang.dev[*PML*^, title="Visit PML website"]]
+
+
+// PML Reference Manual
+
+:RefMan: https://www.pml-lang.dev/docs/reference_manual/index.html[PML Reference Manual^, title="Read the online PML Reference Manual"]
+:ChTitles: https://www.pml-lang.dev/docs/reference_manual/index.html#node_title[Chapter Titles^, title="PML Reference Manual » Fundamental Nodes » Chapter Title"]
+
+// PML User Manual
+:UserMan: https://www.pml-lang.dev/docs/user_manual/index.html[PML User Manual^, title="Read the online PML User Manual"]
+:Parameters: https://www.pml-lang.dev/docs/user_manual/index.html#parameters[Parameters^, title="PML User Manual » Text Processing » Parameters"]
+
+// People
+:ChristianNeumanns: https://github.com/pml-lang[Christian Neumanns^, title="View Christian Neumanns's GitHub profile"]
+:TristanoAjmone: https://github.com/tajmone[Tristano Ajmone^, title="View Tristano Ajmone's GitHub profile"]

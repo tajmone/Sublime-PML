@@ -18,15 +18,25 @@
 
 ## Documentation Files
 ######################
-*.pml     text
-*.md      text
-*.txt     text
-LICENSE   text
+*.adoc       text
+*.asc        text
+*.asciidoc   text
+*.md         text
+*.pml        text
+*.txt        text
+LICENSE      text
 
 ## Scripts
 ##########
 *.sh   text eol=lf
 *.py   text
+
+## Ruby Files
+#############
+[attr]Ruby text eol=lf
+*.rb       Ruby
+Rakefile   Ruby
+
 
 ################################################
 #          Package Export-Ignore Rules         #
@@ -38,11 +48,20 @@ LICENSE   text
 .travis.yml           export-ignore
 /*.sh                 export-ignore
 
+*.adoc                export-ignore
+*.asc                 export-ignore
+*.asciidoc            export-ignore
+*.rb                  export-ignore
+Rakefile              export-ignore
+
 /messages/README.md   export-ignore
 /schemes/README.md    export-ignore
 /symbols/README.md    export-ignore
 CONTRIBUTING.md       export-ignore
 
+/_assets/             export-ignore
+/docs-src/            export-ignore
+/docs/                export-ignore
 /img/                 export-ignore
 /syntax-tests/        export-ignore
 
