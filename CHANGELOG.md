@@ -8,11 +8,22 @@
 
 <!-- MarkdownTOC autolink="true" bracket="round" autoanchor="false" lowercase="only_ascii" uri_encoding="true" levels="1,2,3" -->
 
+- [Alpha 0.7.1 \(2022/08/03\)](#alpha-071-20220803)
 - [Alpha 0.7.0 \(2022/07/19\)](#alpha-070-20220719)
 
 <!-- /MarkdownTOC -->
 
 -----
+
+# Alpha 0.7.1 (2022/08/03)
+
+    PML 2.3.0 | ST 4134
+
+* New menu "Tools > PML > Sublime PML User Guide" to open in the browser the new [online manual](https://tajmone.github.io/Sublime-PML "View Sublime PML User Manual") hosted at the repository website.
+* Add support for inline nodes within a `[title` (document and chapter titles).
+    - Before indexing, chapter headings are also stripped from any font-formatting tags, newline sequences and redundant spaces, to beautify lookup operations in the **Goto Symbol** panel.
+
+
 
 # Alpha 0.7.0 (2022/07/19)
 

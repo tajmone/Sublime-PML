@@ -55,6 +55,15 @@ field.
 
     ]
 
+    [ch [title  Font Test [b Bold
+                w/ EOL] Text]
+
+    The [c \[b]..[c \]] delimiters in the above title will be stripped
+    correctly even if there's an end-of-line character in the middle of
+    the node.
+
+    ]
+
 ][ch [title False Positives Prevention]
 
     Escaped brackets are not treated as node-delimiters and therefore
