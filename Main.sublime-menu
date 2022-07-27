@@ -5,9 +5,13 @@
     [
       {
         "caption": "PML",
-        "id": "pml",
         "children":
         [
+          {
+            "caption": "Sublime PML User Guide",
+            "command": "open_url",
+            "args": {"url": "https://tajmone.github.io/Sublime-PML"},
+          },
           {
             "caption": "Sublime PML Repository",
             "command": "open_url",
