@@ -1,6 +1,6 @@
 %YAML 1.2
 ---
-# Sublime PML: Alpha 0.7.0 (2022/07/19)                              | PML 2.3.0
+# Sublime PML | Alpha | 2022/08/02 | PML 2.3.0
 ################################################################################
 #                                                                              #
 #                       PML (Practical Markup Language)                        #
@@ -341,6 +341,9 @@ contexts:
     - match: ']'
       scope: entity.name.tag.block-node.title.document.end.pml
       pop: 2
+    - include: inline_nodes
+    - include: text_processing_nodes
+    - include: unknown_node
 
   doc_title_attributes:
     - match: '\('
