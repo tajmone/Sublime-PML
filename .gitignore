@@ -9,6 +9,7 @@
 *.sublime-workspace
 *.html
 !/docs/*.html
+css/
 
 ## TMP Work Files
 #################

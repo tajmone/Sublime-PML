@@ -77,8 +77,9 @@ To simplify consultation, nodes are organized into sub-sections like in the PML 
         * [ ] Chapter title text is transformed for better lookup:
             - [x] Prefixed with `= `.
             - [x] Surrounding spaces are trimmed.
-            - [ ] Multi-line titles need to be joined into a single line by removing EOLs and extra spaces.
-        + **WARNING** — If a title contains parameters or text-formatting sub-nodes it won't be indexed correctly since ST doesn't allow sub-scoping of TOC entries.
+            - [x] Multi-line titles are shown as a single line with spurious spaces collapsed into a single space.
+            - [ ] Strip away from indexed title inline-tag delimiters:
+                + [x] Font formatting: `[b` / `[c` / `[i` / `[sub` / `[sup` / `[strike` .. `]`
 - [ ] Chapter Subtitle — `[ch [title [subtitle` sub-node.
 
 ### Common Nodes

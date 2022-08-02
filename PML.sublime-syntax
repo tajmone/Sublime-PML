@@ -148,6 +148,7 @@ contexts:
       scope: entity.name.tag.unknown.begin.pml
       push: [unknown_node_inside, unknown_node_attributes]
   unknown_node_inside:
+    - meta_content_scope: entity.name.tag.unknown.contents.pml
     - match: ']'
       scope: entity.name.tag.unknown.end.pml
       pop: true
@@ -257,13 +258,16 @@ contexts:
       push: [chapter_title_inside, chapter_title_attributes]
     - include: force-pop
   chapter_title_inside:
-    # @TODO: Match text as unquoted string or markup header!
-    #        (without surrounding whitespace)
     - meta_scope: meta.block.title.chapter.pml
+    - meta_content_scope: meta.toc-list.heading.pml
     - match: ']'
       scope: entity.name.tag.block-node.title.chapter.end.pml
       pop: 2
-    - match: '[ \t]+(?=[\]$])' # consume trailing space
+    - match: '^[ \t]+'          # consume leading space
+    - match: '[ \t]+(?=[\]$])'  # consume trailing space
+    - include: inline_nodes
+    - include: text_processing_nodes
+    - include: unknown_node
     - match: '.'
       scope: markup.heading.pml meta.toc-list.heading.pml
 

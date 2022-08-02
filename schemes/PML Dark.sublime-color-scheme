@@ -22,6 +22,8 @@
     "base0D": "#6D9CBE", // Danube (blue)
     "base0E": "#B6B3EB", // Melrose (violet)
     "base0F": "#BC9458", // Twine (brownish gold)
+
+    "title_BG": "var(base06)",
   },
   "name": "PML Dark",
   "globals": {
@@ -95,13 +97,20 @@
       "scope": "constant",
       "foreground": "",
     },
-    /// MISCELLANEA ///
+// ***********
+// MISCELLANEA
+// ***********
     {
       "scope": "punctuation.definition",
       "foreground": "var(base08)",
     },
     {
       "scope": "keyword",
+      "foreground": "var(base0A)",
+    },
+    // Unknown Node
+    {
+      "scope": "(entity.name.tag.unknown)",
       "foreground": "var(base0A)",
     },
     // Escape Sequences
@@ -129,20 +138,64 @@
       "foreground": "color(var(base03) lightness(46%))",
       "font_style": "",
     },
-    // Chapter Titles
+// **************
+// Chapter Titles
+// **************
     {
       "scope": "markup.heading.pml",
-      "background": "color(var(base0D) lightness(55%))",
-      "foreground": "var(base07)",
+      // "background": "color(var(base0D) lightness(55%))",
+      "background": "var(title_BG)",
+      // "foreground": "var(base07)",
+      "foreground": "var(base00)",
       "font_style": "bold",
     },
     {
-      "scope": "markup.heading.pml punctuation.definition.string",
-      "background": "var(base00)",
-      "foreground": "var(base0A)",
-      "font_style": "",
+      // Parameters in Ch Title
+      "scope": "meta.toc-list.heading.pml meta.function-call",
+      // "background": "color(var(base0D) lightness(55%))",
+      "background": "var(title_BG)",
+      "foreground": "var(base0D)",
+      // "font_style": "normal",
     },
-    /// BLOCK NODES ///
+    {
+      // Comments in Ch Title
+      "scope": "(meta.toc-list.heading.pml comment.block|meta.toc-list.heading.pml punctuation.definition.comment)",
+      // "background": "color(var(base0D) lightness(55%))",
+      "background": "var(title_BG)",
+      // "foreground": "color(var(base03) lightness(46%))",
+      "foreground": "color(var(base03) lightness(70%))",
+      // "foreground": "var(base03)",
+      // "foreground": "var(base04)",
+      // "font_style": "italic",
+    },
+    {
+      // Inline nodes in Ch Title
+      "scope": "meta.toc-list.heading entity.name.tag.inline-node",
+      "background": "var(title_BG)",
+      "foreground": "var(base0D)",
+    },
+    {
+      // Unknown nodes in Ch Title
+      "scope": "meta.toc-list.heading entity.name.tag.unknown",
+      "background": "var(title_BG)",
+      "foreground": "var(base09)",
+    },
+    {
+      // Unknown nodes (contents) in Ch Title
+      "scope": "meta.toc-list.heading entity.name.tag.unknown.contents",
+      "foreground": "var(base00)",
+      "font_style": "bold",
+    },
+    {
+      // Markup nodes (contents) in Ch Title
+      "scope": "meta.toc-list.heading markup",
+      "background": "var(title_BG)",
+      "foreground": "var(base00)",
+      "font_style": "bold",
+    },
+// ***********
+// BLOCK NODES
+// ***********
     {
       "scope": "(entity.name.tag.block-node)",
       "foreground": "var(base08)",
@@ -153,7 +206,9 @@
       "background": "color(var(base00) lightness(30%))",
       "foreground": "color(var(base00) lightness(60%))",
     },
-    /// INLINE NODES ///
+// ************
+// INLINE NODES
+// ************
     {
       "scope": "entity.name.tag.inline-node",
       "foreground": "var(base0D)",

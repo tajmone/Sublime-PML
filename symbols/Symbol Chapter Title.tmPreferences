@@ -1,6 +1,3 @@
-<!-- @TODO: pending PML 2.x fixes:
-  * [ ] Convert multi-line titles into single line.
--->
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
@@ -15,9 +12,15 @@
     <!--=============================================
     Manipulate unquoted chapter titles (headings) for
     better symbol indexing:
-      1. Add leading `= `.
+      1. Strip away font formatting tags (thrice).
+      2. Remove redundant spaces.
+      3. Add leading `= `.
     ==============================================-->
     <string>
+      s/(?&lt;!\\)\[(?:b|c|i|sub|sup|strike)\b(.+?[^\\])\](.*)$/$1$2/g
+      s/(?&lt;!\\)\[(?:b|c|i|sub|sup|strike)\b(.+?[^\\])\](.*)$/$1$2/g
+      s/(?&lt;!\\)\[(?:b|c|i|sub|sup|strike)\b(.+?[^\\])\](.*)$/$1$2/g
+      s/ {2,}/ /g
       s/^(.+)$/= $1/g
     </string>
   </dict>
