@@ -129,13 +129,13 @@ The package provides the following snippets:
 
 == Symbols Indexing
 
-The following syntax elements are being indexed (local symbol list).
+The following syntax elements are being indexed (local symbols list).
 Some cosmetic transformations are applied to the symbols, either to improve their visual representation or to simplify lookup by adding prefixes that allow filtering down the symbols list by category.
 
-* _{Parameters}_, both their definitions and inline occurrences are indexed after cosmetic transformations:
-    + Parameters definitions are prefixed with `[u:set` + space.
-    + Parameters occurrences are prefixed with `[u:get` + space.
-* _{ChTitles}_ (i.e. document headings) are indexed with a leading `=` + space.
+* _{Parameters}_ definitions and their inline occurrences are indexed after cosmetic transformations:
+** Parameters definitions are prefixed with ``[u:set ``.
+** Parameters occurrences are prefixed with ``[u:get ``.
+* _{ChTitles}_ are prefixed with ``= ``, after stripping away redundant spaces and font-formatting tag delimiters.
 * _Identifier_ attributes (`id`) are indexed with a leading `#`, resembling HTML anchors.
 
 *Goto Definition* functionality (kbd:[F12]) is also supported, allowing to quickly jump to the definition of any inline parameter.

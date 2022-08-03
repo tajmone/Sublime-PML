@@ -644,8 +644,8 @@ pre.rouge .o {
 <div class="details">
 <span id="author" class="author">Tristano Ajmone</span><br>
 <span id="email" class="email">&lt;<a href="mailto:tajmone@gmail.com">tajmone@gmail.com</a>&gt;</span><br>
-<span id="revnumber">release 0.7.0,</span>
-<span id="revdate">2022-07-20</span>
+<span id="revnumber">release 0.7.1,</span>
+<span id="revdate">2022-08-03</span>
 <br><span id="revremark">PML 2.3.0</span>
 </div>
 <div id="toc" class="toc2">
@@ -998,18 +998,26 @@ The colour scheme is still WIP, incomplete and subject to frequent changes.
 <h2 id="symbols_indexing"><a class="anchor" href="#symbols_indexing"></a>6. Symbols Indexing</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The following syntax elements are being indexed (local symbol list).
+<p>The following syntax elements are being indexed (local symbols list).
 Some cosmetic transformations are applied to the symbols, either to improve their visual representation or to simplify lookup by adding prefixes that allow filtering down the symbols list by category.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><em><a href="https://www.pml-lang.dev/docs/user_manual/index.html#parameters" title="PML User Manual » Text Processing » Parameters" target="_blank" rel="noopener">Parameters</a></em>, both their definitions and inline occurrences are indexed after cosmetic transformations:
-+ Parameters definitions are prefixed with <code>[u:set</code> + space.
-+ Parameters occurrences are prefixed with <code>[u:get</code> + space.</p>
+<p><em><a href="https://www.pml-lang.dev/docs/user_manual/index.html#parameters" title="PML User Manual » Text Processing » Parameters" target="_blank" rel="noopener">Parameters</a></em> definitions and their inline occurrences are indexed after cosmetic transformations:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Parameters definitions are prefixed with <code>[u:set </code>.</p>
 </li>
 <li>
-<p><em><a href="https://www.pml-lang.dev/docs/reference_manual/index.html#node_title" title="PML Reference Manual » Fundamental Nodes » Chapter Title" target="_blank" rel="noopener">Chapter Titles</a></em> (i.e. document headings) are indexed with a leading <code>=</code> + space.</p>
+<p>Parameters occurrences are prefixed with <code>[u:get </code>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><em><a href="https://www.pml-lang.dev/docs/reference_manual/index.html#node_title" title="PML Reference Manual » Fundamental Nodes » Chapter Title" target="_blank" rel="noopener">Chapter Titles</a></em> are prefixed with <code>= </code>, after stripping away redundant spaces and font-formatting tag delimiters.</p>
 </li>
 <li>
 <p><em>Identifier</em> attributes (<code>id</code>) are indexed with a leading <code>#</code>, resembling HTML anchors.</p>
@@ -1057,7 +1065,7 @@ SOFTWARE.</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Release 0.7.0<br>
+Release 0.7.1<br>
 </div>
 </div>
 </body>
