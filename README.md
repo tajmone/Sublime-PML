@@ -59,7 +59,7 @@ Currently there are no plans to submit this package to the official [Package Con
 
 The following instructions will allow you to install this package from GitHub using Sublime Text's native Package Control tool even though the package is not listed at the [Package Control] website/channel.
 
-1. Open the Command Palette by pressing <kbd>ctrl</kbd>shift<kbd></kbd>p<kbd></kbd> (Windows and Linux) or <kbd>cmd</kbd>shift<kbd></kbd>p<kbd></kbd> (Mac).
+1. Open the Command Palette by pressing <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows and Linux) or <kbd>&#8984;</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Mac).
 
 2. Select the **Package Control: Add Repository** command (by clicking it with the mouse or pressing <kbd>enter</kbd>).
     + You'll see an input box appear at the bottom of the editor interface, next to a label stating "GitHub, GitLab or BitBucket Web URL...". Copy and paste in the input box the URL of this repository:
