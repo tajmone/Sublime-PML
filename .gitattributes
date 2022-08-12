@@ -56,6 +56,7 @@ Rakefile              export-ignore
 
 /messages/README.md   export-ignore
 /schemes/README.md    export-ignore
+/symbols/*.pml        export-ignore
 /symbols/README.md    export-ignore
 CONTRIBUTING.md       export-ignore
 
