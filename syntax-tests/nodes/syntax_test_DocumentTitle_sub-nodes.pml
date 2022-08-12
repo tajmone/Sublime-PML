@@ -6,38 +6,38 @@
     ******************* -]
 
     [doc [title Title With [b Bold ] Text ]]
-!               ^^^^^^^^^^^^^^^^^^^^^^^^^      meta.block.title.document
+!               ^^^^^^^^^^^^^^^^^^^^^^^^^      meta.block.title
 !                            ^^^^^^            markup.bold
 !                          ^^                  entity.name.tag.inline-node.bold.begin
 !                                  ^           entity.name.tag.inline-node.bold.end
 
     [doc [title Title With [i Italic ] Text ]]
-!               ^^^^^^^^^^^^^^^^^^^^^^^^^^^      meta.block.title.document
+!               ^^^^^^^^^^^^^^^^^^^^^^^^^^^      meta.block.title
 !                            ^^^^^^^^            markup.italic
 !                          ^^                    entity.name.tag.inline-node.italic.begin
 !                                    ^           entity.name.tag.inline-node.italic.end
 
 
     [doc [title Title With [c Inline Code ] Text ]]
-!               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^      meta.block.title.document
+!               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^      meta.block.title
 !                            ^^^^^^^^^^^^^            markup.raw.inline
 !                          ^^                         entity.name.tag.inline-node.code.begin
 !                                         ^           entity.name.tag.inline-node.code.end
 
     [doc [title Title With [sub Subscript ] Text ]]
-!               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^      meta.block.title.document
+!               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^      meta.block.title
 !                              ^^^^^^^^^^^            markup.subscript
 !                          ^^^^                       entity.name.tag.inline-node.subscript.begin
 !                                         ^           entity.name.tag.inline-node.subscript.end
 
     [doc [title Title With [sup Superscript ] Text ]]
-!               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^      meta.block.title.document
+!               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^      meta.block.title
 !                              ^^^^^^^^^^^^^            markup.superscript
 !                          ^^^^                         entity.name.tag.inline-node.superscript.begin
 !                                           ^           entity.name.tag.inline-node.superscript.end
 
     [doc [title Title With [strike Strikethrough ] Text ]]
-!               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^      meta.block.title.document
+!               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^      meta.block.title
 !                                 ^^^^^^^^^^^^^^^            markup.strikethrough
 !                          ^^^^^^^                           entity.name.tag.inline-node.strikethrough.begin
 !                                                ^           entity.name.tag.inline-node.strikethrough.end
@@ -73,7 +73,7 @@
     ************* -]
 
     [doc [title Title With [xyzzy Unknown] Node ]]
-!               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^      meta.block.title.document
+!               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^      meta.block.title
 !                                ^^^^^^^^            entity.name.tag.unknown.contents
 !                          ^^^^^^                    entity.name.tag.unknown.begin
 !                                        ^           entity.name.tag.unknown.end

@@ -1,29 +1,30 @@
-[doc [title Chapter Title Indexing Examples]
+[doc [title Titles Indexing Examples]
 
-This document provides examples of [b Sublime PML]'s smart Symbols-Indexing capabilities,
-and also serves as a test file for this feature, although it requires visually inspecting
-the results "manually" rather than automated testing.
+This document provides examples of [b Sublime PML]'s smart Symbols-Indexing
+capabilities, and also serves as a test file for this feature, although it
+requires visually inspecting the results "manually" rather than automated
+testing.
 
 To visually inspect the examples, while this PML source document is selected
 open up Sublime Text's [b Goto Symbol ] panel by pressing
 [c Ctrl]+[c R] ([c ⌘]+[c R] on Mac)
-and compare how Chapter titles are in the source document vs their indexed version,
-where the latter has undergone some cosmetic transformations.
+and compare the Chapter titles in the source document with their indexed
+counterparts, where the latter have undergone some cosmetic transformations.
 
 [-  To simplify comparisons, when the expected result within the inline-code
     requires escaping, an unescaped version is provided within comments, for
     the sake of source consultation. -]
 
-All Chapter titles are prefixed by a [c = ] (equal + space) to allow quick filtering the
-indexed symbols to just Chapter titles by typing a [c =] symbol in the fuzzy search
-field.
+All titles are prefixed by a [c = ] (equal + space) to allow quick filtering the
+indexed symbols to show just titles by typing a [c =] symbol in the fuzzy
+search field.
 
 
 [ch [title  Spurios    Whitespace
             Handling]
 
-    Multiple spaces and newline sequences are collapsed into single spaces, mimicking
-    how title will look in the final document.
+    Multiple spaces and newline sequences are collapsed into single spaces,
+    mimicking how title will look in the final document.
 
     The above title will be indexed as: [c = Spurios Whitespace Handling]
 

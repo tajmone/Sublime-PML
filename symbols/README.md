@@ -27,21 +27,21 @@ The contents of this folder deal with PML symbols, their transformation and inde
 
 - [`Symbol Attribute ID.tmPreferences`][ID] — Transforms `id` attributes (`string.unquoted.id`) for better symbol indexing:
     1. Add leading `#` (like HTML anchors).
-- [`Symbol Chapter Title.tmPreferences`][Ch Title] Transforms chapter titles (headings) for better symbol indexing:
-    1. Strip away font-formatting tags: `[b` / `[c` / `[i` / `[sub` / `[sup` / `[strike` .. `]`
-    2. Remove redundant spaces.
-    3. Add leading `=` + space.
 - [`Symbol Parameter Definition.tmPreferences`][Param Def] — Enables local indexing of parameters definitions (`entity.name.function`) supporting __Goto Definition__ functionality. Transforms parameter symbols:
     1. Add leading `[u:set` + space.
 - [`Symbol Parameter Occurrence.tmPreferences`][Param] — Enables local indexing of parameters occurrences (`support.function.call`). Transforms parameter symbols:
     1. Add leading `[u:get` + space.
+- [`Symbol Title.tmPreferences`][Ch Title] Transforms document and chapter titles (headings) for better symbol indexing:
+    1. Strip away font-formatting tags: `[b` / `[c` / `[i` / `[sub` / `[sup` / `[strike` .. `]`
+    2. Remove redundant spaces.
+    3. Add leading `=` + space.
 
 
 ## Indexing Examples
 
 These PML documents provide commented examples of Symbols Indexing features, and are also used to visually inspect that these are working correctly.
 
-- [`examples_ChapterTitle.pml`][eg Ch Title] — Chapter headings indexing demo/tests.
+- [`examples_Title.pml`][eg Ch Title] — Document and chapters headings indexing demo/tests.
 
 
 # Symbols Indexing Notes
@@ -99,12 +99,12 @@ More reference links are available in the the [References] section.
 
 <!-- project files -->
 
-[Ch Title]: ./Symbol%20Chapter%20Title.tmPreferences "View source file"
+[Ch Title]: ./Symbol%20Title.tmPreferences "View source file"
 [ID]: ./Symbol%20Attribute%20ID.tmPreferences "View source file"
 [Param Def]: ./Symbol%20Parameter%20Definition.tmPreferences "View source file"
 [Param]: ./Symbol%20Parameter%20Occurrence.tmPreferences "View source file"
 
-[eg Ch Title]: ./examples_ChapterTitle.pml "View PML example source"
+[eg Ch Title]: ./examples_Title.pml "View PML example source"
 
 
 <!-- ST3 Official Docs -->

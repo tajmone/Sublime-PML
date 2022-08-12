@@ -54,11 +54,6 @@ To simplify consultation, nodes are organized into sub-sections like in the PML 
         * [x] `toctitle` &rarr; `toc_title = ${1:Contents} $0`
         * [ ] HTML attributes
     + [x] Snippet: `newdoc`.
-- [x] Document Title — `[doc [title` sub-node:
-    + [x] Tag scoping.
-    + [x] Attributes:
-        * [x] `id`
-        * [x] HTML attributes
 - [ ] Paragraph — `[p` .. `]`.
 - [x] Chapter — `[ch` .. `]`:
     + [x] Tag scoping.
@@ -67,20 +62,20 @@ To simplify consultation, nodes are organized into sub-sections like in the PML 
         * [x] HTML attributes
     + [x] Attributes completions:
         * `id` &rarr; `id = ${1:identifier} $0`
-- [x] Chapter Title — `[ch [title` sub-node:
+- [x] Title — `[doc [title` and `[ch [title` sub-node:
     + [x] Tag scoping.
     + [x] Attributes:
         * [x] `id`
         * [x] HTML attributes
     + [x] Snippet: `newch`.
     + [ ] Symbol Indexing (local):
-        * [ ] Chapter title text is transformed for better lookup:
+        * [ ] Title text is transformed for better lookup:
             - [x] Prefixed with `= `.
             - [x] Surrounding spaces are trimmed.
             - [x] Multi-line titles are shown as a single line with spurious spaces collapsed into a single space.
             - [ ] Strip away from indexed title inline-tag delimiters:
                 + [x] Font formatting: `[b` / `[c` / `[i` / `[sub` / `[sup` / `[strike` .. `]`
-- [ ] Chapter Subtitle — `[ch [title [subtitle` sub-node.
+- [ ] Subtitle — `[ch [title [subtitle` sub-node.
 
 ### Common Nodes
 

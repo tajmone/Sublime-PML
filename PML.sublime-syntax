@@ -1,6 +1,6 @@
 %YAML 1.2
 ---
-# Sublime PML | Alpha | 2022/08/02 | PML 2.3.0
+# Sublime PML | Alpha | 2022/08/10 | PML 2.3.0
 ################################################################################
 #                                                                              #
 #                       PML (Practical Markup Language)                        #
@@ -214,80 +214,6 @@ contexts:
     # youtube_video     # Embedded YouTube Video | Childless
 
 
-## Chapter
-##########
-
-# Attributes (none required, no default, no lenient parsing):
-# - [x] id
-# - [x] HTML attributes: allowed
-
-  chapter:
-    - match: '\[ch\b'
-      scope: entity.name.tag.block-node.chapter.begin.pml
-      push: [chapter_block, chapter_title, chapter_attributes]
-
-  chapter_block:
-    - meta_scope: meta.block.chapter.pml
-    - include: pml_nodes
-    - match: ']'
-      scope: entity.name.tag.block-node.chapter.end.pml
-      pop: true
-
-  chapter_attributes:
-    - match: '\('
-      scope: punctuation.section.group.begin.pml
-      set: chapter_attributes_inside
-    - match: '\s'
-    - include: force-pop
-  chapter_attributes_inside:
-    - meta_scope: meta.annotation.node-attributes.chapter.pml
-    - match: '\)'
-      scope: punctuation.section.group.end.pml
-      pop: true
-    - include: attr_id
-    - include: attr_html
-    - include: attr_unknown # @NOTE: To cover future new attributes?
-    # @TODO: include unsupported attributes (as invalid):
-
-  chapter_title:
-    # Attributes (none required, no default, no lenient parsing):
-    # - [x] id
-    # - [x] HTML attributes: allowed
-    - match: '\[title\b(?:[ \t]+)*'
-      scope: entity.name.tag.block-node.title.chapter.begin.pml
-      push: [chapter_title_inside, chapter_title_attributes]
-    - include: force-pop
-  chapter_title_inside:
-    - meta_scope: meta.block.title.chapter.pml
-    - meta_content_scope: meta.toc-list.heading.pml
-    - match: ']'
-      scope: entity.name.tag.block-node.title.chapter.end.pml
-      pop: 2
-    - match: '^[ \t]+'          # consume leading space
-    - match: '[ \t]+(?=[\]$])'  # consume trailing space
-    - include: inline_nodes
-    - include: text_processing_nodes
-    - include: unknown_node
-    - match: '.'
-      scope: markup.heading.pml meta.toc-list.heading.pml
-
-  chapter_title_attributes:
-    - match: '\('
-      scope: punctuation.section.group.begin.pml
-      set: chapter_title_attributes_inside
-    - match: '\s'
-    - include: force-pop
-  chapter_title_attributes_inside:
-    - meta_scope: meta.annotation.node-attributes.title.chapter.pml
-    - match: '\)'
-      scope: punctuation.section.group.end.pml
-      pop: true
-    - include: attr_id
-    - include: attr_html
-    - include: attr_unknown # @NOTE: To cover future new attributes?
-    # @TODO: include unsupported attributes (as invalid):
-
-
 ## Document
 ###########
 
@@ -301,7 +227,7 @@ contexts:
     - match: '\[doc\b'
       scope: entity.name.tag.block-node.document.begin.pml
       # push: [doc_block, doc_title]
-      push: [doc_block, doc_title, doc_attributes]
+      push: [doc_block, title, doc_attributes]
 
   doc_block:
     - meta_scope: meta.block.document.pml
@@ -326,33 +252,77 @@ contexts:
     - include: attr_unknown # @NOTE: To cover future new attributes?
     # @TODO: include unsupported attributes (as invalid):
 
-  doc_title:
-    # Attributes (none required, no default, no lenient parsing):
-    # - [x] id
-    # - [x] HTML attributes: allowed
-    - match: '\[title\b'
-      scope: entity.name.tag.block-node.title.document.begin.pml
-      push: [doc_title_inside, doc_title_attributes]
-    - include: force-pop
-  doc_title_inside:
-    # @TODO: Match text as unquoted string or markup header!
-    #        (without surrounding whitespace)
-    - meta_scope: meta.block.title.document.pml
+
+## Chapter
+##########
+
+# Attributes (none required, no default, no lenient parsing):
+# - [x] id
+# - [x] HTML attributes: allowed
+
+  chapter:
+    - match: '\[ch\b'
+      scope: entity.name.tag.block-node.chapter.begin.pml
+      push: [chapter_block, title, chapter_attributes]
+
+  chapter_block:
+    - meta_scope: meta.block.chapter.pml
+    - include: pml_nodes
     - match: ']'
-      scope: entity.name.tag.block-node.title.document.end.pml
+      scope: entity.name.tag.block-node.chapter.end.pml
+      pop: true
+
+  chapter_attributes:
+    - match: '\('
+      scope: punctuation.section.group.begin.pml
+      set: chapter_attributes_inside
+    - match: '\s'
+    - include: force-pop
+  chapter_attributes_inside:
+    - meta_scope: meta.annotation.node-attributes.chapter.pml
+    - match: '\)'
+      scope: punctuation.section.group.end.pml
+      pop: true
+    - include: attr_id
+    - include: attr_html
+    - include: attr_unknown # @NOTE: To cover future new attributes?
+    # @TODO: include unsupported attributes (as invalid):
+
+
+## Title
+##########
+
+# Attributes (none required, no default, no lenient parsing):
+# - [x] id
+# - [x] HTML attributes: allowed
+
+  title:
+    - match: '\[title\b(?:[ \t]+)*'
+      scope: entity.name.tag.block-node.title.begin.pml
+      push: [title_inside, title_attributes]
+    - include: force-pop
+  title_inside:
+    - meta_scope: meta.block.title.pml
+    - meta_content_scope: meta.toc-list.heading.pml
+    - match: ']'
+      scope: entity.name.tag.block-node.title.end.pml
       pop: 2
+    - match: '^[ \t]+'          # consume leading space
+    - match: '[ \t]+(?=[\]$])'  # consume trailing space
     - include: inline_nodes
     - include: text_processing_nodes
     - include: unknown_node
+    - match: '.'
+      scope: markup.heading.pml meta.toc-list.heading.pml
 
-  doc_title_attributes:
+  title_attributes:
     - match: '\('
       scope: punctuation.section.group.begin.pml
-      set: doc_title_attributes_inside
+      set: title_attributes_inside
     - match: '\s'
     - include: force-pop
-  doc_title_attributes_inside:
-    - meta_scope: meta.annotation.node-attributes.title.document.pml
+  title_attributes_inside:
+    - meta_scope: meta.annotation.node-attributes.title.pml
     - match: '\)'
       scope: punctuation.section.group.end.pml
       pop: true

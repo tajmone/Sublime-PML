@@ -15,6 +15,7 @@ This approach considerably slims down the development and maintenance work, allo
 <!-- MarkdownTOC autolink="true" bracket="round" autoanchor="false" lowercase="only_ascii" uri_encoding="true" levels="1,2,3" -->
 
 - [2022-08-12](#2022-08-12)
+    - [Shared Title Node](#shared-title-node)
     - [New Changelog Menu](#new-changelog-menu)
     - [Drop Versioning and Releases](#drop-versioning-and-releases)
 - [2022-08-03](#2022-08-03)
@@ -30,6 +31,15 @@ This approach considerably slims down the development and maintenance work, allo
 # 2022-08-12
 
     PML 2.3.0 | ST 4134
+
+## Shared Title Node
+
+Tweak the syntax definition to use a commonly shared context for `[title` between `[doc` and `[ch` (see [Discussion #35][#35]).
+
+The separate contexts were a left over feature from PML 1.5.0 when title was a node attribute instead of a node in its own right.
+
+A shared `[title` implementation reduced maintenance efforts and simplifies the upcoming implementation of `[subtitle`.
+From the end users perspective, the only difference is that now document titles are being indexed along with chapter titles.
 
 ## New Changelog Menu
 
@@ -87,5 +97,9 @@ Being in Alpha stage, the package is still experimental can be subject to freque
 [Semantic Versioning]: https://semver.org "Semantic Versioning 2.0.0 website"
 
 [user guide]: https://tajmone.github.io/Sublime-PML "View Sublime PML User Guide"
+
+<!-- Issues and Discussions -->
+
+[#35]: https://github.com/tajmone/Sublime-PML/discussions/35 "Discussion #35 — Doc vs Chapter Titles"
 
 <!-- EOF -->

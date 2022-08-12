@@ -6,12 +6,12 @@
 !   ^^^^                           entity.name.tag.block-node.document.begin
 !                              ^   entity.name.tag.block-node.document.end
 !       ^^^^^^^^^^^^^^^^^^^^^^    -entity.name.tag.block-node.document
-!        ^^^^^^^^^^^^^^^^^^^^^^    meta.block.title.document
-!   ^^^^^                         -meta.block.title.document
-!                              ^  -meta.block.title.document
-!        ^^^^^^                    entity.name.tag.block-node.title.document.begin
-!                             ^    entity.name.tag.block-node.title.document.end
-!              ^^^^^^^^^^^^^^^    -entity.name.tag.block-node.title.document
+!        ^^^^^^^^^^^^^^^^^^^^^^    meta.block.title
+!   ^^^^^                         -meta.block.title
+!                              ^  -meta.block.title
+!        ^^^^^^                    entity.name.tag.block-node.title.begin
+!                             ^    entity.name.tag.block-node.title.end
+!               ^^^^^^^^^^^^^^    -entity.name.tag.block-node.title
 
     [doc [title  Doc Title ]
 !   ^^^^^^^^^^^^^^^^^^^^^^^^   meta.block.document
@@ -21,16 +21,16 @@
 !   ^  entity.name.tag.block-node.document.end
 
 [doc [title
-!    ^^^^^^         meta.block.title.document
-!    ^^^^^^         meta.block.title.document
-!    ^^^^^^         entity.name.tag.block-node.title.document.begin
+!    ^^^^^^         meta.block.title
+!    ^^^^^^         meta.block.title
+!    ^^^^^^         entity.name.tag.block-node.title.begin
         Just Some
-!       ^^^^^^^^^   meta.block.title.document
-!       ^^^^^^^^^   meta.block.title.document
+!       ^^^^^^^^^   meta.block.title
+!       ^^^^^^^^^   meta.block.title
         Title]
-!       ^^^^^^      meta.block.title.document
-!       ^^^^^^      meta.block.title.document
-!            ^      entity.name.tag.block-node.title.document.end
+!       ^^^^^^      meta.block.title
+!       ^^^^^^      meta.block.title
+!            ^      entity.name.tag.block-node.title.end
 
 [- PENDING TESTS:
     * [ ] Title with leading and trailing tabs.
@@ -43,7 +43,7 @@
 
     [doc [title ( ) ]]
 !               ^       punctuation.section.group.begin
-!               ^^^     meta.annotation.node-attributes.title.document
+!               ^^^     meta.annotation.node-attributes.title
 !                 ^     punctuation.section.group.end
 
 [-  --------------
@@ -52,13 +52,13 @@
 
     [doc [title ( id = quote666 ) ]]
 !               ^                     punctuation.section.group.begin
-!               ^^^^^^^^^^^^^^^^^     meta.annotation.node-attributes.title.document
+!               ^^^^^^^^^^^^^^^^^     meta.annotation.node-attributes.title
 !                               ^     punctuation.section.group.end
 !                 ^^                  entity.other.attribute-name.id
 !                    ^                keyword.operator.assignment
 !                      ^^^^^^^^       string.unquoted.id
 !                      ^^^^^^^^       meta.toc-list.id
-!                                 ^   entity.name.tag.block-node.title.document.end
+!                                 ^   entity.name.tag.block-node.title.end
 !                                  ^  entity.name.tag.block-node.document.end
 
 [-  ---------------
@@ -67,17 +67,17 @@
 
     [doc [title ( id = $$$$$$$$ ) ]]
 !               ^                     punctuation.section.group.begin
-!               ^^^^^^^^^^^^^^^^^     meta.annotation.node-attributes.title.document
+!               ^^^^^^^^^^^^^^^^^     meta.annotation.node-attributes.title
 !                               ^     punctuation.section.group.end
 !                 ^^                  entity.other.attribute-name.id
 !                    ^                keyword.operator.assignment
 !                      ^^^^^^^^       invalid.illegal.id
-!                                 ^   entity.name.tag.block-node.title.document.end
+!                                 ^   entity.name.tag.block-node.title.end
 !                                  ^  entity.name.tag.block-node.document.end
 
 
     [doc [title ( id = àààààààà ) ]]
-!               ^^^^^^^^^^^^^^^^^     meta.annotation.node-attributes.title.document
+!               ^^^^^^^^^^^^^^^^^     meta.annotation.node-attributes.title
 !                               ^     punctuation.section.group.end
 !                      ^^^^^^^^       invalid.illegal.id
 
@@ -87,13 +87,13 @@
 
     [doc [title ( id = ) ]]
 !               ^            punctuation.section.group.begin
-!               ^^^^^^^^     meta.annotation.node-attributes.title.document
+!               ^^^^^^^^     meta.annotation.node-attributes.title
 !                      ^     punctuation.section.group.end
 !                 ^^         entity.other.attribute-name.id
 !                    ^       keyword.operator.assignment
 !                     ^     -string.unquoted.id
 !                     ^     -meta.toc-list.id
-!                        ^   entity.name.tag.block-node.title.document.end
+!                        ^   entity.name.tag.block-node.title.end
 !                         ^  entity.name.tag.block-node.document.end
 
 [-  -------------------------------
@@ -101,7 +101,7 @@
     ------------------------------- -]
 
     [doc [title (html_style = "color:red;")]]
-!               ^^^^^^^^^^^^^^^^^^^^^^^^^^^    meta.annotation.node-attributes.title.document
+!               ^^^^^^^^^^^^^^^^^^^^^^^^^^^    meta.annotation.node-attributes.title
 !                ^^^^^^^^^^                    entity.other.attribute-name.html
 !                           ^                  keyword.operator.assignment
 !                             ^^^^^^^^^^^^     string.quoted.double
@@ -114,7 +114,7 @@
     --------------------------------- -]
 
     [doc [title (html_style = color:red )]]
-!               ^^^^^^^^^^^^^^^^^^^^^^^^^    meta.annotation.node-attributes.title.document
+!               ^^^^^^^^^^^^^^^^^^^^^^^^^    meta.annotation.node-attributes.title
 !                                       ^    punctuation.section.group.end
 !                ^^^^^^^^^^                  entity.other.attribute-name.html
 !                           ^                keyword.operator.assignment
@@ -126,7 +126,7 @@
     --------------------------- -]
 
     [doc [title (html_style = ) ]]
-!               ^^^^^^^^^^^^^^^     meta.annotation.node-attributes.title.document
+!               ^^^^^^^^^^^^^^^     meta.annotation.node-attributes.title
 !                             ^     punctuation.section.group.end
 !                ^^^^^^^^^^         entity.other.attribute-name.html
 !                           ^       keyword.operator.assignment
@@ -139,7 +139,7 @@
 
     [doc [title ( xyzzy = zip ) ]]
 !               ^                   punctuation.section.group.begin
-!                ^^^^^^^^^^^^^      meta.annotation.node-attributes.title.document
+!                ^^^^^^^^^^^^^      meta.annotation.node-attributes.title
 !                             ^     punctuation.section.group.end
 !                 ^^^^^             entity.other.attribute-name.unknown
 !                       ^           keyword.operator.assignment

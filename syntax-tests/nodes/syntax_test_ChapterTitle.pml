@@ -4,13 +4,13 @@
     [ch [title H2 title]
 !   ^^^^^^^^^^^^^^^^^^^^   meta.block.chapter
 !   ^^^                    entity.name.tag.block-node.chapter.begin
-!       ^^^^^^^^^^^^^^^^   meta.block.title.chapter
-!       ^^^^^^             entity.name.tag.block-node.title.chapter.begin
-!             ^           -entity.name.tag.block-node.title.chapter.chapter.begin
+!       ^^^^^^^^^^^^^^^^   meta.block.title
+!       ^^^^^^             entity.name.tag.block-node.title.begin
+!             ^           -entity.name.tag.block-node.title.chapter.begin
 !              ^^^^^^^^    markup.heading meta.toc-list.heading
 !             ^           -markup.heading meta.toc-list.heading
 !                      ^  -markup.heading meta.toc-list.heading
-!                      ^   entity.name.tag.block-node.title.chapter.end
+!                      ^   entity.name.tag.block-node.title.end
 
     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
     do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -63,7 +63,7 @@
 
     [ch [title ( ) ]]
 !              ^       punctuation.section.group.begin
-!              ^^^     meta.annotation.node-attributes.title.chapter
+!              ^^^     meta.annotation.node-attributes.title
 !                ^     punctuation.section.group.end
 
 [-  --------------
@@ -72,13 +72,13 @@
 
     [ch [title ( id = quote666 ) ]]
 !              ^                     punctuation.section.group.begin
-!              ^^^^^^^^^^^^^^^^^     meta.annotation.node-attributes.title.chapter
+!              ^^^^^^^^^^^^^^^^^     meta.annotation.node-attributes.title
 !                              ^     punctuation.section.group.end
 !                ^^                  entity.other.attribute-name.id
 !                   ^                keyword.operator.assignment
 !                     ^^^^^^^^       string.unquoted.id
 !                     ^^^^^^^^       meta.toc-list.id
-!                                ^   entity.name.tag.block-node.title.chapter.end
+!                                ^   entity.name.tag.block-node.title.end
 !                                 ^  entity.name.tag.block-node.chapter.end
 
 [-  ---------------
@@ -87,17 +87,17 @@
 
     [ch [title ( id = $$$$$$$$ ) ]]
 !              ^                     punctuation.section.group.begin
-!              ^^^^^^^^^^^^^^^^^     meta.annotation.node-attributes.title.chapter
+!              ^^^^^^^^^^^^^^^^^     meta.annotation.node-attributes.title
 !                              ^     punctuation.section.group.end
 !                ^^                  entity.other.attribute-name.id
 !                   ^                keyword.operator.assignment
 !                     ^^^^^^^^       invalid.illegal.id
-!                                ^   entity.name.tag.block-node.title.chapter.end
+!                                ^   entity.name.tag.block-node.title.end
 !                                 ^  entity.name.tag.block-node.chapter.end
 
 
     [ch [title ( id = àààààààà ) ]]
-!              ^^^^^^^^^^^^^^^^^     meta.annotation.node-attributes.title.chapter
+!              ^^^^^^^^^^^^^^^^^     meta.annotation.node-attributes.title
 !                              ^     punctuation.section.group.end
 !                     ^^^^^^^^       invalid.illegal.id
 
@@ -107,13 +107,13 @@
 
     [ch [title ( id = ) ]]
 !              ^            punctuation.section.group.begin
-!              ^^^^^^^^     meta.annotation.node-attributes.title.chapter
+!              ^^^^^^^^     meta.annotation.node-attributes.title
 !                     ^     punctuation.section.group.end
 !                ^^         entity.other.attribute-name.id
 !                   ^       keyword.operator.assignment
 !                    ^     -string.unquoted.id
 !                    ^     -meta.toc-list.id
-!                       ^   entity.name.tag.block-node.title.chapter.end
+!                       ^   entity.name.tag.block-node.title.end
 !                        ^  entity.name.tag.block-node.chapter.end
 
 [-  -------------------------------
@@ -121,7 +121,7 @@
     ------------------------------- -]
 
     [ch [title (html_style = "color:red;")]]
-!              ^^^^^^^^^^^^^^^^^^^^^^^^^^^    meta.annotation.node-attributes.title.chapter
+!              ^^^^^^^^^^^^^^^^^^^^^^^^^^^    meta.annotation.node-attributes.title
 !               ^^^^^^^^^^                    entity.other.attribute-name.html
 !                          ^                  keyword.operator.assignment
 !                            ^^^^^^^^^^^^     string.quoted.double
@@ -134,7 +134,7 @@
     --------------------------------- -]
 
     [ch [title (html_style = color:red )]]
-!              ^^^^^^^^^^^^^^^^^^^^^^^^^    meta.annotation.node-attributes.title.chapter
+!              ^^^^^^^^^^^^^^^^^^^^^^^^^    meta.annotation.node-attributes.title
 !                                      ^    punctuation.section.group.end
 !               ^^^^^^^^^^                  entity.other.attribute-name.html
 !                          ^                keyword.operator.assignment
@@ -146,7 +146,7 @@
     --------------------------- -]
 
     [ch [title (html_style = ) ]]
-!              ^^^^^^^^^^^^^^^     meta.annotation.node-attributes.title.chapter
+!              ^^^^^^^^^^^^^^^     meta.annotation.node-attributes.title
 !                            ^     punctuation.section.group.end
 !               ^^^^^^^^^^         entity.other.attribute-name.html
 !                          ^       keyword.operator.assignment
@@ -159,7 +159,7 @@
 
     [ch [title ( xyzzy = zip ) ]]
 !              ^                   punctuation.section.group.begin
-!               ^^^^^^^^^^^^^      meta.annotation.node-attributes.title.chapter
+!               ^^^^^^^^^^^^^      meta.annotation.node-attributes.title
 !                            ^     punctuation.section.group.end
 !                ^^^^^             entity.other.attribute-name.unknown
 !                      ^           keyword.operator.assignment

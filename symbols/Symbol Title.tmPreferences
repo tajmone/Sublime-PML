@@ -10,7 +10,7 @@
     <string>1</string>
     <key>symbolTransformation</key>
     <!--=============================================
-    Manipulate unquoted chapter titles (headings) for
+    Manipulate doc and chapter titles (headings) for
     better symbol indexing:
       1. Strip away font formatting tags (thrice).
       2. Remove redundant spaces.

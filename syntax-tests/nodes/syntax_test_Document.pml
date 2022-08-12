@@ -77,5 +77,5 @@
 [doc ( xyzzy = zip ) [title Something]]
 !      ^^^^^                              entity.other.attribute-name.unknown
 !            ^                            keyword.operator.assignment
-!                                    ^    entity.name.tag.block-node.title.document.end
+!                                    ^    entity.name.tag.block-node.title.end
 !                                     ^   entity.name.tag.block-node.document.end
