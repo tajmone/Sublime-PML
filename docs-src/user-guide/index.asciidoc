@@ -1,11 +1,8 @@
 = Sublime PML User Guide
-:revdate: 2022-08-03
+:revdate: 2022-08-12
 :PMLver: 2.3.0
-:PackageVer: 0.7.1
 :author: Tristano Ajmone
 :email: <tajmone@gmail.com>
-:version-label: Release
-:revnumber: {PackageVer}
 :revremark: PML {PMLver}
 :lang: en
 :doctype: book
@@ -48,6 +45,15 @@ Welcome to the user guide of {SublimePML}, a package for {ST4} that adds support
 {PML} was designed by {ChristianNeumanns} around 2019, and since February 2021 the full source code of the PML conversion tool is
 https://github.com/pml-lang/converter[available on GitHub^]
 under GPLv2 license.
+
+[TIP]
+================================
+Don't forget to frequently check the package {CHANGELOG} in order to keep up with the latest package features!
+
+To view the Changelog, use the dedicated Sublime Text menu:
+
+* menu:Tools[PML > Sublime PML Changelog]
+================================
 
 
 include::features.adoc[]

@@ -8,6 +8,11 @@
         "children":
         [
           {
+            "caption": "Sublime PML Changelog",
+            "command": "open_url",
+            "args": {"url": "https://github.com/tajmone/Sublime-PML/blob/main/CHANGELOG.md"},
+          },
+          {
             "caption": "Sublime PML User Guide",
             "command": "open_url",
             "args": {"url": "https://tajmone.github.io/Sublime-PML"},
