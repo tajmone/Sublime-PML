@@ -1,7 +1,7 @@
 ! SYNTAX TEST "Packages/PML/PML.sublime-syntax"
 [ch [title Comments]
 
-    Comments start with [c \[-] and end with [c -\].
+    Comments start with [c \[-] and end with [c -\]].
 !                           ^^                       -comment
 !                                               ^^^  -comment
 !                          ^^                         constant.character.escape
