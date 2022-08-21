@@ -135,7 +135,7 @@ SOFTWARE.
 
 This repository uses the following third party assets:
 
-- __Base16 Railscasts__ colour scheme, by Ryan Bates, taken from the __[Base16 Builder]__ project, MIT License [(see `schemes/README.md`](./schemes/README.md#base16-railcast) for full credits).
+- __[Relaxed Theme]__ colour scheme, by [Michael Kühnel] [(see `schemes/README.md`](./schemes/README.md#base16-railcast) for full credits).
 
 
 # Contributing
@@ -252,10 +252,10 @@ Articles by [Christian Neumanns]:
 
 <!-- 3rd party tools and assets -->
 
-[Base16 Builder]: https://github.com/chriskempson/base16-builder "Visit the Base16 Builder repository on GitHub"
 [Git]: https://git-scm.com "Visit Git website"
 [Language Server Protocol]: https://microsoft.github.io/language-server-protocol/ "Visit the Language Server Protocol website"
 [VSCode]: https://code.visualstudio.com "Visit Visual Studio Code website"
+[Relaxed Theme]: https://github.com/Relaxed-Theme/about "Visit the Relaxed Theme info repository"
 
 <!-- images -->
 
@@ -264,6 +264,7 @@ Articles by [Christian Neumanns]:
 <!-- people -->
 
 [Christian Neumanns]: https://github.com/pml-lang "View Christian Neumanns's GitHub profile"
+[Michael Kühnel]: https://github.com/mischah "View Michael Kühnel's GitHub profile"
 [Tristano Ajmone]: https://github.com/tajmone "View Tristano Ajmone's GitHub profile"
 
 <!-- EOF -->

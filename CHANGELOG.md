@@ -14,6 +14,8 @@ This approach considerably slims down the development and maintenance work, allo
 
 <!-- MarkdownTOC autolink="true" bracket="round" autoanchor="false" lowercase="only_ascii" uri_encoding="true" levels="1,2,3" -->
 
+- [2022-08-21](#2022-08-21)
+    - [PML Dark: Switch to Relaxed Theme](#pml-dark-switch-to-relaxed-theme)
 - [2022-08-12](#2022-08-12)
     - [Shared Title Node](#shared-title-node)
     - [New Changelog Menu](#new-changelog-menu)
@@ -27,6 +29,20 @@ This approach considerably slims down the development and maintenance work, allo
 <!-- /MarkdownTOC -->
 
 -----
+
+# 2022-08-21
+
+    PML 2.3.0 | ST 4134
+
+## PML Dark: Switch to Relaxed Theme
+
+In the **[PML Dark]** default scheme, stop using the old **[Base16 Railcasts]** colour scheme and replace it with the **[Relaxed Theme]** by [Michael Kühnel]
+
+Update the **PML Dark** definitions to make the most out of the new scheme, improving previously covered syntax elements and adding missing elements.
+
+The resulting syntax colouring experience is now more pleasant to the eye, and its overall consistence has been greatly improved.
+
+<!---------------------------------------------------------------------------->
 
 # 2022-08-12
 
@@ -98,8 +114,19 @@ Being in Alpha stage, the package is still experimental can be subject to freque
 
 [user guide]: https://tajmone.github.io/Sublime-PML "View Sublime PML User Guide"
 
+<!-- colour schemes -->
+
+[PML Dark]: ./schemes/PML%20Dark.sublime-color-scheme "View PML Dark colour scheme source file"
+
+[Base16 Railcasts]: https://htmlpreview.github.io/?https://github.com/chriskempson/base16-html-previews/blob/master/previews/base16-railscasts.html "Live HTML Preview of the Base16 Railcasts color scheme"
+[Relaxed Theme]: https://github.com/Relaxed-Theme/about "Visit the Relaxed Theme info repository"
+
 <!-- Issues and Discussions -->
 
 [#35]: https://github.com/tajmone/Sublime-PML/discussions/35 "Discussion #35 — Doc vs Chapter Titles"
+
+<!-- people -->
+
+[Michael Kühnel]: https://github.com/mischah "View Michael Kühnel's GitHub profile"
 
 <!-- EOF -->

@@ -1,217 +1,105 @@
 /**************************
- *  PML Dark | 2022/07/18 *
+ *  PML Dark | 2022/08/21 *
  **************************/
 {
   "variables": {
-    /// Base16 Railscasts ///
-    // by Ryan Bates (http://railscasts.com), MIT License:
-    // https://github.com/chriskempson/base16-builder/blob/master/schemes/railscasts.yml
-    "base00": "#2B2B2B", // Mine Shaft (almost black)
-    "base01": "#272935", //     :
-    "base02": "#3A4055", //     :
-    "base03": "#5A647E", // Comet (dark bluish)
-    "base04": "#D4CFC9", // Swirl (grey)
-    "base05": "#E6E1DC", //     :
-    "base06": "#F4F1ED", //     :
-    "base07": "#F9F7F3", // Almost white
-    "base08": "#DA4939", // Punch (red)
-    "base09": "#CC7833", // Ochre
-    "base0A": "#FFC66D", // Saffron Mango
-    "base0B": "#A5C261", // Wild Willow (green)
-    "base0C": "#519F50", // Fruit Salad (green)
-    "base0D": "#6D9CBE", // Danube (blue)
-    "base0E": "#B6B3EB", // Melrose (violet)
-    "base0F": "#BC9458", // Twine (brownish gold)
-
-    "title_BG": "var(base06)",
+    // "Relaxed Theme" by Michael Kühnel:
+    // https://github.com/Relaxed-Theme/about
+    "canvas":     "#353a44",
+    "normal":     "#d9d9d9",
+    "comments":   "#636363",
+    "blue_dark":  "#6a8799",
+    "blue":       "#7eaac7",
+    "steel_dark": "#acbbd0",
+    "steel":      "#c9dfff",
+    "green_dark": "#909d63",
+    "green":      "#a0ac77",
+    "yellow":     "#ebc17a",
+    "red":        "#bc5653",
+    "purple":     "#b06698",
+    "whitish":    "#f7f7f7",
+    "blackish":   "#151515",
+    // ** Scheme Vars **
+    "title_BG": "var(steel)",
+    "title_subnode": "color(var(blue) min-contrast(var(title_BG) 2.0))",
   },
   "name": "PML Dark",
   "globals": {
-    "background": "var(base00)",
-    "foreground": "var(base05)",
+    "background": "var(canvas)",
+    "foreground": "var(normal)",
     // "invisibles": "???",
-    "caret": "var(base08)",
-    // "block_caret": "???",
-    // "block_caret_border": "???",
-    // "block_caret_underline": "???",
-    // "block_caret_corner_style": "???",
-    // "block_caret_corner_radius": "???",
-    "line_highlight": "color(black alpha(30%))",
-    // ACCENTS //
-    // "misspelling": "???",
-    // "fold_marker": "???",
-    // "minimap_border": "???",
-    "accent": "",
-    // "rulers": "???",
-    // GUTTER //
-    // "gutter": "???",
-    // "gutter_foreground": "???",
-    // "gutter_foreground_highlight": "???",
-    // DIFF //
-    // "line_diff_width": "???",
-    // "line_diff_added": "???",
-    // "line_diff_modified": "???",
-    // "line_diff_deleted": "???",
-    // SELECTION //
-    "selection": "var(base06)",
-    "selection_foreground": "var(base00)",
-    // "selection_border": "???",
-    // "selection_border_width": "???",
-    // "selection_corner_style": "???",
-    // "selection_corner_radius": "???",
-    // "inactive_selection": "???",
-    // "inactive_selection_border": "???",
-    // "inactive_selection_foreground": "???",
-    // FIND //
-    // "highlight": "???",
-    // "find_highlight": "???",
-    // "find_highlight_foreground": "???",
-    // "scroll_highlight": "???",
-    // "scroll_selected_highlight": "???",
-    // BRACKETS //
+    "caret": "var(red)",
+    "line_highlight": "color(var(blackish) alpha(20%))",
+  // ACCENTS //
+    // "misspelling": "???",  // @TODO: need a bright red!
+    // "fold_marker": "???",  // @TODO: need a bright yellow!
+    "minimap_border": "var(yellow)",
+    // "accent": "var(yellow)",
+  // RULERS //
+    "rulers": "color(var(normal) alpha(40%))",
+  // GUTTER //
+    // "gutter": "color(var(canvas) lightness(20%))",
+    // "gutter_foreground": "color(var(normal) alpha(30%))",
+    "gutter_foreground": "color(var(normal) alpha(40%))",
+  // DIFF //
+    "line_diff_width": "8",
+    "line_diff_added": "var(green)",     // @TODO: need ad hoc diff green!
+    "line_diff_modified": "var(yellow)", // @TODO: need ad hoc diff yellow!
+    "line_diff_deleted": "var(red)",     // @TODO: need ad hoc diff red!
+  // SELECTION //
+    "selection": "var(blue_dark)",
+    "selection_foreground": "var(whitish)",
+  // FIND //
+    "highlight": "var(yellow)",
+    "find_highlight": "var(yellow)",
+    "find_highlight_foreground": "var(blackish)",
+    "scroll_highlight": "var(yellow)",
+    "scroll_selected_highlight": "var(red)",
+  // BRACKETS //
     // "brackets_options": "???",
     // "brackets_foreground": "???",
     // "bracket_contents_options": "???",
     // "bracket_contents_foreground": "???",
-    // TAGS //
-    // "tags_options": "???",
-    // "tags_foreground": "???",
-    // SHADOWS //
-    // "shadow": "???",
-    // "shadow_width": "???",
   },
   "rules": [
+/*******************************************************************************
+  MISCELLANEA
+ ******************************************************************************/
+    // {
+    //   "scope": "punctuation.definition",
+    //   "foreground": "var(red)",
+    // },
     {
       "scope": "string",
-      "foreground": "var(base0B)",
-    },
-    {
-      "scope": "variable",
-      "foreground": "",
+      "foreground": "var(green)",
     },
     {
       "scope": "keyword",
-      "foreground": "",
-    },
-    {
-      "scope": "constant",
-      "foreground": "",
-    },
-// ***********
-// MISCELLANEA
-// ***********
-    {
-      "scope": "punctuation.definition",
-      "foreground": "var(base08)",
-    },
-    {
-      "scope": "keyword",
-      "foreground": "var(base0A)",
+      "foreground": "var(yellow)",
     },
     // Unknown Node
     {
       "scope": "(entity.name.tag.unknown)",
-      "foreground": "var(base0A)",
+      "foreground": "var(yellow)",
     },
     // Escape Sequences
     {
       "scope": "constant.character.escape",
-      "foreground": "var(base0E)",
+      "foreground": "var(purple)",
+      "font_style": "glow",
     },
     // INVALID
     {
       "scope": "invalid",
-      "background": "var(base08)",
-      // "background": "color(var(base08) lightness(50%))",
-      "foreground": "var(base05)",
-      "font_style": "bold",
+      "background": "var(red)",
+      "foreground": "var(normal)",
     },
-    // Comments
-    {
-      "scope": "comment.block|punctuation.definition.comment",
-      "foreground": "color(var(base03) lightness(46%))",
-      // "foreground": "var(base0F)",
-      "font_style": "italic",
-    },
-    {
-      "scope": "punctuation.definition.comment",
-      "foreground": "color(var(base03) lightness(46%))",
-      "font_style": "",
-    },
-// **************
-// Chapter Titles
-// **************
-    {
-      "scope": "markup.heading.pml",
-      // "background": "color(var(base0D) lightness(55%))",
-      "background": "var(title_BG)",
-      // "foreground": "var(base07)",
-      "foreground": "var(base00)",
-      "font_style": "bold",
-    },
-    {
-      // Parameters in Ch Title
-      "scope": "meta.toc-list.heading.pml meta.function-call",
-      // "background": "color(var(base0D) lightness(55%))",
-      "background": "var(title_BG)",
-      "foreground": "var(base0D)",
-      // "font_style": "normal",
-    },
-    {
-      // Comments in Ch Title
-      "scope": "(meta.toc-list.heading.pml comment.block|meta.toc-list.heading.pml punctuation.definition.comment)",
-      // "background": "color(var(base0D) lightness(55%))",
-      "background": "var(title_BG)",
-      // "foreground": "color(var(base03) lightness(46%))",
-      "foreground": "color(var(base03) lightness(70%))",
-      // "foreground": "var(base03)",
-      // "foreground": "var(base04)",
-      // "font_style": "italic",
-    },
-    {
-      // Inline nodes in Ch Title
-      "scope": "meta.toc-list.heading entity.name.tag.inline-node",
-      "background": "var(title_BG)",
-      "foreground": "var(base0D)",
-    },
-    {
-      // Unknown nodes in Ch Title
-      "scope": "meta.toc-list.heading entity.name.tag.unknown",
-      "background": "var(title_BG)",
-      "foreground": "var(base09)",
-    },
-    {
-      // Unknown nodes (contents) in Ch Title
-      "scope": "meta.toc-list.heading entity.name.tag.unknown.contents",
-      "foreground": "var(base00)",
-      "font_style": "bold",
-    },
-    {
-      // Markup nodes (contents) in Ch Title
-      "scope": "meta.toc-list.heading markup",
-      "background": "var(title_BG)",
-      "foreground": "var(base00)",
-      "font_style": "bold",
-    },
-// ***********
-// BLOCK NODES
-// ***********
-    {
-      "scope": "(entity.name.tag.block-node)",
-      "foreground": "var(base08)",
-    },
-    // Code Listing
-    {
-      "scope": "source.block.listing.content",
-      "background": "color(var(base00) lightness(30%))",
-      "foreground": "color(var(base00) lightness(60%))",
-    },
-// ************
-// INLINE NODES
-// ************
+/*******************************************************************************
+  INLINE NODES
+ ******************************************************************************/
     {
       "scope": "entity.name.tag.inline-node",
-      "foreground": "var(base0D)",
+      "foreground": "var(blue_dark)",
     },
     // Font Styles
     {
@@ -223,21 +111,176 @@
       "font_style": "italic",
     },
     {
+      // Inline-code (contents)
       "scope": "markup.raw.inline.content",
-      "background": "var(base05)",
-      "foreground": "var(base00)",
+      "background": "var(normal)",
+      "foreground": "var(canvas)",
       "font_style": "glow",
     },
-    /// ATTRIBUTES ///
+    {
+      // Inline-code -> Escape Sequences
+      "scope": "markup.raw.inline constant.character.escape",
+      "background": "var(normal)",
+      "foreground": "var(purple)",
+      "font_style": "glow",
+    },
+    /// ATTRIBUTES
     {
       "scope": "entity.name.attribute-name, entity.other.attribute-name",
-      "foreground": "var(base0E)",
+      "foreground": "var(steel_dark)",
     },
-    /// HTML Contents ///
+/*******************************************************************************
+  BLOCK NODES
+ ******************************************************************************/
+    {
+      "scope": "(entity.name.tag.block-node)",
+      "foreground": "var(red)",
+    },
+    // Source Code Listing
+    {
+      "scope": "source.block.listing.content",
+      "background": "var(normal)",
+      "foreground": "var(canvas)",
+      "font_style": "glow",
+    },
+    /// Quote
+    {
+      "scope": "markup.quote",
+      "background": "var(comments)",
+      "foreground": "var(normal)",
+    },
+    /// HTML Contents ~~~~ @TODO: Cover HTML specific scopes!
     {
       "scope": "text.html.basic",
-      "background": "color(var(base0D) lightness(25%))",
+      "background": "var(blackish)",
     },
-
+/*******************************************************************************
+  TEXT PROCESSING NODES
+ ******************************************************************************/
+  // Comments
+    {
+      "scope": "comment.block|punctuation.definition.comment",
+      "foreground": "var(comments)",
+      "font_style": "italic",
+    },
+    {
+      "scope": "punctuation.definition.comment",
+      "font_style": "",
+    },
+  // Parameters
+    {
+      // Parameters (tag)
+      "scope": "(punctuation.definition.generic|entity.name.tag.inline-node.constant)",
+      "foreground": "var(blue)",
+    },
+    {
+      // Parameters (key)
+      "scope": "(entity.name.function|support.function.call)",
+      "foreground": "var(steel)",
+    },
+/*******************************************************************************
+  Title Nodes (aka Headings)
+ *******************************************************************************
+  We're giving titles a bright background a dark text to make them standout.
+  Therefore, sub nodes within titles need to be handled specially in order to
+  preserve their readability. Since the title text is the main concern here,
+  all sub nodes will be coloured alike (i.e. no distinctive colour for unknown
+  nodes, etc.).
+*/
+    // Title Contents
+    {
+      "scope": "markup.heading.pml",
+      "background": "var(title_BG)",
+      "foreground": "var(canvas)",
+      "font_style": "bold",
+    },
+    // Title Sub-nodes
+    {
+      // Title -> Parameters (tag)
+      "scope": "meta.toc-list.heading.pml meta.function-call",
+      "background": "var(title_BG)",
+    },
+    {
+      // Title -> Parameters (key)
+      "scope": "meta.toc-list.heading.pml support.function.call",
+      "foreground": "var(red)",
+    },
+    {
+      // Title -> Comments
+      "scope": "(meta.toc-list.heading.pml comment.block|meta.toc-list.heading.pml punctuation.definition.comment)",
+      "background": "var(title_BG)",
+      "foreground": "color(var(steel_dark) min-contrast(var(title_BG) 2.0))",
+    },
+    {
+      // Title -> Escape Sequences
+      "scope": "meta.toc-list.heading.pml constant.character.escape",
+      "background": "var(title_BG)",
+      "foreground": "color(var(purple) min-contrast(var(title_BG) 2.0))",
+    },
+    {
+      // Title -> Inline nodes
+      "scope": "meta.toc-list.heading entity.name.tag.inline-node",
+      "background": "var(title_BG)",
+      "foreground": "var(title_subnode)",
+      "font_style": "",
+    },
+    {
+      // Title -> Unknown nodes
+      "scope": "meta.toc-list.heading entity.name.tag.unknown",
+      "background": "var(title_BG)",
+      "foreground": "var(red)",
+      "foreground": "var(title_subnode)",
+      "font_style": "",
+    },
+    {
+      // Title -> Unknown nodes (contents)
+      "scope": "meta.toc-list.heading entity.name.tag.unknown.contents",
+      "foreground": "var(canvas)",
+      "font_style": "bold",
+    },
+    {
+      // Title -> Markup nodes (contents)
+      "scope": "meta.toc-list.heading markup",
+      "background": "var(title_BG)",
+      "foreground": "var(canvas)",
+      "font_style": "bold",
+    },
+    {
+      // Title -> Inline code (contents)
+      "scope": "meta.toc-list.heading markup.raw.inline.content",
+      "background": "color(var(blue) min-contrast(var(title_BG) 2.0))",
+      "foreground": "var(title_BG)",
+      "font_style": "bold",
+    },
+/*******************************************************************************
+  EDITOR DIFFING
+ ******************************************************************************/
+  // @TODO: Need ad hoc colours!
+    // Deletions
+    {
+      "scope": "diff.deleted",
+      "background": "color(var(red) lightness(20%))",
+      "foreground": "color(var(normal) alpha(60%))",
+      "foreground_adjust": "color(var(normal) alpha(60%))",
+    },
+    {
+      "scope": "diff.deleted.char",
+      "background": "color(var(red) lightness(50%))",
+      "foreground": "var(normal))",
+      "foreground_adjust": "var(normal)",
+    },
+    // Insertions
+    {
+      "scope": "diff.inserted",
+      "background": "color(var(green) lightness(25%))",
+      "foreground": "color(var(whitish) alpha(60%))",
+      "foreground_adjust": "color(var(whitish) alpha(60%))",
+    },
+    {
+      "scope": "diff.inserted.char",
+      "background": "color(var(green) lightness(50%))",
+      "foreground": "var(whitish))",
+      "foreground_adjust": "var(whitish)",
+    },
   ]
 }
