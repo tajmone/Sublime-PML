@@ -55,6 +55,7 @@ Rakefile   Ruby
 Rakefile              export-ignore
 
 /messages/README.md   export-ignore
+/schemes/*.pml        export-ignore
 /schemes/README.md    export-ignore
 /symbols/*.pml        export-ignore
 /symbols/README.md    export-ignore

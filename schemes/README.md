@@ -20,6 +20,7 @@ This folder contains the default colour schemes that ship with the Sublime PML p
 # Folder Contents
 
 - [`PML Dark.sublime-color-scheme`][PML Dark.sublime-color-scheme] — _PML Dark_ scheme.
+- [`sample.pml`][sample.pml] — Sample PML doc to test colour schemes.
 
 
 # Credits and License
@@ -43,6 +44,7 @@ The original scheme palette was extracted from the [`themes/Relaxed`][themes/Rel
 ------------------------------------------------------------------------------>
 
 [PML Dark.sublime-color-scheme]: ./PML%20Dark.sublime-color-scheme
+[sample.pml]: ./sample.pml "Sample PML document to test colour schemes"
 
 <!--Relaxed Theme -->
 
