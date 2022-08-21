@@ -15,6 +15,7 @@ This approach considerably slims down the development and maintenance work, allo
 <!-- MarkdownTOC autolink="true" bracket="round" autoanchor="false" lowercase="only_ascii" uri_encoding="true" levels="1,2,3" -->
 
 - [2022-08-21](#2022-08-21)
+    - [PML 3.0.0](#pml-300)
     - [PML Dark: Switch to Relaxed Theme](#pml-dark-switch-to-relaxed-theme)
 - [2022-08-12](#2022-08-12)
     - [Shared Title Node](#shared-title-node)
@@ -32,7 +33,13 @@ This approach considerably slims down the development and maintenance work, allo
 
 # 2022-08-21
 
-    PML 2.3.0 | ST 4134
+    PML 3.0.0 | ST 4134
+
+## PML 3.0.0
+
+Package updated to new PML 3.0.0 release.
+
+In terms of breaking changes, this update currently only affected the package build systems, since the PML Companion command line opinions underwent radical changed.
 
 ## PML Dark: Switch to Relaxed Theme
 

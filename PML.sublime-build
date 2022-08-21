@@ -1,5 +1,5 @@
 {
-  "shell_cmd": "pmlc \"$file\"",
+  "shell_cmd": "pmlc p2h \"$file\"",
   "working_dir": "$file_path",
   "selector": "text.pml",
   "file_patterns": [ "*.pml" ],
@@ -7,8 +7,8 @@
   "variants":
   [
     {
-      "name": "Convert to source folder",
-      "shell_cmd": "pmlc convert -f \"$file\" -od ./",
+      "name": "Convert in source folder",
+      "shell_cmd": "pmlc p2h \"$file\" -o \"$file_path/$file_base_name.html\"",
     }
   ]
 }

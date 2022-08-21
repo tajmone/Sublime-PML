@@ -30,12 +30,12 @@ The package provides some built-in basic build systems:
 | build name | description | pmlc command
 
 e| default
-| Convert file without options (i.e. to `output/`)
-| pmlc <file.pml>
+| HTML conversion (to `output/`)
+| pmlc p2h <file.pml>
 
-| Convert to source folder
-| Convert file to same folder as PML source
-| pmlc convert -f <file.pml> -od ./
+| Convert in source folder
+| HTML conversion in same folder as PML source
+| pmlc p2h <file.pml> -o <path/file.html>
 |==============================================
 
 
