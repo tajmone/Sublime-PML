@@ -1,6 +1,6 @@
 %YAML 1.2
 ---
-# Sublime PML | Alpha | 2022/08/21 | PML 3.0.0
+# Sublime PML | Alpha | 2022/12/03 | PML 3.1.0
 ################################################################################
 #                                                                              #
 #                       PML (Practical Markup Language)                        #
@@ -21,7 +21,7 @@ scope: text.pml
 version: 2
 
 variables:
-  custom_id:  '[a-zA-Z_][a-zA-Z0-9_\-\.]*' # PML 2.3.0 (might change in the future!)
+  custom_id:  '[a-zA-Z_][a-zA-Z0-9_\-\.]*' # PML 3.1.0 (might change in the future!)
   pml_tag:    '[a-z][a-z_]*'       # PML tags are lowercase, no digits.
   nspace_tag: '[a-z][a-z_:]*\b'    # PML tags + namespace hack (temp workaround).
   pml_attr:   '[a-zA-Z][a-zA-Z_]*' # PML attributes are mixed-case, no digits.
@@ -218,9 +218,7 @@ contexts:
 ###########
 
 # Attributes (none required, no default, no lenient parsing):
-# - [ ] highlighter = [none|highlightjs|prism]
-# - [ ] TOC_position
-# - [ ] TOC_title
+# - [ ] ID
 # - [x] HTML attributes: allowed
 
   doc:
@@ -251,6 +249,18 @@ contexts:
     - include: attr_html
     - include: attr_unknown # @NOTE: To cover future new attributes?
     # @TODO: include unsupported attributes (as invalid):
+
+
+## Options
+###########
+
+# If used, this node MUST be the first child node of the '[doc' node.
+
+# What were previously [doc attributes are now [options nodes:
+# - [ ] highlighter = [none|highlightjs|prism]
+# - [ ] TOC_position
+# - [ ] TOC_title
+# - ... others ...
 
 
 ## Chapter
@@ -735,7 +745,6 @@ contexts:
           scope: keyword.operator.assignment.pml
           set:
             - include: pop-at-ParensEnd
-            # - include: pop-at-EOL  # <- PML 1.x (attributes on same line)
             - include: id_type
 
 
@@ -786,6 +795,34 @@ contexts:
 
 
   id_type:
+    - include: id_quoted
+    - include: id_unquoted
+  id_quoted:
+    - match: '""'
+      scope: invalid.illegal.id.pml
+    - match: '(")(\s+)(")'
+      captures:
+        1: punctuation.definition.string.begin.pml
+        2: invalid.illegal.id.pml
+        3: punctuation.definition.string.end.pml
+    - match: '"'
+      scope: punctuation.definition.string.begin.pml
+      set:
+      - match: '({{custom_id}})(")'
+        captures:
+          1: string.quoted.id.pml meta.toc-list.id.pml
+          2: punctuation.definition.string.end.pml
+        pop: true
+      - match: '([^"]+)(")'
+        captures:
+          1: invalid.illegal.id.pml
+          2: punctuation.definition.string.end.pml
+        pop: true
+      # Handle lack of string terminator:
+      - match: '.*'
+        scope: invalid.illegal.id.pml
+        pop: true
+  id_unquoted:
     - match: '\b({{custom_id}})\b(?![\.\-])'
       scope: string.unquoted.id.pml meta.toc-list.id.pml
       pop: true

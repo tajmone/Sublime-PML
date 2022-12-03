@@ -74,6 +74,10 @@
       "foreground": "var(green)",
     },
     {
+      "scope": "punctuation.definition.string",
+      "foreground": "var(red)",
+    },
+    {
       "scope": "keyword",
       "foreground": "var(yellow)",
     },

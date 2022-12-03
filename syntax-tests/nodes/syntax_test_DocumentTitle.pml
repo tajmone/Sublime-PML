@@ -61,6 +61,12 @@
 !                                 ^   entity.name.tag.block-node.title.end
 !                                  ^  entity.name.tag.block-node.document.end
 
+    [doc [title ( id = "quote777" ) ]]
+!                       ^^^^^^^^       string.quoted.id
+!                       ^^^^^^^^       meta.toc-list.id
+!                      ^               punctuation.definition.string.begin
+!                               ^      punctuation.definition.string.end
+
 [-  ---------------
     ID -> Malformed
     --------------- -]
@@ -75,11 +81,36 @@
 !                                 ^   entity.name.tag.block-node.title.end
 !                                  ^  entity.name.tag.block-node.document.end
 
-
     [doc [title ( id = àààààààà ) ]]
 !               ^^^^^^^^^^^^^^^^^     meta.annotation.node-attributes.title
 !                               ^     punctuation.section.group.end
 !                      ^^^^^^^^       invalid.illegal.id
+
+[-  ----------------------
+    ID Quoted -> Malformed
+    ---------------------- -]
+
+    [doc [title ( id = "$$$$$$$$" ) ]]
+!                       ^^^^^^^^       invalid.illegal.id
+!                      ^               punctuation.definition.string.begin
+!                               ^      punctuation.definition.string.end
+
+    [doc [title ( id = "àààààààà" ) ]]
+!                       ^^^^^^^^       invalid.illegal.id
+!                      ^               punctuation.definition.string.begin
+!                               ^      punctuation.definition.string.end
+
+[-  -------------------------
+    ID Quoted -> Empty String
+    ------------------------- -]
+
+    [doc [title ( id = "" ) ]]
+!                      ^^         invalid.illegal.id
+
+    [doc [title ( id = "  " ) ]]
+!                       ^^        invalid.illegal.id
+!                      ^          punctuation.definition.string.begin
+!                         ^       punctuation.definition.string.end
 
 [-  --------------
     ID -> No Value
