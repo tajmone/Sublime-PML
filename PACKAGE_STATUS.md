@@ -2,6 +2,8 @@
 
 Info about the package status in terms of PML syntax elements and features currently implemented and those awaiting implementation.
 
+> **WARNING** — The list of pending tasks might not be 100% accurate due to breaking changes across PML v2.x and 3.x. Although I've tried to keep the list up to date with the latest changes, chances are that details have been overlooked. Always double check against the latest generated JSON tags file and official docs.
+
 -----
 
 **Table of Contents**
@@ -16,6 +18,7 @@ Info about the package status in terms of PML syntax elements and features curre
         - [Software Development](#software-development)
     - [Inline Nodes](#inline-nodes)
         - [Font Nodes](#font-nodes)
+    - [Footnotes](#footnotes)
     - [Text Processing Nodes](#text-processing-nodes)
 
 <!-- /MarkdownTOC -->
@@ -42,11 +45,9 @@ To simplify consultation, nodes are organized into sub-sections like in the PML 
 - [x] Document — `[doc` .. `]`
     + [x] Tag scoping.
     + [ ] Attributes:
-        * [ ] `highlighter`
-        * [ ] `TOC_position`
-        * [ ] `TOC_title`
+        * [ ] `id`
         * [x] HTML attributes
-    + [ ] Attributes completions:
+    + [ ] Attributes completions (**FIMXE!** now moved to `[options`):
         * [x] `highlighter` &rarr; `highlighter = ${1:highlightjs} $0`
         * [x] `hljs` &rarr; `highlighter = highlightjs $0`
         * [x] `prism` &rarr; `highlighter = prism $0`
@@ -76,6 +77,16 @@ To simplify consultation, nodes are organized into sub-sections like in the PML 
             - [ ] Strip away from indexed title inline-tag delimiters:
                 + [x] Font formatting: `[b` / `[c` / `[i` / `[sub` / `[sup` / `[strike` .. `]`
 - [ ] Subtitle — `[ch [title [subtitle` sub-node.
+- [ ] Options — `[doc [options` sub-node. Supports all (most?) CLI options as sub-nodes:
+    + [ ] `[highlighter` — `highlightjs`, `prism`, `none`.
+    + [ ] `[TOC_max_level` — _integer_.
+    + [ ] `[TOC_position` — `left`, `top`, `none`.
+    + [ ] `[TOC_title` — _string_.
+    + [ ] `[HTML_page_footer` — file path.
+    + [ ] `[HTML_page_header` — file path.
+    + [ ] `[resources` — path(s).
+    + [ ] `[CSS_files` — path(s).
+    + [ ] `[omit_CSS` — `yes`, `no`, `true`, `false`.
 
 ### Common Nodes
 
@@ -92,6 +103,7 @@ To simplify consultation, nodes are organized into sub-sections like in the PML 
     + [ ] Table Row — `[tr` .. `]`.
     + [ ] Table Cell — `[tc` .. `]`.
 - [ ] Header — `[header` .. `]`.
+- [ ] Caption — `[caption` .. `]`
 - [ ] Admonition — `[admon` .. `]`.
 - [ ] Note — `[note` .. `]`.
 - [x] Quote — `[quote` .. `]`
@@ -104,11 +116,14 @@ To simplify consultation, nodes are organized into sub-sections like in the PML 
         * [x] `id` &rarr; `id = ${1:identifier} $0`
         * [x] `source` &rarr; `source = ${1:John Doe} $0`
         * [ ] HTML attributes
-- [ ] Caption — `[caption` .. `]`
 - [ ] Monospace — `[monospace` .. `]`
 - [ ] Division — `[div` .. `]`
 - [x] HTML Code — `[html` .. `html]`
     + [x] Tag scoping.
+        * [ ] **FIXME!** Support alternative [`raw_text`][raw_text] syntaxes: (See [#40])
+            - [ ]  [Standard Text Syntax]
+            - [ ]  [Text Block Syntax]   [ _deprecated_ ]
+            - [ ]  [Delimited Text Syntax]
     + [x] Syntax embedding: node contents are passed to the native HTML syntax that ships with Sublime Text.
     + [x] Attributes:
         * [x] `id`
@@ -131,6 +146,10 @@ To simplify consultation, nodes are organized into sub-sections like in the PML 
 
 - [x]  [Source Code] — `[code` .. `code]`
     + [x] Tag scoping.
+        * [ ] **FIXME!** Support alternative [`raw_text`][raw_text] syntaxes: (See [#40])
+            - [ ]  [Standard Text Syntax]
+            - [ ]  [Text Block Syntax]   [ _deprecated_ ]
+            - [ ]  [Delimited Text Syntax]
     + [ ] Attributes:
         * [x] `id`
         * [ ] `highlight`
@@ -160,6 +179,7 @@ To simplify consultation, nodes are organized into sub-sections like in the PML 
     + [x] Tag scoping.
     + [x] smart auto-completion (`nbsp`), globally available.
     + [ ] Keyboard shortcut?
+- [ ] Text — `[text` .. `]`
 
 ### Font Nodes
 
@@ -185,6 +205,18 @@ To simplify consultation, nodes are organized into sub-sections like in the PML 
     + [ ] Keyboard shortcut (???).
 
 
+## Footnotes
+
+> - See: [PML Reference Manual] »
+>     + [Block Nodes » Footnotes].
+>     + [Inline Nodes » Footnotes].
+
+- [ ] Footnotes Placeholder — `[fnotes]`
+- [ ] Footnote Definition — `[fnote_def` .. `]`
+- [ ] Inline Footnote — `[fnote` .. `]`
+- [ ] Footnote Reference — `[fnote_ref` .. `]`
+
+
 ## Text Processing Nodes
 
 > See: [PML User Manual] » [Text Processing Nodes].
@@ -195,7 +227,7 @@ To simplify consultation, nodes are organized into sub-sections like in the PML 
     + [x] Keyboard shortcuts:
         * [x] <kbd>Ctrl</kbd> <kbd>/</kbd>
         * [x] <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>/</kbd>
-- [ ] [Insert File] — `[u:ins_file` .. `]`
+- [ ] [Insert File] — `[u:ins_file path =` .. _file_path_ `]`
 - [x] [Parameters] — `[u:set` .. `]` and `[u:get` .. `]`:
     + [x] Basic node scoping.
         * [ ] Need to handle scoping of the `u:` namespace part.
@@ -243,6 +275,11 @@ To simplify consultation, nodes are organized into sub-sections like in the PML 
 
 [Span]: https://www.pml-lang.dev/docs/reference_manual/index.html#node_span "PML Reference Manual » Span node"
 
+
+[Block Nodes » Footnotes]: https://www.pml-lang.dev/docs/reference_manual/index.html#footnotes_block "PML Reference Manual » Block Nodes » Footnotes"
+[Inline Nodes » Footnotes]: https://www.pml-lang.dev/docs/reference_manual/index.html#footnotes_inline "PML Reference Manual » Inline Nodes » Footnotes"
+
+
 <!-- PML User Manual -->
 
 [PML User Manual]: https://www.pml-lang.dev/docs/user_manual/index.html "Read the online PML User Manual"
@@ -251,9 +288,15 @@ To simplify consultation, nodes are organized into sub-sections like in the PML 
 [Insert File]: https://www.pml-lang.dev/docs/user_manual/index.html#file_splitting "PML User Manual » File Splitting"
 [Parameters]: https://www.pml-lang.dev/docs/user_manual/index.html#parameters "PML User Manual » Parameters"
 
+<!-- PDML DOcs -->
 
-<!-- internal xrefs -->
+[raw_text]: https://pdml-lang.github.io/docs/extensions/reference_manual/index.html#raw_text "PDML Extensions Reference Manual » Types » raw_Text"
+[Standard Text Syntax]: https://pdml-lang.github.io/docs/extensions/reference_manual/index.html#raw_text_standard_syntax "PDML Extensions Reference Manual » Types » raw_Text » Standard Text Syntax"
+[Text Block Syntax]: https://pdml-lang.github.io/docs/extensions/reference_manual/index.html#raw_text_block_syntax "PDML Extensions Reference Manual » Types » raw_Text » Text Block Syntax"
+[Delimited Text Syntax]: https://pdml-lang.github.io/docs/extensions/reference_manual/index.html#raw_text_delimiter_syntax "PDML Extensions Reference Manual » Types » raw_Text » Delimited Text Syntax"
 
-[Post-migration TODOs]: #post-migration-todos "Jump to section..."
+<!-- Issues & Discussions -->
+
+[#40]: https://github.com/tajmone/Sublime-PML/issues/40 "Issue #40 — Fix Raw-Text Nodes: Support Alternative Syntaxes"
 
 <!-- EOF -->
