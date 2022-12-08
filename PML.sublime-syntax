@@ -185,6 +185,7 @@ contexts:
 
   block_nodes:
     - include: doc         # Document
+    - include: options     # Options
     - include: chapter     # Chapter | Has Default
     - include: html        # HTML Code | Raw + Childless
     - include: quote       # Quote
@@ -254,13 +255,84 @@ contexts:
 ## Options
 ###########
 
-# If used, this node MUST be the first child node of the '[doc' node.
+# @NOTE: Need to ensure that comments and constants are correctly
+#        handled within options values (not marked as invalid).
 
-# What were previously [doc attributes are now [options nodes:
-# - [ ] highlighter = [none|highlightjs|prism]
-# - [ ] TOC_position
-# - [ ] TOC_title
-# - ... others ...
+  options:
+    - match: '\[options\b'
+      scope: entity.name.tag.block-node.options.begin.pml
+      push: options_block
+  options_block:
+    - meta_content_scope: meta.block.options.pml
+    - include: option_highlighter
+    - include: option_toc_level
+    - include: option_toc_position
+    - include: option_toc_title
+    - include: option_wrong_casing # catch bad letter casing
+    - include: option_unknown      # generic fallback catcher
+    - match: ']'
+      scope: entity.name.tag.block-node.options.end.pml
+      pop: true
+
+  option_unknown:
+    - match: '\[[a-zA-Z_]+\b'
+      scope: entity.name.tag.option-node.unknown.begin.pml
+      push:
+      - meta_content_scope: meta.annotation.option.unknown.pml
+      - match: ']'
+        scope: entity.name.tag.option-node.unknown.end.pml
+        pop: true
+  option_wrong_casing:
+    - match: '\[(?i:TOC_MAX_LEVEL|TOC_POSITION|TOC_TITLE|HIGHLIGHTER)\b'
+      scope: invalid.option-node.begin.pml
+      push:
+      - match: ']'
+        scope: invalid.option-node.end.pml
+        pop: true
+
+  option_highlighter:
+    - match: '\[highlighter\b'
+      scope: entity.name.tag.option-node.highlighter.begin.pml
+      push:
+      - meta_content_scope: meta.annotation.option.highlighter.pml
+      - match: '(?i:highlightjs|prism|none)'
+        scope: string.unquoted.pml
+      - match: '[\w_\-]+'
+        scope: invalid.option-value.pml
+      - match: ']'
+        scope: entity.name.tag.option-node.highlighter.end.pml
+        pop: true
+
+  option_toc_level:
+    - match: '\[TOC_max_level\b'
+      scope: entity.name.tag.option-node.toc-level.begin.pml
+      push:
+      - meta_content_scope: meta.annotation.option.toc-level.pml
+      - match: '[^\d\s\]]+'
+        scope: invalid.option-value.pml
+      - match: ']'
+        scope: entity.name.tag.option-node.toc-level.end.pml
+        pop: true
+  option_toc_position:
+    - match: '\[TOC_position\b'
+      scope: entity.name.tag.option-node.toc-position.begin.pml
+      push:
+      - meta_content_scope: meta.annotation.option.toc-position.pml
+      - match: '(?i:left|top|none)'
+        scope: string.unquoted.pml
+      - match: '[\w_\-]+'
+        scope: invalid.option-value.pml
+      - match: ']'
+        scope: entity.name.tag.option-node.toc-position.end.pml
+        pop: true
+  option_toc_title:
+    - match: '\[TOC_title\b'
+      scope: entity.name.tag.option-node.toc-title.begin.pml
+      push:
+      - meta_content_scope: meta.annotation.option.toc-title.pml
+      - match: ']'
+        scope: entity.name.tag.option-node.toc-title.end.pml
+        pop: true
 
 
 ## Chapter

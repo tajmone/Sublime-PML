@@ -77,11 +77,11 @@ To simplify consultation, nodes are organized into sub-sections like in the PML 
             - [ ] Strip away from indexed title inline-tag delimiters:
                 + [x] Font formatting: `[b` / `[c` / `[i` / `[sub` / `[sup` / `[strike` .. `]`
 - [ ] Subtitle — `[ch [title [subtitle` sub-node.
-- [ ] Options — `[doc [options` sub-node. Supports all (most?) CLI options as sub-nodes:
-    + [ ] `[highlighter` — `highlightjs`, `prism`, `none`.
-    + [ ] `[TOC_max_level` — _integer_.
-    + [ ] `[TOC_position` — `left`, `top`, `none`.
-    + [ ] `[TOC_title` — _string_.
+- [x] Options — `[doc [options` sub-node. Supports all (most?) CLI options as sub-nodes:
+    + [x] `[highlighter` — `highlightjs`, `prism`, `none`.
+    + [x] `[TOC_max_level` — _integer_.
+    + [x] `[TOC_position` — `left`, `top`, `none`.
+    + [x] `[TOC_title` — _string_.
     + [ ] `[HTML_page_footer` — file path.
     + [ ] `[HTML_page_header` — file path.
     + [ ] `[resources` — path(s).
