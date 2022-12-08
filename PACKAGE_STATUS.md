@@ -44,8 +44,8 @@ To simplify consultation, nodes are organized into sub-sections like in the PML 
 
 - [x] Document — `[doc` .. `]`
     + [x] Tag scoping.
-    + [ ] Attributes:
-        * [ ] `id`
+    + [x] Attributes:
+        * [x] `id`
         * [x] HTML attributes
     + [ ] Attributes completions (**FIMXE!** now moved to `[options`):
         * [x] `highlighter` &rarr; `highlighter = ${1:highlightjs} $0`

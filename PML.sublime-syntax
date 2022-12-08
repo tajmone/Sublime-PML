@@ -1,6 +1,6 @@
 %YAML 1.2
 ---
-# Sublime PML | Alpha | 2022/12/03 | PML 3.1.0
+# Sublime PML | Alpha | 2022/12/08 | PML 3.1.0
 ################################################################################
 #                                                                              #
 #                       PML (Practical Markup Language)                        #
@@ -218,7 +218,7 @@ contexts:
 ###########
 
 # Attributes (none required, no default, no lenient parsing):
-# - [ ] ID
+# - [x] ID
 # - [x] HTML attributes: allowed
 
   doc:
@@ -245,7 +245,7 @@ contexts:
     - match: '\)'
       scope: punctuation.section.group.end.pml
       pop: true
-    # @TODO: include supported attributes:
+    - include: attr_id
     - include: attr_html
     - include: attr_unknown # @NOTE: To cover future new attributes?
     # @TODO: include unsupported attributes (as invalid):

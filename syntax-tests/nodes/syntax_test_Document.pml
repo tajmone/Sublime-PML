@@ -24,6 +24,33 @@
 !        ^^^     meta.annotation.node-attributes.document
 !          ^     punctuation.section.group.end
 
+[-  --------------
+    ID -> Valid ID
+    -------------- -]
+
+    [doc ( id = quote666 ) ]
+!        ^                     punctuation.section.group.begin
+!        ^^^^^^^^^^^^^^^^^     meta.annotation.node-attributes.document
+!                        ^     punctuation.section.group.end
+!          ^^                  entity.other.attribute-name.id
+!             ^                keyword.operator.assignment
+!               ^^^^^^^^       string.unquoted.id
+!               ^^^^^^^^       meta.toc-list.id
+!                          ^   entity.name.tag.block-node.document.end
+
+[-  ---------------
+    ID -> Malformed
+    --------------- -]
+
+    [doc ( id = $$$$$$$$ ) ]
+!        ^                     punctuation.section.group.begin
+!        ^^^^^^^^^^^^^^^^^     meta.annotation.node-attributes.document
+!                        ^     punctuation.section.group.end
+!          ^^                  entity.other.attribute-name.id
+!             ^                keyword.operator.assignment
+!               ^^^^^^^^       invalid.illegal.id
+!                          ^   entity.name.tag.block-node.document.end
+
 [-  -------------------------------
     HTML ATTRIBUTES -> Quoted Value
     ------------------------------- -]
