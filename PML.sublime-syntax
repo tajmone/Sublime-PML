@@ -1,6 +1,6 @@
 %YAML 1.2
 ---
-# Sublime PML | Alpha | 2022/12/08 | PML 3.1.0
+# Sublime PML | Alpha | 2022/12/10 | PML 3.1.0
 ################################################################################
 #                                                                              #
 #                       PML (Practical Markup Language)                        #
@@ -124,6 +124,7 @@ contexts:
     - include: block_nodes
     - include: inline_nodes
     - include: text_processing_nodes
+    - include: generic_block_node # Matches unimplemented block-nodes
     - include: unknown_node
     # TODO: When all nodes are implemented, all that's left is an
     #       unescaped '[', which should be scoped as invalid/error!
@@ -195,6 +196,9 @@ contexts:
     # caption           # Caption
     # constant          # Constant Parameter
     # division          # Division
+    # fnotes            # Footnotes Placeholder
+    # fnote_def         # Footnote Definition
+    # header            # Header
     # image             # Image | Has Default + Childless
     # input             # Input | Raw + Childless
     # insert            # Insert File
@@ -213,6 +217,44 @@ contexts:
     # table_row         # Table Row
     # video             # Video | Childless
     # youtube_video     # Embedded YouTube Video | Childless
+
+
+## Generic Block Nodes
+######################
+
+# A temporary scope to match block nodes which are yet to
+# be properly implemented.
+
+  generic_block_node:
+    - match: '(?x:
+        \[
+          (admon|audio|caption|div|el|fnote_def|fnotes|header|image
+          |input|insert_code|list|monospace|note|output|p|table
+          |table_data|tc|tfooter|theader|tr|video|youtube_video
+          )\b)'
+      scope: entity.name.tag.block-node.generic.begin.pml
+      push: [generic_block_node_indise, generic_block_attributes]
+
+  generic_block_node_indise:
+    - include: pml_nodes
+    - match: ']'
+      scope: entity.name.tag.block-node.generic.end.pml
+      pop: true
+
+  generic_block_attributes:
+    - match: '\('
+      scope: punctuation.section.group.begin.pml
+      set: generic_block_attributes_inside
+    - match: '\s'
+    - include: force-pop
+  generic_block_attributes_inside:
+    - meta_scope: meta.annotation.node-attributes.generic.pml
+    - match: '\)'
+      scope: punctuation.section.group.end.pml
+      pop: true
+    - include: attr_id
+    - include: attr_html
+    - include: attr_unknown
 
 
 ## Document
@@ -575,7 +617,10 @@ contexts:
     - include: subscript    # Subscript Text
     - include: superscript  # Superscript Text
     - include: strike       # Strikethrough Text
+    # fnote                 # Inline Footnote
+    # fnote_ref             # Footnote Reference
     # link                  # URL Link
+    # text                  # Text
     # verbatim              # Verbatim Text
     # xref                  # Cross-Reference
 
