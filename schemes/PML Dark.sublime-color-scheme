@@ -83,7 +83,7 @@
     },
     // Unknown Node
     {
-      "scope": "(entity.name.tag.unknown)",
+      "scope": "(entity.name.tag.unknown.begin|entity.name.tag.unknown.end)",
       "foreground": "var(yellow)",
     },
     // Escape Sequences

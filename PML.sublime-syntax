@@ -164,7 +164,9 @@ contexts:
     - match: '\)'
       scope: punctuation.section.group.end.pml
       pop: true
-    # @TODO: Find a way to scope unknown attributes bases on expectations.
+    - include: attr_id
+    - include: attr_html
+    - include: attr_unknown
 
 
 # ==============================================================================
