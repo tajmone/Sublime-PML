@@ -124,7 +124,6 @@ contexts:
     - include: block_nodes
     - include: inline_nodes
     - include: text_processing_nodes
-    - include: generic_block_node # Matches unimplemented block-nodes
     - include: unknown_node
     # TODO: When all nodes are implemented, all that's left is an
     #       unescaped '[', which should be scoped as invalid/error!
@@ -191,6 +190,7 @@ contexts:
     - include: html        # HTML Code | Raw + Childless
     - include: quote       # Quote
     - include: sourcecode  # Source Code Block
+    - include: generic_block_node  # Matches unimplemented block-nodes
     # admonition        # Admonition
     # audio             # Audio (Sound) | Childless
     # caption           # Caption
@@ -617,12 +617,45 @@ contexts:
     - include: subscript    # Subscript Text
     - include: superscript  # Superscript Text
     - include: strike       # Strikethrough Text
+    - include: generic_inline_node # Matches unimplemented inline-nodes
     # fnote                 # Inline Footnote
     # fnote_ref             # Footnote Reference
     # link                  # URL Link
     # text                  # Text
     # verbatim              # Verbatim Text
     # xref                  # Cross-Reference
+
+## Generic Inline Nodes
+######################
+
+# A temporary scope to match inline nodes which are yet to
+# be properly implemented.
+
+  generic_inline_node:
+    - match: '(\[(fnote|fnote_ref|link|text|verbatim|xref)\b)'
+      scope: entity.name.tag.inline-node.generic.begin.pml
+      push: [generic_inline_node_indise, generic_inline_attributes]
+
+  generic_inline_node_indise:
+    - include: inline_nodes
+    - match: ']'
+      scope: entity.name.tag.inline-node.generic.end.pml
+      pop: true
+
+  generic_inline_attributes:
+    - match: '\('
+      scope: punctuation.section.group.begin.pml
+      set: generic_inline_attributes_inside
+    - match: '\s'
+    - include: force-pop
+  generic_inline_attributes_inside:
+    - meta_scope: meta.annotation.node-attributes.generic.pml
+    - match: '\)'
+      scope: punctuation.section.group.end.pml
+      pop: true
+    - include: attr_html
+    - include: attr_unknown
+
 
 ## Font: Bold Text
 ##################
