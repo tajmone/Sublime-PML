@@ -851,7 +851,6 @@ contexts:
       captures:
         1: entity.other.attribute-name.unknown.pml
         2: keyword.operator.assignment.pml
-    - include: pop-at-EOL
 
 
   attr_id:

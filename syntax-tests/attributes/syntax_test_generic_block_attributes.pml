@@ -20,13 +20,23 @@ ID, HTML Attributes, and unknown attribute.
 
   [admon ( xyz=some )]
 !          ^^^           entity.other.attribute-name.unknown
-!             ^          keyword.operator.assignment.pml
+!             ^          keyword.operator.assignment
+
 
 Attributes spread across multiple lines:
 
   [admon (
+    id=AnID) Lorem
+!   ^^                entity.other.attribute-name.id
+!          ^          punctuation.section.group.end
+!^^^^^^^^^^^          meta.annotation.node-attributes.generic
+!           ^^^^^^   -meta.annotation.node-attributes.generic
+  [admon (
     id=AnID
-    html_class=red
+    html_class="red"
+!   ^^^^^^^^^^           entity.other.attribute-name.html
+!             ^          keyword.operator.assignment
+!              ^^^^^     string.quoted.double
     )]
 
 [- doc end -]
