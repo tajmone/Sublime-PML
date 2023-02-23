@@ -1,6 +1,6 @@
 %YAML 1.2
 ---
-# Sublime PML | Alpha | 2023/02/23 | PML 4.0.0
+# Sublime PML | Alpha | 2023/02/24 | PML 4.0.0
 ################################################################################
 #                                                                              #
 #                       PML (Practical Markup Language)                        #
@@ -559,6 +559,10 @@ contexts:
 # Attributes (none required, no default, unconstrained attributes lenient parsing):
 # - [x] id
 # - [x] HTML attributes: allowed
+# Supported syntax variations:
+# - [x] Delimited Text Syntax
+# - [ ] Standard Text Syntax
+
 
   # @TODO: Implement unconstrained attributes lenient parsing.
 
@@ -606,23 +610,26 @@ contexts:
 # - [ ] lang
 # - [x] HTML attributes: allowed
 
+# Supported syntax variations:
+# - [x] Delimited Text Syntax
+# - [ ] Standard Text Syntax
+
+  # NOTE: The contexts here are a bit hackish and require some redundancy
+  #       in order to correctly handle optional attributes.
+
   # @TODO: Implement missing attributes.
   # @TODO: Implement unconstrained attributes lenient parsing.
 
   sourcecode:
     - match: '\[code\b'
       scope: entity.name.tag.block-node.raw.listing.begin.pml
-      push: [sourcecode_block, sourcecode_attributes]
-  sourcecode_block:
-    - meta_scope: meta.embedded.block.listing.pml
-    - match: ''
-      set:
-      - meta_content_scope: source.block.listing.content.pml
-                            meta.embedded.block.listing.pml
-      - match: '\bcode]'
-        scope:  entity.name.tag.block-node.raw.listing.end.pml
-                meta.embedded.block.listing.pml
-        pop: true
+      push: [sourcecode_block_end, sourcecode_attributes_or_delimiter]
+  sourcecode_attributes_or_delimiter:
+    - match: '\('
+      scope: punctuation.section.group.begin.pml
+      set: sourcecode_attributes_inside
+    - match: '^(?=( |\t)*["=~]{3,})'
+      set: sourcecode_opening_delimiters
   sourcecode_attributes:
     - match: '\('
       scope: punctuation.section.group.begin.pml
@@ -633,12 +640,26 @@ contexts:
     - meta_scope: meta.annotation.node-attributes.listing.pml
     - match: '\)'
       scope: punctuation.section.group.end.pml
-      pop: true
+      set: sourcecode_opening_delimiters
     - include: attr_id
     - include: attr_html
     # @TODO: include remaining supported attributes:
     - include: attr_unknown # @NOTE: To cover future new attributes?
     # @TODO: include unsupported attributes (as invalid):
+  sourcecode_opening_delimiters:
+    - match: '^(( |\t)*["=~]{3,})$\n?'
+      scope: meta.code-fence.definition.begin.pml punctuation.definition.raw.code-fence.begin.pml
+      set: sourcecode_block
+  sourcecode_block:
+    - meta_content_scope: source.block.listing.content.pml
+                          meta.embedded.block.listing.pml
+    - match: ^\1$\n?
+      scope: meta.code-fence.definition.end.pml punctuation.definition.raw.code-fence.end.pml
+      pop: true
+  sourcecode_block_end:
+    - match: '\]'
+      scope:  entity.name.tag.block-node.raw.listing.end.pml
+      pop: true
 
 
 # ==============================================================================

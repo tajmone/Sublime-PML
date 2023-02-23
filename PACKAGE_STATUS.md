@@ -150,8 +150,7 @@ To simplify consultation, nodes are organized into sub-sections like in the PML 
     + [x] Tag scoping.
         * [ ] **FIXME!** Support alternative [`raw_text`][raw_text] syntaxes: (See [#40])
             - [ ]  [Standard Text Syntax]
-            - [ ]  [Text Block Syntax]   [ _deprecated_ ]
-            - [ ]  [Delimited Text Syntax]
+            - [x]  [Delimited Text Syntax]
     + [ ] Attributes:
         * [x] `id`
         * [ ] `highlight`
