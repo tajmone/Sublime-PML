@@ -1,6 +1,4 @@
 ! SYNTAX TEST "Packages/PML/PML.sublime-syntax"
-[doc [title Options Node]
-
   [options ]
 ! ^^^^^^^^     entity.name.tag.block-node.options.begin
 !          ^   entity.name.tag.block-node.options.end
@@ -171,5 +169,6 @@
 !                     ^   invalid.option-node.end
   ]
 
+  [doc [title Options Node]
+  ]
 [- doc end -]
-]

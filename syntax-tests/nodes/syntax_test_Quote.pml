@@ -1,24 +1,40 @@
-! SYNTAX TEST "Packages/PML/PML.sublime-syntax"
+^! SYNTAX TEST "Packages/PML/PML.sublime-syntax"
 
 [doc [title Test Quote Node]
 
-    [quote (source=Thomas Szasz, The Untamed Tongue)
-!   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  -markup.quote
-!   ^^^^^^                                             entity.name.tag.block-node.quote.begin
-!   ^^^^^^                                            -meta.annotation.node-attributes.quote
-!          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^   meta.annotation.node-attributes.quote
+    [quote The FDA calls certain substances 'controlled'.
+!   ^^^^^^                                                  entity.name.tag.block-node.quote.begin
+!   ^^^^^^                                                 -meta.annotation.node-attributes.quote
+!          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^   markup.quote
+!         ^                                                -markup.quote
 
-!<-                                                    markup.quote
-!<-                                                   -meta.annotation.node-attributes
-        The FDA calls certain substances 'controlled'.
+!<-   markup.quote
+!<-  -meta.annotation.node-attributes
+
         But there are no controlled substances;
         there are only controlled persons.
-!       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^             markup.quote
-!       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^            -meta.annotation.node-attributes.quote
+!       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^               markup.quote
+!       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^              -meta.annotation.node-attributes.quote
+        [qsource Thomas Szasz, [i The Untamed Tongue]]
+!       ^^^^^^^^                                         entity.name.tag.block-node.quote-source.begin
+!                                                    ^   entity.name.tag.block-node.quote-source.end
+!                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^    meta.block.quote-source
+!                              ^^                        entity.name.tag.inline-node.italic.begin
+!                                ^^^^^^^^^^^^^^^^^^^^    markup.italic
+!                                                   ^    entity.name.tag.inline-node.italic.end
     ]
-!   ^                                                  entity.name.tag.block-node.quote.end
+!   ^   entity.name.tag.block-node.quote.end
+!^^^   -markup.quote
 
-    [quote (xxx = yyy)
+
+    [quote (id = my_quote)
+!   ^^^^^^                   entity.name.tag.block-node.quote.begin
+!   ^^^^^^^                 -meta.annotation.node-attributes.quote
+!          ^^^^^^^^^^^^^^^   meta.annotation.node-attributes.quote
+!           ^^               entity.other.attribute-name.id
+!              ^             keyword.operator.assignment
+!                ^^^^^^^^    string.unquoted.id
+!                ^^^^^^^^    meta.toc-list.id
 
 !<-  markup.quote
     ]
@@ -30,13 +46,21 @@
 
     [quote ( ) ]
 !   ^^^^^^^^^^^^  -markup.quote
-
+!          ^^^     meta.annotation.node-attributes.quote
 
     [quote ( )
 
 <-               markup.quote
     ]
 !^^^^           -markup.quote
+
+    [quote [qsource ]]
+!   ^^^^^^               entity.name.tag.block-node.quote.begin
+!                    ^   entity.name.tag.block-node.quote.end
+!          ^^^^^^^^      entity.name.tag.block-node.quote-source.begin
+!                   ^    entity.name.tag.block-node.quote-source.end
+!         ^             -markup.quote
+!                  ^    -meta.block.quote-source
 
 [-  ****************
     Quote Attributes

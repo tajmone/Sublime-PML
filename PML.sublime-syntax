@@ -1,6 +1,6 @@
 %YAML 1.2
 ---
-# Sublime PML | Alpha | 2022/12/10 | PML 3.1.0
+# Sublime PML | Alpha | 2023/02/23 | PML 4.0.0
 ################################################################################
 #                                                                              #
 #                       PML (Practical Markup Language)                        #
@@ -302,6 +302,10 @@ contexts:
 # @NOTE: Need to ensure that comments and constants are correctly
 #        handled within options values (not marked as invalid).
 
+# @TODO: Since PML 4, options *must* precede the [doc node!
+#        I should enforce parsing [options only at doc start,
+#        and scope as invalid any occurrences within the [doc tree.
+
   options:
     - match: '\[options\b'
       scope: entity.name.tag.block-node.options.begin.pml
@@ -463,12 +467,11 @@ contexts:
 
 # Attributes (none required, no default, no lenient parsing):
 # - [x] id
-# - [ ] source
 # - [x] HTML attributes: allowed
 
   # Only actual node-contents are scoped as 'markup.quote' and whitespace
   # surrounding the opening and closing tags is skipped as far as possible,
-  # just the PML parser does. This results in better visual highlighting.
+  # just as the PML parser does. This results in better visual highlighting.
 
   quote:
     - match: '\[quote\b'
@@ -480,6 +483,7 @@ contexts:
     - match: '(?!\s)'
       set:
       - meta_content_scope: markup.quote.pml
+      - include: qsource
       - include: pml_nodes
       - match: '(?:\s*)]' # Consume trailing WS before closing bracket
         scope: entity.name.tag.block-node.quote.end.pml
@@ -496,12 +500,45 @@ contexts:
     - match: '\)'
       scope: punctuation.section.group.end.pml
       pop: true
-    # @TODO: include supported attributes:
     - include: attr_id
     - include: attr_html
     - include: attr_unknown # @NOTE: To cover future new attributes?
     # @TODO: include unsupported attributes (as invalid):
 
+
+  ## Quote Source
+  ###############
+
+  # Attributes (none required, no default, no lenient parsing):
+  # - [x] id
+  # - [x] HTML attributes: allowed
+
+  qsource:
+  - match: '\[qsource\b'
+    scope: entity.name.tag.block-node.quote-source.begin.pml
+    push: [qsource_block, quote_attributes]
+
+  qsource_block:
+    - meta_content_scope: meta.block.quote-source.pml
+    - include: pml_nodes
+    - match: '\]'
+      scope: entity.name.tag.block-node.quote-source.end.pml
+      pop: true
+
+  qsource_attributes:
+    - match: '\('
+      scope: punctuation.section.group.begin.pml
+      set: qsource_attributes_inside
+    - match: '\s'
+    - include: force-pop
+  qsource_attributes_inside:
+    - meta_scope: meta.annotation.node-attributes.quote-source.pml
+    - match: '\)'
+      scope: punctuation.section.group.end.pml
+      pop: true
+    - include: attr_id
+    - include: attr_html
+    - include: attr_unknown # @NOTE: To cover future new attributes?
 
 ############################
 ##  RAW-TEXT BLOCK NODES  ##

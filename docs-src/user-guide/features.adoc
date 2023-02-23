@@ -108,7 +108,6 @@ For nodes that support attributes, context-specific suggestions are available wi
 | [doc   | tocposition | TOC Position
 | [doc   | toctitle    | TOC Title
 | [quote | id          | Quotation Identifier
-| [quote | source      | Source of Quotation
 |==============================================
 
 

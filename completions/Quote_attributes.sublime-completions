@@ -3,6 +3,5 @@
   "completions":
   [
     { "trigger": "id\tQuotation ID", "contents": "id = ${1:identifier} $0" },
-    { "trigger": "source\tSource of Quotation", "contents": "source = ${1:John Doe} $0" },
   ]
 }

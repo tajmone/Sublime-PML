@@ -96,7 +96,7 @@ To simplify consultation, nodes are organized into sub-sections like in the PML 
     + [ ]  [List] — `[list` .. `]`.
     + [ ]  [List Element] — `[el` .. `]`.
 - [ ] _[Table Nodes]_:
-    + [ ] Table Data — `[table_data` .. `table_data]`.
+    + [ ] Simple Table — `[sim_table` .. `sim_table]`.
     + [ ] Table — `[table` .. `]`.
     + [ ] Table Header — `[theader` .. `]`.
     + [ ] Table Footer — `[tfooter` .. `]`.
@@ -108,15 +108,18 @@ To simplify consultation, nodes are organized into sub-sections like in the PML 
 - [ ] Note — `[note` .. `]`.
 - [x] Quote — `[quote` .. `]`
     + [x] Tag scoping.
-    + [ ] Attributes:
+    + [x] Attributes:
         * [x] `id`
-        * [ ] `source`
         * [x] HTML attributes
     + [ ] Attributes completions:
         * [x] `id` &rarr; `id = ${1:identifier} $0`
-        * [x] `source` &rarr; `source = ${1:John Doe} $0`
         * [ ] HTML attributes
-- [ ] Monospace — `[monospace` .. `]`
+    + [x] Quote Source — `[qsource` .. `]`
+        * [x] Tag scoping.
+        * [x] Attributes:
+            - [x] `id`
+            - [x] HTML attributes
+    + [ ] Monospace — `[monospace` .. `]`
 - [ ] Division — `[div` .. `]`
 - [x] HTML Code — `[html` .. `html]`
     + [x] Tag scoping.

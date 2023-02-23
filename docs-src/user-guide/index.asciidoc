@@ -1,6 +1,6 @@
 = Sublime PML User Guide
-:revdate: 2022-08-21
-:PMLver: 3.0.0
+:revdate: 2023-02-23
+:PMLver: 4.0.0
 :author: Tristano Ajmone
 :email: <tajmone@gmail.com>
 :revremark: PML {PMLver}
