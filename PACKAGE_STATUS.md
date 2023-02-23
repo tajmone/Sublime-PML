@@ -121,12 +121,11 @@ To simplify consultation, nodes are organized into sub-sections like in the PML 
             - [x] HTML attributes
     + [ ] Monospace — `[monospace` .. `]`
 - [ ] Division — `[div` .. `]`
-- [x] HTML Code — `[html` .. `html]`
+- [x] HTML Code — `[html` .. `]`
     + [x] Tag scoping.
         * [ ] **FIXME!** Support alternative [`raw_text`][raw_text] syntaxes: (See [#40])
             - [ ]  [Standard Text Syntax]
-            - [ ]  [Text Block Syntax]   [ _deprecated_ ]
-            - [ ]  [Delimited Text Syntax]
+            - [x]  [Delimited Text Syntax]
     + [x] Syntax embedding: node contents are passed to the native HTML syntax that ships with Sublime Text.
     + [x] Attributes:
         * [x] `id`

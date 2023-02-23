@@ -562,34 +562,39 @@ contexts:
 
   # @TODO: Implement unconstrained attributes lenient parsing.
 
+  # NOTE: The contexts here are a bit hackish and require some redundancy
+  #       in order to correctly handle optional attributes.
+
   html:
     - match: '\[html\b'
       scope: entity.name.tag.block-node.raw.html.begin.pml
-      push: [html_contents, html_attributes]
-    - match: '\bhtml\]'
-      scope: entity.name.tag.block-node.raw.html.end.pml
-      pop: true
-  html_contents:
-    - match: ''
-      set: Packages/HTML/HTML.sublime-syntax
-      with_prototype:
-        - match: '\b(?=html\])'
-          pop: true
-  html_attributes:
+      push: [html_contents_end, html_attributes_or_delimiter]
+  html_attributes_or_delimiter:
     - match: '\('
       scope: punctuation.section.group.begin.pml
       set: html_attributes_inside
-    - match: '\s'
-    - include: force-pop
+    - match: '^(?=( |\t)*["=~]{3,})'
+      set: html_contents
   html_attributes_inside:
     - meta_scope: meta.annotation.node-attributes.html.pml
     - match: '\)'
       scope: punctuation.section.group.end.pml
-      pop: true
+      set: html_contents
     - include: attr_id
     - include: attr_html
     - include: attr_unknown # @NOTE: To cover future new attributes?
-    # @TODO: include unsupported attributes (as invalid):
+  html_contents:
+    - match: '^(( |\t)*["=~]{3,})$\n?'
+      scope: meta.code-fence.definition.begin.pml punctuation.definition.raw.code-fence.begin.pml
+      set: Packages/HTML/HTML.sublime-syntax
+      with_prototype:
+        - match: ^\1$\n?
+          scope: meta.code-fence.definition.end.pml punctuation.definition.raw.code-fence.end.pml
+          pop: true
+  html_contents_end:
+    - match: '\]'
+      scope: entity.name.tag.block-node.raw.html.end.pml
+      pop: true
 
 
 ## Source Code Block
