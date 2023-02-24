@@ -1,7 +1,6 @@
 ! SYNTAX TEST "Packages/PML/PML.sublime-syntax"
 
     [code
-!   ^^^^^             entity.name.tag.block-node.raw.listing.begin
     ~~~~~~~~~~~~~~~
 !   ^^^^^^^^^^^^^^^^  meta.code-fence.definition.begin
 !   ^^^^^^^^^^^^^^^^  punctuation.definition.raw.code-fence.begin
@@ -15,6 +14,15 @@
     ]
 !   ^   entity.name.tag.block-node.raw.listing.end
 
+
+  [- ** WARNING! ** Adding checks between the '[code` line and the opening
+        delimiter results in the node being parsed as a Standard Text Syntax
+        rather than Delimited Text Syntax!
+          While this is fine for all practical purposes, just keep in mind
+        that tests for the '[code` tag and its attributes will prevent the
+        delimiters from being scoped correctly -- which is how the PML parser
+        actually works in real life!
+  -]
 
     [code
 !   ^^^^^   entity.name.tag.block-node.raw.listing.begin
@@ -56,7 +64,7 @@
     """
     """
     ]
-
+!   ^   entity.name.tag.block-node.raw.listing.end
 
     [code
     (id = my_block)
@@ -66,6 +74,21 @@
 !   ^^^^^^^^^^^^^^^   source.block.listing.content
     """""""""""""""
     ]
+
+    [code
+    (id = my_block)
+    """""""""""""""
+!   ^^^^^^^^^^^^^^^^  meta.code-fence.definition.begin
+!   ^^^^^^^^^^^^^^^^  punctuation.definition.raw.code-fence.begin
+!   ^^^^^^^^^^^^^^^  -source.block.listing.content
+    print('Hello!')
+!   ^^^^^^^^^^^^^^^   source.block.listing.content
+    """""""""""""""
+!   ^^^^^^^^^^^^^^^^  meta.code-fence.definition.end
+!   ^^^^^^^^^^^^^^^^  punctuation.definition.raw.code-fence.end
+!   ^^^^^^^^^^^^^^^  -source.block.listing.content
+    ]
+!   ^   entity.name.tag.block-node.raw.listing.end
 
 [-  ---------------
     ID -> Malformed
@@ -111,6 +134,7 @@
     x=2;
     ~~~~
     ]
+!   ^   entity.name.tag.block-node.raw.listing.end
 
 [-  -------------------------------
     HTML ATTRIBUTES -> Quoted Value
@@ -128,6 +152,7 @@
     x=2;
     ~~~~
     ]
+!   ^   entity.name.tag.block-node.raw.listing.end
 
 [-  ---------------------------------
     HTML ATTRIBUTES -> Unquoted Value
@@ -144,6 +169,7 @@
     x=2;
     ~~~~
     ]
+!   ^   entity.name.tag.block-node.raw.listing.end
 
 [-  ---------------------------
     HTML ATTRIBUTES -> No Value
@@ -159,6 +185,7 @@
     x=2;
     ~~~~
     ]
+!   ^   entity.name.tag.block-node.raw.listing.end
 
 [-  ------------------
     UNKNOWN ATTRIBUTES
@@ -174,3 +201,4 @@
     x=2;
     ~~~~
     ]
+!   ^   entity.name.tag.block-node.raw.listing.end

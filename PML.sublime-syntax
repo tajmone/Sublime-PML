@@ -21,10 +21,13 @@ scope: text.pml
 version: 2
 
 variables:
-  custom_id:  '[a-zA-Z_][a-zA-Z0-9_\-\.]*' # PML 3.1.0 (might change in the future!)
-  pml_tag:    '[a-z][a-z_]*'       # PML tags are lowercase, no digits.
-  nspace_tag: '[a-z][a-z_:]*\b'    # PML tags + namespace hack (temp workaround).
-  pml_attr:   '[a-zA-Z][a-zA-Z_]*' # PML attributes are mixed-case, no digits.
+  custom_id:   '[a-zA-Z_][a-zA-Z0-9_\-\.]*' # PML 3.1.0 (might change in the future!)
+  pml_tag:     '[a-z][a-z_]*'       # PML tags are lowercase, no digits.
+  nspace_tag:  '[a-z][a-z_:]*\b'    # PML tags + namespace hack (temp workaround).
+  pml_attr:    '[a-zA-Z][a-zA-Z_]*' # PML attributes are mixed-case, no digits.
+  # Raw-text "fenced code block" delimiters:
+  fence_pattern:   '[ \t]*["=~]{3,}'                 # atomic pattern
+  fence_delimiter: '^({{fence_pattern}})[ \t]*$\n?'  # whole-line pattern
 
 contexts:
   prototype:
@@ -552,6 +555,11 @@ contexts:
 # in order to simplify targeting them via scope selectors.
 # ------------------------------------------------------------------------------
 
+# NOTE: The contexts for raw-nodes are rather hackish and employ some acrobatics
+#       in order to correctly handle optional attributes and differentiate
+#       between Delimited and Standard Text Syntax. I've adopted a compact
+#       solution, at the expense of code readability.
+
 
 ## HTML
 #######
@@ -566,9 +574,6 @@ contexts:
 
   # @TODO: Implement unconstrained attributes lenient parsing.
 
-  # NOTE: The contexts here are a bit hackish and require some redundancy
-  #       in order to correctly handle optional attributes.
-
   html:
     - match: '\[html\b'
       scope: entity.name.tag.block-node.raw.html.begin.pml
@@ -577,7 +582,7 @@ contexts:
     - match: '\('
       scope: punctuation.section.group.begin.pml
       set: html_attributes_inside
-    - match: '^(?=( |\t)*["=~]{3,})'
+    - match: '^(?={{fence_pattern}})'
       set: html_contents
   html_attributes_inside:
     - meta_scope: meta.annotation.node-attributes.html.pml
@@ -588,7 +593,7 @@ contexts:
     - include: attr_html
     - include: attr_unknown # @NOTE: To cover future new attributes?
   html_contents:
-    - match: '^(( |\t)*["=~]{3,})$\n?'
+    - match: '{{fence_delimiter}}' # i.e. the whole line (^ ... $)
       scope: meta.code-fence.definition.begin.pml punctuation.definition.raw.code-fence.begin.pml
       set: Packages/HTML/HTML.sublime-syntax
       with_prototype:
@@ -612,10 +617,7 @@ contexts:
 
 # Supported syntax variations:
 # - [x] Delimited Text Syntax
-# - [ ] Standard Text Syntax
-
-  # NOTE: The contexts here are a bit hackish and require some redundancy
-  #       in order to correctly handle optional attributes.
+# - [x] Standard Text Syntax
 
   # @TODO: Implement missing attributes.
   # @TODO: Implement unconstrained attributes lenient parsing.
@@ -624,43 +626,49 @@ contexts:
     - match: '\[code\b'
       scope: entity.name.tag.block-node.raw.listing.begin.pml
       push: [sourcecode_block_end, sourcecode_attributes_or_delimiter]
+
   sourcecode_attributes_or_delimiter:
     - match: '\('
       scope: punctuation.section.group.begin.pml
       set: sourcecode_attributes_inside
-    - match: '^(?=( |\t)*["=~]{3,})'
-      set: sourcecode_opening_delimiters
-  sourcecode_attributes:
-    - match: '\('
-      scope: punctuation.section.group.begin.pml
-      set: sourcecode_attributes_inside
-    - match: '\s'
-    - include: force-pop
+    - include: sourcecode_delimited_or_standard
+  sourcecode_delimited_or_standard:
+    - match: '{{fence_delimiter}}' # i.e. the whole line (^ ... $)
+      scope:  meta.code-fence.definition.begin.pml
+              punctuation.definition.raw.code-fence.begin.pml
+      set: sourcecode_delimited
+    - match: '(?=\S)'
+      set: sourcecode_standard
+
   sourcecode_attributes_inside:
     - meta_scope: meta.annotation.node-attributes.listing.pml
     - match: '\)'
       scope: punctuation.section.group.end.pml
-      set: sourcecode_opening_delimiters
+      set: sourcecode_delimited_or_standard
     - include: attr_id
     - include: attr_html
     # @TODO: include remaining supported attributes:
     - include: attr_unknown # @NOTE: To cover future new attributes?
     # @TODO: include unsupported attributes (as invalid):
-  sourcecode_opening_delimiters:
-    - match: '^(( |\t)*["=~]{3,})$\n?'
-      scope: meta.code-fence.definition.begin.pml punctuation.definition.raw.code-fence.begin.pml
-      set: sourcecode_block
-  sourcecode_block:
+
+  sourcecode_delimited:
     - meta_content_scope: source.block.listing.content.pml
                           meta.embedded.block.listing.pml
     - match: ^\1$\n?
-      scope: meta.code-fence.definition.end.pml punctuation.definition.raw.code-fence.end.pml
+      scope:  meta.code-fence.definition.end.pml
+              punctuation.definition.raw.code-fence.end.pml
       pop: true
+
+  sourcecode_standard:
+    - meta_content_scope: source.block.listing.content.pml
+                          meta.embedded.block.listing.pml
+    - match: '(?=\])'
+      pop: true
+
   sourcecode_block_end:
     - match: '\]'
       scope:  entity.name.tag.block-node.raw.listing.end.pml
       pop: true
-
 
 # ==============================================================================
 #                                  Inline Nodes

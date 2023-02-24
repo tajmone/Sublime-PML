@@ -149,6 +149,11 @@
     },
     // Source Code Listing
     {
+      "scope": "punctuation.definition.raw.code-fence",
+      "background": "var(normal)",
+      "foreground": "var(red)",
+    },
+    {
       "scope": "source.block.listing.content",
       "background": "var(normal)",
       "foreground": "var(canvas)",
