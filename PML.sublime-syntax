@@ -567,9 +567,10 @@ contexts:
 # Attributes (none required, no default, unconstrained attributes lenient parsing):
 # - [x] id
 # - [x] HTML attributes: allowed
+
 # Supported syntax variations:
 # - [x] Delimited Text Syntax
-# - [ ] Standard Text Syntax
+# - [x] Standard Text Syntax
 
 
   # @TODO: Implement unconstrained attributes lenient parsing.
@@ -578,33 +579,41 @@ contexts:
     - match: '\[html\b'
       scope: entity.name.tag.block-node.raw.html.begin.pml
       push: [html_contents_end, html_attributes_or_delimiter]
+
   html_attributes_or_delimiter:
     - match: '\('
       scope: punctuation.section.group.begin.pml
       set: html_attributes_inside
-    - match: '^(?={{fence_pattern}})'
-      set: html_contents
+    - include: html_delimited_or_standard
+  html_delimited_or_standard:
+    - match: '{{fence_delimiter}}' # i.e. the whole line (^ ... $)
+      scope:  meta.code-fence.definition.begin.pml
+              punctuation.definition.raw.code-fence.begin.pml
+      set: Packages/HTML/HTML.sublime-syntax
+      with_prototype:
+        - match: ^\1$\n?
+          scope:  meta.code-fence.definition.end.pml
+                  punctuation.definition.raw.code-fence.end.pml
+          pop: true
+    - match: '(?=\S)'
+      set: Packages/HTML/HTML.sublime-syntax
+      with_prototype:
+        - match: '(?=\])'
+          pop: true
+
   html_attributes_inside:
     - meta_scope: meta.annotation.node-attributes.html.pml
     - match: '\)'
       scope: punctuation.section.group.end.pml
-      set: html_contents
+      set: html_delimited_or_standard
     - include: attr_id
     - include: attr_html
     - include: attr_unknown # @NOTE: To cover future new attributes?
-  html_contents:
-    - match: '{{fence_delimiter}}' # i.e. the whole line (^ ... $)
-      scope: meta.code-fence.definition.begin.pml punctuation.definition.raw.code-fence.begin.pml
-      set: Packages/HTML/HTML.sublime-syntax
-      with_prototype:
-        - match: ^\1$\n?
-          scope: meta.code-fence.definition.end.pml punctuation.definition.raw.code-fence.end.pml
-          pop: true
+
   html_contents_end:
     - match: '\]'
       scope: entity.name.tag.block-node.raw.html.end.pml
       pop: true
-
 
 ## Source Code Block
 ####################
