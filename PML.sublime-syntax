@@ -596,12 +596,12 @@ contexts:
   html_delimited_or_standard:
     - match: '{{fence_delimiter}}' # i.e. the whole line (^ ... $)
       scope:  meta.code-fence.definition.begin.pml
-              punctuation.definition.raw.code-fence.begin.pml
+              punctuation.definition.raw.code-fence.html.begin.pml
       set: Packages/HTML/HTML.sublime-syntax
       with_prototype:
         - match: ^\1$\n?
           scope:  meta.code-fence.definition.end.pml
-                  punctuation.definition.raw.code-fence.end.pml
+                  punctuation.definition.raw.code-fence.html.end.pml
           pop: true
     - match: '(?=\S)'
       set: Packages/HTML/HTML.sublime-syntax
@@ -652,7 +652,7 @@ contexts:
   sourcecode_delimited_or_standard:
     - match: '{{fence_delimiter}}' # i.e. the whole line (^ ... $)
       scope:  meta.code-fence.definition.begin.pml
-              punctuation.definition.raw.code-fence.begin.pml
+              punctuation.definition.raw.code-fence.listing.begin.pml
       set: sourcecode_delimited
     - match: '(?=\S)'
       set: sourcecode_standard
@@ -673,7 +673,7 @@ contexts:
                           meta.embedded.block.listing.pml
     - match: ^\1$\n?
       scope:  meta.code-fence.definition.end.pml
-              punctuation.definition.raw.code-fence.end.pml
+              punctuation.definition.raw.code-fence.listing.end.pml
       pop: true
 
   sourcecode_standard:
@@ -715,7 +715,7 @@ contexts:
   input_delimited_or_standard:
     - match: '{{fence_delimiter}}' # i.e. the whole line (^ ... $)
       scope:  meta.code-fence.definition.begin.pml
-              punctuation.definition.raw.code-fence.begin.pml
+              punctuation.definition.raw.code-fence.input.begin.pml
       set: input_delimited
     - match: '(?=\S)'
       set: input_standard
@@ -736,7 +736,7 @@ contexts:
                           meta.embedded.block.input.pml
     - match: ^\1$\n?
       scope:  meta.code-fence.definition.end.pml
-              punctuation.definition.raw.code-fence.end.pml
+              punctuation.definition.raw.code-fence.input.end.pml
       pop: true
 
   input_standard:
@@ -778,7 +778,7 @@ contexts:
   output_delimited_or_standard:
     - match: '{{fence_delimiter}}' # i.e. the whole line (^ ... $)
       scope:  meta.code-fence.definition.begin.pml
-              punctuation.definition.raw.code-fence.begin.pml
+              punctuation.definition.raw.code-fence.output.begin.pml
       set: output_delimited
     - match: '(?=\S)'
       set: output_standard
@@ -799,7 +799,7 @@ contexts:
                           meta.embedded.block.output.pml
     - match: ^\1$\n?
       scope:  meta.code-fence.definition.end.pml
-              punctuation.definition.raw.code-fence.end.pml
+              punctuation.definition.raw.code-fence.output.end.pml
       pop: true
 
   output_standard:

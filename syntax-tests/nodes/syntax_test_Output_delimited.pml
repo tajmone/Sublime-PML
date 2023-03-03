@@ -3,13 +3,13 @@
     [output
     ~~~~~~~~~~~~~~~
 !   ^^^^^^^^^^^^^^^^  meta.code-fence.definition.begin
-!   ^^^^^^^^^^^^^^^^  punctuation.definition.raw.code-fence.begin
+!   ^^^^^^^^^^^^^^^^  punctuation.definition.raw.code-fence.output.begin
     pmlc p2h xy.pml
 !   ^^^^^^^^^^^^^^^   source.block.output.content
 !   ^^^^^^^^^^^^^^^   meta.embedded.block.output
     ~~~~~~~~~~~~~~~
 !   ^^^^^^^^^^^^^^^^  meta.code-fence.definition.end
-!   ^^^^^^^^^^^^^^^^  punctuation.definition.raw.code-fence.end
+!   ^^^^^^^^^^^^^^^^  punctuation.definition.raw.code-fence.output.end
 !   ^^^^^^^^^^^^^^^  -source.block.output.content
     ]
 !   ^   entity.name.tag.block-node.raw.output.end
@@ -79,13 +79,13 @@
     (id = my_block)
     """""""""""""""
 !   ^^^^^^^^^^^^^^^^  meta.code-fence.definition.begin
-!   ^^^^^^^^^^^^^^^^  punctuation.definition.raw.code-fence.begin
+!   ^^^^^^^^^^^^^^^^  punctuation.definition.raw.code-fence.output.begin
 !   ^^^^^^^^^^^^^^^  -source.block.output.content
     pmlc p2h xy.pml
 !   ^^^^^^^^^^^^^^^   source.block.output.content
     """""""""""""""
 !   ^^^^^^^^^^^^^^^^  meta.code-fence.definition.end
-!   ^^^^^^^^^^^^^^^^  punctuation.definition.raw.code-fence.end
+!   ^^^^^^^^^^^^^^^^  punctuation.definition.raw.code-fence.output.end
 !   ^^^^^^^^^^^^^^^  -source.block.output.content
     ]
 !   ^   entity.name.tag.block-node.raw.output.end

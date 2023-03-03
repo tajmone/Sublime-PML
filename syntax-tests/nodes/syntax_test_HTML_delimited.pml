@@ -10,17 +10,17 @@
     [html
     ~~~
 !^^^^^^     meta.code-fence.definition.begin.pml
-!^^^^^^     punctuation.definition.raw.code-fence.begin.pml
+!^^^^^^     punctuation.definition.raw.code-fence.html.begin.pml
 
     ~~~
 !^^^^^^     meta.code-fence.definition.end.pml
-!^^^^^^     punctuation.definition.raw.code-fence.end.pml
+!^^^^^^     punctuation.definition.raw.code-fence.html.end.pml
     ]
 !   ^   entity.name.tag.block-node.raw.html.end
 
     [html
         ===============
-!       ^^^^^^^^^^^^^^^  punctuation.definition.raw.code-fence.begin.pml
+!       ^^^^^^^^^^^^^^^  punctuation.definition.raw.code-fence.html.begin.pml
         <!DOCTYPE html>
 !       ^^^^^^^^^^^^^^^  text.html.basic  meta.tag.sgml.doctype.html
         <html>
@@ -33,7 +33,7 @@
             </body>
         </html>
         ===============
-!       ^^^^^^^^^^^^^^^  punctuation.definition.raw.code-fence.end.pml
+!       ^^^^^^^^^^^^^^^  punctuation.definition.raw.code-fence.html.end.pml
     ]
 !   ^  -text.html.basic
 
