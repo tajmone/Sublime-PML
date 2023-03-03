@@ -99,17 +99,27 @@ For nodes that support attributes, context-specific suggestions are available wi
 
 [cols="2*<m,<d", options="autowidth"]
 |==============================================
-|  tag   |   trigger   |           description
+|  tag     |   trigger   |           description
 
-| [ch    | id          | Chapter Identifier
-| [doc   | highlighter | Syntax Highlighter
-| [doc   | hljs        | Syntax Highlighter: highlight.js
-| [doc   | prism       | Syntax Highlighter: prism
-| [doc   | tocposition | TOC Position
-| [doc   | toctitle    | TOC Title
-| [quote | id          | Quotation Identifier
+| [ch      | id          | Chapter Identifier
+| [quote   | id          | Quotation Identifier
 |==============================================
 
+
+=== Options
+
+The following completions are available within the special `[options` node block:
+
+[cols="2*<m,<d", options="autowidth"]
+|==============================================
+|  tag     |   trigger   |           description
+
+| [options | highlighter | Syntax Highlighter
+| [options | hljs        | Syntax Highlighter: highlight.js
+| [options | prism       | Syntax Highlighter: prism
+| [options | tocposition | TOC Position
+| [options | toctitle    | TOC Title
+|==============================================
 
 
 == Snippets

@@ -1,0 +1,11 @@
+{
+  "scope": "text.pml meta.block.options.pml",
+  "completions":
+  [
+    { "trigger": "highlighter\tSyntax Highlighter", "contents": "[highlighter ${1:highlightjs}]\n$0" },
+    { "trigger": "hljs\tSyntax Highlighter: highlight.js", "contents": "[highlighter highlightjs]\n$0" },
+    { "trigger": "prism\tSyntax Highlighter: prism", "contents": "[highlighter prism]\n$0" },
+    { "trigger": "tocposition\tTOC Position", "contents": "[TOC_position ${1:top}]\n$0" },
+    { "trigger": "toctitle\tTOC Title", "contents": "[TOC_title ${1:Contents}]\n$0" },
+  ]
+}

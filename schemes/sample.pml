@@ -1,4 +1,10 @@
+[options
+    [TOC_title Document Contents]
+    [TOC_position left]
+]
 [doc [title PML Sample Document]
+
+    [note Updated to PML 4.0.0]
 
     This sample document is for inspecting how the default scheme(s) that ship
     with Sublime PML work with real case examples of the syntax; and, of course,
@@ -11,7 +17,7 @@
     I.e. any node currently unimplemented, which has a valid notation but is
     not understood by the syntax.
 
-    See the [link url=https://www.lorem.org text="lorem website"] for info.
+    See the [link (url=https://www.lorem.org) lorem website] for info.
 
     [div (id=lorem html_class=ipsum)
         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
@@ -48,9 +54,9 @@
     [ch [title Tiles With Inline Nodes ]
 
         [ch [title Title With [span (html_style=color:red) Span ] Node ]]
-        [ch [title Title With [link url=https://www.pml-lang.org text=Linked ] Text ]]
+        [ch [title Title With [link (url=https://www.pml-lang.org) Linked] Text ]]
         [ch [title Title With [verbatim Verbatim ] Contents ]]
-        [ch [title Title With [xref node_id=inline-nodes ] XRef ]]
+        [ch [title Title With [xref (ref_id=inline-nodes) XRef ]]]
 
     ]
     [ch [title Tiles With Text-Processing Nodes ]
@@ -82,7 +88,7 @@
 
         Inline [c
         source
-        code] split across three line.
+        ] split across three line.
 
         Inline [c code w/ escaped \] chars ].
 
@@ -99,18 +105,31 @@
 
     [ch [title Source Code]
 
-    [code print("Hello World!") code]
+        Standard Text Syntax:
 
-    [code (highlight=yes lang = rust)
-    fn main() {
-        println!("Hello, world!");
-    }
-    code]
+        [code print("Hello World!") ]
+
+        Delimited Text Syntax:
+
+        [code (highlight=yes lang = rust)
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        fn main() {
+            println!("Hello, world!");
+        }
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        ]
 
     ]
     [ch [title HTML Code]
 
+        Standard Text Syntax:
+
+        [html (id="doctype") <!DOCTYPE html>]
+
+        Delimited Text Syntax:
+
         [html
+            ================================================================
             <!DOCTYPE html>
             <html>
                 <body>
@@ -124,15 +143,56 @@
 
                 </body>
             </html>
-        html]
+            ================================================================
+        ]
+    ]
+    [ch [title Input]
 
+        Standard Text Syntax:
+
+        [input $ pmlc p2h sample.pml ]
+
+        Delimited Text Syntax:
+
+        [input (id=cli_input)
+        """"""""""""""""""""""""""""""
+        > pmlc p2h sample.pml
+        > rake -B
+        """"""""""""""""""""""""""""""
+        ]
+    ]
+    [ch [title Output]
+
+        Standard Text Syntax:
+
+        [output Hello World! ]
+
+        Delimited Text Syntax:
+
+        [output (id=cli_outut)
+        """"""""""""""""""""""""""""""
+        ERROR:
+        Message     A node with id 'cli_input' has already been declared at the following location:
+                    cli_input at sample.pml (C:\path\sample.pml)
+                    Line 137, column 20
+                            [input (id= ==> cli_input)
+        Code        [output (id=cli_input)
+                                ^^^^^^^^^
+        Location    sample.pml (C:\path\sample.pml)
+                    Line 147, column 21
+        Error id    DUPLICATE_ID
+
+        [Finished in 1.8s]
+        """"""""""""""""""""""""""""""
+        ]
     ]
     [ch [title Quote]
 
-        [quote (source="Thomas Szasz, The Untamed Tongue")
+        [quote
             The FDA calls certain substances 'controlled'.
             But there are no controlled substances;
             there are only controlled persons.
+            [qsource Thomas Szasz, The Untamed Tongue]
         ]
     ]
 ]
@@ -155,7 +215,7 @@
         [u:set docs_root_URL = http://www.example.com/project/docs/public]
 
         For an overview please read the article
-        [link url=[u:get docs_root_URL]/concepts.html text="Basic Concepts"].
+        [link (url=[u:get docs_root_URL]/concepts.html) Basic Concepts].
 
     ]
 ]

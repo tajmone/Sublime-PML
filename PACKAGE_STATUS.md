@@ -42,17 +42,30 @@ To simplify consultation, nodes are organized into sub-sections like in the PML 
 
 > See: [PML Reference Manual] » [Block Nodes] » [Fundamental Nodes].
 
+- [x] Options — `[options` node.
+    - [ ] Supports all (most?) CLI options as sub-nodes:
+        + [x] `[highlighter` — `highlightjs`, `prism`, `none`.
+        + [x] `[TOC_max_level` — _integer_.
+        + [x] `[TOC_position` — `left`, `top`, `none`.
+        + [x] `[TOC_title` — _string_.
+        + [ ] `[HTML_page_footer` — file path.
+        + [ ] `[HTML_page_header` — file path.
+        + [ ] `[resources` — path(s).
+        + [ ] `[CSS_files` — path(s).
+        + [ ] `[omit_CSS` — `yes`, `no`, `true`, `false`.
+    + [ ] Attributes completions:
+        * [x] `highlighter` &rarr; `[highlighter ${1:highlightjs}]\n$0`
+        * [x] `hljs` &rarr; `[highlighter highlightjs]\n$0`
+        * [x] `prism` &rarr; `[highlighter prism]\n$0`
+        * [x] `tocposition` &rarr; `[TOC_position ${1:top}]\n$0`
+        * [x] `toctitle` &rarr; `[TOC_title ${1:Contents}]\n$0`
+        * [ ] ... _more_ ...
 - [x] Document — `[doc` .. `]`
     + [x] Tag scoping.
     + [x] Attributes:
         * [x] `id`
         * [x] HTML attributes
-    + [ ] Attributes completions (**FIMXE!** now moved to `[options`):
-        * [x] `highlighter` &rarr; `highlighter = ${1:highlightjs} $0`
-        * [x] `hljs` &rarr; `highlighter = highlightjs $0`
-        * [x] `prism` &rarr; `highlighter = prism $0`
-        * [x] `tocposition` &rarr; `toc_position = ${1:top} $0`
-        * [x] `toctitle` &rarr; `toc_title = ${1:Contents} $0`
+    + [ ] Attributes completions (most attributes now moved to `[options`):
         * [ ] HTML attributes
     + [x] Snippet: `newdoc`.
 - [ ] Paragraph — `[p` .. `]`.
@@ -77,16 +90,6 @@ To simplify consultation, nodes are organized into sub-sections like in the PML 
             - [ ] Strip away from indexed title inline-tag delimiters:
                 + [x] Font formatting: `[b` / `[c` / `[i` / `[sub` / `[sup` / `[strike` .. `]`
 - [ ] Subtitle — `[ch [title [subtitle` sub-node.
-- [x] Options — `[doc [options` sub-node. Supports all (most?) CLI options as sub-nodes:
-    + [x] `[highlighter` — `highlightjs`, `prism`, `none`.
-    + [x] `[TOC_max_level` — _integer_.
-    + [x] `[TOC_position` — `left`, `top`, `none`.
-    + [x] `[TOC_title` — _string_.
-    + [ ] `[HTML_page_footer` — file path.
-    + [ ] `[HTML_page_header` — file path.
-    + [ ] `[resources` — path(s).
-    + [ ] `[CSS_files` — path(s).
-    + [ ] `[omit_CSS` — `yes`, `no`, `true`, `false`.
 
 ### Common Nodes
 

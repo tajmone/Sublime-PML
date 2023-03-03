@@ -8,12 +8,23 @@ Although we initially tried versioning the package and using tagged releases, wh
 Updates will be logged according to their date, without a [Semantic Versioning] scheme for the entire duration of the Alpha stage of the package.
 This approach considerably slims down the development and maintenance work, allowing for more frequent package updates.
 
+> **WARNING** — I haven't been always updating this changelog regularly, but I'm striving to catch up and annotate at least the important milestones.
+
 -----
 
 **Table of Contents**
 
 <!-- MarkdownTOC autolink="true" bracket="round" autoanchor="false" lowercase="only_ascii" uri_encoding="true" levels="1,2,3" -->
 
+- [2023-03-03](#2023-03-03)
+    - [Options Completions](#options-completions)
+    - [Input and Output Nodes](#input-and-output-nodes)
+- [2023-02-24](#2023-02-24)
+    - [PML 4.0.0](#pml-400)
+    - [Raw-Text Nodes](#raw-text-nodes)
+    - [Quote Node](#quote-node)
+- [2022-12-08](#2022-12-08)
+    - [Options Nodes](#options-nodes)
 - [2022-08-21](#2022-08-21)
     - [PML 3.0.0](#pml-300)
     - [PML Dark: Switch to Relaxed Theme](#pml-dark-switch-to-relaxed-theme)
@@ -30,6 +41,64 @@ This approach considerably slims down the development and maintenance work, allo
 <!-- /MarkdownTOC -->
 
 -----
+
+# 2023-03-03
+
+    PML 4.0.0 | ST 4147
+
+## Options Completions
+
+Dropped previous attributes completions for `[doc` node and re-implemented them as their `[options` sub-nodes counterparts:
+
+- `highlighter` &rarr; `[highlighter ${1:highlightjs}]\n$0`
+- `hljs` &rarr; `[highlighter highlightjs]\n$0`
+- `prism` &rarr; `[highlighter prism]\n$0`
+- `tocposition` &rarr; `[TOC_position ${1:top}]\n$0`
+- `toctitle` &rarr; `[TOC_title ${1:Contents}]\n$0`
+
+For more info, see the _[Sublime PML User Guide]_, which has also been updated.
+
+## Input and Output Nodes
+
+Added support for `[input` and `[output` raw-text nodes.
+
+<!---------------------------------------------------------------------------->
+
+# 2023-02-24
+
+    PML 4.0.0 | ST 4147
+
+## PML 4.0.0
+
+Package updated to support new PML 4.0.0 release and its breaking changes.
+
+## Raw-Text Nodes
+
+Updated [raw-text] nodes `[code` and `[html` to new PML 4 syntax, supporting both [Standard Text Syntax] and [Delimited Text Syntax], dropping support for [Text Block Syntax].
+
+## Quote Node
+
+Fixed the `[quote` node according to PML 4.0.0 breaking changes:
+
+* Dropped `source` attribute and associated completions.
+* Implemented new `[qsource` node.
+
+<!---------------------------------------------------------------------------->
+
+# 2022-12-08
+
+    PML 3.1.0 | ST 4134
+
+## Options Nodes
+
+Added support for `[options` node:
+
+- `[highlighter` — `highlightjs`, `prism`, `none`.
+- `[TOC_max_level` — _integer_.
+- `[TOC_position` — `left`, `top`, `none`.
+- `[TOC_title` — _string_.
+
+<!---------------------------------------------------------------------------->
 
 # 2022-08-21
 
@@ -117,6 +186,8 @@ Being in Alpha stage, the package is still experimental can be subject to freque
                                REFERENCE LINKS
 ------------------------------------------------------------------------------>
 
+[Sublime PML User Guide]: https://tajmone.github.io/Sublime-PML/ "Sublime PML User Guide (online html document)"
+
 [Semantic Versioning]: https://semver.org "Semantic Versioning 2.0.0 website"
 
 [user guide]: https://tajmone.github.io/Sublime-PML "View Sublime PML User Guide"
@@ -135,5 +206,12 @@ Being in Alpha stage, the package is still experimental can be subject to freque
 <!-- people -->
 
 [Michael Kühnel]: https://github.com/mischah "View Michael Kühnel's GitHub profile"
+
+<!-- PDML DOcs -->
+
+[raw_text]: https://pdml-lang.github.io/docs/extensions/reference_manual/index.html#raw_text "PDML Extensions Reference Manual » Types » raw_Text"
+[Standard Text Syntax]: https://pdml-lang.github.io/docs/extensions/reference_manual/index.html#raw_text_standard_syntax "PDML Extensions Reference Manual » Types » raw_Text » Standard Text Syntax"
+[Text Block Syntax]: https://pdml-lang.github.io/docs/extensions/reference_manual/index.html#raw_text_block_syntax "PDML Extensions Reference Manual » Types » raw_Text » Text Block Syntax"
+[Delimited Text Syntax]: https://pdml-lang.github.io/docs/extensions/reference_manual/index.html#raw_text_delimiter_syntax "PDML Extensions Reference Manual » Types » raw_Text » Delimited Text Syntax"
 
 <!-- EOF -->
