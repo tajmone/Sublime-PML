@@ -146,7 +146,7 @@ To simplify consultation, nodes are organized into sub-sections like in the PML 
 
 > See: [PML Reference Manual] » [Block Nodes] » [Software Development].
 
-- [x]  [Source Code] — `[code` .. `code]`
+- [x]  [Source Code] — `[code` .. `]`
     + [x] Tag scoping.
     + [x] Support alternative [`raw_text`][raw_text] syntaxes: (See [#40])
         * [x]  [Standard Text Syntax]
@@ -158,8 +158,24 @@ To simplify consultation, nodes are organized into sub-sections like in the PML 
         * [x] HTML attributes
     + [ ] Lenient parsing: Unconstrained attributes.
 - [ ]  [Insert Source Code] — `[insert_code` .. `]`
-- [ ]  [Input] — `[input` .. `input]`
-- [ ]  [Output] — `[output` .. `output]`
+- [x]  [Input] — `[input` .. `]`
+    + [x] Tag scoping.
+    + [x] Support alternative [`raw_text`][raw_text] syntaxes: (See [#40])
+        * [x]  [Standard Text Syntax]
+        * [x]  [Delimited Text Syntax]
+    + [x] Attributes:
+        * [x] `id`
+        * [x] HTML attributes
+    + [ ] Lenient parsing: Unconstrained attributes.
+- [x]  [Output] — `[output` .. `]`
+    + [x] Tag scoping.
+    + [x] Support alternative [`raw_text`][raw_text] syntaxes: (See [#40])
+        * [x]  [Standard Text Syntax]
+        * [x]  [Delimited Text Syntax]
+    + [x] Attributes:
+        * [x] `id`
+        * [x] HTML attributes
+    + [ ] Lenient parsing: Unconstrained attributes.
 
 
 ## Inline Nodes

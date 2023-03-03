@@ -1,6 +1,6 @@
 %YAML 1.2
 ---
-# Sublime PML | Alpha | 2023/02/24 | PML 4.0.0
+# Sublime PML | Alpha | 2023/03/03 | PML 4.0.0
 ################################################################################
 #                                                                              #
 #                       PML (Practical Markup Language)                        #
@@ -194,7 +194,9 @@ contexts:
     - include: chapter     # Chapter | Has Default
     - include: html        # HTML Code | Raw + Childless
     - include: quote       # Quote
-    - include: sourcecode  # Source Code Block
+    - include: sourcecode  # Source Code Block | Raw + Childless
+    - include: input       # Input | Raw + Childless
+    - include: output      # Output | Raw + Childless
     - include: generic_block_node  # Matches unimplemented block-nodes
     # admonition        # Admonition
     # audio             # Audio (Sound) | Childless
@@ -205,7 +207,6 @@ contexts:
     # fnote_def         # Footnote Definition
     # header            # Header
     # image             # Image | Has Default + Childless
-    # input             # Input | Raw + Childless
     # insert            # Insert File
     # insert_code       # Insert Source Code | Childless
     # list              # List
@@ -547,12 +548,19 @@ contexts:
 ##  RAW-TEXT BLOCK NODES  ##
 ############################----------------------------------------------------
 # This group of block-nodes contain 'raw text', i.e. their contents are not
-# processed by PMLC, which means that they can't contain any PML nodes inside,
-# and their tag name is repeated in the closing node delimiter (see #24).
-# For this reason, they are scoped with an extra `.raw` segment:
+# processed by PMLC, which means that they can't contain any PML nodes inside.
+#
+# Their raw-contents allow two syntax variations (see #40):
+#  * Delimited Text Syntax -- enclosed within fenced delimiters.
+#  * Standard Text Syntax -- starting on same line as their tag.
+#
+# These syntax variations are currently documented on PDML:
+# https://pdml-lang.dev/docs/extensions/reference_manual/index.html#raw_text
+#
+# In order to simplify targeting raw-text nodes via scope selectors, they are
+# scoped with an extra `.raw` segment:
 #   - entity.name.tag.block-node.raw.<NODE_NAME>.begin
 #   - entity.name.tag.block-node.raw.<NODE_NAME>.end
-# in order to simplify targeting them via scope selectors.
 # ------------------------------------------------------------------------------
 
 # NOTE: The contexts for raw-nodes are rather hackish and employ some acrobatics
@@ -677,6 +685,132 @@ contexts:
   sourcecode_block_end:
     - match: '\]'
       scope:  entity.name.tag.block-node.raw.listing.end.pml
+      pop: true
+
+
+## Input Block
+##############
+
+# Attributes (none required, no default, unconstrained attributes lenient parsing):
+# - [x] id
+# - [x] HTML attributes: allowed
+
+# Supported syntax variations:
+# - [x] Delimited Text Syntax
+# - [x] Standard Text Syntax
+
+  # @TODO: Implement missing attributes.
+  # @TODO: Implement unconstrained attributes lenient parsing.
+
+  input:
+    - match: '\[input\b'
+      scope: entity.name.tag.block-node.raw.input.begin.pml
+      push: [input_block_end, input_attributes_or_delimiter]
+
+  input_attributes_or_delimiter:
+    - match: '\('
+      scope: punctuation.section.group.begin.pml
+      set: input_attributes_inside
+    - include: input_delimited_or_standard
+  input_delimited_or_standard:
+    - match: '{{fence_delimiter}}' # i.e. the whole line (^ ... $)
+      scope:  meta.code-fence.definition.begin.pml
+              punctuation.definition.raw.code-fence.begin.pml
+      set: input_delimited
+    - match: '(?=\S)'
+      set: input_standard
+
+  input_attributes_inside:
+    - meta_scope: meta.annotation.node-attributes.input.pml
+    - match: '\)'
+      scope: punctuation.section.group.end.pml
+      set: input_delimited_or_standard
+    - include: attr_id
+    - include: attr_html
+    # @TODO: include remaining supported attributes:
+    - include: attr_unknown # @NOTE: To cover future new attributes?
+    # @TODO: include unsupported attributes (as invalid):
+
+  input_delimited:
+    - meta_content_scope: source.block.input.content.pml
+                          meta.embedded.block.input.pml
+    - match: ^\1$\n?
+      scope:  meta.code-fence.definition.end.pml
+              punctuation.definition.raw.code-fence.end.pml
+      pop: true
+
+  input_standard:
+    - meta_content_scope: source.block.input.content.pml
+                          meta.embedded.block.input.pml
+    - match: '(?=\])'
+      pop: true
+
+  input_block_end:
+    - match: '\]'
+      scope:  entity.name.tag.block-node.raw.input.end.pml
+      pop: true
+
+
+## Output Block
+###############
+
+# Attributes (none required, no default, unconstrained attributes lenient parsing):
+# - [x] id
+# - [x] HTML attributes: allowed
+
+# Supported syntax variations:
+# - [x] Delimited Text Syntax
+# - [x] Standard Text Syntax
+
+  # @TODO: Implement missing attributes.
+  # @TODO: Implement unconstrained attributes lenient parsing.
+
+  output:
+    - match: '\[output\b'
+      scope: entity.name.tag.block-node.raw.output.begin.pml
+      push: [output_block_end, output_attributes_or_delimiter]
+
+  output_attributes_or_delimiter:
+    - match: '\('
+      scope: punctuation.section.group.begin.pml
+      set: output_attributes_inside
+    - include: output_delimited_or_standard
+  output_delimited_or_standard:
+    - match: '{{fence_delimiter}}' # i.e. the whole line (^ ... $)
+      scope:  meta.code-fence.definition.begin.pml
+              punctuation.definition.raw.code-fence.begin.pml
+      set: output_delimited
+    - match: '(?=\S)'
+      set: output_standard
+
+  output_attributes_inside:
+    - meta_scope: meta.annotation.node-attributes.output.pml
+    - match: '\)'
+      scope: punctuation.section.group.end.pml
+      set: output_delimited_or_standard
+    - include: attr_id
+    - include: attr_html
+    # @TODO: include remaining supported attributes:
+    - include: attr_unknown # @NOTE: To cover future new attributes?
+    # @TODO: include unsupported attributes (as invalid):
+
+  output_delimited:
+    - meta_content_scope: source.block.output.content.pml
+                          meta.embedded.block.output.pml
+    - match: ^\1$\n?
+      scope:  meta.code-fence.definition.end.pml
+              punctuation.definition.raw.code-fence.end.pml
+      pop: true
+
+  output_standard:
+    - meta_content_scope: source.block.output.content.pml
+                          meta.embedded.block.output.pml
+    - match: '(?=\])'
+      pop: true
+
+  output_block_end:
+    - match: '\]'
+      scope:  entity.name.tag.block-node.raw.output.end.pml
       pop: true
 
 # ==============================================================================
