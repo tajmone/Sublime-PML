@@ -1,7 +1,7 @@
 <snippet>
 	<description>PML: New Document boilerplate</description>
 	<tabTrigger>newdoc</tabTrigger>
-	<scope>text.pml  - (comment | text.html | meta.embedded)</scope>
+	<scope>text.pml  - (comment | text.html | meta.embedded | meta.block.options)</scope>
 	<content><![CDATA[
 [doc [title ${1:Document Title}]
 

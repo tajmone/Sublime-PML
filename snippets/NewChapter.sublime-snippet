@@ -1,7 +1,7 @@
 <snippet>
 	<description>PML: New Chapter</description>
 	<tabTrigger>newch</tabTrigger>
-	<scope>text.pml - (comment | text.html | meta.embedded)</scope>
+	<scope>text.pml - (comment | text.html | meta.embedded | meta.block.options)</scope>
 	<content><![CDATA[
 [ch (id=${1:chapter_id}) [title ${2:Chapter Title}]
 

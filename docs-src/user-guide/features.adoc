@@ -48,9 +48,9 @@ Some of the keystrokes combinations indicated below rely on Sublime Text's defau
 |==============================================
 | key strokes            | result                           | context
 
-| kbd:[Alt+B]            | Make selection *bold*   `[b`…`]` | Anywhere in PML file, except `[html` node
-| kbd:[Alt+I]            | Make selection _italic_ `[i`…`]` | Anywhere in PML file, except `[html` node
-| kbd:[Ctrl+Shift+Enter] | Inserts new line node `[nl]`     | Anywhere in PML file, except `[html` node
+| kbd:[Alt+B]            | Make selection *bold*   `[b`…`]` | Anywhere in PML file, except raw nodes or options.
+| kbd:[Alt+I]            | Make selection _italic_ `[i`…`]` | Anywhere in PML file, except raw nodes or options.
+| kbd:[Ctrl+Shift+Enter] | Inserts new line node `[nl]`     | Anywhere in PML file, except raw nodes or options.
 |==============================================
 
 
@@ -136,6 +136,7 @@ The package provides the following snippets:
 | bkoutput | *Block Output* template, with ID. Wraps selection in fenced delimiters.
 | newch    | *New Chapter* template, with ID and title placeholders. Wraps selection.
 | newdoc   | *New PML Document* boilerplate, with title placeholder. Wraps selection.
+| opts     | *Options Block* template.
 |==============================================
 
 

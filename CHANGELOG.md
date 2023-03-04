@@ -18,6 +18,7 @@ This approach considerably slims down the development and maintenance work, allo
 
 - [2023-03-04](#2023-03-04)
     - [Raw-Blocks Snippets](#raw-blocks-snippets)
+    - [Options Block Snippet](#options-block-snippet)
 - [2023-03-03](#2023-03-03)
     - [Options Completions](#options-completions)
     - [Input and Output Nodes](#input-and-output-nodes)
@@ -56,6 +57,13 @@ Added snippets to quickly create raw-text fenced blocks (selection will be enclo
 - `bkcode` &rarr; Source Code Block (`[code`)
 - `bkinput` &rarr; Input Block (`[input`)
 - `bkoutput` &rarr; Output Block (`[output`)
+
+## Options Block Snippet
+
+Added new `opts` snippet to create an `[options` .. `]` block, but only if outside the main `[doc` note, since PML 4.x requires the options block to precede the actual document.
+
+Tweaked all snippets and completions to exclude common nodes and their attributes from being suggested inside an options block.
+Likewise, disabled quick formatting keyboard shortcuts from working inside an options block.
 
 <!---------------------------------------------------------------------------->
 

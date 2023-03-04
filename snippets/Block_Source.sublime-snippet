@@ -1,7 +1,7 @@
 <snippet>
 	<description>Block Source Code</description>
 	<tabTrigger>bkcode</tabTrigger>
-	<scope>text.pml - (comment | text.html | meta.embedded)</scope>
+	<scope>text.pml - (comment | text.html | meta.embedded | meta.block.options)</scope>
 	<content><![CDATA[
 [code (lang=${1:Java})
 ~~~~~~~~~~~~~~~

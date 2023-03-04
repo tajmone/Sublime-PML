@@ -1,5 +1,5 @@
 {
-  "scope": "text.pml - (comment | text.html | meta.embedded)",
+  "scope": "text.pml - (comment | text.html | meta.embedded | meta.block.options)",
   "completions":
   [
     { "trigger": "nbsp\tNon-breaking space", "contents": "[sp]" },
