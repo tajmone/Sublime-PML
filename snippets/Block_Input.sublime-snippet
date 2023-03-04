@@ -1,0 +1,13 @@
+<snippet>
+	<description>Block Input</description>
+	<tabTrigger>bkinput</tabTrigger>
+	<scope>text.pml - (comment | text.html | meta.embedded)</scope>
+	<content><![CDATA[
+[input (id=${1:block_id})
+~~~~~~~~~~~~~~~
+${2:$SELECTION}
+~~~~~~~~~~~~~~~
+]
+${0}
+]]></content>
+</snippet>

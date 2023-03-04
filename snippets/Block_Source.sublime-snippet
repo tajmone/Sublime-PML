@@ -1,0 +1,13 @@
+<snippet>
+	<description>Block Source Code</description>
+	<tabTrigger>bkcode</tabTrigger>
+	<scope>text.pml - (comment | text.html | meta.embedded)</scope>
+	<content><![CDATA[
+[code (lang=${1:Java})
+~~~~~~~~~~~~~~~
+${2:$SELECTION}
+~~~~~~~~~~~~~~~
+]
+${0}
+]]></content>
+</snippet>

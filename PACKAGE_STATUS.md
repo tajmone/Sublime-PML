@@ -134,6 +134,8 @@ To simplify consultation, nodes are organized into sub-sections like in the PML 
         * [x] `id`
         * [x] HTML attributes
     + [ ] Lenient parsing: Unconstrained attributes.
+    + [x] Snippets:
+        * [x] `bkhtml`
 
 
 ### Media
@@ -160,6 +162,8 @@ To simplify consultation, nodes are organized into sub-sections like in the PML 
         * [ ] `lang`
         * [x] HTML attributes
     + [ ] Lenient parsing: Unconstrained attributes.
+    + [x] Snippets:
+        * [x] `bkcode`
 - [ ]  [Insert Source Code] — `[insert_code` .. `]`
 - [x]  [Input] — `[input` .. `]`
     + [x] Tag scoping.
@@ -170,6 +174,8 @@ To simplify consultation, nodes are organized into sub-sections like in the PML 
         * [x] `id`
         * [x] HTML attributes
     + [ ] Lenient parsing: Unconstrained attributes.
+    + [x] Snippets:
+        * [x] `bkinput`
 - [x]  [Output] — `[output` .. `]`
     + [x] Tag scoping.
     + [x] Support alternative [`raw_text`][raw_text] syntaxes: (See [#40])
@@ -179,6 +185,8 @@ To simplify consultation, nodes are organized into sub-sections like in the PML 
         * [x] `id`
         * [x] HTML attributes
     + [ ] Lenient parsing: Unconstrained attributes.
+    + [x] Snippets:
+        * [x] `bkoutput`
 
 
 ## Inline Nodes

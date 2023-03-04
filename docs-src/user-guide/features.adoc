@@ -130,8 +130,12 @@ The package provides the following snippets:
 |==============================================
 | trigger  | description
 
-| newdoc   | *New PML Document* boilerplate, with title placeholder. Wraps selection.
+| bkcode   | *Block Code* template, with `lang` attribute. Wraps selection in fenced delimiters.
+| bkhtml   | *Block HTML* template, with ID. Wraps selection in fenced delimiters.
+| bkinput  | *Block Input* template, with ID. Wraps selection in fenced delimiters.
+| bkoutput | *Block Output* template, with ID. Wraps selection in fenced delimiters.
 | newch    | *New Chapter* template, with ID and title placeholders. Wraps selection.
+| newdoc   | *New PML Document* boilerplate, with title placeholder. Wraps selection.
 |==============================================
 
 

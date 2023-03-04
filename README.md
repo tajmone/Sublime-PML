@@ -109,7 +109,7 @@ For the full list of features currently available in __Sublime PML__ see the onl
 ```
 MIT License
 
-Copyright (c) 2021-2022 Tristano Ajmone
+Copyright (c) 2021-2023 Tristano Ajmone
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

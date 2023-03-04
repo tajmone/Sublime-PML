@@ -16,6 +16,8 @@ This approach considerably slims down the development and maintenance work, allo
 
 <!-- MarkdownTOC autolink="true" bracket="round" autoanchor="false" lowercase="only_ascii" uri_encoding="true" levels="1,2,3" -->
 
+- [2023-03-04](#2023-03-04)
+    - [Raw-Blocks Snippets](#raw-blocks-snippets)
 - [2023-03-03](#2023-03-03)
     - [Options Completions](#options-completions)
     - [Input and Output Nodes](#input-and-output-nodes)
@@ -41,6 +43,21 @@ This approach considerably slims down the development and maintenance work, allo
 <!-- /MarkdownTOC -->
 
 -----
+
+# 2023-03-04
+
+    PML 4.0.0 | ST 4147
+
+## Raw-Blocks Snippets
+
+Added snippets to quickly create raw-text fenced blocks (selection will be enclosed in the block), with the following triggers:
+
+- `bkhtml` &rarr; HTML Block (`[html`)
+- `bkcode` &rarr; Source Code Block (`[code`)
+- `bkinput` &rarr; Input Block (`[input`)
+- `bkoutput` &rarr; Output Block (`[output`)
+
+<!---------------------------------------------------------------------------->
 
 # 2023-03-03
 
