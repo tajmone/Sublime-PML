@@ -1,5 +1,5 @@
 = Sublime PML User Guide
-:revdate: 2023-03-04
+:revdate: 2023-03-07
 :PMLver: 4.0.0
 :author: Tristano Ajmone
 :email: <tajmone@gmail.com>
@@ -43,7 +43,7 @@ Welcome to the user guide of {SublimePML}, a package for {ST4} that adds support
 {SublimePML} was created by {TristanoAjmone} in 2021, published under the <<License, MIT License>>.
 
 {PML} was designed by {ChristianNeumanns} around 2019, and since February 2021 the full source code of the PML conversion tool is
-https://github.com/pml-lang/converter[available on GitHub^]
+https://github.com/pml-lang/pml-companion[available on GitHub^]
 under GPLv2 license.
 
 [TIP]

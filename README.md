@@ -46,7 +46,7 @@ Created by [Tristano Ajmone] in March, 2021; released under [MIT License].
 
 PML was designed by [Christian Neumanns] around 2019, and since February 2021 the full source code of the PML conversion tool is available on GitHub under GPLv2 license:
 
-- https://github.com/pml-lang/converter
+- https://github.com/pml-lang/pml-companion
 
 Precompiled binaries of the PML converter for Windows and Linux [can be downloaded from the official website][Get PML].
 
@@ -82,7 +82,7 @@ In order to use this package, you'll need the following tools:
 In any case, why would anyone want to install the PML package if he/she doesn't have the PML tools in the first place?
 
     > **MAC USERS WARNING** — At the time of this writing, precompiled PML binaries for the macOS are not yet available.
-    > Refer to the [pml-lang/converter] source repository to compile them yourself.
+    > Refer to the [pml-lang/pml-companion] source repository to compile them yourself.
 
 
 # Package Status
@@ -166,8 +166,8 @@ Articles by [Christian Neumanns]:
 ## PML on GitHub
 
 - [@pml-lang] — __PML Lang__ organization:
-    + [pml-lang/converter] — source code repository of the PML to HTML Converter tool.
-    + [pml-lang/user-manual] — [PML Reference Manual] source repository.
+    + [pml-lang/pml-companion] — source code repository of the PML to HTML Converter tool.
+    + [pml-lang/pml-userman] — [PML Reference Manual] source repository.
 
 <!-----------------------------------------------------------------------------
                                REFERENCE LINKS
@@ -193,7 +193,7 @@ Articles by [Christian Neumanns]:
 [2019article]: https://www.freecodecamp.org/news/we-need-a-new-document-markup-language-c22e0ec44e15/ "Read full article at freeCodeCamp"
 [The advantages of Document Markup Languages vs WYSIWYG editors]: https://www.pml-lang.dev/docs/articles/advantages-markup-language-vs-word-processor/index.html "Read full article at PMl website"
 
-[PML Language Server]: https://github.com/pml-lang/converter/discussions/categories/language-server "See 'Language Server' Discussions at PML official repository "
+[PML Language Server]: https://github.com/pml-lang/pml-companion/discussions/categories/language-server "See 'Language Server' Discussions at PML official repository "
 
 <!-- PML Reference Manual -->
 
@@ -213,8 +213,8 @@ Articles by [Christian Neumanns]:
 <!-- PML GitHub -->
 
 [@pml-lang]: https://github.com/pml-lang "View GitHub profile of the Practical Markup Language organization"
-[pml-lang/converter]: https://github.com/pml-lang/converter "Visit repository on GitHub"
-[pml-lang/user-manual]: https://github.com/pml-lang/user-manual "Visit repository on GitHub"
+[pml-lang/pml-companion]: https://github.com/pml-lang/pml-companion "Visit repository on GitHub"
+[pml-lang/pml-userman]: https://github.com/pml-lang/pml-userman "Visit repository on GitHub"
 
 <!-- project files -->
 
