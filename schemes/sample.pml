@@ -103,6 +103,13 @@
 ]
 [ch (id=block-nodes) [title Block Nodes]
 
+    [ch [title Paragraphs]
+
+        [p (id=some_paragraph html_class="pcentered")
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.]
+
+    ]
     [ch [title Source Code]
 
         Standard Text Syntax:

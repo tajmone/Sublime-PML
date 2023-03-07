@@ -49,7 +49,7 @@
     ******************** -]
 
     [doc [title Title With [span (html_style=color:red) Span ] Node ]]
-    [doc [title Title With [link url=https://www.pml-lang.org text=Linked ] Text ]]
+    [doc [title Title With [link (url=https://www.pml-lang.org) Linked ] Text ]]
     [doc [title Title With [verbatim Verbatim ] Contents ]]
     [doc [title Title With [xref node_id=InlineNodes ] XRef ]]
 

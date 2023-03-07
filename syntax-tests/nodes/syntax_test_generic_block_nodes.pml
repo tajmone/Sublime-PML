@@ -57,10 +57,6 @@ block-nodes can be distinguished from inline-nodes.
 ! ^^^^^         entity.name.tag.block-node.generic.begin
 !            ^  entity.name.tag.block-node.generic.end
 
-  [p Lorem]
-! ^^         entity.name.tag.block-node.generic.begin
-!         ^  entity.name.tag.block-node.generic.end
-
   [table Lorem]
 ! ^^^^^^         entity.name.tag.block-node.generic.begin
 !             ^  entity.name.tag.block-node.generic.end

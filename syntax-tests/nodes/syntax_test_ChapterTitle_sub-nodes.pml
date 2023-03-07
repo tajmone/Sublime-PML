@@ -50,7 +50,7 @@
     ******************** -]
 
     [ch [title Title With [span (html_style=color:red) Span ] Node ]]
-    [ch [title Title With [link url=https://www.pml-lang.org text=Linked ] Text ]]
+    [ch [title Title With [link (url=https://www.pml-lang.org) Linked ] Text ]]
     [ch [title Title With [verbatim Verbatim ] Contents ]]
     [ch [title Title With [xref node_id=InlineNodes ] XRef ]]
 

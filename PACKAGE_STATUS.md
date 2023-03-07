@@ -68,7 +68,14 @@ To simplify consultation, nodes are organized into sub-sections like in the PML 
     + [ ] Attributes completions (most attributes now moved to `[options`):
         * [ ] HTML attributes
     + [x] Snippet: `newdoc`.
-- [ ] Paragraph — `[p` .. `]`.
+- [x] Paragraph — `[p` .. `]`.
+    + [x] Tag scoping.
+    + [x] Attributes:
+        * [x] `id`
+        * [x] HTML attributes
+    + [ ] Attributes completions:
+        * [ ] `id` &rarr; `id = ${1:identifier} $0`
+        * [ ] `html_class` &rarr; `html_class = ${1:some_class} $0`
 - [x] Chapter — `[ch` .. `]`:
     + [x] Tag scoping.
     + [x] Attributes:

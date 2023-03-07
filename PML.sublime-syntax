@@ -1,6 +1,6 @@
 %YAML 1.2
 ---
-# Sublime PML | Alpha | 2023/03/03 | PML 4.0.0
+# Sublime PML | Alpha | 2023/03/07 | PML 4.0.0
 ################################################################################
 #                                                                              #
 #                       PML (Practical Markup Language)                        #
@@ -192,9 +192,10 @@ contexts:
     - include: doc         # Document
     - include: options     # Options
     - include: chapter     # Chapter | Has Default
-    - include: html        # HTML Code | Raw + Childless
+    - include: paragraph   # Paragraph
     - include: quote       # Quote
     - include: sourcecode  # Source Code Block | Raw + Childless
+    - include: html        # HTML Code | Raw + Childless
     - include: input       # Input | Raw + Childless
     - include: output      # Output | Raw + Childless
     - include: generic_block_node  # Matches unimplemented block-nodes
@@ -213,8 +214,6 @@ contexts:
     # list_element      # List Element
     # monospace         # Monospace
     # note              # Note
-    # output            # Output | Raw + Childless
-    # paragraph         # Paragraph
     # table             # Table
     # table_cell        # Table Cell
     # table_data        # Table Data | Raw + Childless
@@ -457,6 +456,42 @@ contexts:
     - include: force-pop
   title_attributes_inside:
     - meta_scope: meta.annotation.node-attributes.title.pml
+    - match: '\)'
+      scope: punctuation.section.group.end.pml
+      pop: true
+    - include: attr_id
+    - include: attr_html
+    - include: attr_unknown # @NOTE: To cover future new attributes?
+    # @TODO: include unsupported attributes (as invalid):
+
+
+## Paragraph
+############
+
+# Attributes (none required, no default, no lenient parsing):
+# - [x] id
+# - [x] HTML attributes: allowed
+
+  paragraph:
+    - match: '\[p\b'
+      scope: entity.name.tag.block-node.paragraph.begin.pml
+      push: [paragraph_block, paragraph_attributes]
+
+  paragraph_block:
+    - meta_content_scope: markup.paragraph.pml
+    - include: pml_nodes
+    - match: ']'
+      scope: entity.name.tag.block-node.paragraph.end.pml
+      pop: true
+
+  paragraph_attributes:
+    - match: '\('
+      scope: punctuation.section.group.begin.pml
+      set: paragraph_attributes_inside
+    - match: '\s'
+    - include: force-pop
+  paragraph_attributes_inside:
+    - meta_scope: meta.annotation.node-attributes.paragraph.pml
     - match: '\)'
       scope: punctuation.section.group.end.pml
       pop: true

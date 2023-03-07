@@ -39,11 +39,11 @@
 
     Some constant parameters usage examples:
 
-    [link url=[u:get baseURL]/ex1.html text=example 1]
-!             ^^^^^^^^^^^^^^^                            meta.function-call
-!                    ^^^^^^^                             support.function.call
-!             ^^^^^^                                     punctuation.definition.generic.begin
-!                           ^                            punctuation.definition.generic.end
+    [link (url=[u:get baseURL]/ex1.html) example 1]
+!              ^^^^^^^^^^^^^^^                       meta.function-call
+!                     ^^^^^^^                        support.function.call
+!              ^^^^^^                                punctuation.definition.generic.begin
+!                            ^                       punctuation.definition.generic.end
 
     dqAttr: [u:get dqAttr]!
 !           ^^^^^^^^^^^^^^    meta.function-call

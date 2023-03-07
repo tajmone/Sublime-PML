@@ -16,6 +16,8 @@ This approach considerably slims down the development and maintenance work, allo
 
 <!-- MarkdownTOC autolink="true" bracket="round" autoanchor="false" lowercase="only_ascii" uri_encoding="true" levels="1,2,3" -->
 
+- [2023-03-07](#2023-03-07)
+    - [Paragraph Node](#paragraph-node)
 - [2023-03-04](#2023-03-04)
     - [Raw-Blocks Snippets](#raw-blocks-snippets)
     - [Options Block Snippet](#options-block-snippet)
@@ -44,6 +46,16 @@ This approach considerably slims down the development and maintenance work, allo
 <!-- /MarkdownTOC -->
 
 -----
+
+# 2023-03-07
+
+    PML 4.0.0 | ST 4147
+
+## Paragraph Node
+
+Added support for `[p` node and its attributes (`id` and HTML attributes).
+
+<!---------------------------------------------------------------------------->
 
 # 2023-03-04
 
