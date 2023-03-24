@@ -1,0 +1,7 @@
+<snippet>
+	<description>Inline Footnote</description>
+	<tabTrigger>fnote</tabTrigger>
+	<scope>text.pml - (comment | text.html | meta.embedded | meta.block.options)</scope>
+	<content><![CDATA[
+[fnote ${1:$SELECTION}]]]></content>
+</snippet>

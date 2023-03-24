@@ -82,15 +82,18 @@ Sublime PML offers smart auto-completion suggestions, based on the scope context
 
 For commonly used nodes, context-specific suggestions are available.
 
-[cols="2*<m,<d", options="autowidth"]
-|==============================================
-| trigger |          output        |    description
+[cols="<m,<d,<m", options="autowidth"]
+|=============================================================
+| trigger   |    description          |          output
 
-| nbsp    | [sp]                   | Non-Breaking Space
-| nl      | [nl]                   | New Line
-| pget    | [u:get pname]          | Get parameter
-| pset    | [u:set pname = pvalue] | Set parameter
-|==============================================
+| fnpholder | Footnotes Placeholder   | [fnotes]\n
+| fnref     | Footnote Reference      | [fnote_ref did=${1:fn_}]
+| fntref    | Footnote Text Reference | [fnote_ref did=${1:fn_} text=\"${2:some text}\"]
+| nbsp      | Non-Breaking Space      | [sp]
+| nl        | New Line                | [nl]
+| pget      | Get parameter           | [u:get pname]
+| pset      | Set parameter           | [u:set pname = pvalue]\n
+|=============================================================
 
 
 === Tag Attributes
@@ -134,6 +137,8 @@ The package provides the following snippets:
 | bkhtml   | *Block HTML* template, with ID. Wraps selection in fenced delimiters.
 | bkinput  | *Block Input* template, with ID. Wraps selection in fenced delimiters.
 | bkoutput | *Block Output* template, with ID. Wraps selection in fenced delimiters.
+| fndef    | *Footnote Definition*, with ID. Wraps selection.
+| fnote    | *Inline Footnote*. Wraps selection.
 | newch    | *New Chapter* template, with ID and title placeholders. Wraps selection.
 | newdoc   | *New PML Document* boilerplate, with title placeholder. Wraps selection.
 | opts     | *Options Block* template.

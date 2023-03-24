@@ -644,7 +644,7 @@ pre.rouge .o {
 <div class="details">
 <span id="author" class="author">Tristano Ajmone</span><br>
 <span id="email" class="email">&lt;<a href="mailto:tajmone@gmail.com">tajmone@gmail.com</a>&gt;</span><br>
-<span id="revdate">2023-03-07</span>
+<span id="revdate">2023-03-24</span>
 <br><span id="revremark">PML 4.0.0</span>
 </div>
 <div id="toc" class="toc2">
@@ -896,30 +896,45 @@ The colour scheme is still WIP, incomplete and subject to frequent changes.
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">trigger</th>
-<th class="tableblock halign-left valign-top">output</th>
 <th class="tableblock halign-left valign-top">description</th>
+<th class="tableblock halign-left valign-top">output</th>
 </tr>
 </thead>
 <tbody>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>fnpholder</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Footnotes Placeholder</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[fnotes]\n</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>fnref</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Footnote Reference</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[fnote_ref did=${1:fn_}]</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>fntref</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Footnote Text Reference</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[fnote_ref did=${1:fn_} text=\"${2:some text}\"]</code></p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>nbsp</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[sp]</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Non-Breaking Space</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[sp]</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>nl</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[nl]</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">New Line</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[nl]</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>pget</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[u:get pname]</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Get parameter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[u:get pname]</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>pset</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[u:set pname = pvalue]</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Set parameter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[u:set pname = pvalue]\n</code></p></td>
 </tr>
 </tbody>
 </table>
@@ -1038,6 +1053,14 @@ The colour scheme is still WIP, incomplete and subject to frequent changes.
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>bkoutput</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Block Output</strong> template, with ID. Wraps selection in fenced delimiters.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>fndef</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Footnote Definition</strong>, with ID. Wraps selection.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>fnote</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Inline Footnote</strong>. Wraps selection.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>newch</code></p></td>

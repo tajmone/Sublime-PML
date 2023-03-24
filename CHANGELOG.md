@@ -16,6 +16,8 @@ This approach considerably slims down the development and maintenance work, allo
 
 <!-- MarkdownTOC autolink="true" bracket="round" autoanchor="false" lowercase="only_ascii" uri_encoding="true" levels="1,2,3" -->
 
+- [2023-03-24](#2023-03-24)
+    - [Footnotes Completions and Snippets](#footnotes-completions-and-snippets)
 - [2023-03-07](#2023-03-07)
     - [Paragraph Node](#paragraph-node)
 - [2023-03-04](#2023-03-04)
@@ -46,6 +48,24 @@ This approach considerably slims down the development and maintenance work, allo
 <!-- /MarkdownTOC -->
 
 -----
+
+# 2023-03-24
+
+    PML 4.0.0 | ST 4148
+
+## Footnotes Completions and Snippets
+
+Added various completions and snippets triggers to simplify working with footnotes, even though the syntax doesn't yet support scoping footnote related nodes.
+
+|   trigger   |           desc          |
+|-------------|-------------------------|
+| `fndef`     | Footnote Definition     |
+| `fnote`     | Inline Footnote         |
+| `fnpholder` | Footnotes Placeholder   |
+| `fnref`     | Footnote Reference      |
+| `fntref`    | Footnote Text Reference |
+
+<!---------------------------------------------------------------------------->
 
 # 2023-03-07
 

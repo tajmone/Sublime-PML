@@ -2,9 +2,17 @@
   "scope": "text.pml - (comment | text.html | meta.embedded | meta.block.options)",
   "completions":
   [
+    // Whitespace
     { "trigger": "nbsp\tNon-breaking space", "contents": "[sp]" },
     { "trigger": "nl\tNew Line", "contents": "[nl]" },
-    { "trigger": "pset\tSet parameter", "contents": "[u:set ${1:pname} = ${2:pval}]$0" },
-    { "trigger": "pget\tGet parameter", "contents": "[u:get ${1:pname}]$0" },
+
+    // Parameters
+    { "trigger": "pset\tSet parameter", "contents": "[u:set ${1:pname} = ${2:pval}]\n" },
+    { "trigger": "pget\tGet parameter", "contents": "[u:get ${1:pname}]" },
+
+    // Footnotes
+    { "trigger": "fnpholder\tFootnotes Placeholder", "contents": "[fnotes]\n" },
+    { "trigger": "fnref\tFootnote Reference", "contents": "[fnote_ref did=${1:fn_}]" },
+    { "trigger": "fntref\tFootnote Text Reference", "contents": "[fnote_ref did=${1:fn_} text=\"${2:some text}\"]" },
   ]
 }

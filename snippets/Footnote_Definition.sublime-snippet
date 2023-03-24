@@ -1,0 +1,11 @@
+<snippet>
+	<description>Footnote Definition</description>
+	<tabTrigger>fndef</tabTrigger>
+	<scope>text.pml - (comment | text.html | meta.embedded | meta.block.options)</scope>
+	<content><![CDATA[
+[fnote_def (id=${1:fn_})
+${2:$SELECTION}]
+
+
+]]></content>
+</snippet>

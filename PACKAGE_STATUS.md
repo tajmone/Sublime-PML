@@ -129,7 +129,7 @@ To simplify consultation, nodes are organized into sub-sections like in the PML 
         * [x] Attributes:
             - [x] `id`
             - [x] HTML attributes
-    + [ ] Monospace — `[monospace` .. `]`
+- [ ] Monospace — `[monospace` .. `]`
 - [ ] Division — `[div` .. `]`
 - [x] HTML Code — `[html` .. `]`
     + [x] Tag scoping.
@@ -246,10 +246,32 @@ To simplify consultation, nodes are organized into sub-sections like in the PML 
 >     + [Block Nodes » Footnotes].
 >     + [Inline Nodes » Footnotes].
 
-- [ ] Footnotes Placeholder — `[fnotes]`
-- [ ] Footnote Definition — `[fnote_def` .. `]`
-- [ ] Inline Footnote — `[fnote` .. `]`
-- [ ] Footnote Reference — `[fnote_ref` .. `]`
+- [ ] [Footnotes Placeholder] — `[fnotes]`
+    + [ ] Tag scoping.
+    + [ ] Attributes:
+        * [ ] `id`
+        * [ ] HTML attributes
+    + [x] Completion: `fnpholder`.
+- [ ] [Footnote Definition] — `[fnote_def` .. `]`
+    + [ ] Tag scoping.
+    + [ ] Attributes:
+        * [ ] `id`
+        * [ ] HTML attributes
+    + [x] Snippet: `fndef`.
+- [ ] [Inline Footnote] — `[fnote` .. `]`
+    + [ ] Tag scoping.
+    + [ ] Attributes:
+        * [ ] HTML attributes
+    + [x] Snippet: `fnote`.
+- [ ] [Footnote Reference] — `[fnote_ref` .. `]`
+    + [ ] Tag scoping.
+    + [ ] Attributes:
+        * [ ] `did`
+        * [ ] `text`
+        * [ ] HTML attributes
+    + [x] Completions:
+        * [x] `fnref` — just `did`.
+        * [x] `fntref` — `did` + custom `text`.
 
 
 ## Text Processing Nodes
@@ -313,6 +335,11 @@ To simplify consultation, nodes are organized into sub-sections like in the PML 
 
 [Block Nodes » Footnotes]: https://www.pml-lang.dev/docs/reference_manual/index.html#footnotes_block "PML Reference Manual » Block Nodes » Footnotes"
 [Inline Nodes » Footnotes]: https://www.pml-lang.dev/docs/reference_manual/index.html#footnotes_inline "PML Reference Manual » Inline Nodes » Footnotes"
+
+[Footnotes Placeholder]: https://pml-lang.dev/docs/reference_manual/index.html#node_fnotes"PML "PML Reference Manual » Block Nodes » Footnotes Placeholder"
+[Footnote Definition]: https://pml-lang.dev/docs/reference_manual/index.html#node_fnote_def "PML Reference Manual » Block Nodes » Footnotes Definition"
+[Inline Footnote]: https://pml-lang.dev/docs/reference_manual/index.html#node_fnote "PML Reference Manual » Block Nodes » Footnotes Footnote"
+[Footnote Reference]: https://pml-lang.dev/docs/reference_manual/index.html#node_fnote_ref "PML Reference Manual » Block Nodes » Footnotes Reference"
 
 
 <!-- PML User Manual -->
