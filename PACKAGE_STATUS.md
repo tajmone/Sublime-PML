@@ -246,11 +246,11 @@ To simplify consultation, nodes are organized into sub-sections like in the PML 
 >     + [Block Nodes » Footnotes].
 >     + [Inline Nodes » Footnotes].
 
-- [ ] [Footnotes Placeholder] — `[fnotes]`
-    + [ ] Tag scoping.
-    + [ ] Attributes:
-        * [ ] `id`
-        * [ ] HTML attributes
+- [x] [Footnotes Placeholder] — `[fnotes]`
+    + [x] Tag scoping.
+    + [x] Attributes:
+        * [x] `id`
+        * [x] HTML attributes
     + [x] Completion: `fnpholder`.
 - [ ] [Footnote Definition] — `[fnote_def` .. `]`
     + [ ] Tag scoping.
@@ -258,10 +258,10 @@ To simplify consultation, nodes are organized into sub-sections like in the PML 
         * [ ] `id`
         * [ ] HTML attributes
     + [x] Snippet: `fndef`.
-- [ ] [Inline Footnote] — `[fnote` .. `]`
-    + [ ] Tag scoping.
-    + [ ] Attributes:
-        * [ ] HTML attributes
+- [x] [Inline Footnote] — `[fnote` .. `]`
+    + [x] Tag scoping.
+    + [x] Attributes:
+        * [x] HTML attributes
     + [x] Snippet: `fnote`.
 - [ ] [Footnote Reference] — `[fnote_ref` .. `]`
     + [ ] Tag scoping.

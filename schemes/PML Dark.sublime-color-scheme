@@ -302,6 +302,14 @@
     //   * [verbatim  -> attr? + contents
     //   * [xref      -> attr. + contents
 /*******************************************************************************
+  FOOTNOTES
+ ******************************************************************************/
+  // @FIXME: Footnote contents style is lost in nested nodes!
+    {
+      "scope": "markup.other.footnote",
+      "foreground": "var(steel_dark)",
+    },
+/*******************************************************************************
   EDITOR DIFFING
  ******************************************************************************/
   // @TODO: Need ad hoc colours!

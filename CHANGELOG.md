@@ -16,6 +16,9 @@ This approach considerably slims down the development and maintenance work, allo
 
 <!-- MarkdownTOC autolink="true" bracket="round" autoanchor="false" lowercase="only_ascii" uri_encoding="true" levels="1,2,3" -->
 
+- [2023-03-25](#2023-03-25)
+    - [Footnotes Nodes 2/4](#footnotes-nodes-24)
+    - [Fix ID Symbols Indexing](#fix-id-symbols-indexing)
 - [2023-03-24](#2023-03-24)
     - [Footnotes Completions and Snippets](#footnotes-completions-and-snippets)
 - [2023-03-07](#2023-03-07)
@@ -48,6 +51,21 @@ This approach considerably slims down the development and maintenance work, allo
 <!-- /MarkdownTOC -->
 
 -----
+
+# 2023-03-25
+
+    PML 4.0.0 | ST 4148
+
+## Footnotes Nodes 2/4
+
+- Implement syntax support for footnotes placeholder `[fnotes` and inline footnotes `[fnote`.
+- Define colour scheme style for footnotes contents (`markup.other.footnote`).
+
+## Fix ID Symbols Indexing
+
+Text transforms for identifiers indexing (`#<id>`) was being applied only to unquoted IDs, now it also works with quoted IDs.
+
+<!---------------------------------------------------------------------------->
 
 # 2023-03-24
 

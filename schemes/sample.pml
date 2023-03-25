@@ -203,6 +203,21 @@
         ]
     ]
 ]
+[ch (id=footnotes) [title Footnotes]
+
+    [b Inline Footnote:]
+
+    Lorem ipsum[fnote Lorem ipsum is a corrupted version of [i De finibus
+    bonorum et malorum], by Cicero (1st-century BC).] dolor sit amet,
+    consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+    et dolore magna aliqua.
+
+    [b Footnotes Placeholder:]
+
+    [caption Chapter Footnotes]
+    [fnotes]
+
+]
 [ch (id=text-processing) [title Text Processing Nodes]
 
     [ch (id=comments) [title Comments]
